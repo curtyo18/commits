@@ -1,0 +1,737 @@
+/* ============================================================
+   Tokens — shared across all three directions.
+   Dark default, light flips via [data-theme="light"] on root.
+   ============================================================ */
+
+:root,
+[data-theme="dark"] {
+  --bg:        oklch(0.18 0.005 250);
+  --bg-2:      oklch(0.21 0.006 250);
+  --surface:   oklch(0.235 0.006 250);
+  --surface-2: oklch(0.27 0.006 250);
+  --line:      oklch(0.32 0.006 250);
+  --line-soft: oklch(0.27 0.006 250);
+  --fg:        oklch(0.93 0.004 90);
+  --fg-2:      oklch(0.78 0.005 90);
+  --dim:       oklch(0.60 0.006 250);
+  --faint:     oklch(0.42 0.006 250);
+  --accent:    oklch(0.78 0.13 145);
+  --accent-soft: oklch(0.78 0.13 145 / 0.18);
+  --warn:      oklch(0.78 0.13 70);
+
+  --rail-public: var(--accent);
+  --rail-named:  var(--dim);
+  --rail-anon:   var(--faint);
+}
+
+[data-theme="light"] {
+  --bg:        oklch(0.985 0.003 90);
+  --bg-2:      oklch(0.965 0.003 90);
+  --surface:   oklch(0.99 0.003 90);
+  --surface-2: oklch(0.95 0.003 90);
+  --line:      oklch(0.86 0.004 250);
+  --line-soft: oklch(0.92 0.004 250);
+  --fg:        oklch(0.22 0.005 250);
+  --fg-2:      oklch(0.36 0.005 250);
+  --dim:       oklch(0.50 0.006 250);
+  --faint:     oklch(0.72 0.006 250);
+  --accent:    oklch(0.52 0.14 145);
+  --accent-soft: oklch(0.52 0.14 145 / 0.14);
+  --warn:      oklch(0.55 0.14 60);
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: var(--bg);
+  color: var(--fg);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+  font-size: 14px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+a { color: var(--fg); text-decoration: none; }
+a:hover { color: var(--accent); }
+
+/* ============================================================
+   Shared bits
+   ============================================================ */
+
+.page {
+  width: 100%;
+  height: 100%;
+  background: var(--bg);
+  color: var(--fg);
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 0;
+}
+
+.page-inner { max-width: 880px; margin: 0 auto; padding: 56px 40px 80px; }
+.page-full { min-height: 100vh; }
+.page-inner-wide { max-width: 1080px; padding: 64px 56px 96px; }
+
+.pager .nav a { cursor: pointer; }
+
+.muted { color: var(--dim); }
+.faint { color: var(--faint); }
+.fg-2  { color: var(--fg-2); }
+.accent { color: var(--accent); }
+.bold { font-weight: 600; }
+
+.kbd {
+  display: inline-block;
+  padding: 1px 6px;
+  border: 1px solid var(--line);
+  border-radius: 3px;
+  font-size: 11px;
+  color: var(--fg-2);
+  background: var(--surface);
+}
+
+/* Redaction — actual blur on real text. No reveal on hover. */
+.redact {
+  filter: blur(4px);
+  user-select: none;
+  letter-spacing: 0.5px;
+  color: var(--fg-2);
+}
+.redact-strong {
+  filter: blur(6px);
+  user-select: none;
+  color: var(--dim);
+}
+
+/* Level pills (used in legend, not on every row) */
+.pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--dim);
+}
+.pill::before {
+  content: "";
+  width: 8px; height: 8px;
+  background: currentColor;
+  display: inline-block;
+}
+.pill.public { color: var(--accent); }
+.pill.named  { color: var(--fg-2); }
+.pill.anon   { color: var(--faint); }
+
+/* ============================================================
+   Direction A — LEDGER
+   strict left-aligned cards, monthly rule dividers
+   ============================================================ */
+
+.ledger-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 16px;
+  margin-bottom: 36px;
+}
+.ledger-header h1 {
+  font-size: 14px;
+  font-weight: 600;
+  margin: 0;
+  letter-spacing: 0;
+}
+.ledger-header .meta {
+  font-size: 12px;
+  color: var(--dim);
+  display: flex;
+  gap: 18px;
+}
+
+.ledger-intro {
+  color: var(--fg-2);
+  font-size: 13px;
+  max-width: 60ch;
+  margin: 0 0 36px;
+}
+.ledger-intro span { color: var(--dim); }
+
+.month-rule {
+  display: grid;
+  grid-template-columns: 64px 1fr auto;
+  align-items: center;
+  gap: 14px;
+  margin: 36px 0 14px;
+  padding-bottom: 6px;
+  border-bottom: 1px dashed var(--line-soft);
+}
+.month-rule .num {
+  font-size: 22px;
+  font-weight: 600;
+  color: var(--fg);
+  letter-spacing: -0.02em;
+}
+.month-rule .name {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: var(--dim);
+}
+.month-rule .count {
+  font-size: 11px;
+  color: var(--faint);
+  font-variant-numeric: tabular-nums;
+}
+
+.commit-card {
+  display: grid;
+  grid-template-columns: 4px 92px 1fr auto;
+  gap: 16px;
+  align-items: baseline;
+  padding: 12px 0 12px 0;
+  border-bottom: 1px solid var(--line-soft);
+}
+.commit-card:last-child { border-bottom: none; }
+
+.commit-card .rail {
+  align-self: stretch;
+  background: var(--rail-public);
+  width: 2px;
+  margin-left: 1px;
+  opacity: 0.85;
+}
+.commit-card.named .rail { background: var(--rail-named); opacity: 0.5; }
+.commit-card.anon  .rail { background: var(--rail-anon);  opacity: 0.4; }
+
+.commit-card .when {
+  font-size: 12px;
+  color: var(--dim);
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+.commit-card.anon .when { color: var(--faint); }
+
+.commit-card .body {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 14px;
+  align-items: baseline;
+  min-width: 0;
+}
+.commit-card .repo {
+  color: var(--accent);
+  font-weight: 600;
+  font-size: 13px;
+}
+.commit-card.named .repo { color: var(--fg-2); }
+.commit-card.anon .repo  { color: var(--faint); font-style: italic; }
+
+.commit-card .msg {
+  color: var(--fg-2);
+  font-size: 13px;
+  word-break: break-word;
+}
+
+.commit-card .sha {
+  font-size: 11px;
+  color: var(--faint);
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.commit-card.anon .body .repo::before {
+  content: "private";
+}
+.commit-card.anon .body .repo span { display: none; }
+
+/* Pagination */
+.pager {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 56px;
+  padding-top: 18px;
+  border-top: 1px solid var(--line);
+  font-size: 12px;
+  color: var(--dim);
+}
+.pager .nav { display: flex; gap: 18px; }
+.pager .nav a { color: var(--fg-2); }
+.pager .nav a.disabled { color: var(--faint); pointer-events: none; }
+.pager .of { font-variant-numeric: tabular-nums; }
+
+/* Footer (shared) */
+.site-footer {
+  margin-top: 56px;
+  padding-top: 20px;
+  border-top: 1px solid var(--line);
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  font-size: 12px;
+  color: var(--dim);
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.site-footer .stats {
+  display: flex;
+  gap: 22px;
+  font-variant-numeric: tabular-nums;
+}
+.site-footer .stats b { color: var(--fg-2); font-weight: 600; }
+
+/* Featured row (Ledger has it small + horizontal) */
+.featured-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+  background: var(--line-soft);
+  border: 1px solid var(--line);
+  margin-bottom: 40px;
+}
+.featured-row .card {
+  background: var(--bg);
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-height: 110px;
+}
+.featured-row .card .name {
+  font-weight: 600;
+  font-size: 13px;
+  color: var(--fg);
+}
+.featured-row .card .blurb {
+  font-size: 12px;
+  color: var(--dim);
+  line-height: 1.45;
+  flex: 1;
+}
+.featured-row .card .meta {
+  font-size: 11px;
+  color: var(--faint);
+  display: flex;
+  justify-content: space-between;
+  font-variant-numeric: tabular-nums;
+}
+
+/* ============================================================
+   Direction B — TIMELINE
+   vertical rail with nodes; commits as little cards stacked right
+   ============================================================ */
+
+.tl-header {
+  padding: 0 0 24px;
+  border-bottom: 1px solid var(--line);
+  margin-bottom: 36px;
+}
+.tl-header .title {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+}
+.tl-header h1 {
+  font-size: 14px;
+  font-weight: 600;
+  margin: 0;
+}
+.tl-header .lede {
+  margin: 14px 0 0;
+  color: var(--fg-2);
+  font-size: 13px;
+  max-width: 62ch;
+}
+.tl-header .lede span { color: var(--dim); }
+
+.tl-legend {
+  display: flex;
+  gap: 18px;
+  margin-top: 14px;
+}
+
+/* Featured (Timeline version — three big cards) */
+.tl-featured {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+  margin-bottom: 48px;
+}
+.tl-featured .card {
+  border: 1px solid var(--line);
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  background: var(--bg-2);
+}
+.tl-featured .card .head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+.tl-featured .card .name {
+  font-weight: 600;
+  font-size: 14px;
+  color: var(--fg);
+}
+.tl-featured .card .lang {
+  font-size: 11px;
+  color: var(--dim);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+}
+.tl-featured .card .blurb {
+  font-size: 12px;
+  color: var(--fg-2);
+  line-height: 1.55;
+  flex: 1;
+}
+.tl-featured .card .foot {
+  display: flex;
+  justify-content: space-between;
+  font-size: 11px;
+  color: var(--faint);
+  font-variant-numeric: tabular-nums;
+}
+
+.tl-feed {
+  position: relative;
+  padding-left: 96px;
+}
+.tl-feed::before {
+  content: "";
+  position: absolute;
+  left: 79px; top: 6px; bottom: 0;
+  width: 1px;
+  background: var(--line);
+}
+
+.tl-month {
+  position: relative;
+  margin: 36px 0 18px;
+}
+.tl-month .stamp {
+  position: absolute;
+  left: -96px;
+  top: 0;
+  width: 70px;
+  text-align: right;
+}
+.tl-month .stamp .y {
+  font-size: 11px;
+  color: var(--faint);
+  letter-spacing: 0.1em;
+  font-variant-numeric: tabular-nums;
+}
+.tl-month .stamp .m {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--fg);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  margin-top: 2px;
+}
+.tl-month .stamp .c {
+  font-size: 11px;
+  color: var(--dim);
+  margin-top: 4px;
+  font-variant-numeric: tabular-nums;
+}
+.tl-month .stamp::after {
+  content: "";
+  position: absolute;
+  right: -22px;
+  top: 6px;
+  width: 9px; height: 9px;
+  background: var(--accent);
+  border: 2px solid var(--bg);
+  box-shadow: 0 0 0 1px var(--line);
+}
+
+.tl-row {
+  position: relative;
+  display: grid;
+  grid-template-columns: 80px 1fr;
+  gap: 14px;
+  padding: 9px 0;
+  align-items: baseline;
+}
+.tl-row::before {
+  content: "";
+  position: absolute;
+  left: -21px;
+  top: 16px;
+  width: 6px; height: 6px;
+  background: var(--rail-public);
+  border-radius: 50%;
+  border: 2px solid var(--bg);
+  box-shadow: 0 0 0 1px var(--line-soft);
+}
+.tl-row.named::before { background: var(--rail-named); }
+.tl-row.anon::before  { background: var(--rail-anon); }
+
+.tl-row .when { font-size: 12px; color: var(--dim); font-variant-numeric: tabular-nums; }
+.tl-row.anon .when { color: var(--faint); }
+
+.tl-row .body { display: flex; flex-wrap: wrap; gap: 4px 12px; align-items: baseline; }
+.tl-row .repo { color: var(--accent); font-weight: 600; font-size: 13px; }
+.tl-row.named .repo { color: var(--fg-2); }
+.tl-row.anon .repo  { color: var(--faint); font-style: italic; }
+.tl-row .msg  { color: var(--fg-2); font-size: 13px; }
+
+/* ============================================================
+   Direction C — GRID
+   featured tiles on top, then a tabular feed below
+   ============================================================ */
+
+.gr-header {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: end;
+  padding: 36px 0 18px;
+  border-bottom: 2px solid var(--fg);
+  margin-bottom: 28px;
+}
+.gr-header h1 {
+  font-size: 32px;
+  font-weight: 600;
+  margin: 0;
+  letter-spacing: -0.02em;
+}
+.gr-header h1 small {
+  display: block;
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--dim);
+  margin-top: 6px;
+  letter-spacing: 0;
+}
+.gr-header .meta {
+  text-align: right;
+  font-size: 12px;
+  color: var(--dim);
+  font-variant-numeric: tabular-nums;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.gr-header .meta b { color: var(--fg); font-weight: 600; }
+
+.gr-section-title {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: var(--dim);
+  margin: 32px 0 14px;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+.gr-section-title .right { color: var(--faint); }
+
+.gr-featured {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+  margin-bottom: 8px;
+}
+.gr-featured .card {
+  border: 1px solid var(--line);
+  padding: 18px 18px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  background: var(--bg-2);
+  position: relative;
+}
+.gr-featured .card::before {
+  content: "";
+  position: absolute;
+  left: -1px; top: -1px; bottom: -1px;
+  width: 3px;
+  background: var(--accent);
+}
+.gr-featured .card .top {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+.gr-featured .card .name {
+  font-weight: 600;
+  font-size: 14px;
+}
+.gr-featured .card .lang {
+  font-size: 10px;
+  color: var(--dim);
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+}
+.gr-featured .card .blurb {
+  font-size: 12px;
+  color: var(--fg-2);
+  line-height: 1.55;
+}
+.gr-featured .card .foot {
+  display: flex;
+  justify-content: space-between;
+  font-size: 11px;
+  color: var(--faint);
+  font-variant-numeric: tabular-nums;
+  border-top: 1px dashed var(--line-soft);
+  padding-top: 8px;
+  margin-top: 4px;
+}
+
+.gr-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-variant-numeric: tabular-nums;
+}
+.gr-table thead th {
+  text-align: left;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-weight: 600;
+  color: var(--dim);
+  padding: 8px 10px 8px 0;
+  border-bottom: 1px solid var(--line);
+}
+.gr-table tbody tr {
+  border-bottom: 1px solid var(--line-soft);
+}
+.gr-table tbody tr:hover { background: var(--bg-2); }
+.gr-table td {
+  padding: 10px 10px 10px 0;
+  vertical-align: top;
+  font-size: 12.5px;
+}
+.gr-table td.when { color: var(--dim); white-space: nowrap; width: 130px; }
+.gr-table td.repo { width: 160px; font-weight: 600; color: var(--accent); }
+.gr-table tr.named td.repo { color: var(--fg-2); font-weight: 600; }
+.gr-table tr.anon  td.repo { color: var(--faint); font-style: italic; font-weight: 400; }
+.gr-table tr.anon  td.when { color: var(--faint); }
+.gr-table td.msg  { color: var(--fg-2); }
+.gr-table td.sha  { color: var(--faint); width: 80px; font-size: 11px; }
+
+.gr-month-row td {
+  padding-top: 22px;
+  padding-bottom: 6px;
+  font-size: 11px;
+  color: var(--fg);
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+.gr-month-row td span { color: var(--faint); margin-left: 14px; font-weight: 400; letter-spacing: 0.05em; }
+
+/* Sparkline — used in C footer */
+.sparkline {
+  display: inline-flex;
+  gap: 2px;
+  align-items: flex-end;
+  height: 18px;
+}
+.sparkline span {
+  display: inline-block;
+  width: 4px;
+  background: var(--dim);
+  opacity: 0.7;
+}
+
+/* ============================================================
+   Tweaks — tiny scope
+   ============================================================ */
+.theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* ============================================================
+   Builder overrides — row thickness, link affordances, pagination
+   ============================================================ */
+
+/* Bulkier rows for legibility — was 10px vertical padding. */
+.gr-table td {
+  padding: 16px 12px 16px 0;
+  font-size: 13px;
+  line-height: 1.55;
+}
+
+/* Public repo names: clearly clickable. Accent (terminal green) by default,
+   hover brightens to fg. Named/anon already non-link, so this only affects
+   public rows. */
+.gr-table td.repo a.repo-link,
+.gr-table td.sha a.sha-link {
+  color: var(--accent);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: color 0.12s, border-color 0.12s;
+}
+.gr-table td.repo a.repo-link:hover,
+.gr-table td.sha a.sha-link:hover {
+  color: var(--fg);
+  border-bottom-color: var(--accent);
+}
+
+/* SHA column gets a touch more prominence so it reads as clickable. */
+.gr-table td.sha a.sha-link {
+  font-size: 11.5px;
+  letter-spacing: 0.04em;
+}
+
+/* Featured cards: whole card becomes a link. Strip default <a> styling and
+   keep the existing card visual; subtle hover lifts the border + accent. */
+.gr-featured a.card-link {
+  color: inherit;
+  text-decoration: none;
+  display: block;
+  transition: border-color 0.12s, background 0.12s;
+}
+.gr-featured a.card-link:hover {
+  border-color: var(--accent);
+  background: var(--surface);
+}
+.gr-featured a.card-link:hover .name {
+  color: var(--accent);
+}
+
+/* Pagination — numbered buttons + first/last steps */
+.pager .nav { gap: 6px; flex-wrap: wrap; align-items: center; }
+.pager .nav a.step,
+.pager .nav a.num {
+  padding: 4px 10px;
+  border: 1px solid var(--line-soft);
+  color: var(--fg-2);
+  text-decoration: none;
+  font-variant-numeric: tabular-nums;
+  font-size: 12px;
+  transition: color 0.12s, border-color 0.12s, background 0.12s;
+}
+.pager .nav a.step:hover,
+.pager .nav a.num:hover {
+  color: var(--accent);
+  border-color: var(--accent);
+}
+.pager .nav a.num.current {
+  color: var(--bg);
+  background: var(--accent);
+  border-color: var(--accent);
+  font-weight: 600;
+}
+.pager .nav a.disabled {
+  color: var(--faint);
+  pointer-events: none;
+  border-color: var(--line-soft);
+}
+.pager .nav .ellipsis {
+  color: var(--faint);
+  padding: 0 4px;
+  font-variant-numeric: tabular-nums;
+}
