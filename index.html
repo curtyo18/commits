@@ -17,44 +17,20 @@
   <div class="meta">
     <span><b>991</b> commits indexed</span>
     <span><b>61</b> repos · <b>17</b> years</span>
-    <span>built 2026-04-27 · weekly</span>
   </div>
 </div><div class="gr-section-title">
-  <span>Featured · only public repos qualify</span>
-  <span class="right">4 of 61</span>
+  <span>Featured · most recently active public repos</span>
 </div>
 
 <div class="gr-featured">
-    <a class="card card-link" href="https://github.com/curtyo18/tampermonkey-scripts">
+    <a class="card card-link" href="https://github.com/curtyo18/FileOrganizer">
       <div class="top">
-        <div class="name">tampermonkey-scripts</div>
+        <div class="name">FileOrganizer</div>
         <div class="lang"></div>
       </div>
       <div class="blurb"></div>
       <div class="foot">
-        <span>5 commits</span>
-        <span>last touched 2026-04-27</span>
-      </div>
-    </a>
-    <a class="card card-link" href="https://github.com/curtyo18/ScreenHUD">
-      <div class="top">
-        <div class="name">ScreenHUD</div>
-        <div class="lang"></div>
-      </div>
-      <div class="blurb"></div>
-      <div class="foot">
-        <span>163 commits</span>
-        <span>last touched 2026-04-27</span>
-      </div>
-    </a>
-    <a class="card card-link" href="https://github.com/curtyo18/rust-naval-boat-builder">
-      <div class="top">
-        <div class="name">rust-naval-boat-builder</div>
-        <div class="lang"></div>
-      </div>
-      <div class="blurb"></div>
-      <div class="foot">
-        <span>61 commits</span>
+        <span>62 commits</span>
         <span>last touched 2026-04-27</span>
       </div>
     </a>
@@ -66,7 +42,29 @@
       <div class="blurb"></div>
       <div class="foot">
         <span>83 commits</span>
-        <span>last touched 2026-04-27</span>
+        <span>last touched 2026-04-25</span>
+      </div>
+    </a>
+    <a class="card card-link" href="https://github.com/curtyo18/rust-naval-boat-builder">
+      <div class="top">
+        <div class="name">rust-naval-boat-builder</div>
+        <div class="lang"></div>
+      </div>
+      <div class="blurb"></div>
+      <div class="foot">
+        <span>61 commits</span>
+        <span>last touched 2026-04-24</span>
+      </div>
+    </a>
+    <a class="card card-link" href="https://github.com/curtyo18/ScreenHUD">
+      <div class="top">
+        <div class="name">ScreenHUD</div>
+        <div class="lang"></div>
+      </div>
+      <div class="blurb"></div>
+      <div class="foot">
+        <span>163 commits</span>
+        <span>last touched 2026-04-19</span>
       </div>
     </a>
 </div>
@@ -85,246 +83,258 @@
             <tr class="gr-month-row">
               <td colspan="4">
                 April 2026
-                <span>200 commits · 11 public</span>
+                <span>200 commits · 73 public</span>
               </td>
             </tr>
-<tr class="named">
+<tr class="">
     <td class="when">2026-04-27 15:50</td>
 
   <td class="repo">
-      FileOrganizer
+      <a class="repo-link" href="https://github.com/curtyo18/FileOrganizer">FileOrganizer</a>
   </td>
 
   <td class="msg">
-      <span class="redact">test: extract manager in handler</span>
+      fix(build): build @fileorganizer/shared before typecheck/test
+
+CI failed on a fresh clone because engine and UI typecheck both import
+from @fileorganizer/shared (resolved via package.json main/types to
+dist/), but dist/ doesn&#39;t exist until shared is built.
+
+Two changes:
+1. Root typecheck and test scripts now build shared first.
+2. Shared&#39;s build uses &#39;tsc -b --force&#39; so a stale .tsbuildinfo can&#39;t
+   claim emit is up-to-date when dist/ has actually been deleted.
+
+Verified locally: rm -rf shared/dist plus delete .tsbuildinfo, then
+both typecheck and test run green.
   </td>
 
   <td class="sha">
-      <span class="redact">2ccb11e</span>
+      <a class="sha-link" href="https://github.com/curtyo18/FileOrganizer/commit/732db0b91eff678bf5ba2404ba38354b87ce5e0b">732db0b</a>
   </td>
-</tr><tr class="named">
+</tr><tr class="">
     <td class="when">2026-04-27 08:21</td>
 
   <td class="repo">
-      FileOrganizer
+      <a class="repo-link" href="https://github.com/curtyo18/FileOrganizer">FileOrganizer</a>
   </td>
 
   <td class="msg">
-      <span class="redact">wrap stricter supervisor when helper changes</span>
+      chore(docs): add screenshot
   </td>
 
   <td class="sha">
-      <span class="redact">4b765f7</span>
+      <a class="sha-link" href="https://github.com/curtyo18/FileOrganizer/commit/d2af8697565b01d1dc3c0f205b4524aa0aed3ad0">d2af869</a>
   </td>
-</tr><tr class="named">
+</tr><tr class="">
     <td class="when">2026-04-27 08:14</td>
 
   <td class="repo">
-      FileOrganizer
+      <a class="repo-link" href="https://github.com/curtyo18/FileOrganizer">FileOrganizer</a>
   </td>
 
   <td class="msg">
-      <span class="redact">refactor: guard the lingering ledger</span>
+      docs: reserve screenshot slot in README
   </td>
 
   <td class="sha">
-      <span class="redact">314e1a3</span>
+      <a class="sha-link" href="https://github.com/curtyo18/FileOrganizer/commit/da272fcfe4c38e9b42cb960b36b9f1ee42a93143">da272fc</a>
   </td>
-</tr><tr class="named">
+</tr><tr class="">
     <td class="when">2026-04-27 07:35</td>
 
   <td class="repo">
-      FileOrganizer
+      <a class="repo-link" href="https://github.com/curtyo18/FileOrganizer">FileOrganizer</a>
   </td>
 
   <td class="msg">
-      <span class="redact">optimize the tighter guard</span>
+      docs: rewrite README with hook, status, prerequisites, safety notes
   </td>
 
   <td class="sha">
-      <span class="redact">a1c4145</span>
+      <a class="sha-link" href="https://github.com/curtyo18/FileOrganizer/commit/d8bc70fb13800eb24188520c1393c53dddcb1f5a">d8bc70f</a>
   </td>
-</tr><tr class="named">
+</tr><tr class="">
     <td class="when">2026-04-26 23:20</td>
 
   <td class="repo">
-      FileOrganizer
+      <a class="repo-link" href="https://github.com/curtyo18/FileOrganizer">FileOrganizer</a>
   </td>
 
   <td class="msg">
-      <span class="redact">deprecate mailer and remove shim</span>
+      feat(drives): persist mount_path so dedup/restore stop asking for it
   </td>
 
   <td class="sha">
-      <span class="redact">0048fb1</span>
+      <a class="sha-link" href="https://github.com/curtyo18/FileOrganizer/commit/4b5569c5656d2145546d9a0138155b22ff126a54">4b5569c</a>
   </td>
-</tr><tr class="named">
+</tr><tr class="">
     <td class="when">2026-04-26 22:57</td>
 
   <td class="repo">
-      FileOrganizer
+      <a class="repo-link" href="https://github.com/curtyo18/FileOrganizer">FileOrganizer</a>
   </td>
 
   <td class="msg">
-      <span class="redact">restructure the missing watcher</span>
+      feat(ui): wire Duplicates and Quarantine screens to live engine data
   </td>
 
   <td class="sha">
-      <span class="redact">92de910</span>
+      <a class="sha-link" href="https://github.com/curtyo18/FileOrganizer/commit/c99b261963b4da9da667caf4dd689a984bc40a53">c99b261</a>
   </td>
-</tr><tr class="named">
+</tr><tr class="">
     <td class="when">2026-04-26 22:53</td>
 
   <td class="repo">
-      FileOrganizer
+      <a class="repo-link" href="https://github.com/curtyo18/FileOrganizer">FileOrganizer</a>
   </td>
 
   <td class="msg">
-      <span class="redact">wip: guard controller in cache</span>
+      feat(engine/api): add duplicates and quarantine endpoints
   </td>
 
   <td class="sha">
-      <span class="redact">1b5be4c</span>
+      <a class="sha-link" href="https://github.com/curtyo18/FileOrganizer/commit/7b19afe4a33caa45ad40270272d72d7eadf00c5f">7b19afe</a>
   </td>
-</tr><tr class="named">
+</tr><tr class="">
     <td class="when">2026-04-26 22:34</td>
 
   <td class="repo">
-      FileOrganizer
+      <a class="repo-link" href="https://github.com/curtyo18/FileOrganizer">FileOrganizer</a>
   </td>
 
   <td class="msg">
-      <span class="redact">init config and harden task</span>
+      feat(engine/dedupe): add planner and applier with hash-revalidation safety
   </td>
 
   <td class="sha">
-      <span class="redact">664eb2d</span>
+      <a class="sha-link" href="https://github.com/curtyo18/FileOrganizer/commit/fc9be4cf13defa58e3664a062e3ea3a5c0b5a12a">fc9be4c</a>
   </td>
-</tr><tr class="named">
+</tr><tr class="">
     <td class="when">2026-04-26 22:25</td>
 
   <td class="repo">
-      FileOrganizer
+      <a class="repo-link" href="https://github.com/curtyo18/FileOrganizer">FileOrganizer</a>
   </td>
 
   <td class="msg">
-      <span class="redact">test: tweak service in manager</span>
+      feat(engine/dedupe): add keeper scoring with documented reasons
   </td>
 
   <td class="sha">
-      <span class="redact">aea867c</span>
+      <a class="sha-link" href="https://github.com/curtyo18/FileOrganizer/commit/de005b97d07030cfcc11370be5442598a0138189">de005b9</a>
   </td>
-</tr><tr class="named">
+</tr><tr class="">
     <td class="when">2026-04-26 22:23</td>
 
   <td class="repo">
-      FileOrganizer
+      <a class="repo-link" href="https://github.com/curtyo18/FileOrganizer">FileOrganizer</a>
   </td>
 
   <td class="msg">
-      <span class="redact">docs: fix leaky shim</span>
+      feat(engine/dedupe): add duplicate group detection query
   </td>
 
   <td class="sha">
-      <span class="redact">d721683</span>
+      <a class="sha-link" href="https://github.com/curtyo18/FileOrganizer/commit/433a9b3bd653a2cb33cb098837d284fa5d847040">433a9b3</a>
   </td>
-</tr><tr class="named">
+</tr><tr class="">
     <td class="when">2026-04-26 22:08</td>
 
   <td class="repo">
-      FileOrganizer
+      <a class="repo-link" href="https://github.com/curtyo18/FileOrganizer">FileOrganizer</a>
   </td>
 
   <td class="msg">
-      <span class="redact">wip: wrap redundant schema when parser changes</span>
+      feat(engine/quarantine): add quarantine + restore primitives
   </td>
 
   <td class="sha">
-      <span class="redact">2a73c2c</span>
+      <a class="sha-link" href="https://github.com/curtyo18/FileOrganizer/commit/54460f078506eecb506a46f7b85fdfe040ce124e">54460f0</a>
   </td>
-</tr><tr class="named">
+</tr><tr class="">
     <td class="when">2026-04-26 21:54</td>
 
   <td class="repo">
-      FileOrganizer
+      <a class="repo-link" href="https://github.com/curtyo18/FileOrganizer">FileOrganizer</a>
   </td>
 
   <td class="msg">
-      <span class="redact">harden schema in consumer</span>
+      feat(ui): rebuild UI to match design handoff
   </td>
 
   <td class="sha">
-      <span class="redact">1c5af86</span>
+      <a class="sha-link" href="https://github.com/curtyo18/FileOrganizer/commit/25ee273d480a75a4544b097f54e2f1717ce7b87c">25ee273</a>
   </td>
-</tr><tr class="named">
+</tr><tr class="">
     <td class="when">2026-04-26 20:15</td>
 
   <td class="repo">
-      FileOrganizer
+      <a class="repo-link" href="https://github.com/curtyo18/FileOrganizer">FileOrganizer</a>
   </td>
 
   <td class="msg">
-      <span class="redact">tighten late builder in queue</span>
+      chore(repo): gitignore .claude/ (untrack accidentally-committed settings)
   </td>
 
   <td class="sha">
-      <span class="redact">ce5f307</span>
+      <a class="sha-link" href="https://github.com/curtyo18/FileOrganizer/commit/42b4c301c19fd430b03ead5250754c0c9911229c">42b4c30</a>
   </td>
-</tr><tr class="named">
+</tr><tr class="">
     <td class="when">2026-04-26 20:15</td>
 
   <td class="repo">
-      FileOrganizer
+      <a class="repo-link" href="https://github.com/curtyo18/FileOrganizer">FileOrganizer</a>
   </td>
 
   <td class="msg">
-      <span class="redact">docs: split dead store for the leaky bootstrapper</span>
+      docs(plan): trim cloud-agent specifics; running locally now
   </td>
 
   <td class="sha">
-      <span class="redact">6d18302</span>
+      <a class="sha-link" href="https://github.com/curtyo18/FileOrganizer/commit/42c2a5864451657282cf081ec3b413dfbb19c596">42c2a58</a>
   </td>
-</tr><tr class="named">
+</tr><tr class="">
     <td class="when">2026-04-26 17:57</td>
 
   <td class="repo">
-      FileOrganizer
+      <a class="repo-link" href="https://github.com/curtyo18/FileOrganizer">FileOrganizer</a>
   </td>
 
   <td class="msg">
-      <span class="redact">tmp</span>
+      fix(api): /api/scans returns ScanRecord shape, not raw SQLite rows
   </td>
 
   <td class="sha">
-      <span class="redact">2a49577</span>
+      <a class="sha-link" href="https://github.com/curtyo18/FileOrganizer/commit/6f6e49b00958f3cc96f13dbf6c103eb5e07550d0">6f6e49b</a>
   </td>
-</tr><tr class="named">
+</tr><tr class="">
     <td class="when">2026-04-26 17:04</td>
 
   <td class="repo">
-      FileOrganizer
+      <a class="repo-link" href="https://github.com/curtyo18/FileOrganizer">FileOrganizer</a>
   </td>
 
   <td class="msg">
-      <span class="redact">move unused router when cache changes</span>
+      feat(ui+scan): live scan progress with active-scan card
   </td>
 
   <td class="sha">
-      <span class="redact">ddab4bf</span>
+      <a class="sha-link" href="https://github.com/curtyo18/FileOrganizer/commit/efdf59aac800f6eb1710b6d19f19c1f2719ae664">efdf59a</a>
   </td>
-</tr><tr class="named">
+</tr><tr class="">
     <td class="when">2026-04-26 16:51</td>
 
   <td class="repo">
-      FileOrganizer
+      <a class="repo-link" href="https://github.com/curtyo18/FileOrganizer">FileOrganizer</a>
   </td>
 
   <td class="msg">
-      <span class="redact">wip</span>
+      fix(cli): serve command must not return until shutdown signal
   </td>
 
   <td class="sha">
-      <span class="redact">6a90843</span>
+      <a class="sha-link" href="https://github.com/curtyo18/FileOrganizer/commit/090e961756248ffe2f256a0d1ed6e679e6e45c96">090e961</a>
   </td>
 </tr><tr class="named">
     <td class="when">2026-04-26 16:35</td>
@@ -354,33 +364,33 @@
   <td class="sha">
       <span class="redact">58ac08c</span>
   </td>
-</tr><tr class="named">
+</tr><tr class="">
     <td class="when">2026-04-26 15:09</td>
 
   <td class="repo">
-      FileOrganizer
+      <a class="repo-link" href="https://github.com/curtyo18/FileOrganizer">FileOrganizer</a>
   </td>
 
   <td class="msg">
-      <span class="redact">minor cleanup</span>
+      feat(cli): npm run start one-command bootstrap
   </td>
 
   <td class="sha">
-      <span class="redact">229c3d2</span>
+      <a class="sha-link" href="https://github.com/curtyo18/FileOrganizer/commit/f303962893a1d908d4f47029d5e555b40393c423">f303962</a>
   </td>
-</tr><tr class="named">
+</tr><tr class="">
     <td class="when">2026-04-26 14:27</td>
 
   <td class="repo">
-      FileOrganizer
+      <a class="repo-link" href="https://github.com/curtyo18/FileOrganizer">FileOrganizer</a>
   </td>
 
   <td class="msg">
-      <span class="redact">update decoder (flaky)</span>
+      feat(api+ui): scan a folder from the UI without a pre-registered drive
   </td>
 
   <td class="sha">
-      <span class="redact">30e0a54</span>
+      <a class="sha-link" href="https://github.com/curtyo18/FileOrganizer/commit/b51a8277f2bedf4c8536abc0311cfdcb476792aa">b51a827</a>
   </td>
 </tr><tr class="named">
     <td class="when">2026-04-26 14:27</td>
@@ -410,61 +420,61 @@
   <td class="sha">
       <span class="redact">ad1c246</span>
   </td>
-</tr><tr class="named">
+</tr><tr class="">
     <td class="when">2026-04-26 14:07</td>
 
   <td class="repo">
-      FileOrganizer
+      <a class="repo-link" href="https://github.com/curtyo18/FileOrganizer">FileOrganizer</a>
   </td>
 
   <td class="msg">
-      <span class="redact">test: split silent indexer in store</span>
+      feat(engine/catalog): add batches and operations repository
   </td>
 
   <td class="sha">
-      <span class="redact">90a4129</span>
+      <a class="sha-link" href="https://github.com/curtyo18/FileOrganizer/commit/766d25e7631b3abdf01fd722dd8ac965c61ea2c3">766d25e</a>
   </td>
-</tr><tr class="named">
+</tr><tr class="">
     <td class="when">2026-04-26 13:51</td>
 
   <td class="repo">
-      FileOrganizer
+      <a class="repo-link" href="https://github.com/curtyo18/FileOrganizer">FileOrganizer</a>
   </td>
 
   <td class="msg">
-      <span class="redact">expose store</span>
+      feat(engine/api): serve built UI assets from the engine
   </td>
 
   <td class="sha">
-      <span class="redact">feacf81</span>
+      <a class="sha-link" href="https://github.com/curtyo18/FileOrganizer/commit/9c571745a8af5dae9d264d6d42595fe216182e53">9c57174</a>
   </td>
-</tr><tr class="named">
+</tr><tr class="">
     <td class="when">2026-04-26 13:40</td>
 
   <td class="repo">
-      FileOrganizer
+      <a class="repo-link" href="https://github.com/curtyo18/FileOrganizer">FileOrganizer</a>
   </td>
 
   <td class="msg">
-      <span class="redact">wire scheduler and optimize parser</span>
+      feat(ui): add Dashboard with drive cards
   </td>
 
   <td class="sha">
-      <span class="redact">d3aca25</span>
+      <a class="sha-link" href="https://github.com/curtyo18/FileOrganizer/commit/5ca1eeeac1a7ccb4ba206716ecc5eef0e81d0ef1">5ca1eee</a>
   </td>
-</tr><tr class="named">
+</tr><tr class="">
     <td class="when">2026-04-26 13:11</td>
 
   <td class="repo">
-      FileOrganizer
+      <a class="repo-link" href="https://github.com/curtyo18/FileOrganizer">FileOrganizer</a>
   </td>
 
   <td class="msg">
-      <span class="redact">cleanup fallback, init consumer</span>
+      feat(engine/api): run scans in background from POST /api/scans
   </td>
 
   <td class="sha">
-      <span class="redact">0d88972</span>
+      <a class="sha-link" href="https://github.com/curtyo18/FileOrganizer/commit/38f3824ae518e9cf95eecb1bd4c25ffbe3374e56">38f3824</a>
   </td>
 </tr><tr class="named">
     <td class="when">2026-04-26 13:09</td>
@@ -480,75 +490,75 @@
   <td class="sha">
       <span class="redact">f146f73</span>
   </td>
-</tr><tr class="named">
+</tr><tr class="">
     <td class="when">2026-04-26 13:09</td>
 
   <td class="repo">
-      FileOrganizer
+      <a class="repo-link" href="https://github.com/curtyo18/FileOrganizer">FileOrganizer</a>
   </td>
 
   <td class="msg">
-      <span class="redact">docs: tweak facade in util</span>
+      feat(ui): add Browse screen with paginated file list
   </td>
 
   <td class="sha">
-      <span class="redact">615d69d</span>
+      <a class="sha-link" href="https://github.com/curtyo18/FileOrganizer/commit/ffacc74d8b254a6c7b21cc122f73657f939428bc">ffacc74</a>
   </td>
-</tr><tr class="named">
+</tr><tr class="">
     <td class="when">2026-04-26 13:02</td>
 
   <td class="repo">
-      FileOrganizer
+      <a class="repo-link" href="https://github.com/curtyo18/FileOrganizer">FileOrganizer</a>
   </td>
 
   <td class="msg">
-      <span class="redact">rebuild consumer, add handler</span>
+      feat(api+ui): add scans listing and start endpoint with form
   </td>
 
   <td class="sha">
-      <span class="redact">c2a242f</span>
+      <a class="sha-link" href="https://github.com/curtyo18/FileOrganizer/commit/bfaf92f56baccc7dd879d427ffe47c98f31b554a">bfaf92f</a>
   </td>
-</tr><tr class="named">
+</tr><tr class="">
     <td class="when">2026-04-26 12:58</td>
 
   <td class="repo">
-      FileOrganizer
+      <a class="repo-link" href="https://github.com/curtyo18/FileOrganizer">FileOrganizer</a>
   </td>
 
   <td class="msg">
-      <span class="redact">docs: tweak redundant view</span>
+      feat(ui): add api client and Drives screen with live data
   </td>
 
   <td class="sha">
-      <span class="redact">6f3284e</span>
+      <a class="sha-link" href="https://github.com/curtyo18/FileOrganizer/commit/ad07e38674d4addab644277e360a2c6ae67a16cf">ad07e38</a>
   </td>
-</tr><tr class="named">
+</tr><tr class="">
     <td class="when">2026-04-26 12:48</td>
 
   <td class="repo">
-      FileOrganizer
+      <a class="repo-link" href="https://github.com/curtyo18/FileOrganizer">FileOrganizer</a>
   </td>
 
   <td class="msg">
-      <span class="redact">extract store, cleanup store</span>
+      feat(ui): scaffold preact + vite app with placeholder routes
   </td>
 
   <td class="sha">
-      <span class="redact">17f2ebf</span>
+      <a class="sha-link" href="https://github.com/curtyo18/FileOrganizer/commit/fb49b42b9ff3de9044080c80d22a892e6bbfef9a">fb49b42</a>
   </td>
-</tr><tr class="named">
+</tr><tr class="">
     <td class="when">2026-04-26 12:44</td>
 
   <td class="repo">
-      FileOrganizer
+      <a class="repo-link" href="https://github.com/curtyo18/FileOrganizer">FileOrganizer</a>
   </td>
 
   <td class="msg">
-      <span class="redact">fix: simplify faster ledger</span>
+      feat(engine/cli): add serve command that boots the api server
   </td>
 
   <td class="sha">
-      <span class="redact">b89c809</span>
+      <a class="sha-link" href="https://github.com/curtyo18/FileOrganizer/commit/5f222c2560cddaa3b74525a812b3708ae376394a">5f222c2</a>
   </td>
 </tr><tr class="anon">
     <td class="when">2026-04-26</td>
@@ -690,299 +700,299 @@
   <td class="sha">
       <span class="redact-strong">e3bf91e</span>
   </td>
-</tr><tr class="named">
+</tr><tr class="">
     <td class="when">2026-04-25 21:28</td>
 
   <td class="repo">
-      FileOrganizer
+      <a class="repo-link" href="https://github.com/curtyo18/FileOrganizer">FileOrganizer</a>
   </td>
 
   <td class="msg">
-      <span class="redact">harden service (silent)</span>
+      feat(engine/api): add hono server skeleton with healthz, drives, files
   </td>
 
   <td class="sha">
-      <span class="redact">37b5923</span>
+      <a class="sha-link" href="https://github.com/curtyo18/FileOrganizer/commit/ff6aa5c9a910dfb6604599dd8fd2db5f4ccb7b0d">ff6aa5c</a>
   </td>
-</tr><tr class="named">
+</tr><tr class="">
     <td class="when">2026-04-25 20:57</td>
 
   <td class="repo">
-      FileOrganizer
+      <a class="repo-link" href="https://github.com/curtyo18/FileOrganizer">FileOrganizer</a>
   </td>
 
   <td class="msg">
-      <span class="redact">wip: refactor supervisor (faster)</span>
+      feat(engine/cli): add scan command with throttle and mediainfo flags
   </td>
 
   <td class="sha">
-      <span class="redact">c5cbbe3</span>
+      <a class="sha-link" href="https://github.com/curtyo18/FileOrganizer/commit/263be93426a79e05cc9a2a0af378b1cd705a01ba">263be93</a>
   </td>
-</tr><tr class="named">
+</tr><tr class="">
     <td class="when">2026-04-25 20:54</td>
 
   <td class="repo">
-      FileOrganizer
+      <a class="repo-link" href="https://github.com/curtyo18/FileOrganizer">FileOrganizer</a>
   </td>
 
   <td class="msg">
-      <span class="redact">wire missing loader in loader</span>
+      feat(engine/scan): add scan orchestrator integrating walker, hasher, metadata, repos
   </td>
 
   <td class="sha">
-      <span class="redact">8a5a0bd</span>
+      <a class="sha-link" href="https://github.com/curtyo18/FileOrganizer/commit/d034201b8ff548528d231167d03ee72146700f96">d034201</a>
   </td>
-</tr><tr class="named">
+</tr><tr class="">
     <td class="when">2026-04-25 20:48</td>
 
   <td class="repo">
-      FileOrganizer
+      <a class="repo-link" href="https://github.com/curtyo18/FileOrganizer">FileOrganizer</a>
   </td>
 
   <td class="msg">
-      <span class="redact">docs: remove channel and split stream</span>
+      feat(engine/throttle): add throttle manager with schedule-driven switching
   </td>
 
   <td class="sha">
-      <span class="redact">e025b65</span>
+      <a class="sha-link" href="https://github.com/curtyo18/FileOrganizer/commit/e63f8e2a14c65809b6967ea15e363180e1c9749c">e63f8e2</a>
   </td>
-</tr><tr class="named">
+</tr><tr class="">
     <td class="when">2026-04-25 20:47</td>
 
   <td class="repo">
-      FileOrganizer
+      <a class="repo-link" href="https://github.com/curtyo18/FileOrganizer">FileOrganizer</a>
   </td>
 
   <td class="msg">
-      <span class="redact">wrap loader (faster)</span>
+      feat(engine/scan): add EXIF to mtime date resolver with suspicious flag
   </td>
 
   <td class="sha">
-      <span class="redact">461d7ee</span>
+      <a class="sha-link" href="https://github.com/curtyo18/FileOrganizer/commit/a60a523cb665fbc3538af3b8fe72e88ea9bbc79c">a60a523</a>
   </td>
-</tr><tr class="named">
+</tr><tr class="">
     <td class="when">2026-04-25 20:43</td>
 
   <td class="repo">
-      FileOrganizer
+      <a class="repo-link" href="https://github.com/curtyo18/FileOrganizer">FileOrganizer</a>
   </td>
 
   <td class="msg">
-      <span class="redact">tweak watcher</span>
+      feat(engine/scan): add video metadata extractor via mediainfo subprocess
   </td>
 
   <td class="sha">
-      <span class="redact">c92f741</span>
+      <a class="sha-link" href="https://github.com/curtyo18/FileOrganizer/commit/7a1573ada770e5d8c676ff8c063a4f28bbab3ed0">7a1573a</a>
   </td>
-</tr><tr class="named">
+</tr><tr class="">
     <td class="when">2026-04-25 20:39</td>
 
   <td class="repo">
-      FileOrganizer
+      <a class="repo-link" href="https://github.com/curtyo18/FileOrganizer">FileOrganizer</a>
   </td>
 
   <td class="msg">
-      <span class="redact">docs: optimize missing runner in helper</span>
+      feat(engine/scan): add image metadata extractor
   </td>
 
   <td class="sha">
-      <span class="redact">232446c</span>
+      <a class="sha-link" href="https://github.com/curtyo18/FileOrganizer/commit/f0799298905516c71764945a54ef86132660acec">f079929</a>
   </td>
-</tr><tr class="named">
+</tr><tr class="">
     <td class="when">2026-04-25 20:30</td>
 
   <td class="repo">
-      FileOrganizer
+      <a class="repo-link" href="https://github.com/curtyo18/FileOrganizer">FileOrganizer</a>
   </td>
 
   <td class="msg">
-      <span class="redact">rename supervisor and wire helper</span>
+      feat(engine/scan): add streaming sha256 hasher with chunk + throttle controls
   </td>
 
   <td class="sha">
-      <span class="redact">0b35bd1</span>
+      <a class="sha-link" href="https://github.com/curtyo18/FileOrganizer/commit/de91e7ca436e11efc947d3f1788ce7c7dd441c75">de91e7c</a>
   </td>
-</tr><tr class="named">
+</tr><tr class="">
     <td class="when">2026-04-25 20:30</td>
 
   <td class="repo">
-      FileOrganizer
+      <a class="repo-link" href="https://github.com/curtyo18/FileOrganizer">FileOrganizer</a>
   </td>
 
   <td class="msg">
-      <span class="redact">update guard so handler can bump cache</span>
+      feat(engine/scan): add async file walker with category and exclusion filters
   </td>
 
   <td class="sha">
-      <span class="redact">1e6223c</span>
+      <a class="sha-link" href="https://github.com/curtyo18/FileOrganizer/commit/d49bdc764efa0f2b1985ebb37c637656befe8413">d49bdc7</a>
   </td>
-</tr><tr class="named">
+</tr><tr class="">
     <td class="when">2026-04-25 20:29</td>
 
   <td class="repo">
-      FileOrganizer
+      <a class="repo-link" href="https://github.com/curtyo18/FileOrganizer">FileOrganizer</a>
   </td>
 
   <td class="msg">
-      <span class="redact">tweak bootstrapper for service</span>
+      feat(engine/catalog): add scans repository
   </td>
 
   <td class="sha">
-      <span class="redact">1ad9d89</span>
+      <a class="sha-link" href="https://github.com/curtyo18/FileOrganizer/commit/2a459dacc8033c1800d2c13558a5a381b243dd2d">2a459da</a>
   </td>
-</tr><tr class="named">
+</tr><tr class="">
     <td class="when">2026-04-25 20:29</td>
 
   <td class="repo">
-      FileOrganizer
+      <a class="repo-link" href="https://github.com/curtyo18/FileOrganizer">FileOrganizer</a>
   </td>
 
   <td class="msg">
-      <span class="redact">split dispatcher (missing)</span>
+      feat(engine/catalog): add files repository with quick-check semantics
   </td>
 
   <td class="sha">
-      <span class="redact">43db798</span>
+      <a class="sha-link" href="https://github.com/curtyo18/FileOrganizer/commit/581996a567ebd371cac4bc1b71a289531c525a0a">581996a</a>
   </td>
-</tr><tr class="named">
+</tr><tr class="">
     <td class="when">2026-04-25 20:28</td>
 
   <td class="repo">
-      FileOrganizer
+      <a class="repo-link" href="https://github.com/curtyo18/FileOrganizer">FileOrganizer</a>
   </td>
 
   <td class="msg">
-      <span class="redact">fix tighter queue for the faster store</span>
+      feat(engine/drives): add volume detection (windows + posix synth)
   </td>
 
   <td class="sha">
-      <span class="redact">7b034a6</span>
+      <a class="sha-link" href="https://github.com/curtyo18/FileOrganizer/commit/9b3dc6c8f4980c0658681e6e1549426d41cd496b">9b3dc6c</a>
   </td>
-</tr><tr class="named">
+</tr><tr class="">
     <td class="when">2026-04-25 20:27</td>
 
   <td class="repo">
-      FileOrganizer
+      <a class="repo-link" href="https://github.com/curtyo18/FileOrganizer">FileOrganizer</a>
   </td>
 
   <td class="msg">
-      <span class="redact">fix: split incorrect session when encoder changes</span>
+      feat(engine/scan): add path exclusion rules
   </td>
 
   <td class="sha">
-      <span class="redact">316f37b</span>
+      <a class="sha-link" href="https://github.com/curtyo18/FileOrganizer/commit/f9f11735f9f7b3a99444cd21dba1ddc96b76abad">f9f1173</a>
   </td>
-</tr><tr class="named">
+</tr><tr class="">
     <td class="when">2026-04-25 20:24</td>
 
   <td class="repo">
-      FileOrganizer
+      <a class="repo-link" href="https://github.com/curtyo18/FileOrganizer">FileOrganizer</a>
   </td>
 
   <td class="msg">
-      <span class="redact">chore: add the lenient validator</span>
+      feat(engine/cli): add CLI scaffolding with init and status commands
   </td>
 
   <td class="sha">
-      <span class="redact">08dbdf6</span>
+      <a class="sha-link" href="https://github.com/curtyo18/FileOrganizer/commit/5e86c2452524395799b93441b3e5fc66b77d0b00">5e86c24</a>
   </td>
-</tr><tr class="named">
+</tr><tr class="">
     <td class="when">2026-04-25 20:05</td>
 
   <td class="repo">
-      FileOrganizer
+      <a class="repo-link" href="https://github.com/curtyo18/FileOrganizer">FileOrganizer</a>
   </td>
 
   <td class="msg">
-      <span class="redact">test: improve verbose loader in session</span>
+      feat(engine/catalog): add catalog pointer file locator
   </td>
 
   <td class="sha">
-      <span class="redact">368cf6a</span>
+      <a class="sha-link" href="https://github.com/curtyo18/FileOrganizer/commit/ab71d87bd5bd102e7b94ed83af6bc083c2dc7811">ab71d87</a>
   </td>
-</tr><tr class="named">
+</tr><tr class="">
     <td class="when">2026-04-25 20:05</td>
 
   <td class="repo">
-      FileOrganizer
+      <a class="repo-link" href="https://github.com/curtyo18/FileOrganizer">FileOrganizer</a>
   </td>
 
   <td class="msg">
-      <span class="redact">test: simplify router in bootstrapper</span>
+      feat(engine/drives): add drive repository with upsert by volume serial
   </td>
 
   <td class="sha">
-      <span class="redact">bfc80a0</span>
+      <a class="sha-link" href="https://github.com/curtyo18/FileOrganizer/commit/c6f708b89e555917d77ff19f4583a3c561bbbfa8">c6f708b</a>
   </td>
-</tr><tr class="named">
+</tr><tr class="">
     <td class="when">2026-04-25 20:04</td>
 
   <td class="repo">
-      FileOrganizer
+      <a class="repo-link" href="https://github.com/curtyo18/FileOrganizer">FileOrganizer</a>
   </td>
 
   <td class="msg">
-      <span class="redact">test: expose stream and restructure manager</span>
+      feat(engine/catalog): add settings repository with defaults
   </td>
 
   <td class="sha">
-      <span class="redact">2b91649</span>
+      <a class="sha-link" href="https://github.com/curtyo18/FileOrganizer/commit/6e2f432a45677d8c6a852826afdb1c46963e0bc7">6e2f432</a>
   </td>
-</tr><tr class="named">
+</tr><tr class="">
     <td class="when">2026-04-25 20:04</td>
 
   <td class="repo">
-      FileOrganizer
+      <a class="repo-link" href="https://github.com/curtyo18/FileOrganizer">FileOrganizer</a>
   </td>
 
   <td class="msg">
-      <span class="redact">extract broken fallback for the noisy view</span>
+      feat(engine): add structured logger
   </td>
 
   <td class="sha">
-      <span class="redact">580f578</span>
+      <a class="sha-link" href="https://github.com/curtyo18/FileOrganizer/commit/c06f23fa15de0f4e7fd364fc0a5061b832060b35">c06f23f</a>
   </td>
-</tr><tr class="named">
+</tr><tr class="">
     <td class="when">2026-04-25 20:03</td>
 
   <td class="repo">
-      FileOrganizer
+      <a class="repo-link" href="https://github.com/curtyo18/FileOrganizer">FileOrganizer</a>
   </td>
 
   <td class="msg">
-      <span class="redact">fix: remove shim for manager</span>
+      feat(engine/catalog): add migration runner with initial schema
   </td>
 
   <td class="sha">
-      <span class="redact">112283e</span>
+      <a class="sha-link" href="https://github.com/curtyo18/FileOrganizer/commit/9146c79712c256482fda5e86a8d4b4ed49f6abfe">9146c79</a>
   </td>
-</tr><tr class="named">
+</tr><tr class="">
     <td class="when">2026-04-25 19:59</td>
 
   <td class="repo">
-      FileOrganizer
+      <a class="repo-link" href="https://github.com/curtyo18/FileOrganizer">FileOrganizer</a>
   </td>
 
   <td class="msg">
-      <span class="redact">extract reusable helper</span>
+      feat(engine/catalog): add sqlite connection wrapper
   </td>
 
   <td class="sha">
-      <span class="redact">190b45b</span>
+      <a class="sha-link" href="https://github.com/curtyo18/FileOrganizer/commit/d88be15cbc44440254c27718a32fa56f2dc2e8bc">d88be15</a>
   </td>
-</tr><tr class="named">
+</tr><tr class="">
     <td class="when">2026-04-25 19:57</td>
 
   <td class="repo">
-      FileOrganizer
+      <a class="repo-link" href="https://github.com/curtyo18/FileOrganizer">FileOrganizer</a>
   </td>
 
   <td class="msg">
-      <span class="redact">wip: remove stream (late)</span>
+      chore(engine): add runtime dependencies for catalog, api, metadata
   </td>
 
   <td class="sha">
-      <span class="redact">52d2c50</span>
+      <a class="sha-link" href="https://github.com/curtyo18/FileOrganizer/commit/afa59c44111a9501d2ae3a3c000d40989ff2630f">afa59c4</a>
   </td>
 </tr><tr class="named">
     <td class="when">2026-04-25 19:53</td>
@@ -998,19 +1008,19 @@
   <td class="sha">
       <span class="redact">7e7d621</span>
   </td>
-</tr><tr class="named">
+</tr><tr class="">
     <td class="when">2026-04-25 19:37</td>
 
   <td class="repo">
-      FileOrganizer
+      <a class="repo-link" href="https://github.com/curtyo18/FileOrganizer">FileOrganizer</a>
   </td>
 
   <td class="msg">
-      <span class="redact">deprecate minor registry for the stale channel</span>
+      feat(shared): add typed error classes
   </td>
 
   <td class="sha">
-      <span class="redact">b0c2684</span>
+      <a class="sha-link" href="https://github.com/curtyo18/FileOrganizer/commit/c46c5b348b00ae4df0fbdb7b52868472083ba283">c46c5b3</a>
   </td>
 </tr><tr class="named">
     <td class="when">2026-04-25 19:36</td>
@@ -1026,75 +1036,75 @@
   <td class="sha">
       <span class="redact">86acbb7</span>
   </td>
-</tr><tr class="named">
+</tr><tr class="">
     <td class="when">2026-04-25 19:26</td>
 
   <td class="repo">
-      FileOrganizer
+      <a class="repo-link" href="https://github.com/curtyo18/FileOrganizer">FileOrganizer</a>
   </td>
 
   <td class="msg">
-      <span class="redact">move worker, extract util</span>
+      feat(shared): add rules, throttle profiles, settings types
   </td>
 
   <td class="sha">
-      <span class="redact">661cb47</span>
+      <a class="sha-link" href="https://github.com/curtyo18/FileOrganizer/commit/4385c5377352e03f0309702150ef8c3cbcf45749">4385c53</a>
   </td>
-</tr><tr class="named">
+</tr><tr class="">
     <td class="when">2026-04-25 19:25</td>
 
   <td class="repo">
-      FileOrganizer
+      <a class="repo-link" href="https://github.com/curtyo18/FileOrganizer">FileOrganizer</a>
   </td>
 
   <td class="msg">
-      <span class="redact">throttle faster helper</span>
+      feat(shared): add core domain types and enums
   </td>
 
   <td class="sha">
-      <span class="redact">ba67c86</span>
+      <a class="sha-link" href="https://github.com/curtyo18/FileOrganizer/commit/333d52f7a638b29f03e2fcf636534fa2b20d3813">333d52f</a>
   </td>
-</tr><tr class="named">
+</tr><tr class="">
     <td class="when">2026-04-25 19:20</td>
 
   <td class="repo">
-      FileOrganizer
+      <a class="repo-link" href="https://github.com/curtyo18/FileOrganizer">FileOrganizer</a>
   </td>
 
   <td class="msg">
-      <span class="redact">docs: wrap mailer, guard facade</span>
+      chore(repo): add vitest workspace config
   </td>
 
   <td class="sha">
-      <span class="redact">249a303</span>
+      <a class="sha-link" href="https://github.com/curtyo18/FileOrganizer/commit/b499fe90a805930b96b3cbcfb60b7c20c890f1f5">b499fe9</a>
   </td>
-</tr><tr class="named">
+</tr><tr class="">
     <td class="when">2026-04-25 19:12</td>
 
   <td class="repo">
-      FileOrganizer
+      <a class="repo-link" href="https://github.com/curtyo18/FileOrganizer">FileOrganizer</a>
   </td>
 
   <td class="msg">
-      <span class="redact">feat: improve fallback</span>
+      chore(repo): scaffold shared, engine, ui workspace packages
   </td>
 
   <td class="sha">
-      <span class="redact">e8c6747</span>
+      <a class="sha-link" href="https://github.com/curtyo18/FileOrganizer/commit/2e2ca13644b0a2cdbcee6a88c2d284357a78d99f">2e2ca13</a>
   </td>
-</tr><tr class="named">
+</tr><tr class="">
     <td class="when">2026-04-25 19:07</td>
 
   <td class="repo">
-      FileOrganizer
+      <a class="repo-link" href="https://github.com/curtyo18/FileOrganizer">FileOrganizer</a>
   </td>
 
   <td class="msg">
-      <span class="redact">docs: throttle redundant wrapper for the noisy writer</span>
+      chore(repo): add prettier and eslint config
   </td>
 
   <td class="sha">
-      <span class="redact">29316db</span>
+      <a class="sha-link" href="https://github.com/curtyo18/FileOrganizer/commit/4bf8027e13562ce79c72c405b788583abe3788db">4bf8027</a>
   </td>
 </tr><tr class="named">
     <td class="when">2026-04-25 19:03</td>
@@ -1124,47 +1134,47 @@
   <td class="sha">
       <span class="redact">db4b0e2</span>
   </td>
-</tr><tr class="named">
+</tr><tr class="">
     <td class="when">2026-04-25 19:01</td>
 
   <td class="repo">
-      FileOrganizer
+      <a class="repo-link" href="https://github.com/curtyo18/FileOrganizer">FileOrganizer</a>
   </td>
 
   <td class="msg">
-      <span class="redact">wip: harden late filter for the incorrect channel</span>
+      chore(repo): add base typescript config and project references
   </td>
 
   <td class="sha">
-      <span class="redact">7277cda</span>
+      <a class="sha-link" href="https://github.com/curtyo18/FileOrganizer/commit/6811971dd3cd920d2d908b20ce46299cccff9125">6811971</a>
   </td>
-</tr><tr class="named">
+</tr><tr class="">
     <td class="when">2026-04-25 18:56</td>
 
   <td class="repo">
-      FileOrganizer
+      <a class="repo-link" href="https://github.com/curtyo18/FileOrganizer">FileOrganizer</a>
   </td>
 
   <td class="msg">
-      <span class="redact">rebuild minor filter in decoder</span>
+      chore(repo): complete M0-T03 (npm install on workstation)
   </td>
 
   <td class="sha">
-      <span class="redact">edb703e</span>
+      <a class="sha-link" href="https://github.com/curtyo18/FileOrganizer/commit/86a9a376a0de6078d789a7296e896cc09dc4e345">86a9a37</a>
   </td>
-</tr><tr class="named">
+</tr><tr class="">
     <td class="when">2026-04-25 18:53</td>
 
   <td class="repo">
-      FileOrganizer
+      <a class="repo-link" href="https://github.com/curtyo18/FileOrganizer">FileOrganizer</a>
   </td>
 
   <td class="msg">
-      <span class="redact">refactor: optimize worker for dispatcher</span>
+      chore(plan): allow Node 22+ (recommend 24 LTS)
   </td>
 
   <td class="sha">
-      <span class="redact">1513bb2</span>
+      <a class="sha-link" href="https://github.com/curtyo18/FileOrganizer/commit/a12e916395e73d6f8bfee4f116f05c5d78d82c8a">a12e916</a>
   </td>
 </tr><tr class="named">
     <td class="when">2026-04-25 18:36</td>
@@ -1250,19 +1260,19 @@
   <td class="sha">
       <span class="redact">c0a618f</span>
   </td>
-</tr><tr class="named">
+</tr><tr class="">
     <td class="when">2026-04-25 17:31</td>
 
   <td class="repo">
-      FileOrganizer
+      <a class="repo-link" href="https://github.com/curtyo18/FileOrganizer">FileOrganizer</a>
   </td>
 
   <td class="msg">
-      <span class="redact">noop</span>
+      docs(plan): add design spec and implementation plan
   </td>
 
   <td class="sha">
-      <span class="redact">cf64208</span>
+      <a class="sha-link" href="https://github.com/curtyo18/FileOrganizer/commit/5e422eac73eb7811a5e87c252938e81a8e2b7b58">5e422ea</a>
   </td>
 </tr><tr class="named">
     <td class="when">2026-04-25 17:31</td>
@@ -1516,19 +1526,19 @@
   <td class="sha">
       <span class="redact">8c3013b</span>
   </td>
-</tr><tr class="named">
+</tr><tr class="">
     <td class="when">2026-04-25 16:50</td>
 
   <td class="repo">
-      FileOrganizer
+      <a class="repo-link" href="https://github.com/curtyo18/FileOrganizer">FileOrganizer</a>
   </td>
 
   <td class="msg">
-      <span class="redact">feat: wire wrapper in handler</span>
+      chore(ci): add github actions ci workflow
   </td>
 
   <td class="sha">
-      <span class="redact">3bfd579</span>
+      <a class="sha-link" href="https://github.com/curtyo18/FileOrganizer/commit/dc55f76397b042155c5a8e7c03c5606a9faaa0eb">dc55f76</a>
   </td>
 </tr><tr class="named">
     <td class="when">2026-04-25 16:48</td>
@@ -1586,19 +1596,19 @@
   <td class="sha">
       <span class="redact">7bb0785</span>
   </td>
-</tr><tr class="named">
+</tr><tr class="">
     <td class="when">2026-04-25 16:41</td>
 
   <td class="repo">
-      FileOrganizer
+      <a class="repo-link" href="https://github.com/curtyo18/FileOrganizer">FileOrganizer</a>
   </td>
 
   <td class="msg">
-      <span class="redact">expose service in encoder</span>
+      chore(repo): partial M0-T03 root package.json (BLOCKED on npm registry)
   </td>
 
   <td class="sha">
-      <span class="redact">e864164</span>
+      <a class="sha-link" href="https://github.com/curtyo18/FileOrganizer/commit/3c44cdbc4280a50d1f807d2515a5fd253d2b7642">3c44cdb</a>
   </td>
 </tr><tr class="named">
     <td class="when">2026-04-25 16:39</td>
@@ -1614,19 +1624,19 @@
   <td class="sha">
       <span class="redact">26ead7f</span>
   </td>
-</tr><tr class="named">
+</tr><tr class="">
     <td class="when">2026-04-25 16:38</td>
 
   <td class="repo">
-      FileOrganizer
+      <a class="repo-link" href="https://github.com/curtyo18/FileOrganizer">FileOrganizer</a>
   </td>
 
   <td class="msg">
-      <span class="redact">feat: restructure lingering mailer</span>
+      chore(repo): initialize git, ignore rules, readme
   </td>
 
   <td class="sha">
-      <span class="redact">76def89</span>
+      <a class="sha-link" href="https://github.com/curtyo18/FileOrganizer/commit/d2d5a98810deb9c1e0591c14bb461d97974e955e">d2d5a98</a>
   </td>
 </tr><tr class="named">
     <td class="when">2026-04-25 16:38</td>
@@ -2912,68 +2922,6 @@
     <a href="https://github.com/curtyo18">github</a> · <a href="mailto:curtyo18@gmail.com">email</a>
   </div>
   <div class="stats" style="align-items:center">
-    <span class="sparkline" title="commits per month, last 60 months">
-        <span style="height: 2px"></span>
-        <span style="height: 2px"></span>
-        <span style="height: 2px"></span>
-        <span style="height: 2px"></span>
-        <span style="height: 2px"></span>
-        <span style="height: 2px"></span>
-        <span style="height: 2px"></span>
-        <span style="height: 2px"></span>
-        <span style="height: 2px"></span>
-        <span style="height: 2px"></span>
-        <span style="height: 2px"></span>
-        <span style="height: 2px"></span>
-        <span style="height: 2px"></span>
-        <span style="height: 2px"></span>
-        <span style="height: 2px"></span>
-        <span style="height: 2px"></span>
-        <span style="height: 2px"></span>
-        <span style="height: 2px"></span>
-        <span style="height: 2px"></span>
-        <span style="height: 2px"></span>
-        <span style="height: 2px"></span>
-        <span style="height: 2px"></span>
-        <span style="height: 2px"></span>
-        <span style="height: 2px"></span>
-        <span style="height: 2px"></span>
-        <span style="height: 2px"></span>
-        <span style="height: 2px"></span>
-        <span style="height: 2px"></span>
-        <span style="height: 2px"></span>
-        <span style="height: 2px"></span>
-        <span style="height: 2px"></span>
-        <span style="height: 2px"></span>
-        <span style="height: 2px"></span>
-        <span style="height: 2px"></span>
-        <span style="height: 2px"></span>
-        <span style="height: 2px"></span>
-        <span style="height: 2px"></span>
-        <span style="height: 2px"></span>
-        <span style="height: 2px"></span>
-        <span style="height: 2px"></span>
-        <span style="height: 2px"></span>
-        <span style="height: 2px"></span>
-        <span style="height: 2px"></span>
-        <span style="height: 2px"></span>
-        <span style="height: 2px"></span>
-        <span style="height: 2px"></span>
-        <span style="height: 2px"></span>
-        <span style="height: 2px"></span>
-        <span style="height: 2px"></span>
-        <span style="height: 2px"></span>
-        <span style="height: 2px"></span>
-        <span style="height: 2px"></span>
-        <span style="height: 2px"></span>
-        <span style="height: 2px"></span>
-        <span style="height: 2px"></span>
-        <span style="height: 2px"></span>
-        <span style="height: 2px"></span>
-        <span style="height: 2px"></span>
-        <span style="height: 5.5px"></span>
-        <span style="height: 18.0px"></span>
-    </span>
     <span><b>991</b> commits</span>
     <span><b>61</b> repos</span>
     <span><b>17</b> years</span>
