@@ -765,10 +765,11 @@ a:hover { color: var(--accent); }
     grid-template-columns: 1fr;
   }
 
-  /* Table: drop sha column on mobile, shrink everything else, let msg wrap. */
+  /* Table: drop sha on mobile, fixed-layout 3-col with repo claiming a wide share. */
   .gr-table {
     font-size: 12px;
-    table-layout: auto;
+    table-layout: fixed;
+    width: 100%;
   }
   .gr-table thead th:nth-child(4),
   .gr-table tbody td.sha {
@@ -778,16 +779,20 @@ a:hover { color: var(--accent); }
     padding: 12px 8px 12px 0;
     line-height: 1.45;
   }
+  .gr-table thead th:nth-child(1),
   .gr-table td.when {
-    width: auto;
+    width: 22%;
     font-size: 11px;
     white-space: nowrap;
   }
+  .gr-table thead th:nth-child(2),
   .gr-table td.repo {
-    width: auto;
+    width: 38%;
     word-break: break-word;
   }
+  .gr-table thead th:nth-child(3),
   .gr-table td.msg {
+    width: 40%;
     word-break: break-word;
   }
 
