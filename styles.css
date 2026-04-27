@@ -735,3 +735,93 @@ a:hover { color: var(--accent); }
   padding: 0 4px;
   font-variant-numeric: tabular-nums;
 }
+
+/* ============================================================
+   Mobile — narrower viewports
+   ============================================================ */
+@media (max-width: 720px) {
+  .page-inner,
+  .page-inner-wide {
+    max-width: 100%;
+    padding: 24px 12px 56px;
+  }
+
+  /* Header stacks vertically; meta becomes a column under the title. */
+  .gr-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+  .gr-header h1 {
+    font-size: 26px;
+  }
+  .gr-header .meta {
+    align-items: flex-start;
+    text-align: left;
+  }
+
+  /* Featured: 1 column instead of 2. */
+  .gr-featured {
+    grid-template-columns: 1fr;
+  }
+
+  /* Table: drop sha column on mobile, shrink everything else, let msg wrap. */
+  .gr-table {
+    font-size: 12px;
+    table-layout: auto;
+  }
+  .gr-table thead th:nth-child(4),
+  .gr-table tbody td.sha {
+    display: none;
+  }
+  .gr-table td {
+    padding: 12px 8px 12px 0;
+    line-height: 1.45;
+  }
+  .gr-table td.when {
+    width: auto;
+    font-size: 11px;
+    white-space: nowrap;
+  }
+  .gr-table td.repo {
+    width: auto;
+    word-break: break-word;
+  }
+  .gr-table td.msg {
+    word-break: break-word;
+  }
+
+  /* Pagination: smaller buttons that wrap cleanly. */
+  .pager {
+    flex-direction: column;
+    gap: 12px;
+    align-items: flex-start;
+  }
+  .pager .nav {
+    flex-wrap: wrap;
+    gap: 4px;
+  }
+  .pager .nav a.step,
+  .pager .nav a.num {
+    padding: 3px 8px;
+    font-size: 11px;
+  }
+
+  /* Footer: stack the byline above the stats counters. */
+  .site-footer {
+    flex-direction: column;
+    gap: 12px;
+    align-items: flex-start;
+  }
+  .site-footer .stats {
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  /* Section titles: smaller. */
+  .gr-section-title {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+  }
+}
