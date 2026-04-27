@@ -781,9 +781,10 @@ a:hover { color: var(--accent); }
   }
   .gr-table thead th:nth-child(1),
   .gr-table td.when {
-    width: 22%;
+    width: 28%;
     font-size: 11px;
-    white-space: nowrap;
+    white-space: normal;     /* allow timestamp to wrap (date on one line, time below) */
+    overflow-wrap: anywhere; /* prevent overflow if a single token is too wide */
   }
   .gr-table thead th:nth-child(2),
   .gr-table td.repo {
@@ -792,7 +793,7 @@ a:hover { color: var(--accent); }
   }
   .gr-table thead th:nth-child(3),
   .gr-table td.msg {
-    width: 40%;
+    width: 34%;
     word-break: break-word;
   }
 
