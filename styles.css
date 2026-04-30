@@ -57,6 +57,23 @@ html, body {
 a { color: var(--fg); text-decoration: none; }
 a:hover { color: var(--accent); }
 
+/* Keyboard focus — visible on dark + light themes, invisible to mouse users. */
+:focus { outline: none; }
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+  }
+}
+
 /* ============================================================
    Shared bits
    ============================================================ */
@@ -705,7 +722,8 @@ a:hover { color: var(--accent); }
 /* Pagination — numbered buttons + first/last steps */
 .pager .nav { gap: 6px; flex-wrap: wrap; align-items: center; }
 .pager .nav a.step,
-.pager .nav a.num {
+.pager .nav a.num,
+.pager .nav span.step {
   padding: 4px 10px;
   border: 1px solid var(--line-soft);
   color: var(--fg-2);
@@ -725,7 +743,8 @@ a:hover { color: var(--accent); }
   border-color: var(--accent);
   font-weight: 600;
 }
-.pager .nav a.disabled {
+.pager .nav a.disabled,
+.pager .nav span.disabled {
   color: var(--faint);
   pointer-events: none;
   border-color: var(--line-soft);
@@ -808,7 +827,8 @@ a:hover { color: var(--accent); }
     gap: 4px;
   }
   .pager .nav a.step,
-  .pager .nav a.num {
+  .pager .nav a.num,
+  .pager .nav span.step {
     padding: 3px 8px;
     font-size: 11px;
   }
