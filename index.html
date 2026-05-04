@@ -16,8 +16,8 @@
     <small>curt — a public log of private and public work</small>
   </h1>
   <div class="meta">
-    <span><b>1,062</b> commits indexed</span>
-    <span><b>61</b> repos · <b>17</b> years</span>
+    <span><b>1,072</b> commits indexed</span>
+    <span><b>62</b> repos · <b>17</b> years</span>
   </div>
 </div><div class="gr-section-title">
   <span>Featured · most recently active public repos</span>
@@ -31,8 +31,19 @@
       </div>
       <div class="blurb"></div>
       <div class="foot">
-        <span>129 commits</span>
-        <span>last touched 2026-05-01</span>
+        <span>133 commits</span>
+        <span>last touched 2026-05-03</span>
+      </div>
+    </a>
+    <a class="card card-link" href="https://github.com/curtyo18/rust-build-planner" target="_blank" rel="noopener noreferrer">
+      <div class="top">
+        <div class="name">rust-build-planner</div>
+        <div class="lang"></div>
+      </div>
+      <div class="blurb"></div>
+      <div class="foot">
+        <span>63 commits</span>
+        <span>last touched 2026-05-03</span>
       </div>
     </a>
     <a class="card card-link" href="https://github.com/curtyo18/ClipCutter" target="_blank" rel="noopener noreferrer">
@@ -44,17 +55,6 @@
       <div class="foot">
         <span>83 commits</span>
         <span>last touched 2026-04-25</span>
-      </div>
-    </a>
-    <a class="card card-link" href="https://github.com/curtyo18/rust-naval-boat-builder" target="_blank" rel="noopener noreferrer">
-      <div class="top">
-        <div class="name">rust-naval-boat-builder</div>
-        <div class="lang"></div>
-      </div>
-      <div class="blurb"></div>
-      <div class="foot">
-        <span>61 commits</span>
-        <span>last touched 2026-04-24</span>
       </div>
     </a>
     <a class="card card-link" href="https://github.com/curtyo18/ScreenHUD" target="_blank" rel="noopener noreferrer">
@@ -71,7 +71,7 @@
 </div>
       <div class="gr-section-title" style="margin-top:36px">
         <span>All commits · newest first</span>
-        <span class="right">showing 1–200 of 1062</span>
+        <span class="right">showing 1–200 of 1072</span>
       </div>
 
       <table class="gr-table">
@@ -84,10 +84,159 @@
             <tr class="gr-month-row">
               <td colspan="4">
                 May 2026
-                <span>3 commits · 3 public</span>
+                <span>13 commits · 9 public</span>
               </td>
             </tr>
 <tr class="">
+    <td class="when">2026-05-03 20:31</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/FileOrganizer" target="_blank" rel="noopener noreferrer">FileOrganizer</a>
+  </td>
+
+  <td class="msg">
+      chore: remove unused deps (uuid, zod, @testing-library/jest-dom)
+
+uuid and zod were never imported in the engine — UUIDs come from
+crypto.randomUUID(), and no validation code uses zod. jest-dom was
+listed in the UI but no test imports it; only @testing-library/preact
+is in use. 12 transitive packages dropped.
+
+Co-Authored-By: Claude Opus 4.7 (1M context) &lt;noreply@anthropic.com&gt;
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/FileOrganizer/commit/c8315eaf2101ab0a5d008f3398ac8ba4943a9d23" target="_blank" rel="noopener noreferrer">c8315ea</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-05-03 20:06</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/FileOrganizer" target="_blank" rel="noopener noreferrer">FileOrganizer</a>
+  </td>
+
+  <td class="msg">
+      ui/topbar: remove dead settings button
+
+It had no onClick handler and no destination route — purely decorative.
+
+Co-Authored-By: Claude Opus 4.7 (1M context) &lt;noreply@anthropic.com&gt;
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/FileOrganizer/commit/947c88f8285f1db91837836ecf5bc773181c3ec0" target="_blank" rel="noopener noreferrer">947c88f</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-05-03 19:57</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/FileOrganizer" target="_blank" rel="noopener noreferrer">FileOrganizer</a>
+  </td>
+
+  <td class="msg">
+      docs: refresh dashboard screenshot
+
+Co-Authored-By: Claude Opus 4.7 (1M context) &lt;noreply@anthropic.com&gt;
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/FileOrganizer/commit/34df6261a2d8e6fa12e7f7b92b49dfff0a83d21a" target="_blank" rel="noopener noreferrer">34df626</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-05-03 19:56</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/FileOrganizer" target="_blank" rel="noopener noreferrer">FileOrganizer</a>
+  </td>
+
+  <td class="msg">
+      docs/ui: drop milestone status table from README and remove dead sidebar throttle widget
+
+The README&#39;&#39;s M0-M7 status table and references to internal plan/spec
+docs are gone. The sidebar throttle pills were purely decorative
+(hardcoded balanced, no onClick) — real throttling is per-scan.
+
+Co-Authored-By: Claude Opus 4.7 (1M context) &lt;noreply@anthropic.com&gt;
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/FileOrganizer/commit/049c4135abd69b4633edcd20737787e9fc921746" target="_blank" rel="noopener noreferrer">049c413</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-05-03 18:57</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/rust-build-planner" target="_blank" rel="noopener noreferrer">rust-build-planner</a>
+  </td>
+
+  <td class="msg">
+      chore(#30,#31): lint cleanup and CI Node bump (#32)
+
+* fix(#30): drop redundant any casts in PlacedPieces click handlers
+
+* ci(#31): bump deploy.yml off Node 20
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/rust-build-planner/commit/db299e483ef3612c4c365b93b0fdfdf29f8fabb8" target="_blank" rel="noopener noreferrer">db299e4</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-05-03 18:04</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/rust-build-planner" target="_blank" rel="noopener noreferrer">rust-build-planner</a>
+  </td>
+
+  <td class="msg">
+      chore: rename project to Rust Build Planner (#29)
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/rust-build-planner/commit/dcb7a5dce41fe4d6ef321c8e9b21ef44602ef1eb" target="_blank" rel="noopener noreferrer">dcb7a5d</a>
+  </td>
+</tr><tr class="anon">
+    <td class="when">2026-05-03</td>
+
+  <td class="repo">
+      <span class="redact-strong" aria-label="redacted repo" role="img">redundant-model</span>
+  </td>
+
+  <td class="msg">
+      <span class="redact-strong" aria-label="redacted message" role="img">improve service</span>
+  </td>
+
+  <td class="sha">
+      <span class="redact-strong" aria-label="redacted sha" role="img">784a4b3</span>
+  </td>
+</tr><tr class="anon">
+    <td class="when">2026-05-03</td>
+
+  <td class="repo">
+      <span class="redact-strong" aria-label="redacted repo" role="img">adapter</span>
+  </td>
+
+  <td class="msg">
+      <span class="redact-strong" aria-label="redacted message" role="img">feat: loosen lenient buffer when renderer changes</span>
+  </td>
+
+  <td class="sha">
+      <span class="redact-strong" aria-label="redacted sha" role="img">aaafb73</span>
+  </td>
+</tr><tr class="anon">
+    <td class="when">2026-05-03</td>
+
+  <td class="repo">
+      <span class="redact-strong" aria-label="redacted repo" role="img">controller-toolkit</span>
+  </td>
+
+  <td class="msg">
+      <span class="redact-strong" aria-label="redacted message" role="img">throttle validator</span>
+  </td>
+
+  <td class="sha">
+      <span class="redact-strong" aria-label="redacted sha" role="img">9de5fab</span>
+  </td>
+</tr><tr class="">
     <td class="when">2026-05-01 16:36</td>
 
   <td class="repo">
@@ -143,10 +292,24 @@ findEmptyDirs gains an `unbounded` option that maps to cap=null.
   <td class="sha">
       <a class="sha-link" href="https://github.com/curtyo18/FileOrganizer/commit/d840cf73bb18ebba196a334c111545b87e541e28" target="_blank" rel="noopener noreferrer">d840cf7</a>
   </td>
+</tr><tr class="anon">
+    <td class="when">2026-05-01</td>
+
+  <td class="repo">
+      <span class="redact-strong" aria-label="redacted repo" role="img">context-view</span>
+  </td>
+
+  <td class="msg">
+      <span class="redact-strong" aria-label="redacted message" role="img">feat: move service for reader</span>
+  </td>
+
+  <td class="sha">
+      <span class="redact-strong" aria-label="redacted sha" role="img">92b87e0</span>
+  </td>
 </tr>            <tr class="gr-month-row">
               <td colspan="4">
                 April 2026
-                <span>197 commits · 128 public</span>
+                <span>187 commits · 126 public</span>
               </td>
             </tr>
 <tr class="">
@@ -3575,146 +3738,6 @@ both typecheck and test run green.
   <td class="sha">
       <span class="redact" aria-label="redacted sha" role="img">e6eddf6</span>
   </td>
-</tr><tr class="named">
-    <td class="when">2026-04-25 16:34</td>
-
-  <td class="repo">
-      payments-service
-  </td>
-
-  <td class="msg">
-      <span class="redact" aria-label="redacted message" role="img">wip: stub</span>
-  </td>
-
-  <td class="sha">
-      <span class="redact" aria-label="redacted sha" role="img">f14bf0a</span>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-04-25 12:45</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/ClipCutter" target="_blank" rel="noopener noreferrer">ClipCutter</a>
-  </td>
-
-  <td class="msg">
-      chore: gitignore scratch files and egg-info
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/ClipCutter/commit/6363aab9f1080f01f5ed998031879600fe8ef1a2" target="_blank" rel="noopener noreferrer">6363aab</a>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-04-25 12:45</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/ClipCutter" target="_blank" rel="noopener noreferrer">ClipCutter</a>
-  </td>
-
-  <td class="msg">
-      chore: prep for public release
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/ClipCutter/commit/d3b3e84e2239ce747e2366c09f2f35c952d6b0b2" target="_blank" rel="noopener noreferrer">d3b3e84</a>
-  </td>
-</tr><tr class="anon">
-    <td class="when">2026-04-25</td>
-
-  <td class="repo">
-      <span class="redact-strong" aria-label="redacted repo" role="img">controller-router</span>
-  </td>
-
-  <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">wip: refactor session, remove buffer</span>
-  </td>
-
-  <td class="sha">
-      <span class="redact-strong" aria-label="redacted sha" role="img">ba4dbd9</span>
-  </td>
-</tr><tr class="anon">
-    <td class="when">2026-04-25</td>
-
-  <td class="repo">
-      <span class="redact-strong" aria-label="redacted repo" role="img">schema-builder</span>
-  </td>
-
-  <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">wip: fix shim and improve ledger</span>
-  </td>
-
-  <td class="sha">
-      <span class="redact-strong" aria-label="redacted sha" role="img">42276a4</span>
-  </td>
-</tr><tr class="anon">
-    <td class="when">2026-04-25</td>
-
-  <td class="repo">
-      <span class="redact-strong" aria-label="redacted repo" role="img">helper-buffer</span>
-  </td>
-
-  <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">bump controller and update helper</span>
-  </td>
-
-  <td class="sha">
-      <span class="redact-strong" aria-label="redacted sha" role="img">c068c03</span>
-  </td>
-</tr><tr class="anon">
-    <td class="when">2026-04-25</td>
-
-  <td class="repo">
-      <span class="redact-strong" aria-label="redacted repo" role="img">helper</span>
-  </td>
-
-  <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">loosen builder, merge facade</span>
-  </td>
-
-  <td class="sha">
-      <span class="redact-strong" aria-label="redacted sha" role="img">e57578c</span>
-  </td>
-</tr><tr class="anon">
-    <td class="when">2026-04-25</td>
-
-  <td class="repo">
-      <span class="redact-strong" aria-label="redacted repo" role="img">loader</span>
-  </td>
-
-  <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">fix: extract fallback and extract parser</span>
-  </td>
-
-  <td class="sha">
-      <span class="redact-strong" aria-label="redacted sha" role="img">580180e</span>
-  </td>
-</tr><tr class="anon">
-    <td class="when">2026-04-25</td>
-
-  <td class="repo">
-      <span class="redact-strong" aria-label="redacted repo" role="img">reader</span>
-  </td>
-
-  <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">wip</span>
-  </td>
-
-  <td class="sha">
-      <span class="redact-strong" aria-label="redacted sha" role="img">7fcd739</span>
-  </td>
-</tr><tr class="anon">
-    <td class="when">2026-04-25</td>
-
-  <td class="repo">
-      <span class="redact-strong" aria-label="redacted repo" role="img">unused-stream</span>
-  </td>
-
-  <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">merge duplicate reader for the duplicate wrapper</span>
-  </td>
-
-  <td class="sha">
-      <span class="redact-strong" aria-label="redacted sha" role="img">80b0ef2</span>
-  </td>
 </tr>        </tbody>
       </table>
 
@@ -3739,8 +3762,8 @@ both typecheck and test run green.
     <a href="https://github.com/curtyo18" target="_blank" rel="noopener noreferrer">github</a> · <a href="mailto:curtyo18@gmail.com">email</a>
   </div>
   <div class="stats" style="align-items:center">
-    <span><b>1,062</b> commits</span>
-    <span><b>61</b> repos</span>
+    <span><b>1,072</b> commits</span>
+    <span><b>62</b> repos</span>
     <span><b>17</b> years</span>
   </div>
 </footer>    </div>
