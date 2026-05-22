@@ -16,7 +16,7 @@
     <small>curt — a public log of private and public work</small>
   </h1>
   <div class="meta">
-    <span><b>1,399</b> commits indexed</span>
+    <span><b>1,406</b> commits indexed</span>
     <span><b>69</b> repos · <b>17</b> years</span>
   </div>
 </div><div class="gr-section-title">
@@ -31,8 +31,8 @@
       </div>
       <div class="blurb"></div>
       <div class="foot">
-        <span>18 commits</span>
-        <span>last touched 2026-05-20</span>
+        <span>25 commits</span>
+        <span>last touched 2026-05-21</span>
       </div>
     </a>
     <a class="card card-link" href="https://github.com/curtyo18/html-utils" target="_blank" rel="noopener noreferrer">
@@ -71,7 +71,7 @@
 </div>
       <div class="gr-section-title" style="margin-top:36px">
         <span>All commits · newest first</span>
-        <span class="right">showing 1–200 of 1399</span>
+        <span class="right">showing 1–200 of 1406</span>
       </div>
 
       <table class="gr-table">
@@ -84,10 +84,215 @@
             <tr class="gr-month-row">
               <td colspan="4">
                 May 2026
-                <span>200 commits · 99 public</span>
+                <span>200 commits · 106 public</span>
               </td>
             </tr>
 <tr class="">
+    <td class="when">2026-05-21 21:14</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/tampermonkey-scripts" target="_blank" rel="noopener noreferrer">tampermonkey-scripts</a>
+  </td>
+
+  <td class="msg">
+      chore(gitlab-code-search): bump version to 1.4.0
+
+Co-Authored-By: Claude Sonnet 4.6 &lt;noreply@anthropic.com&gt;
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/tampermonkey-scripts/commit/8e04e53cf3368bb8f85fca23d7665fb7cf32feb4" target="_blank" rel="noopener noreferrer">8e04e53</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-05-21 21:11</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/tampermonkey-scripts" target="_blank" rel="noopener noreferrer">tampermonkey-scripts</a>
+  </td>
+
+  <td class="msg">
+      feat(gitlab-code-search): group results by repo with nested file expansion
+
+Results are now rendered as a two-level collapsible tree:
+
+  ▶ org/repo1  ·  15 results        (repo group, collapsed by default)
+    ▶ src/a.ts  ·  main             (file, collapsed)
+      Line 42: matched snippet      (snippet, expanded on click)
+    ▶ src/b.ts  ·  main
+
+Deep search results follow the same structure:
+
+  ▶ org/repo1  ·  2 files · 5 matches
+    ▶ package-lock.json  ·  main  ·  3 matches
+      1234  &#34;tanstack-hello&#34;: &#34;^1.0.0&#34;,
+
+Expand all / Collapse all now act on both levels simultaneously via the
+shared .gcs-collapsible class. Status bar shows result count + repo count.
+
+Co-Authored-By: Claude Sonnet 4.6 &lt;noreply@anthropic.com&gt;
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/tampermonkey-scripts/commit/674b5911b33533191378ecd1b38c51b944a76afd" target="_blank" rel="noopener noreferrer">674b591</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-05-21 20:06</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/tampermonkey-scripts" target="_blank" rel="noopener noreferrer">tampermonkey-scripts</a>
+  </td>
+
+  <td class="msg">
+      feat(gitlab-code-search): v1.3.0 — deep content search with 500+ file warning
+
+Deep search:
+- After Fetch All, a &#34;Deep content search&#34; section appears. Enter a literal
+  string (e.g. &#34;tanstack-hello&#34;: &#34;^1.0.0&#34;) and click Search.
+- Fetches full raw file content for each unique file in the API results via
+  /api/v4/projects/:id/repository/files/:path/raw — finds exact matches that
+  GitLab&#39;s tokenised Elasticsearch index would miss (hyphens, quotes, etc.).
+- Concurrency capped at 3 to avoid hammering the instance.
+- If the result set contains more than 500 unique files, an inline warning
+  shows the file count and asks the user to confirm before proceeding.
+- Results show one card per matched file with all matching lines (line number
+  + text); Expand/Collapse all works across both API and deep cards.
+- Export JSON/CSV adapts to deep mode: CSV is one row per matching line
+  with columns project_id, project_path, path, filename, ref, lineNum, text.
+- &#34;Clear — back to API results&#34; restores the original API result view.
+
+Filename + Extension quick-add fields:
+- Brought back as dedicated inputs next to the query box.
+- Filename always goes to the API query as filename:X (server-side).
+- Single extension goes server-side as extension:X; multiple extensions
+  fall back to client-side filtering (GitLab ANDs them → zero results).
+- Extension field also re-filters the displayed API results on change.
+
+Tests: 46 passing.
+
+Co-Authored-By: Claude Sonnet 4.6 &lt;noreply@anthropic.com&gt;
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/tampermonkey-scripts/commit/40f7e6f5aa668dfef12f92fd0d4af8b10b2ed361" target="_blank" rel="noopener noreferrer">40f7e6f</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-05-21 19:22</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/tampermonkey-scripts" target="_blank" rel="noopener noreferrer">tampermonkey-scripts</a>
+  </td>
+
+  <td class="msg">
+      feat(gitlab-code-search): v1.2.0 — explicit activation, literal filter, fix extension input
+
+Complete UX redesign:
+
+- Script no longer auto-runs. Injects a small &#34;⚡ Enhanced Search&#34; button at
+  the top of the results pane; native GitLab results stay visible until the
+  user clicks it.
+- On activation the panel replaces the native results pane. A &#34;✕ Close&#34; button
+  restores native results and reinstates the trigger button.
+- &#34;Fetch All&#34; button triggers the API fetch explicitly. Panel opens pre-filled
+  with the current GitLab query but does not auto-fetch.
+- Extension input replaced with a plain comma-separated text field. The
+  previous multi-tag widget appeared as a black/non-functional box because
+  (a) GitLab CSS custom properties don&#39;t exist on all self-hosted versions,
+  leaving background:transparent over a dark page, and (b) Enter key events
+  could be captured by an ancestor form. Both failure modes are eliminated.
+- Added client-side literal filter (post-fetch): searches paths and code
+  snippets with case-insensitive substring matching. Finds &#34;hello-world&#34; even
+  when GitLab&#39;s Elasticsearch tokenised it at the hyphen. A hint explains this.
+- Fuzzy/Exact mode toggle removed — too confusing, server-admin concern.
+- CSS now uses system colour keywords (Canvas/CanvasText/ButtonBorder) as
+  reliable fallbacks so the UI works on every GitLab version and theme.
+- buildQuery removed from utils; filterResults + parseExtensions added and
+  tested. Test count: 34.
+
+Co-Authored-By: Claude Sonnet 4.6 &lt;noreply@anthropic.com&gt;
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/tampermonkey-scripts/commit/7ad145b8d2885ccfc704867bcb61324a80c79892" target="_blank" rel="noopener noreferrer">7ad145b</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-05-21 17:18</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/tampermonkey-scripts" target="_blank" rel="noopener noreferrer">tampermonkey-scripts</a>
+  </td>
+
+  <td class="msg">
+      feat(gitlab-code-search): v1.1.0 — fix match patterns, collapsible results, auto-version
+
+- @include regex /\/search\?/ catches global GitLab search (/search?scope=blobs)
+  which @match cannot handle (it cannot inspect query strings); previous patterns
+  only matched /-/search paths used by project/group search
+- SPA nav guard updated to also recognise /search paths without /-/
+- Result cards now collapsed by default (snippet hidden); click header to expand,
+  chevron rotates to indicate state; Expand all / Collapse all in toolbar
+- build.mjs reads version from package.json so there&#39;s one source of truth
+
+Co-Authored-By: Claude Sonnet 4.6 &lt;noreply@anthropic.com&gt;
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/tampermonkey-scripts/commit/3c492312b7015f507fd73678639ce53395b04a80" target="_blank" rel="noopener noreferrer">3c49231</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-05-21 16:07</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/tampermonkey-scripts" target="_blank" rel="noopener noreferrer">tampermonkey-scripts</a>
+  </td>
+
+  <td class="msg">
+      fix(gitlab-code-search): send single extension server-side to avoid wasting result cap
+
+GitLab applies AND between multiple extension: filters (returning zero results),
+so multiple extensions must be filtered client-side. But for a single extension
+the API filter is strictly better — it uses the server&#39;s result budget only on
+matching file types instead of filtering down from a cap of unrelated results.
+
+Co-Authored-By: Claude Sonnet 4.6 &lt;noreply@anthropic.com&gt;
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/tampermonkey-scripts/commit/1673323e9f7431d92d9698d0adf89881d7e3608c" target="_blank" rel="noopener noreferrer">1673323</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-05-21 11:03</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/tampermonkey-scripts" target="_blank" rel="noopener noreferrer">tampermonkey-scripts</a>
+  </td>
+
+  <td class="msg">
+      fix(gitlab-code-search): resolve repo paths in results and fix extension filter
+
+GitLab&#39;s blob search API returns only a numeric project_id; the path field is
+the file path within the repo, not a full URL path. This caused every result
+link to point to the wrong place and &#34;Copy repos&#34; to return file-path segments
+instead of namespace/repo pairs.
+
+- Fetch /api/v4/projects/{id} for each unique project_id after search and
+  enrich results with project_path (namespace/repo), cached per session
+- Build correct file URLs: {origin}/{project_path}/-/blob/{ref}/{path}
+- Show project_path as a dim label above each result card
+- Fix extractRepoPaths to use project_path directly
+
+Extension filter was sent as extension:X in the server query, which uses AND
+logic server-side (impossible to match two extensions simultaneously) and only
+works on instances with Elasticsearch Advanced Search enabled. Moved to
+client-side OR filtering applied after fetch, so it works reliably everywhere
+and multiple extensions are OR&#39;d correctly.
+
+Co-Authored-By: Claude Sonnet 4.6 &lt;noreply@anthropic.com&gt;
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/tampermonkey-scripts/commit/e96cc903d0fdadd4f2f4a125c26ae35462638d35" target="_blank" rel="noopener noreferrer">e96cc90</a>
+  </td>
+</tr><tr class="">
     <td class="when">2026-05-20 22:56</td>
 
   <td class="repo">
@@ -3500,119 +3705,21 @@ Co-Authored-By: Claude Opus 4.7 &lt;noreply@anthropic.com&gt;
   <td class="sha">
       <span class="redact" aria-label="redacted sha" role="img">131dfe8</span>
   </td>
-</tr><tr class="named">
-    <td class="when">2026-05-16 19:56</td>
-
-  <td class="repo">
-      agent-config
-  </td>
-
-  <td class="msg">
-      <span class="redact" aria-label="redacted message" role="img">bump verbose service</span>
-  </td>
-
-  <td class="sha">
-      <span class="redact" aria-label="redacted sha" role="img">2d86292</span>
-  </td>
-</tr><tr class="named">
-    <td class="when">2026-05-16 19:55</td>
-
-  <td class="repo">
-      agent-sandbox
-  </td>
-
-  <td class="msg">
-      <span class="redact" aria-label="redacted message" role="img">test: improve duplicate facade when dispatcher changes</span>
-  </td>
-
-  <td class="sha">
-      <span class="redact" aria-label="redacted sha" role="img">f8f4470</span>
-  </td>
-</tr><tr class="named">
-    <td class="when">2026-05-16 19:54</td>
-
-  <td class="repo">
-      agent-sandbox
-  </td>
-
-  <td class="msg">
-      <span class="redact" aria-label="redacted message" role="img">feat: rename watcher in task</span>
-  </td>
-
-  <td class="sha">
-      <span class="redact" aria-label="redacted sha" role="img">6c3063f</span>
-  </td>
-</tr><tr class="named">
-    <td class="when">2026-05-16 19:54</td>
-
-  <td class="repo">
-      agent-sandbox
-  </td>
-
-  <td class="msg">
-      <span class="redact" aria-label="redacted message" role="img">rebuild silent session in reader</span>
-  </td>
-
-  <td class="sha">
-      <span class="redact" aria-label="redacted sha" role="img">2382971</span>
-  </td>
-</tr><tr class="named">
-    <td class="when">2026-05-16 19:53</td>
-
-  <td class="repo">
-      agent-sandbox
-  </td>
-
-  <td class="msg">
-      <span class="redact" aria-label="redacted message" role="img">move the flaky registry</span>
-  </td>
-
-  <td class="sha">
-      <span class="redact" aria-label="redacted sha" role="img">4ea5dbe</span>
-  </td>
-</tr><tr class="named">
-    <td class="when">2026-05-16 19:52</td>
-
-  <td class="repo">
-      agent-sandbox
-  </td>
-
-  <td class="msg">
-      <span class="redact" aria-label="redacted message" role="img">loosen view (duplicate)</span>
-  </td>
-
-  <td class="sha">
-      <span class="redact" aria-label="redacted sha" role="img">80d97cd</span>
-  </td>
-</tr><tr class="named">
-    <td class="when">2026-05-16 19:51</td>
-
-  <td class="repo">
-      agent-sandbox
-  </td>
-
-  <td class="msg">
-      <span class="redact" aria-label="redacted message" role="img">wip: improve pipeline for controller</span>
-  </td>
-
-  <td class="sha">
-      <span class="redact" aria-label="redacted sha" role="img">b53d989</span>
-  </td>
 </tr>        </tbody>
       </table>
 
       <nav class="pager" aria-label="Pagination">
-        <div class="of">page 1 of 7</div>
+        <div class="of">page 1 of 8</div>
         <div class="nav">
             <span class="step disabled" aria-disabled="true">« first</span>
             <span class="step disabled" aria-disabled="true">‹ newer</span>
               <a class="num current" href="" aria-current="page" aria-label="Page 1">1</a>
               <a class="num " href="page/2/" aria-label="Page 2">2</a>
               <span class="ellipsis" aria-hidden="true">…</span>
-              <a class="num " href="page/6/" aria-label="Page 6">6</a>
               <a class="num " href="page/7/" aria-label="Page 7">7</a>
+              <a class="num " href="page/8/" aria-label="Page 8">8</a>
             <a class="step" href="page/2/" rel="next" aria-label="Older page">older ›</a>
-            <a class="step" href="page/7/" aria-label="Last page">last »</a>
+            <a class="step" href="page/8/" aria-label="Last page">last »</a>
         </div>
       </nav>
 
@@ -3622,7 +3729,7 @@ Co-Authored-By: Claude Opus 4.7 &lt;noreply@anthropic.com&gt;
     <a href="https://github.com/curtyo18" target="_blank" rel="noopener noreferrer">github</a> · <a href="mailto:curtyo18@gmail.com">email</a>
   </div>
   <div class="stats" style="align-items:center">
-    <span><b>1,399</b> commits</span>
+    <span><b>1,406</b> commits</span>
     <span><b>69</b> repos</span>
     <span><b>17</b> years</span>
   </div>
