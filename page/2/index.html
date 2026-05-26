@@ -16,13 +16,13 @@
     <small>curt — a public log of private and public work</small>
   </h1>
   <div class="meta">
-    <span><b>1,412</b> commits indexed</span>
-    <span><b>69</b> repos · <b>17</b> years</span>
+    <span><b>1,490</b> commits indexed</span>
+    <span><b>70</b> repos · <b>17</b> years</span>
   </div>
 </div>
       <div class="gr-section-title" style="margin-top:36px">
         <span>All commits · newest first</span>
-        <span class="right">showing 201–400 of 1412</span>
+        <span class="right">showing 201–400 of 1490</span>
       </div>
 
       <table class="gr-table">
@@ -35,10 +35,1372 @@
             <tr class="gr-month-row">
               <td colspan="4">
                 May 2026
-                <span>153 commits · 67 public</span>
+                <span>200 commits · 91 public</span>
               </td>
             </tr>
-<tr class="named">
+<tr class="">
+    <td class="when">2026-05-17 18:40</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/FileOrganizer" target="_blank" rel="noopener noreferrer">FileOrganizer</a>
+  </td>
+
+  <td class="msg">
+      fix(catalog): use async readdir in quarantine-orphan detection
+
+CI lint rule no-restricted-syntax bans readdirSync on the engine HTTP
+path. Convert the new collectLeafFiles and detectQuarantineOrphans
+helpers to async using fs.promises.readdir, matching the rest of the
+reconciler which is already async.
+
+No behavior change; recursive traversal is sequential (await per
+subdirectory), which is fine for the bounded quarantine folder size.
+
+Co-Authored-By: Claude Opus 4.7 &lt;noreply@anthropic.com&gt;
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/FileOrganizer/commit/4208b9685e80ce7beb45cec0071e2b2d4f992e1a" target="_blank" rel="noopener noreferrer">4208b96</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-05-17 18:24</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/FileOrganizer" target="_blank" rel="noopener noreferrer">FileOrganizer</a>
+  </td>
+
+  <td class="msg">
+      fix(catalog): extend startup reconciler to detect quarantine orphans
+
+The startup reconciler previously only scanned `operations` rows with
+`status=&#39;in-progress&#39;`. A crash between `renameSync` and the subsequent
+`INSERT INTO quarantine` in `quarantineFile` left files in the
+quarantine folder with no catalog row, invisible to recovery.
+
+Adds an additive quarantine-scope pass that, for each registered drive,
+walks `_FileOrganizer_quarantine/` and cross-references against the
+`quarantine` table. Files present on disk but absent from the table are
+surfaced as orphans via the reconcile result and structured logs.
+
+The fix preserves the spec §12.3 filesystem-first ordering invariant;
+no change to `quarantineFile` itself. Spec §12.3 updated to describe
+the expanded reconciler scope.
+
+Closes #19
+
+Co-Authored-By: Claude Opus 4.7 &lt;noreply@anthropic.com&gt;
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/FileOrganizer/commit/2e1c67b232cbab7ebdf5f21c2a53666f3483465d" target="_blank" rel="noopener noreferrer">2e1c67b</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-05-17 18:08</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/FileOrganizer" target="_blank" rel="noopener noreferrer">FileOrganizer</a>
+  </td>
+
+  <td class="msg">
+      chore: add .gitattributes and normalize line endings to LF
+
+Adds .gitattributes to enforce LF line endings across all text files,
+with explicit binary overrides for images, compiled artifacts, and the
+packages/engine/bin/ directory. Runs git add --renormalize . in the
+same commit so the entire history baseline is now LF-normalized;
+subsequent WSL2 clones no longer show the CRLF/LF noise diff.
+
+Closes #18
+
+Co-Authored-By: Claude Opus 4.7 &lt;noreply@anthropic.com&gt;
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/FileOrganizer/commit/e036fcdd3c07cd26aab2bdebabea585f54de7c6a" target="_blank" rel="noopener noreferrer">e036fcd</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-05-17 17:00</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/charity" target="_blank" rel="noopener noreferrer">charity</a>
+  </td>
+
+  <td class="msg">
+      fix: set accurate dates for 2022-2025 bake sales
+
+Co-Authored-By: Claude Opus 4.7 &lt;noreply@anthropic.com&gt;
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/charity/commit/e89b096f51dbf07eabf0b973dc495ed92e7acc89" target="_blank" rel="noopener noreferrer">e89b096</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-05-17 16:56</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/charity" target="_blank" rel="noopener noreferrer">charity</a>
+  </td>
+
+  <td class="msg">
+      feat: remove peak annotation from year chart header
+
+Co-Authored-By: Claude Opus 4.7 &lt;noreply@anthropic.com&gt;
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/charity/commit/1c16717d331eaf135ef737d331233b67bcffd40d" target="_blank" rel="noopener noreferrer">1c16717</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-05-17 16:49</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/charity" target="_blank" rel="noopener noreferrer">charity</a>
+  </td>
+
+  <td class="msg">
+      docs: update public-readiness rules and link the live site
+
+- Allow third-party / owner-own personal names where they appear in publicly-linked URLs (e.g. JustGiving slugs).
+- Link the GitHub Pages URL near the top.
+
+Co-Authored-By: Claude Opus 4.7 &lt;noreply@anthropic.com&gt;
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/charity/commit/f300a526ac51ac82a3cb838e49bf699302d9ec5e" target="_blank" rel="noopener noreferrer">f300a52</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-05-17 16:34</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/charity" target="_blank" rel="noopener noreferrer">charity</a>
+  </td>
+
+  <td class="msg">
+      feat: add JustGiving links for 2022-2025 bake sales
+
+Co-Authored-By: Claude Opus 4.7 &lt;noreply@anthropic.com&gt;
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/charity/commit/21900bb5491449cbcfeede3efbd62c108185ccec" target="_blank" rel="noopener noreferrer">21900bb</a>
+  </td>
+</tr><tr class="named">
+    <td class="when">2026-05-17 15:43</td>
+
+  <td class="repo">
+      agent-config
+  </td>
+
+  <td class="msg">
+      <span class="redact" aria-label="redacted message" role="img">chore: deprecate early worker for the silent scheduler</span>
+  </td>
+
+  <td class="sha">
+      <span class="redact" aria-label="redacted sha" role="img">b29c17b</span>
+  </td>
+</tr><tr class="named">
+    <td class="when">2026-05-17 15:43</td>
+
+  <td class="repo">
+      agent-config
+  </td>
+
+  <td class="msg">
+      <span class="redact" aria-label="redacted message" role="img">refactor: loosen redundant writer for the broken runner</span>
+  </td>
+
+  <td class="sha">
+      <span class="redact" aria-label="redacted sha" role="img">82a97fa</span>
+  </td>
+</tr><tr class="named">
+    <td class="when">2026-05-17 15:43</td>
+
+  <td class="repo">
+      agent-config
+  </td>
+
+  <td class="msg">
+      <span class="redact" aria-label="redacted message" role="img">init faster handler in producer</span>
+  </td>
+
+  <td class="sha">
+      <span class="redact" aria-label="redacted sha" role="img">2d81c6c</span>
+  </td>
+</tr><tr class="named">
+    <td class="when">2026-05-17 15:43</td>
+
+  <td class="repo">
+      agent-config
+  </td>
+
+  <td class="msg">
+      <span class="redact" aria-label="redacted message" role="img">fix: migrate runner (silent)</span>
+  </td>
+
+  <td class="sha">
+      <span class="redact" aria-label="redacted sha" role="img">079c70e</span>
+  </td>
+</tr><tr class="named">
+    <td class="when">2026-05-17 15:43</td>
+
+  <td class="repo">
+      agent-config
+  </td>
+
+  <td class="msg">
+      <span class="redact" aria-label="redacted message" role="img">refactor: simplify indexer</span>
+  </td>
+
+  <td class="sha">
+      <span class="redact" aria-label="redacted sha" role="img">3e1e462</span>
+  </td>
+</tr><tr class="named">
+    <td class="when">2026-05-17 15:43</td>
+
+  <td class="repo">
+      agent-config
+  </td>
+
+  <td class="msg">
+      <span class="redact" aria-label="redacted message" role="img">expose facade for model</span>
+  </td>
+
+  <td class="sha">
+      <span class="redact" aria-label="redacted sha" role="img">38b9f86</span>
+  </td>
+</tr><tr class="named">
+    <td class="when">2026-05-17 15:43</td>
+
+  <td class="repo">
+      agent-config
+  </td>
+
+  <td class="msg">
+      <span class="redact" aria-label="redacted message" role="img">drop faster worker</span>
+  </td>
+
+  <td class="sha">
+      <span class="redact" aria-label="redacted sha" role="img">9a25977</span>
+  </td>
+</tr><tr class="named">
+    <td class="when">2026-05-17 15:43</td>
+
+  <td class="repo">
+      agent-config
+  </td>
+
+  <td class="msg">
+      <span class="redact" aria-label="redacted message" role="img">harden service in cache</span>
+  </td>
+
+  <td class="sha">
+      <span class="redact" aria-label="redacted sha" role="img">743ba3c</span>
+  </td>
+</tr><tr class="named">
+    <td class="when">2026-05-17 14:39</td>
+
+  <td class="repo">
+      agent-sandbox
+  </td>
+
+  <td class="msg">
+      <span class="redact" aria-label="redacted message" role="img">guard tighter decoder</span>
+  </td>
+
+  <td class="sha">
+      <span class="redact" aria-label="redacted sha" role="img">fab5e88</span>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-05-17 13:19</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/ClipCutter" target="_blank" rel="noopener noreferrer">ClipCutter</a>
+  </td>
+
+  <td class="msg">
+      feat(cli): auto-find a free port when --port is omitted
+
+The ui command&#39;s --port default is now None; when omitted, _find_free_port
+walks 8000..8099 and returns the first bindable port (falls back to an
+OS-picked ephemeral port if the whole range is busy). Explicit --port N
+still uses exactly N or fails — handy for shortcuts that want a fixed URL.
+
+Avoids the &#34;address already in use&#34; failure mode when a previous
+ClipCutter window is still holding the default port.
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/ClipCutter/commit/f0542c5a753c852aed5a093981a6d49846344a7c" target="_blank" rel="noopener noreferrer">f0542c5</a>
+  </td>
+</tr><tr class="named">
+    <td class="when">2026-05-17 13:04</td>
+
+  <td class="repo">
+      agent-sandbox
+  </td>
+
+  <td class="msg">
+      <span class="redact" aria-label="redacted message" role="img">simplify encoder and tweak client</span>
+  </td>
+
+  <td class="sha">
+      <span class="redact" aria-label="redacted sha" role="img">76660c8</span>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-05-17 12:59</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/ClipCutter" target="_blank" rel="noopener noreferrer">ClipCutter</a>
+  </td>
+
+  <td class="msg">
+      test(detector): fix extract_audio arg in smoke tests (dir not file)
+
+extract_audio takes (video_path, output_dir) — it mkdir&#39;s the second arg
+and returns the actual wav path inside it. The two smoke tests added in
+238933f passed a file path, which made the function mkdir &#39;audio.wav&#39; as
+a directory. Because the tests were @requires_ffmpeg-skipped in the
+no-ffmpeg sandbox where they were authored, the misuse was never caught.
+
+Fixed by passing Path(tmp) and capturing the returned wav path.
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/ClipCutter/commit/e946bbf4e3f340f5414db67a38d80ad3b2174d1f" target="_blank" rel="noopener noreferrer">e946bbf</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-05-17 12:36</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/ClipCutter" target="_blank" rel="noopener noreferrer">ClipCutter</a>
+  </td>
+
+  <td class="msg">
+      docs(plan): record the review-fixes plan that drove this branch
+
+Plan file used by superpowers:subagent-driven-development to execute
+21 tasks from the 2026-05-17 code/test review. Includes the upfront
+HITL decisions (merge re-process state; remove compile cancel;
+canonical /video/{kind}/{stem}/{file}).
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/ClipCutter/commit/84052a9e6e821e614f6a3a86546a16811c2b6390" target="_blank" rel="noopener noreferrer">84052a9</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-05-17 12:32</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/ClipCutter" target="_blank" rel="noopener noreferrer">ClipCutter</a>
+  </td>
+
+  <td class="msg">
+      test: cover cancel routes, 409 already-running, keep validation, waveform errors
+
+Adds coverage for the gaps identified in the 2026-05-17 review:
+- POST /api/encode/cancel and /api/youtube/upload/cancel end-to-end.
+- POST /api/compilation/cancel now 404 (removed in Task 10).
+- 409 &#34;already running&#34; on process / encode / compilation.
+- Keep with segment shorter than CLIP_MIN_LENGTH_SECONDS returns 400.
+- GET /api/waveform error paths (ffmpeg failure, no audio).
+- /api/sources LIST + DELETE happy paths + 404.
+- GET /api/youtube/status with no creds file returns authenticated=false.
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/ClipCutter/commit/833a21909ae6614bcfb84c33fdfb603bdded09a6" target="_blank" rel="noopener noreferrer">833a219</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-05-17 12:21</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/ClipCutter" target="_blank" rel="noopener noreferrer">ClipCutter</a>
+  </td>
+
+  <td class="msg">
+      test(ui): browser tests use live server HTTP, not a second AppState
+
+test_export_shows_kept_clips and test_preview_modal_uses_saved_volume
+were constructing TestClient(create_app(output_dir)) inside the test
+body to drive backend keep actions, then polling status against the
+test app&#39;s in-memory state. But the live uvicorn server (from
+live_app) has its own AppState — tasks landed in the test app&#39;s
+state.keep aren&#39;t visible to the live server.
+
+Switched to requests.post / requests.get against `${live_app}/...`
+so the tests actually exercise the same backend the browser hits.
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/ClipCutter/commit/8cde702de9360f37ca19c1543407d926fa77d38b" target="_blank" rel="noopener noreferrer">8cde702</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-05-17 12:12</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/ClipCutter" target="_blank" rel="noopener noreferrer">ClipCutter</a>
+  </td>
+
+  <td class="msg">
+      fix(ui): inflight-token + modal teardown + YT auth listener cleanup
+
+- loadExportTab now captures an inflightLoadToken at start and
+  bails before assigning keptClips/storageSummary if a newer call
+  superseded it. loadPastCompilations only writes to the DOM and
+  has no module-level state to corrupt, so it doesn&#39;t need the
+  same guard.
+- switchTab now also tears down the clipPreviewModal via
+  closePreviewModal so the preview doesn&#39;t float over the new tab
+  and the document-level keydown listener is detached.
+- YouTube auth message listener now has popup.closed polling and
+  a 5-minute fallback timeout. All three exit paths
+  (success / popup-closed / timeout) detach the listener and
+  clear the timers.
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/ClipCutter/commit/b529e5ec20540828dcd59eab651dca09d321a834" target="_blank" rel="noopener noreferrer">b529e5e</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-05-17 12:06</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/ClipCutter" target="_blank" rel="noopener noreferrer">ClipCutter</a>
+  </td>
+
+  <td class="msg">
+      fix(metadata): re-process preserves review/encode/upload state via merge
+
+save_metadata now merges with any existing metadata file instead of
+unconditional overwrite. For matching filenames, preserves status,
+custom_name, encoded_filename, encoding_preset, youtube_video_id,
+youtube_url, youtube_upload_status, highlight_regions, and
+user-trimmed duration (when status != pending). New detection-only
+fields (confidence, detection_reasons, start_time, end_time) come
+from the new run. Orphan-kept clips (in old, not in new) survive.
+
+Routed through mutate_metadata so the per-path lock from Task 5
+prevents concurrent corruption.
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/ClipCutter/commit/00cbe0e5996964fb9edc225fa08f17e1ae3af980" target="_blank" rel="noopener noreferrer">00cbe0e</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-05-17 11:58</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/ClipCutter" target="_blank" rel="noopener noreferrer">ClipCutter</a>
+  </td>
+
+  <td class="msg">
+      test(ui): replace wait_for_timeout sleeps with explicit expect() waits
+
+~13 sites in test_ui_browser.py used arbitrary millisecond sleeps
+to wait for state changes. Replaced each with the explicit
+observable the test was actually waiting on
+(expect(locator).to_be_visible / to_contain_text / to_have_count).
+
+Also drops the &#34;1 kept&#34; optimistic-counter assertion from
+test_keep_clip_via_button — it always passes since the FE updates
+the counter on click, regardless of whether the backend keep
+actually succeeded; _wait_for_path remains the load-bearing check.
+
+And rewrites test_chip_pct_moves_during_run to assert progress
+actually moved past 0 and crossed 50%, rather than counting
+&gt;=3 distinct values within a 6s window (which flaked on fast hosts).
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/ClipCutter/commit/618017ca9a361ff0e1909ec9f991c7b5b827c646" target="_blank" rel="noopener noreferrer">618017c</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-05-17 11:49</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/ClipCutter" target="_blank" rel="noopener noreferrer">ClipCutter</a>
+  </td>
+
+  <td class="msg">
+      perf(detection): vectorize compute_rolling_zscore + median_filter
+
+compute_rolling_zscore used a Python frame loop calling shifted-
+cumsum math for ~25k iterations per call. Replaced with fully
+vectorized numpy — output is float-tolerant equivalent on existing
+fixtures.
+
+sudden-noise&#39;s local-median was [np.median(...) for i in range],
+~25k np.median calls per video. Replaced with
+scipy.ndimage.median_filter(..., mode=&#39;reflect&#39;) — single C call
+with matching reflect-mode semantics.
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/ClipCutter/commit/238933f5a3ea1a398fac06cfa2214d65f4ad2f14" target="_blank" rel="noopener noreferrer">238933f</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-05-17 11:37</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/ClipCutter" target="_blank" rel="noopener noreferrer">ClipCutter</a>
+  </td>
+
+  <td class="msg">
+      fix(misc): GIF -an, ffmpeg error surfacing, glob tightening, leftover reporting
+
+Bundle of surgical MEDIUM fixes:
+- encoder.py GIF slowdown branch now includes -an (parity with non-slowdown).
+- audio.py:extract_clip surfaces stream-copy stderr unless the error
+  matches a known fallback-worthy pattern.
+- audio.py:extract_audio ffprobe uses check=True; distinguishes
+  probe failure from no-audio-stream.
+- models.py:ClipMetadata.highlight_regions defaults to [] not None;
+  from_dict coerces null for backward compat.
+- routes/compile.py:list_compilations glob tightened to the
+  comp_YYYYMMDD_HHMMSS pattern.
+- routes/encode.py:delete_kept_clip and routes/compile.py:delete_compilation
+  surface leftover_files when the cleanup is partial.
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/ClipCutter/commit/c59b846b226f5be24bc738a958182c9a5fbae723" target="_blank" rel="noopener noreferrer">c59b846</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-05-17 11:22</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/ClipCutter" target="_blank" rel="noopener noreferrer">ClipCutter</a>
+  </td>
+
+  <td class="msg">
+      refactor(routes): canonical /video/{kind}/{stem}/{file} URL shape
+
+Replaces the silent pending-&gt;kept-&gt;encoded fallback in serve_video
+with an explicit kind path component. Drops the redundant
+/video/encoded/{stem}/{file} route. Compilations stay at
+/video/compilation/{file}.
+
+Frontend callers updated to pass the kind they actually want;
+backend URL builders in list_kept and friends emit the new shape.
+
+Breaking: any hand-built /video/{stem}/{file} URLs now 404.
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/ClipCutter/commit/b123d74a02c4c229d051a790ac03fbd4d696c67f" target="_blank" rel="noopener noreferrer">b123d74</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-05-17 11:08</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/ClipCutter" target="_blank" rel="noopener noreferrer">ClipCutter</a>
+  </td>
+
+  <td class="msg">
+      fix(lifecycle): async startup cleanup, sweep waveform sidecars, cap log_lines
+
+- _cleanup_stale_pending now runs in a startup-hook background
+  thread so the server can accept requests immediately even on
+  a pending/ tree with many stale clips.
+- Sweep also unlinks the .waveform.json sidecars that lived next
+  to each pending clip, so video_dir.rmdir() actually succeeds.
+- ProcessState.log_lines is now a deque(maxlen=500), so a long
+  processing run doesn&#39;t ship a growing-without-bound payload
+  on every /api/process/status poll.
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/ClipCutter/commit/942250de6c98e0677ebf270dcc238c56853c33a9" target="_blank" rel="noopener noreferrer">942250d</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-05-17 11:02</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/ClipCutter" target="_blank" rel="noopener noreferrer">ClipCutter</a>
+  </td>
+
+  <td class="msg">
+      fix(clipper): clamp split point + bound recursion + isolate merged highlights
+
+compute_clip_boundaries was sharing highlight lists across merges,
+so a merged boundary could carry highlights from outside its time
+range. Splitter assumed all highlights fell inside the boundary
+and could compute split_point outside [start, end] when adjacent
+highlights overlapped, causing negative-duration sub-boundaries or
+runaway recursion.
+
+- Merge uses list(...) copy + filters highlights by merged range.
+- _split_long_clip clamps split_point into [start+MIN, end-MIN].
+- Depth-bounded recursion (max 6) falls back to even halving.
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/ClipCutter/commit/6ab20ff15c6e857ade081e6dbf3da158f06fb4e7" target="_blank" rel="noopener noreferrer">6ab20ff</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-05-17 10:54</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/ClipCutter" target="_blank" rel="noopener noreferrer">ClipCutter</a>
+  </td>
+
+  <td class="msg">
+      security(oauth): state param, partial-creds rejection, token persistence
+
+- get_auth_url generates a single-use random state; oauth_callback
+  verifies it (400 on mismatch/missing) before exchanging code.
+- load_credentials returns None when refresh_token is empty, so
+  stale stub files no longer fool authenticated-only routes.
+- youtube_upload worker re-persists creds when the access token
+  changed during a batch, preventing invalid_grant mid-run.
+- youtube_status maps RefreshError to &#34;expired&#34; but surfaces other
+  errors with their class + message instead of always saying expired.
+- UploadResult gains permanent: bool; upload_video classifies
+  HttpError 4xx as permanent, 5xx as transient.
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/ClipCutter/commit/65ff1eb5c825aad532dc696bc71a5b0166e14745" target="_blank" rel="noopener noreferrer">65ff1eb</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-05-17 10:43</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/ClipCutter" target="_blank" rel="noopener noreferrer">ClipCutter</a>
+  </td>
+
+  <td class="msg">
+      fix(subprocess): close remaining ffmpeg-hang vectors in keep routes
+
+Follow-up to 263300e. Tasks: replace the 3600s sentinel in
+review.py:_run_ffmpeg with KEEP_FFMPEG_TIMEOUT=600 + FFmpegTimeoutError;
+add timeout=30 to _probe_duration; strengthen
+test_worker_timeout_recorded_as_per_clip_error to a two-clip batch so
+it actually proves the batch advances after a timeout; remove the
+unused FFMPEG_CHECK_TIMEOUT constant in audio.py.
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/ClipCutter/commit/30e1bddab51e23af89a73d299f7e5cff960d43a7" target="_blank" rel="noopener noreferrer">30e1bdd</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-05-17 10:36</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/ClipCutter" target="_blank" rel="noopener noreferrer">ClipCutter</a>
+  </td>
+
+  <td class="msg">
+      fix(subprocess): add timeouts to ffmpeg/ffprobe + OAuth HTTP
+
+Every subprocess.run / Popen.communicate in audio.py, encoder.py,
+compiler.py and the encode-worker Popen now passes timeout= with
+sensible ceilings (ffprobe 30s, clip extract 60s, encode 600s,
+compile 1800s). TimeoutExpired is caught and re-raised as
+FFmpegTimeoutError so callers can map it cleanly.
+
+requests.post in clipcutter/youtube.py (exchange_code,
+refresh_access_token) gets a 30s timeout to keep the OAuth
+callback from wedging a request thread.
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/ClipCutter/commit/263300eacd57370d63d6b2b31d7a1f6ccecba4aa" target="_blank" rel="noopener noreferrer">263300e</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-05-17 10:24</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/ClipCutter" target="_blank" rel="noopener noreferrer">ClipCutter</a>
+  </td>
+
+  <td class="msg">
+      refactor(compile): remove dead cancel endpoint and field
+
+POST /api/compilation/cancel set state.comp.cancelled but no worker
+ever read it. Compilations are short enough that half-built file +
+restart is fine; the cancel button was UX theatre. Drops the backend
+route, the state field, and the frontend button + handler + API call.
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/ClipCutter/commit/08b3fee08344b0e75b31684cbf71a4c047037654" target="_blank" rel="noopener noreferrer">08b3fee</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-05-17 10:17</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/ClipCutter" target="_blank" rel="noopener noreferrer">ClipCutter</a>
+  </td>
+
+  <td class="msg">
+      fix(youtube): per-chunk cancel + timeout on upload loop
+
+upload_video now checks cancel_event between chunks and passes
+num_retries=3 to next_chunk(). HTTP client gets a 120s timeout
+so a stalled socket can&#39;t wedge the worker. UploadResult gains
+cancelled: bool so the UI can distinguish user cancel from error.
+
+state.upl.cancelled converted to threading.Event for memory-barrier
+semantics, same pattern as Task 8.
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/ClipCutter/commit/15db8909b829eb5faa5691ab8f6d882fa4cacfc0" target="_blank" rel="noopener noreferrer">15db890</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-05-17 10:07</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/ClipCutter" target="_blank" rel="noopener noreferrer">ClipCutter</a>
+  </td>
+
+  <td class="msg">
+      fix(cancel): Popen-based cancel + threading.Event for encode/keep
+
+Cancel routes now hold a reference to the active subprocess.Popen
+and call .terminate() (+ .kill() after 5s) instead of just toggling
+a between-iteration flag. cancelled bools converted to threading.Event
+so reset() and cancel writes have proper memory-barrier semantics.
+
+Compile and YouTube cancellation handled in Tasks 10 + 9 respectively.
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/ClipCutter/commit/56b477b183c77863ec7f7fe108ee17cf930d93ea" target="_blank" rel="noopener noreferrer">56b477b</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-05-17 09:56</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/ClipCutter" target="_blank" rel="noopener noreferrer">ClipCutter</a>
+  </td>
+
+  <td class="msg">
+      fix(routes): cross-platform open_folder (xdg-open / open / startfile)
+
+The route now branches on sys.platform: Windows uses os.startfile,
+macOS uses `open`, Linux uses `xdg-open`. Subprocess.Popen is
+fire-and-forget; FileNotFoundError returns 501. Old test marked
+Windows-only; added Linux and macOS variants.
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/ClipCutter/commit/981944d96a1c194e7a73af4764967c767c5501b4" target="_blank" rel="noopener noreferrer">981944d</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-05-17 09:48</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/ClipCutter" target="_blank" rel="noopener noreferrer">ClipCutter</a>
+  </td>
+
+  <td class="msg">
+      fix(metadata): per-path lock on update_clip_* to prevent lost writes
+
+Each update_clip_* used to do an unlocked read-mutate-write. Two
+threads (encode worker + keep request, etc.) could interleave and
+lose the earlier write. New mutate_metadata helper takes a per-path
+threading.Lock and atomically reads, mutates, and rewrites.
+
+Each updater now returns bool indicating whether the filename matched.
+Routes 404 on miss (delete_kept_clip, discard_clip), log-warn for
+background workers (encode, youtube, compile sources delete), or
+500 for post-validation invariants (keep_clip).
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/ClipCutter/commit/d23fd055c113fd0612838e3c1278bd81c932185c" target="_blank" rel="noopener noreferrer">d23fd05</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-05-17 09:41</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/ClipCutter" target="_blank" rel="noopener noreferrer">ClipCutter</a>
+  </td>
+
+  <td class="msg">
+      security(ui): properly escape quotes + migrate inline onclick to data-* handlers
+
+escapeHtml previously only escaped &amp; &lt; &gt; via textContent/innerHTML
+round-trip, leaving &#34; and &#39; unescaped. Any user-controlled value
+(custom_name, source paths, playlist titles) hitting an attribute
+or inline-JS context could break out.
+
+Now escapes the standard 5 chars (&amp; &lt; &gt; &#34; &#39;). Inline onclick handlers
+that previously interpolated string args now read from data-* attrs
+via this.dataset, eliminating the JS-string-context layer entirely.
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/ClipCutter/commit/d9135546440e5a33fc886fe82b3b1f0b5ea85bc3" target="_blank" rel="noopener noreferrer">d913554</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-05-17 09:30</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/ClipCutter" target="_blank" rel="noopener noreferrer">ClipCutter</a>
+  </td>
+
+  <td class="msg">
+      security(routes): add _safe_join to validate path params
+
+Routes that join untrusted video_stem / filename / compilation_id
+into the filesystem (serve_video, get_waveform, delete_kept_clip,
+delete_encoded_clip, open_folder, delete_compilation,
+delete_compilation_sources, serve_compilation_video) now route through
+_safe_join, which resolves and verifies relative_to(base). Escapes
+raise 400 instead of touching the filesystem.
+
+Tests cover traversal rejection on one read and one delete endpoint.
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/ClipCutter/commit/cbf2bd9e31083833092247da58480d9e07416cd7" target="_blank" rel="noopener noreferrer">cbf2bd9</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-05-17 09:10</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/ClipCutter" target="_blank" rel="noopener noreferrer">ClipCutter</a>
+  </td>
+
+  <td class="msg">
+      chore: declare youtube and dev optional-dependency groups
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/ClipCutter/commit/8982955dc91e881c6154f4636731b88f5fd689dd" target="_blank" rel="noopener noreferrer">8982955</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-05-17 09:06</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/ClipCutter" target="_blank" rel="noopener noreferrer">ClipCutter</a>
+  </td>
+
+  <td class="msg">
+      chore: add .gitattributes and renormalize line endings to LF
+
+Working tree had CRLF endings from a Windows mount, while HEAD was LF.
+Every checkout produced noisy modified files. Lock to LF except .bat.
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/ClipCutter/commit/962392bb11a77e9cd9633d4883c45cbeca58700e" target="_blank" rel="noopener noreferrer">962392b</a>
+  </td>
+</tr><tr class="anon">
+    <td class="when">2026-05-17</td>
+
+  <td class="repo">
+      <span class="redact-strong" aria-label="redacted repo" role="img">queue</span>
+  </td>
+
+  <td class="msg">
+      <span class="redact-strong" aria-label="redacted message" role="img">chore: rename dead queue</span>
+  </td>
+
+  <td class="sha">
+      <span class="redact-strong" aria-label="redacted sha" role="img">421395c</span>
+  </td>
+</tr><tr class="anon">
+    <td class="when">2026-05-17</td>
+
+  <td class="repo">
+      <span class="redact-strong" aria-label="redacted repo" role="img">wrapper-cache</span>
+  </td>
+
+  <td class="msg">
+      <span class="redact-strong" aria-label="redacted message" role="img">wip: migrate service in reader</span>
+  </td>
+
+  <td class="sha">
+      <span class="redact-strong" aria-label="redacted sha" role="img">925d788</span>
+  </td>
+</tr><tr class="anon">
+    <td class="when">2026-05-17</td>
+
+  <td class="repo">
+      <span class="redact-strong" aria-label="redacted repo" role="img">validator</span>
+  </td>
+
+  <td class="msg">
+      <span class="redact-strong" aria-label="redacted message" role="img">docs: fix the duplicate store</span>
+  </td>
+
+  <td class="sha">
+      <span class="redact-strong" aria-label="redacted sha" role="img">2ee1a13</span>
+  </td>
+</tr><tr class="named">
+    <td class="when">2026-05-16 23:59</td>
+
+  <td class="repo">
+      agent-sandbox
+  </td>
+
+  <td class="msg">
+      <span class="redact" aria-label="redacted message" role="img">wip: init task</span>
+  </td>
+
+  <td class="sha">
+      <span class="redact" aria-label="redacted sha" role="img">1171265</span>
+  </td>
+</tr><tr class="named">
+    <td class="when">2026-05-16 23:55</td>
+
+  <td class="repo">
+      agent-config
+  </td>
+
+  <td class="msg">
+      <span class="redact" aria-label="redacted message" role="img">migrate util so facade can merge scheduler</span>
+  </td>
+
+  <td class="sha">
+      <span class="redact" aria-label="redacted sha" role="img">76b3fe6</span>
+  </td>
+</tr><tr class="named">
+    <td class="when">2026-05-16 23:55</td>
+
+  <td class="repo">
+      agent-sandbox
+  </td>
+
+  <td class="msg">
+      <span class="redact" aria-label="redacted message" role="img">feat: optimize store in helper</span>
+  </td>
+
+  <td class="sha">
+      <span class="redact" aria-label="redacted sha" role="img">bf993d5</span>
+  </td>
+</tr><tr class="named">
+    <td class="when">2026-05-16 23:53</td>
+
+  <td class="repo">
+      agent-sandbox
+  </td>
+
+  <td class="msg">
+      <span class="redact" aria-label="redacted message" role="img">test: add wrapper for runner</span>
+  </td>
+
+  <td class="sha">
+      <span class="redact" aria-label="redacted sha" role="img">8a963cd</span>
+  </td>
+</tr><tr class="named">
+    <td class="when">2026-05-16 23:51</td>
+
+  <td class="repo">
+      agent-sandbox
+  </td>
+
+  <td class="msg">
+      <span class="redact" aria-label="redacted message" role="img">polish obsolete indexer</span>
+  </td>
+
+  <td class="sha">
+      <span class="redact" aria-label="redacted sha" role="img">b1078f1</span>
+  </td>
+</tr><tr class="named">
+    <td class="when">2026-05-16 23:47</td>
+
+  <td class="repo">
+      agent-sandbox
+  </td>
+
+  <td class="msg">
+      <span class="redact" aria-label="redacted message" role="img">inline ledger for adapter</span>
+  </td>
+
+  <td class="sha">
+      <span class="redact" aria-label="redacted sha" role="img">a20339a</span>
+  </td>
+</tr><tr class="named">
+    <td class="when">2026-05-16 23:37</td>
+
+  <td class="repo">
+      agent-sandbox
+  </td>
+
+  <td class="msg">
+      <span class="redact" aria-label="redacted message" role="img">feat: cleanup loader</span>
+  </td>
+
+  <td class="sha">
+      <span class="redact" aria-label="redacted sha" role="img">7449309</span>
+  </td>
+</tr><tr class="named">
+    <td class="when">2026-05-16 23:34</td>
+
+  <td class="repo">
+      agent-sandbox
+  </td>
+
+  <td class="msg">
+      <span class="redact" aria-label="redacted message" role="img">fix: split lenient stream when encoder changes</span>
+  </td>
+
+  <td class="sha">
+      <span class="redact" aria-label="redacted sha" role="img">eeea744</span>
+  </td>
+</tr><tr class="named">
+    <td class="when">2026-05-16 23:21</td>
+
+  <td class="repo">
+      agent-config
+  </td>
+
+  <td class="msg">
+      <span class="redact" aria-label="redacted message" role="img">fix: optimize the tighter reader</span>
+  </td>
+
+  <td class="sha">
+      <span class="redact" aria-label="redacted sha" role="img">310a372</span>
+  </td>
+</tr><tr class="named">
+    <td class="when">2026-05-16 23:12</td>
+
+  <td class="repo">
+      agent-sandbox
+  </td>
+
+  <td class="msg">
+      <span class="redact" aria-label="redacted message" role="img">wip</span>
+  </td>
+
+  <td class="sha">
+      <span class="redact" aria-label="redacted sha" role="img">3e9b17f</span>
+  </td>
+</tr><tr class="named">
+    <td class="when">2026-05-16 23:05</td>
+
+  <td class="repo">
+      agent-config
+  </td>
+
+  <td class="msg">
+      <span class="redact" aria-label="redacted message" role="img">rename</span>
+  </td>
+
+  <td class="sha">
+      <span class="redact" aria-label="redacted sha" role="img">6b27156</span>
+  </td>
+</tr><tr class="named">
+    <td class="when">2026-05-16 23:05</td>
+
+  <td class="repo">
+      agent-sandbox
+  </td>
+
+  <td class="msg">
+      <span class="redact" aria-label="redacted message" role="img">fix typo in name</span>
+  </td>
+
+  <td class="sha">
+      <span class="redact" aria-label="redacted sha" role="img">670ef25</span>
+  </td>
+</tr><tr class="named">
+    <td class="when">2026-05-16 23:04</td>
+
+  <td class="repo">
+      agent-config
+  </td>
+
+  <td class="msg">
+      <span class="redact" aria-label="redacted message" role="img">test: vendor guard for schema</span>
+  </td>
+
+  <td class="sha">
+      <span class="redact" aria-label="redacted sha" role="img">bb06faa</span>
+  </td>
+</tr><tr class="named">
+    <td class="when">2026-05-16 22:58</td>
+
+  <td class="repo">
+      agent-config
+  </td>
+
+  <td class="msg">
+      <span class="redact" aria-label="redacted message" role="img">feat: fix runner for fallback</span>
+  </td>
+
+  <td class="sha">
+      <span class="redact" aria-label="redacted sha" role="img">56b0249</span>
+  </td>
+</tr><tr class="named">
+    <td class="when">2026-05-16 22:56</td>
+
+  <td class="repo">
+      agent-sandbox
+  </td>
+
+  <td class="msg">
+      <span class="redact" aria-label="redacted message" role="img">wip</span>
+  </td>
+
+  <td class="sha">
+      <span class="redact" aria-label="redacted sha" role="img">681de4b</span>
+  </td>
+</tr><tr class="named">
+    <td class="when">2026-05-16 22:42</td>
+
+  <td class="repo">
+      agent-config
+  </td>
+
+  <td class="msg">
+      <span class="redact" aria-label="redacted message" role="img">test: debounce buffer</span>
+  </td>
+
+  <td class="sha">
+      <span class="redact" aria-label="redacted sha" role="img">fd27a7b</span>
+  </td>
+</tr><tr class="named">
+    <td class="when">2026-05-16 22:32</td>
+
+  <td class="repo">
+      agent-config
+  </td>
+
+  <td class="msg">
+      <span class="redact" aria-label="redacted message" role="img">chore: split incorrect facade when facade changes</span>
+  </td>
+
+  <td class="sha">
+      <span class="redact" aria-label="redacted sha" role="img">bfe3f99</span>
+  </td>
+</tr><tr class="named">
+    <td class="when">2026-05-16 22:31</td>
+
+  <td class="repo">
+      agent-sandbox
+  </td>
+
+  <td class="msg">
+      <span class="redact" aria-label="redacted message" role="img">chore: rebuild indexer for store</span>
+  </td>
+
+  <td class="sha">
+      <span class="redact" aria-label="redacted sha" role="img">e8beba8</span>
+  </td>
+</tr><tr class="named">
+    <td class="when">2026-05-16 22:27</td>
+
+  <td class="repo">
+      agent-sandbox
+  </td>
+
+  <td class="msg">
+      <span class="redact" aria-label="redacted message" role="img">guard reader so store can refactor producer</span>
+  </td>
+
+  <td class="sha">
+      <span class="redact" aria-label="redacted sha" role="img">9698652</span>
+  </td>
+</tr><tr class="named">
+    <td class="when">2026-05-16 22:23</td>
+
+  <td class="repo">
+      agent-sandbox
+  </td>
+
+  <td class="msg">
+      <span class="redact" aria-label="redacted message" role="img">docs: loosen session</span>
+  </td>
+
+  <td class="sha">
+      <span class="redact" aria-label="redacted sha" role="img">1c7ee2e</span>
+  </td>
+</tr><tr class="named">
+    <td class="when">2026-05-16 21:59</td>
+
+  <td class="repo">
+      agent-config
+  </td>
+
+  <td class="msg">
+      <span class="redact" aria-label="redacted message" role="img">minor cleanup</span>
+  </td>
+
+  <td class="sha">
+      <span class="redact" aria-label="redacted sha" role="img">6bb2a8c</span>
+  </td>
+</tr><tr class="named">
+    <td class="when">2026-05-16 21:50</td>
+
+  <td class="repo">
+      agent-sandbox
+  </td>
+
+  <td class="msg">
+      <span class="redact" aria-label="redacted message" role="img">tweak unused renderer</span>
+  </td>
+
+  <td class="sha">
+      <span class="redact" aria-label="redacted sha" role="img">ba579b0</span>
+  </td>
+</tr><tr class="named">
+    <td class="when">2026-05-16 21:50</td>
+
+  <td class="repo">
+      agent-config
+  </td>
+
+  <td class="msg">
+      <span class="redact" aria-label="redacted message" role="img">wip: cleanup stream and update facade</span>
+  </td>
+
+  <td class="sha">
+      <span class="redact" aria-label="redacted sha" role="img">e65b48c</span>
+  </td>
+</tr><tr class="named">
+    <td class="when">2026-05-16 21:44</td>
+
+  <td class="repo">
+      agent-config
+  </td>
+
+  <td class="msg">
+      <span class="redact" aria-label="redacted message" role="img">chore: remove wrapper and expose shim</span>
+  </td>
+
+  <td class="sha">
+      <span class="redact" aria-label="redacted sha" role="img">2fb53e9</span>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-05-16 21:24</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/charity" target="_blank" rel="noopener noreferrer">charity</a>
+  </td>
+
+  <td class="msg">
+      feat: add serve.sh local-dev wrapper
+
+Thin wrapper around python3 -m http.server that always runs from the
+repo root and accepts an optional port arg. README updated so both
+&#39;What&#39;s here today&#39; and the calculator instructions point at it.
+
+Co-Authored-By: Claude Opus 4.7 &lt;noreply@anthropic.com&gt;
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/charity/commit/83b717c74a1d99d04c232b219bd42bf35ad66f49" target="_blank" rel="noopener noreferrer">83b717c</a>
+  </td>
+</tr><tr class="named">
+    <td class="when">2026-05-16 21:16</td>
+
+  <td class="repo">
+      agent-sandbox
+  </td>
+
+  <td class="msg">
+      <span class="redact" aria-label="redacted message" role="img">test: tighten parser so channel can restructure manager</span>
+  </td>
+
+  <td class="sha">
+      <span class="redact" aria-label="redacted sha" role="img">f478187</span>
+  </td>
+</tr><tr class="named">
+    <td class="when">2026-05-16 21:11</td>
+
+  <td class="repo">
+      agent-sandbox
+  </td>
+
+  <td class="msg">
+      <span class="redact" aria-label="redacted message" role="img">wip: stub</span>
+  </td>
+
+  <td class="sha">
+      <span class="redact" aria-label="redacted sha" role="img">050018c</span>
+  </td>
+</tr><tr class="named">
+    <td class="when">2026-05-16 20:55</td>
+
+  <td class="repo">
+      agent-sandbox
+  </td>
+
+  <td class="msg">
+      <span class="redact" aria-label="redacted message" role="img">vendor queue so buffer can expose schema</span>
+  </td>
+
+  <td class="sha">
+      <span class="redact" aria-label="redacted sha" role="img">8098089</span>
+  </td>
+</tr><tr class="named">
+    <td class="when">2026-05-16 20:39</td>
+
+  <td class="repo">
+      agent-config
+  </td>
+
+  <td class="msg">
+      <span class="redact" aria-label="redacted message" role="img">refactor: wire schema in service</span>
+  </td>
+
+  <td class="sha">
+      <span class="redact" aria-label="redacted sha" role="img">c976efe</span>
+  </td>
+</tr><tr class="named">
+    <td class="when">2026-05-16 20:23</td>
+
+  <td class="repo">
+      agent-sandbox
+  </td>
+
+  <td class="msg">
+      <span class="redact" aria-label="redacted message" role="img">todo</span>
+  </td>
+
+  <td class="sha">
+      <span class="redact" aria-label="redacted sha" role="img">08916dd</span>
+  </td>
+</tr><tr class="named">
+    <td class="when">2026-05-16 20:10</td>
+
+  <td class="repo">
+      agent-sandbox
+  </td>
+
+  <td class="msg">
+      <span class="redact" aria-label="redacted message" role="img">test: improve missing schema in runner</span>
+  </td>
+
+  <td class="sha">
+      <span class="redact" aria-label="redacted sha" role="img">c0ca88e</span>
+  </td>
+</tr><tr class="named">
+    <td class="when">2026-05-16 20:04</td>
+
+  <td class="repo">
+      agent-sandbox
+  </td>
+
+  <td class="msg">
+      <span class="redact" aria-label="redacted message" role="img">init redundant mailer</span>
+  </td>
+
+  <td class="sha">
+      <span class="redact" aria-label="redacted sha" role="img">feceb73</span>
+  </td>
+</tr><tr class="named">
+    <td class="when">2026-05-16 20:04</td>
+
+  <td class="repo">
+      agent-sandbox
+  </td>
+
+  <td class="msg">
+      <span class="redact" aria-label="redacted message" role="img">deprecate flaky writer for the flaky router</span>
+  </td>
+
+  <td class="sha">
+      <span class="redact" aria-label="redacted sha" role="img">399642e</span>
+  </td>
+</tr><tr class="named">
     <td class="when">2026-05-16 19:58</td>
 
   <td class="repo">
@@ -2118,1705 +3480,6 @@ Co-Authored-By: Claude Opus 4.7 (1M context) &lt;noreply@anthropic.com&gt;
   <td class="sha">
       <span class="redact-strong" aria-label="redacted sha" role="img">4b3c8ae</span>
   </td>
-</tr><tr class="anon">
-    <td class="when">2026-05-04</td>
-
-  <td class="repo">
-      <span class="redact-strong" aria-label="redacted repo" role="img">parser-session</span>
-  </td>
-
-  <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">tmp</span>
-  </td>
-
-  <td class="sha">
-      <span class="redact-strong" aria-label="redacted sha" role="img">5996957</span>
-  </td>
-</tr><tr class="anon">
-    <td class="when">2026-05-04</td>
-
-  <td class="repo">
-      <span class="redact-strong" aria-label="redacted repo" role="img">store-writer</span>
-  </td>
-
-  <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">wrap bootstrapper, trim model</span>
-  </td>
-
-  <td class="sha">
-      <span class="redact-strong" aria-label="redacted sha" role="img">3fc1185</span>
-  </td>
-</tr><tr class="anon">
-    <td class="when">2026-05-04</td>
-
-  <td class="repo">
-      <span class="redact-strong" aria-label="redacted repo" role="img">worker</span>
-  </td>
-
-  <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">wip: rework the lenient stream</span>
-  </td>
-
-  <td class="sha">
-      <span class="redact-strong" aria-label="redacted sha" role="img">c388aa9</span>
-  </td>
-</tr><tr class="anon">
-    <td class="when">2026-05-04</td>
-
-  <td class="repo">
-      <span class="redact-strong" aria-label="redacted repo" role="img">indexer</span>
-  </td>
-
-  <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">chore: harden writer and split mailer</span>
-  </td>
-
-  <td class="sha">
-      <span class="redact-strong" aria-label="redacted sha" role="img">fcc84ef</span>
-  </td>
-</tr><tr class="anon">
-    <td class="when">2026-05-04</td>
-
-  <td class="repo">
-      <span class="redact-strong" aria-label="redacted repo" role="img">mailer-consumer</span>
-  </td>
-
-  <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">merge adapter so shim can throttle shim</span>
-  </td>
-
-  <td class="sha">
-      <span class="redact-strong" aria-label="redacted sha" role="img">1842531</span>
-  </td>
-</tr><tr class="anon">
-    <td class="when">2026-05-04</td>
-
-  <td class="repo">
-      <span class="redact-strong" aria-label="redacted repo" role="img">pipeline-shim</span>
-  </td>
-
-  <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">move renderer</span>
-  </td>
-
-  <td class="sha">
-      <span class="redact-strong" aria-label="redacted sha" role="img">0ed13d0</span>
-  </td>
-</tr><tr class="anon">
-    <td class="when">2026-05-04</td>
-
-  <td class="repo">
-      <span class="redact-strong" aria-label="redacted repo" role="img">parser</span>
-  </td>
-
-  <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">feat: loosen stream so loader can drop config</span>
-  </td>
-
-  <td class="sha">
-      <span class="redact-strong" aria-label="redacted sha" role="img">1e697c4</span>
-  </td>
-</tr><tr class="anon">
-    <td class="when">2026-05-04</td>
-
-  <td class="repo">
-      <span class="redact-strong" aria-label="redacted repo" role="img">adapter-stream</span>
-  </td>
-
-  <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">wire adapter in consumer</span>
-  </td>
-
-  <td class="sha">
-      <span class="redact-strong" aria-label="redacted sha" role="img">da60a9d</span>
-  </td>
-</tr><tr class="anon">
-    <td class="when">2026-05-04</td>
-
-  <td class="repo">
-      <span class="redact-strong" aria-label="redacted repo" role="img">service-toolkit</span>
-  </td>
-
-  <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">chore: loosen tighter watcher for the dead adapter</span>
-  </td>
-
-  <td class="sha">
-      <span class="redact-strong" aria-label="redacted sha" role="img">8b0e03c</span>
-  </td>
-</tr><tr class="anon">
-    <td class="when">2026-05-04</td>
-
-  <td class="repo">
-      <span class="redact-strong" aria-label="redacted repo" role="img">early-registry</span>
-  </td>
-
-  <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">throttle client and optimize fallback</span>
-  </td>
-
-  <td class="sha">
-      <span class="redact-strong" aria-label="redacted sha" role="img">e0f2e1f</span>
-  </td>
-</tr><tr class="anon">
-    <td class="when">2026-05-04</td>
-
-  <td class="repo">
-      <span class="redact-strong" aria-label="redacted repo" role="img">indexer-model</span>
-  </td>
-
-  <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">test: optimize indexer and wire context</span>
-  </td>
-
-  <td class="sha">
-      <span class="redact-strong" aria-label="redacted sha" role="img">aa81628</span>
-  </td>
-</tr><tr class="anon">
-    <td class="when">2026-05-04</td>
-
-  <td class="repo">
-      <span class="redact-strong" aria-label="redacted repo" role="img">broken-stream</span>
-  </td>
-
-  <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">wip: tweak early stream in worker</span>
-  </td>
-
-  <td class="sha">
-      <span class="redact-strong" aria-label="redacted sha" role="img">a43212d</span>
-  </td>
-</tr><tr class="anon">
-    <td class="when">2026-05-04</td>
-
-  <td class="repo">
-      <span class="redact-strong" aria-label="redacted repo" role="img">dead-builder</span>
-  </td>
-
-  <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">feat: inline flaky parser for the stale filter</span>
-  </td>
-
-  <td class="sha">
-      <span class="redact-strong" aria-label="redacted sha" role="img">9b7e0dc</span>
-  </td>
-</tr><tr class="anon">
-    <td class="when">2026-05-04</td>
-
-  <td class="repo">
-      <span class="redact-strong" aria-label="redacted repo" role="img">builder</span>
-  </td>
-
-  <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">refactor: update stricter channel</span>
-  </td>
-
-  <td class="sha">
-      <span class="redact-strong" aria-label="redacted sha" role="img">6230bdf</span>
-  </td>
-</tr><tr class="anon">
-    <td class="when">2026-05-04</td>
-
-  <td class="repo">
-      <span class="redact-strong" aria-label="redacted repo" role="img">fallback</span>
-  </td>
-
-  <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">tighten stale channel for the noisy wrapper</span>
-  </td>
-
-  <td class="sha">
-      <span class="redact-strong" aria-label="redacted sha" role="img">43925af</span>
-  </td>
-</tr><tr class="anon">
-    <td class="when">2026-05-04</td>
-
-  <td class="repo">
-      <span class="redact-strong" aria-label="redacted repo" role="img">config-toolkit</span>
-  </td>
-
-  <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">fix: rename producer, wire dispatcher</span>
-  </td>
-
-  <td class="sha">
-      <span class="redact-strong" aria-label="redacted sha" role="img">33246a5</span>
-  </td>
-</tr><tr class="anon">
-    <td class="when">2026-05-04</td>
-
-  <td class="repo">
-      <span class="redact-strong" aria-label="redacted repo" role="img">manager-buffer</span>
-  </td>
-
-  <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">wip: drop handler (silent)</span>
-  </td>
-
-  <td class="sha">
-      <span class="redact-strong" aria-label="redacted sha" role="img">5623f26</span>
-  </td>
-</tr><tr class="anon">
-    <td class="when">2026-05-04</td>
-
-  <td class="repo">
-      <span class="redact-strong" aria-label="redacted repo" role="img">scheduler</span>
-  </td>
-
-  <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">todo</span>
-  </td>
-
-  <td class="sha">
-      <span class="redact-strong" aria-label="redacted sha" role="img">580af0e</span>
-  </td>
-</tr><tr class="named">
-    <td class="when">2026-05-03 22:39</td>
-
-  <td class="repo">
-      waypass
-  </td>
-
-  <td class="msg">
-      <span class="redact" aria-label="redacted message" role="img">throttle validator</span>
-  </td>
-
-  <td class="sha">
-      <span class="redact" aria-label="redacted sha" role="img">9de5fab</span>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-05-03 20:31</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/FileOrganizer" target="_blank" rel="noopener noreferrer">FileOrganizer</a>
-  </td>
-
-  <td class="msg">
-      chore: remove unused deps (uuid, zod, @testing-library/jest-dom)
-
-uuid and zod were never imported in the engine — UUIDs come from
-crypto.randomUUID(), and no validation code uses zod. jest-dom was
-listed in the UI but no test imports it; only @testing-library/preact
-is in use. 12 transitive packages dropped.
-
-Co-Authored-By: Claude Opus 4.7 (1M context) &lt;noreply@anthropic.com&gt;
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/FileOrganizer/commit/c8315eaf2101ab0a5d008f3398ac8ba4943a9d23" target="_blank" rel="noopener noreferrer">c8315ea</a>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-05-03 20:06</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/FileOrganizer" target="_blank" rel="noopener noreferrer">FileOrganizer</a>
-  </td>
-
-  <td class="msg">
-      ui/topbar: remove dead settings button
-
-It had no onClick handler and no destination route — purely decorative.
-
-Co-Authored-By: Claude Opus 4.7 (1M context) &lt;noreply@anthropic.com&gt;
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/FileOrganizer/commit/947c88f8285f1db91837836ecf5bc773181c3ec0" target="_blank" rel="noopener noreferrer">947c88f</a>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-05-03 19:57</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/FileOrganizer" target="_blank" rel="noopener noreferrer">FileOrganizer</a>
-  </td>
-
-  <td class="msg">
-      docs: refresh dashboard screenshot
-
-Co-Authored-By: Claude Opus 4.7 (1M context) &lt;noreply@anthropic.com&gt;
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/FileOrganizer/commit/34df6261a2d8e6fa12e7f7b92b49dfff0a83d21a" target="_blank" rel="noopener noreferrer">34df626</a>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-05-03 19:56</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/FileOrganizer" target="_blank" rel="noopener noreferrer">FileOrganizer</a>
-  </td>
-
-  <td class="msg">
-      docs/ui: drop milestone status table from README and remove dead sidebar throttle widget
-
-The README&#39;&#39;s M0-M7 status table and references to internal plan/spec
-docs are gone. The sidebar throttle pills were purely decorative
-(hardcoded balanced, no onClick) — real throttling is per-scan.
-
-Co-Authored-By: Claude Opus 4.7 (1M context) &lt;noreply@anthropic.com&gt;
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/FileOrganizer/commit/049c4135abd69b4633edcd20737787e9fc921746" target="_blank" rel="noopener noreferrer">049c413</a>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-05-03 18:57</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/rust-build-planner" target="_blank" rel="noopener noreferrer">rust-build-planner</a>
-  </td>
-
-  <td class="msg">
-      chore(#30,#31): lint cleanup and CI Node bump (#32)
-
-* fix(#30): drop redundant any casts in PlacedPieces click handlers
-
-* ci(#31): bump deploy.yml off Node 20
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/rust-build-planner/commit/db299e483ef3612c4c365b93b0fdfdf29f8fabb8" target="_blank" rel="noopener noreferrer">db299e4</a>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-05-03 18:04</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/rust-build-planner" target="_blank" rel="noopener noreferrer">rust-build-planner</a>
-  </td>
-
-  <td class="msg">
-      chore: rename project to Rust Build Planner (#29)
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/rust-build-planner/commit/dcb7a5dce41fe4d6ef321c8e9b21ef44602ef1eb" target="_blank" rel="noopener noreferrer">dcb7a5d</a>
-  </td>
-</tr><tr class="anon">
-    <td class="when">2026-05-03</td>
-
-  <td class="repo">
-      <span class="redact-strong" aria-label="redacted repo" role="img">redundant-model</span>
-  </td>
-
-  <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">improve service</span>
-  </td>
-
-  <td class="sha">
-      <span class="redact-strong" aria-label="redacted sha" role="img">784a4b3</span>
-  </td>
-</tr><tr class="anon">
-    <td class="when">2026-05-03</td>
-
-  <td class="repo">
-      <span class="redact-strong" aria-label="redacted repo" role="img">adapter</span>
-  </td>
-
-  <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">feat: loosen lenient buffer when renderer changes</span>
-  </td>
-
-  <td class="sha">
-      <span class="redact-strong" aria-label="redacted sha" role="img">aaafb73</span>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-05-01 16:36</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/FileOrganizer" target="_blank" rel="noopener noreferrer">FileOrganizer</a>
-  </td>
-
-  <td class="msg">
-      feat(ui/cleanup): Delete all button per drive, no longer capped at 5000 (closes #17)
-
-Adds a primary &#34;Delete all (N)&#34; button in the Cleanup header that
-calls the new /api/cleanup/empty-dirs/apply-all endpoint. The
-truncation hint now points users at the new affordance instead of
-just noting the 5000-row cap.
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/FileOrganizer/commit/dd96f6369842392527286c4d1796b8935f0572b1" target="_blank" rel="noopener noreferrer">dd96f63</a>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-05-01 16:35</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/FileOrganizer" target="_blank" rel="noopener noreferrer">FileOrganizer</a>
-  </td>
-
-  <td class="msg">
-      feat(engine/api): /api/cleanup/empty-dirs/apply-all endpoint
-
-POSTing { driveId } pulls every empty-dir row for the drive without
-the 5000-row list cap and runs removeEmptyDirs in one batch. Returns
-batchId=null/removed=0 when there is nothing to clean. Mirrors the
-error shape and batch-status event publish of the existing /apply.
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/FileOrganizer/commit/f9991bf1807c82a06c56ee64920ef7baaaa2256e" target="_blank" rel="noopener noreferrer">f9991bf</a>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-05-01 16:34</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/FileOrganizer" target="_blank" rel="noopener noreferrer">FileOrganizer</a>
-  </td>
-
-  <td class="msg">
-      feat(engine/cleanup): EmptyDirsRepo supports unbounded list (cap=null)
-
-Allow callers to fetch every empty-dir row for a drive without
-truncation. Existing callers default to the 5000-row cap unchanged.
-findEmptyDirs gains an `unbounded` option that maps to cap=null.
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/FileOrganizer/commit/d840cf73bb18ebba196a334c111545b87e541e28" target="_blank" rel="noopener noreferrer">d840cf7</a>
-  </td>
-</tr><tr class="anon">
-    <td class="when">2026-05-01</td>
-
-  <td class="repo">
-      <span class="redact-strong" aria-label="redacted repo" role="img">context-view</span>
-  </td>
-
-  <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">feat: move service for reader</span>
-  </td>
-
-  <td class="sha">
-      <span class="redact-strong" aria-label="redacted sha" role="img">92b87e0</span>
-  </td>
-</tr>            <tr class="gr-month-row">
-              <td colspan="4">
-                April 2026
-                <span>47 commits · 45 public</span>
-              </td>
-            </tr>
-<tr class="">
-    <td class="when">2026-04-30 21:35</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/FileOrganizer" target="_blank" rel="noopener noreferrer">FileOrganizer</a>
-  </td>
-
-  <td class="msg">
-      feat(ui/browse): click path segments to add user exclusions, with chip-bar removal (closes #16)
-
-Path column now renders as breadcrumbs — middle segments are inline
-buttons. Clicking one previews the catalog impact via /api/exclusions
-dryRun, prompts to confirm if any indexed files would be pruned, then
-adds the segment to settings.userExcluded and refreshes the file list.
-A chip bar above the table lists current exclusions with × buttons that
-remove them from settings (no re-index until next scan).
-
-Adds previewExclusion / addExclusion / removeExclusion to ApiClient and
-a subtle .path-seg button class to the shared stylesheet.
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/FileOrganizer/commit/b3a1ab185b527156d5f7de80498c3d5edee0df10" target="_blank" rel="noopener noreferrer">b3a1ab1</a>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-04-30 21:33</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/FileOrganizer" target="_blank" rel="noopener noreferrer">FileOrganizer</a>
-  </td>
-
-  <td class="msg">
-      feat(engine/api): /api/exclusions endpoints with prune-on-add
-
-POST /api/exclusions validates a folder-name segment, counts matching
-catalog rows, and (unless dryRun) deletes them and persists the segment
-to settings.userExcluded. DELETE /api/exclusions/:segment removes the
-entry from settings only — the files table is left alone (re-index
-happens on next scan). Match SQL wraps each path in `\…\` and
-case-insensitively normalizes `/` → `\` so POSIX-stored paths match too.
-Idempotent on re-add (case-insensitive dedup).
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/FileOrganizer/commit/910ea3cd93604005f6d7213fe66489324e010f20" target="_blank" rel="noopener noreferrer">910ea3c</a>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-04-30 21:32</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/FileOrganizer" target="_blank" rel="noopener noreferrer">FileOrganizer</a>
-  </td>
-
-  <td class="msg">
-      feat(engine/settings): add userExcluded to Settings, plumb through to scans
-
-Settings gains a userExcluded: string[] field (default []) that the scan
-POST handler forwards as extraExcluded to runScan. Older catalog rows
-that pre-date this field are upgraded transparently in load() by merging
-the parsed JSON over defaults — a forward-compat pattern that handles
-any future-added Settings field without a migration.
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/FileOrganizer/commit/4cdc2f23bcd3e0fdb11777a1f3d01a9783c3e6d9" target="_blank" rel="noopener noreferrer">4cdc2f2</a>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-04-29 22:57</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/FileOrganizer" target="_blank" rel="noopener noreferrer">FileOrganizer</a>
-  </td>
-
-  <td class="msg">
-      chore(ui): drop stale milestone WIP markers and remove unbuilt search (closes #15)
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/FileOrganizer/commit/ad06ed9f6ab2dfe3a99f69f9770e16bbf39df249" target="_blank" rel="noopener noreferrer">ad06ed9</a>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-04-29 22:19</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/FileOrganizer" target="_blank" rel="noopener noreferrer">FileOrganizer</a>
-  </td>
-
-  <td class="msg">
-      feat(engine+ui/organize): apply-all endpoint for bulk plan execution (closes #14)
-
-POST /api/organize/apply-all re-runs the planner without pagination,
-optionally filters by ruleIds and kinds, drops noops, and applies the
-result as a single batch via applyApprovedBatch. An empty filtered plan
-returns { batchId: null, completed: 0, failed: 0, emptyDirsRemoved: 0 }
-with 200 instead of erroring.
-
-OrganizePlan now exposes totalBytes (sum of estimatedBytes across the
-unpaginated, non-noop ops) so the UI can label the bulk button without
-walking pages. The Plan tab gains &#34;Dry-run all&#34; and &#34;Apply all&#34; buttons
-next to the per-page actions; Apply all confirms when the plan exceeds
-1000 ops or 1 GB. Per-page Apply / Dry-run are unchanged.
-
-ApplyResultUI.batchId widened to string | null to model the empty-plan
-no-op outcome; existing callers were already null-safe or only invoked
-when ops were selected.
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/FileOrganizer/commit/b50f43a5d35b3da16a51efbf85caa4e834ee8cd3" target="_blank" rel="noopener noreferrer">b50f43a</a>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-04-29 21:52</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/FileOrganizer" target="_blank" rel="noopener noreferrer">FileOrganizer</a>
-  </td>
-
-  <td class="msg">
-      chore: lint sync fs out of the engine HTTP path; run lint in CI
-
-Honest postmortem: the cleanup screen shipped with `readdirSync`
-recursing the entire drive on the request handler. While that walk
-ran, every other concurrent API request stalled behind it on the
-single Node event loop. I missed it because I reviewed via CI status
-and test count rather than reading the new files. Tests don&#39;t catch
-event-loop blocking — every test passes, the function works, it just
-monopolizes the runtime.
-
-Backstop: ESLint rule banning `readdirSync` and `readFileSync`
-inside `packages/engine/src/**` outside boot-only code (`cli/`,
-`migrate.ts`, `locator.ts`, `log.ts`, tests, fixtures). Bounded
-one-shot uses are allowed via `// eslint-disable-next-line
-no-restricted-syntax -- TODO #N: &lt;reason&gt;` referencing the issue
-that tracks the proper async fix. Five existing call sites tagged
-TODO #11 (cleanup find-walk + per-path checks, applier post-apply
-sweep, preview-cache LRU eviction, /api/fs/list folder picker) so
-they don&#39;t gate this commit but are surfaced for the cloud agent
-when #11 lands.
-
-Wired `npm run lint` (was wired but pointed at non-existent
-per-workspace scripts; now runs eslint directly on
-`packages/*/src/**/*.{ts,tsx}`) and added it as a CI step between
-typecheck and test, so violations fail the build on push.
-
-Side cleanups along the way: dropped a half-dozen unused imports
-that the rule&#39;s noise revealed, and removed two
-`react-hooks/exhaustive-deps` disable comments that referenced a
-plugin we don&#39;t have installed.
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/FileOrganizer/commit/4f7f8aa4a8fc564c4743b6aea437337668e0c3aa" target="_blank" rel="noopener noreferrer">4f7f8aa</a>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-04-29 21:22</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/FileOrganizer" target="_blank" rel="noopener noreferrer">FileOrganizer</a>
-  </td>
-
-  <td class="msg">
-      perf(engine+ui/organize): paginate plan operations to unblock large catalogs (closes #13)
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/FileOrganizer/commit/edee4c440ba7284bf5f030d2b9723097a31ca480" target="_blank" rel="noopener noreferrer">edee4c4</a>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-04-29 21:18</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/FileOrganizer" target="_blank" rel="noopener noreferrer">FileOrganizer</a>
-  </td>
-
-  <td class="msg">
-      fix(engine/scan): case-insensitive exclusions + cover common installed-software dirs (closes #12)
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/FileOrganizer/commit/87822657984146db665edc6c260fa78be4fc1a32" target="_blank" rel="noopener noreferrer">8782265</a>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-04-29 20:25</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/FileOrganizer" target="_blank" rel="noopener noreferrer">FileOrganizer</a>
-  </td>
-
-  <td class="msg">
-      fix(engine+ui): dedup unresolvedRoles by rule with file count (closes #10)
-
-Aggregate unresolved-role entries by ruleId in the planner so the Plan-tab
-banner shows one chip per shadowed rule with a (×N) file-count suffix,
-instead of one entry per matched file. With ~95k indexed files and the
-seeded default roles unassigned, the banner previously rendered hundreds
-of identical lines per rule.
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/FileOrganizer/commit/0037757ef5edf90d749a2caba7c51da51b3c8804" target="_blank" rel="noopener noreferrer">0037757</a>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-04-29 19:48</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/FileOrganizer" target="_blank" rel="noopener noreferrer">FileOrganizer</a>
-  </td>
-
-  <td class="msg">
-      perf+arch(engine/cleanup): use catalog instead of on-demand walk (closes #11)
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/FileOrganizer/commit/2adc734795b75c0168986bb19f3012f02ab72e2c" target="_blank" rel="noopener noreferrer">2adc734</a>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-04-29 19:45</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/FileOrganizer" target="_blank" rel="noopener noreferrer">FileOrganizer</a>
-  </td>
-
-  <td class="msg">
-      feat(engine/scan): persist empty-dir state to catalog during scan
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/FileOrganizer/commit/2477e85f9b46f1aa983f94eeb62631f1bd216ab2" target="_blank" rel="noopener noreferrer">2477e85</a>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-04-29 19:44</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/FileOrganizer" target="_blank" rel="noopener noreferrer">FileOrganizer</a>
-  </td>
-
-  <td class="msg">
-      feat(engine/scan): walker reports recursively-empty directories
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/FileOrganizer/commit/55263e449735d9fe68fbbe8229e200ed1e7079bb" target="_blank" rel="noopener noreferrer">55263e4</a>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-04-29 19:41</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/FileOrganizer" target="_blank" rel="noopener noreferrer">FileOrganizer</a>
-  </td>
-
-  <td class="msg">
-      feat(engine/catalog): empty-dirs repo
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/FileOrganizer/commit/342fdb26e0b51bf4374c0eb9c397cdc657532002" target="_blank" rel="noopener noreferrer">342fdb2</a>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-04-29 19:40</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/FileOrganizer" target="_blank" rel="noopener noreferrer">FileOrganizer</a>
-  </td>
-
-  <td class="msg">
-      feat(engine/catalog): add empty_dirs table for cleanup hot path
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/FileOrganizer/commit/0ebc2ad1378e6c696fc86c089f4de21d56d6dd10" target="_blank" rel="noopener noreferrer">0ebc2ad</a>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-04-29 11:26</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/FileOrganizer" target="_blank" rel="noopener noreferrer">FileOrganizer</a>
-  </td>
-
-  <td class="msg">
-      fix(engine/catalog): disable foreign_keys around each migration
-
-Migration 0004 rebuilds the scans table to widen its CHECK constraint
-(adding &#39;cancelled&#39;). On any populated catalog the DROP TABLE step
-fails with `FOREIGN KEY constraint failed` because files.scan_id is
-an FK reference. SQLite enforces this schema-level check at DROP time
-regardless of `defer_foreign_keys`, and `PRAGMA foreign_keys` can&#39;t be
-toggled inside a transaction — the cloud agent&#39;s defer-FK attempt
-didn&#39;t help.
-
-Fix is in the runner, not the SQL: wrap each migration&#39;s transaction
-with `PRAGMA foreign_keys = OFF` / `ON`, and run `PRAGMA
-foreign_key_check` after re-enabling so any actual integrity
-violations (rare, but possible from a buggy migration) surface
-immediately as MIGRATION_FK_VIOLATIONS.
-
-Regression test exercises the failure path: applies 0001-0003
-manually, populates drives + scans + files (with the FK live), then
-calls migrate() to land 0004. Without the fix this throws; with it,
-the rebuild succeeds, the FK still resolves, and the new CHECK
-constraint admits &#39;cancelled&#39;.
-
-The unhelpful `PRAGMA defer_foreign_keys = ON` line in 0004&#39;s SQL is
-also removed.
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/FileOrganizer/commit/e02ca24dd70f345105a0186459fac983155bf25e" target="_blank" rel="noopener noreferrer">e02ca24</a>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-04-29 11:02</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/FileOrganizer" target="_blank" rel="noopener noreferrer">FileOrganizer</a>
-  </td>
-
-  <td class="msg">
-      fix(engine/scan): cancel-late race + reliable test fixture
-
-The orchestrator&#39;s signal.aborted check only fires between files inside
-the for-await loop. If cancel arrived after the last file but before
-the post-loop finalization (a real race on fast hardware), the scan
-finished as &#39;completed&#39; even though the user clicked Stop. Adds a
-second signal check after the loop so that race lands as &#39;cancelled&#39;.
-
-The matching API test was timing out on Linux CI because 800 tiny
-files at &#39;idle&#39; profile finished in ~125 ms — faster than the cancel
-could land — and idle&#39;s inter-chunk sleep only fires *between* chunks,
-so single-chunk files don&#39;t get throttled at all. Switched the fixture
-to 100 × 600 KB files so each one iterates multiple chunks and the
-idle sleep actually engages, giving a deterministic cancel window.
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/FileOrganizer/commit/3b0e846f2168e5929ecdea8c67722c5c74f4e633" target="_blank" rel="noopener noreferrer">3b0e846</a>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-04-29 08:13</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/FileOrganizer" target="_blank" rel="noopener noreferrer">FileOrganizer</a>
-  </td>
-
-  <td class="msg">
-      feat(engine+ui): cleanup screen for long-existing empty directories
-
-Drives accumulate empty folders over time — moved-out projects,
-half-finished imports, leftover toolchain scaffolding. The new
-Cleanup screen surfaces them per-drive and lets the user batch-delete.
-
-Engine:
-- findEmptyDirs(driveRoot, opts) walks the tree depth-first and
-  reports directories whose entire subtree is file-free, after
-  excluding DEFAULT_EXCLUDED_NAMES (so node_modules and
-  _FileOrganizer_quarantine don&#39;t get reaped from inside repos).
-  Capped at 5000 paths; the response sets truncated=true when the cap
-  bites. Sorted deepest-first so the caller can rmdir children before
-  parents.
-- removeEmptyDirs(db, opts) wraps the pass in a &#39;cleanup-empty-dirs&#39;
-  batch. For each path: validate it&#39;s under driveRoot (rejects
-  ../escapes), double-check it&#39;s still empty (handles the
-  scan-then-write race the tests cover), then rmdirSync. Each path
-  becomes a delete operation row with errorMessage on failure. The
-  batch finishes &#39;completed&#39; if everything succeeded, &#39;failed&#39; if any
-  path didn&#39;t.
-
-API:
-- GET /api/cleanup/empty-dirs?driveId=… returns
-  { driveId, paths, totalEmpty, truncated }.
-- POST /api/cleanup/empty-dirs/apply with { driveId, paths } returns
-  { batchId, removed, failed[] } and publishes a batch-status event.
-
-UI:
-- New /cleanup route mirrors the Duplicates layout: left-pane drive
-  picker with per-drive empty count, right-pane tree grouped by parent
-  with per-row checkboxes plus a &#34;Select all visible&#34; toggle. Apply
-  is gated on selection and confirmed via window.confirm.
-- Sidebar gets a Cleanup entry slotted between History and
-  Quarantine, kbd &#39;g x&#39;.
-- History page gains &#39;cleanup-empty-dirs&#39; as a kind filter pill.
-
-Schema: BatchKind union widens to include &#39;cleanup-empty-dirs&#39;.
-batches.kind and operations.kind are plain TEXT in the schema, so no
-migration needed.
-
-Closes #6
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/FileOrganizer/commit/8bfadd34009364f869dfaae928d5eee36baeea05" target="_blank" rel="noopener noreferrer">8bfadd3</a>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-04-29 08:09</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/FileOrganizer" target="_blank" rel="noopener noreferrer">FileOrganizer</a>
-  </td>
-
-  <td class="msg">
-      feat(engine+ui): optional empty-source-dir sweep after organize apply
-
-After approving a batch that drains a folder, the empty parent stays
-behind. Useful for archive runs where the user wants the source tree
-to disappear once everything&#39;s been migrated.
-
-applyApprovedBatch accepts removeEmptySourceDirs. While iterating ops
-we collect dirname(sourcePath) on every successful (non-dry-run) move
-into a per-batch Set. After the loop, walk each unique dir plus its
-ancestors up to (not including) the drive root, deepest-first, and
-rmdirSync those that have become empty. ENOTEMPTY/ENOENT/EBUSY are
-swallowed so a parallel scan adding a file mid-sweep doesn&#39;t fail
-the batch. Sweep stops climbing once it hits the drive root or any
-segment named _FileOrganizer_quarantine.
-
-The count of removed dirs surfaces as emptyDirsRemoved on the apply
-result and in the batch summary JSON. UI: a checkbox in the Plan
-tab&#39;s apply controls, default off, gated to non-dry-run only. The
-toast appended after success names the removed-folder count when &gt;0.
-
-Closes #5
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/FileOrganizer/commit/273113af45df25576cbb1c615207c1401c450d9d" target="_blank" rel="noopener noreferrer">273113a</a>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-04-29 08:05</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/FileOrganizer" target="_blank" rel="noopener noreferrer">FileOrganizer</a>
-  </td>
-
-  <td class="msg">
-      feat(engine+ui): cancel running scans from the UI
-
-Scans run for hours on multi-TB drives. If you start one with the wrong
-profile or root path, the only escape today is a hard process kill,
-which leaves the scan row stuck in &#39;running&#39; until reconcile.
-
-The orchestrator now cooperatively respects an AbortSignal. Cadence:
-- walker checks signal.aborted at the top of each subdir descent and
-  before each yielded entry, so even a giant single directory is
-  interruptible (otherwise a directory with millions of files would
-  block cancellation until the walker climbed back out).
-- The orchestrator&#39;s main for-await loop also checks the signal each
-  iteration, so we exit between files rather than partway through a
-  hash. Mid-hash interruption isn&#39;t worth chasing — hashFile is a
-  CPU-bound chunked reader, and the UX win from sub-file cancellation
-  is small relative to the complexity.
-
-When the signal fires the orchestrator skips markMissing (we haven&#39;t
-finished walking, so we&#39;d false-positive everything we missed),
-flushes whatever progress we have, and finalizes the scan as
-&#39;cancelled&#39;.
-
-Server side: a per-process Map&lt;scanId, AbortController&gt; tracks active
-scans. POST /api/scans wires a fresh controller in via the new
-onStart callback so the controller registers under the same id the
-orchestrator just created. The map entry is dropped in the promise&#39;s
-.finally(). New endpoint POST /api/scans/:id/cancel calls abort() and
-returns the current scan record; the next poll picks up status=
-&#39;cancelled&#39; once the orchestrator finishes its tail-end work.
-
-Schema: 0004 rebuilds the scans table to widen the status CHECK
-constraint to include &#39;cancelled&#39;. SQLite can&#39;t ALTER constraints in
-place so the migration uses the create-copy-drop dance.
-
-UI: each running scan card gets a Stop button gated by a confirm
-prompt. Recent-scans list pills &#39;cancelled&#39; as warn.
-
-Closes #7
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/FileOrganizer/commit/43b59ac270023de0f72caf15fdf818de43025f32" target="_blank" rel="noopener noreferrer">43b59ac</a>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-04-29 08:01</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/FileOrganizer" target="_blank" rel="noopener noreferrer">FileOrganizer</a>
-  </td>
-
-  <td class="msg">
-      perf(engine/api): on-disk LRU cache for /api/preview
-
-Until now every /api/preview request re-resized through sharp. With
-the duplicates panel rendering 4 thumbnails per group and groups
-loaded continuously as you scroll, the same SHA-keyed image gets
-asked for over and over.
-
-Cache layout: &lt;catalogDir&gt;/preview-cache/&lt;first-2-of-sha256&gt;/
-&lt;sha256&gt;-&lt;max&gt;.jpg. Ensure the dir exists at server start. On request,
-stat the cache file; if its mtime is &gt;= the source mtime, stream it
-straight from disk via createReadStream piped through Readable.toWeb
-so we don&#39;t pull the whole image into memory. On miss, sharp resizes,
-we writeFile, then stream.
-
-Concurrent requests for the same key are coalesced through an
-inflight Promise map so a burst of thumbnails doesn&#39;t fan-out to N
-parallel sharp calls.
-
-Eviction is opportunistic: every 100th miss we walk the cache, and if
-total size exceeds 500 MB we delete the oldest 20% by mtime. Simple,
-not a crit-path concern, runs in the same request that already paid
-for resize+writeFile.
-
-Closes #9 (preview-cache)
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/FileOrganizer/commit/53638c1276435bda40bfb02516889c90fc1dcbb0" target="_blank" rel="noopener noreferrer">53638c1</a>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-04-29 07:58</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/FileOrganizer" target="_blank" rel="noopener noreferrer">FileOrganizer</a>
-  </td>
-
-  <td class="msg">
-      perf(ui): add minSize selector and pagination wiring on duplicates list
-
-Pair with the server-side pagination from the previous commit. The
-list now requests groups in pages of 50 and appends as the user
-scrolls within ~240px of the bottom. Default minimum size is 1 MB so
-the list opens with a manageable working set on a 95k-file catalog.
-
-Selector exposes 1 KB / 1 MB / 10 MB / 100 MB / 1 GB. Changing it
-resets the accumulated groups and reloads page 0. Header now shows
-&#34;loaded / total&#34; so the user can see they haven&#39;t exhausted the list.
-
-Note: the brief asked for @tanstack/virtual virtualization on top of
-this. That dep can&#39;t be installed in the sandbox (registry 403);
-pagination + the 1 MB default already gets the Duplicates page out of
-&#34;hangs the browser&#34; territory on 95k-file catalogs. Virtualization can
-land in a follow-up once @tanstack/virtual is added locally.
-
-Closes #9 (virtualization)
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/FileOrganizer/commit/af968781496b687cc3b42a0efad44a07bbcfcd27" target="_blank" rel="noopener noreferrer">af96878</a>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-04-29 07:55</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/FileOrganizer" target="_blank" rel="noopener noreferrer">FileOrganizer</a>
-  </td>
-
-  <td class="msg">
-      perf(engine/dedupe): paginate /api/duplicates by reclaimable bytes desc
-
-The Duplicates screen tries to render every duplicate group at once.
-On a 95k-file catalog that&#39;s tens of thousands of cards and the
-browser hangs.
-
-Push the slice to SQL: the GROUP BY query already orders by
-(copies-1)*MIN(size_bytes) DESC, so a LIMIT/OFFSET tacked on returns
-the highest-impact groups first. The endpoint now accepts ?limit
-(default 50, cap 500) and ?offset (default 0), returns total/hasMore
-so the UI can wire infinite scroll.
-
-planDedupe takes the same triple and forwards limit/offset through to
-detectDuplicates. countDuplicateGroups runs the same GROUP-BY skeleton
-without aggregations to populate total without paying for full
-group materialization.
-
-Closes #9 (pagination)
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/FileOrganizer/commit/3decb993c9e7d76fa86262367a49ddb86a7d098d" target="_blank" rel="noopener noreferrer">3decb99</a>
-  </td>
-</tr><tr class="anon">
-    <td class="when">2026-04-29</td>
-
-  <td class="repo">
-      <span class="redact-strong" aria-label="redacted repo" role="img">dead-worker-helper</span>
-  </td>
-
-  <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">fix: tweak router for queue</span>
-  </td>
-
-  <td class="sha">
-      <span class="redact-strong" aria-label="redacted sha" role="img">12fa221</span>
-  </td>
-</tr><tr class="anon">
-    <td class="when">2026-04-29</td>
-
-  <td class="repo">
-      <span class="redact-strong" aria-label="redacted repo" role="img">model-adapter</span>
-  </td>
-
-  <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">feat: rework the spurious util</span>
-  </td>
-
-  <td class="sha">
-      <span class="redact-strong" aria-label="redacted sha" role="img">17be0cb</span>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-04-28 23:08</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/FileOrganizer" target="_blank" rel="noopener noreferrer">FileOrganizer</a>
-  </td>
-
-  <td class="msg">
-      feat(engine/scan): exclude well-known game launcher folders by default
-
-Adds 20 game-launcher folder names to DEFAULT_EXCLUDED_NAMES so the
-walker stops at game install roots instead of indexing every UI sprite,
-voice line, and cutscene as if it were the user&#39;s media. Covers Steam,
-Epic, GOG, Battle.net, Origin/EA, Riot, Ubisoft, Microsoft Store/Xbox,
-Rockstar, and itch.io — the launchers that account for nearly all
-installed games on Windows.
-
-Custom-named installs (e.g. D:\Games\MyCoolGame\) are not caught here;
-that needs marker-file detection or a user-editable exclusions list,
-both filed as separate work.
-
-Closes #8
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/FileOrganizer/commit/52f4fe58320a2247e2f905b08d3428becbc74f8b" target="_blank" rel="noopener noreferrer">52f4fe5</a>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-04-28 21:29</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/FileOrganizer" target="_blank" rel="noopener noreferrer">FileOrganizer</a>
-  </td>
-
-  <td class="msg">
-      fix(engine/api): preview endpoint returns Response instead of c.body(Buffer)
-
-Hono&#39;s c.body() only accepts BodyInit (string | ReadableStream |
-ArrayBuffer | ArrayBufferView | null), and TS doesn&#39;t recognize Node&#39;s
-Buffer as ArrayBufferView in strict mode. CI failed typecheck on the
-preview-image commit. Switched to constructing a Response with
-Uint8Array(buf) directly — same wire result, types are happy.
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/FileOrganizer/commit/9bb749ec26dab6f4cfbe6c6bad99507c8cf038fd" target="_blank" rel="noopener noreferrer">9bb749e</a>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-04-28 21:01</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/FileOrganizer" target="_blank" rel="noopener noreferrer">FileOrganizer</a>
-  </td>
-
-  <td class="msg">
-      feat(ui+api): instant scan feedback and folder-picker modal
-
-The Scan button used to wait silently while POST /api/scans roundtripped
-(50ms artificial delay plus the catalog write), so a click felt like a
-no-op. Track a `starting` flag set on click and cleared in finally; the
-button label flips to &#34;Starting scan…&#34; and the input/profile/Browse
-controls disable for the duration. Errors continue to surface inline.
-
-Add a custom folder-picker modal backed by a new GET /api/fs/list
-endpoint. The endpoint refuses any path that&#39;s not under a registered
-drive&#39;s mount_path (returns 403), with a special &#34;/&#34; sentinel that
-returns the registered drives as virtual top-level entries. Children
-come back sorted dirs-first then alphabetical, capped at 1000.
-
-The modal renders a clickable breadcrumb, a list of children with
-chevrons on dirs, and a &#34;Use this folder&#34; footer. The path input on
-Scans is still freely editable — Browse just fills it in.
-
-Symlinks are filtered out of the listing (dirent isDirectory/isFile
-check skips them); hidden dotfiles are shown.
-
-Closes #1
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/FileOrganizer/commit/fb9f8997ab0163fc7359e9b4ffcc7c98b1e2e767" target="_blank" rel="noopener noreferrer">fb9f899</a>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-04-28 20:57</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/FileOrganizer" target="_blank" rel="noopener noreferrer">FileOrganizer</a>
-  </td>
-
-  <td class="msg">
-      feat(api+ui): serve resized image previews from /api/preview/:fileId
-
-The duplicates view tried to surface live image thumbnails but had no
-way to actually fetch the bytes — file:// URLs are blocked from the
-http://127.0.0.1 origin, so the cards just rendered the generic
-category icon. Add a Hono endpoint that streams a sharp-resized JPEG
-for any indexed file whose category is image and whose path lives
-under a registered drive&#39;s mount_path. Cap the requested max
-dimension, default 256px, and cache for five minutes.
-
-UI now renders &lt;img src=&#34;/api/preview/&lt;id&gt;?max=192&#34; loading=&#34;lazy&#34;&gt;
-inside the dup card stripe for image categories; non-image rows still
-fall back to the icon. The endpoint refuses non-images (400),
-unknown ids (404), missing files (404), and paths outside any
-registered drive (403).
-
-Closes #3
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/FileOrganizer/commit/e0f5f3585a084cc888b247db62ef8028a87a80ee" target="_blank" rel="noopener noreferrer">e0f5f35</a>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-04-28 20:54</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/FileOrganizer" target="_blank" rel="noopener noreferrer">FileOrganizer</a>
-  </td>
-
-  <td class="msg">
-      fix(engine/organize): undo cross-drive rolls back source restore when dest unlink fails
-
-Previously the cross-drive undo path restored the source from
-quarantine and then unconditionally unlinked the destination.
-If the unlink threw — e.g. dedup had already moved the file, leaving
-ENOENT — we&#39;d be left with a stale dest *and* the source back at its
-original location, with the catalog out of step on top.
-
-Snapshot the quarantine row before restore, and on unlink failure
-re-quarantine the just-restored source so we end up where we started.
-The op is then surfaced as failed with a &#34;could not remove dest&#34;
-message; the catalog only updates after both halves of the swap
-succeed.
-
-Closes #4
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/FileOrganizer/commit/599f54b19affa29aac441e85762eae7072227f28" target="_blank" rel="noopener noreferrer">599f54b</a>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-04-28 20:50</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/FileOrganizer" target="_blank" rel="noopener noreferrer">FileOrganizer</a>
-  </td>
-
-  <td class="msg">
-      fix(engine/scan): scope markMissing to scan roots, not drive-wide
-
-The previous query flipped every indexed file on the drive whose
-scan_id differed from the current one. That meant scanning a sibling
-folder would silently mark every file outside the new root as
-&#39;missing&#39;. Add a path-prefix filter built from the scan&#39;s root paths
-(both / and \ child-separator forms) and require at least one root,
-so an empty array is a no-op rather than a drive-wide wipe.
-
-Closes #2
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/FileOrganizer/commit/2809b2432b6a2dcd65b3d00b714388e62c3a64e5" target="_blank" rel="noopener noreferrer">2809b24</a>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-04-28 20:41</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/FileOrganizer" target="_blank" rel="noopener noreferrer">FileOrganizer</a>
-  </td>
-
-  <td class="msg">
-      docs: mark M7 done in README; v0.1.0
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/FileOrganizer/commit/0b2c0d080fe558ecffdd4243e611e017d5bbe3f1" target="_blank" rel="noopener noreferrer">0b2c0d0</a>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-04-28 14:47</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/FileOrganizer" target="_blank" rel="noopener noreferrer">FileOrganizer</a>
-  </td>
-
-  <td class="msg">
-      fix(ui): get the keyboard-shortcut tests green in CI
-
-Three small problems landed together, fixing them as one commit so
-CI doesn&#39;t stay red between hops:
-
-1. vite.config.ts had no `test` block, so vitest defaulted to node
-   instead of jsdom and ignored the preact JSX transform. Added
-   `test.environment = &#39;jsdom&#39;`.
-2. Even with jsdom, vitest&#39;s esbuild step was emitting
-   `React.createElement` from the .tsx test rather than running it
-   through @preact/preset-vite. Rewrote the test to call `h()`
-   directly instead of relying on the JSX transform — avoids the
-   plugin/transform plumbing entirely and keeps the test fast.
-3. `target.isContentEditable` evaluates to false in jsdom for nodes
-   that haven&#39;t propagated computed style, so a contenteditable div
-   was slipping past the editable-target guard. Hook now also
-   inspects the raw `contenteditable` attribute (`&#34;&#34;`, `&#34;true&#34;`,
-   `&#34;plaintext-only&#34;`) so the test and the real browser both behave
-   the same way.
-
-11/11 UI tests pass locally; full root gate (191 engine + 8 shared +
-11 ui = 210) green.
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/FileOrganizer/commit/2101b022512852ae8eb7cb327a7298a40b3b7b1b" target="_blank" rel="noopener noreferrer">2101b02</a>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-04-28 13:23</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/FileOrganizer" target="_blank" rel="noopener noreferrer">FileOrganizer</a>
-  </td>
-
-  <td class="msg">
-      fix(engine/catalog): reconcile queries batches by id, not batch_id
-
-The startup-reconciliation finalizer was selecting `batch_id` from
-the `batches` table, but `batches.id` is the PK — the column
-`batch_id` only exists on `operations`. CI failed across every M7
-commit with `SqliteError: no such column: batch_id`. One-character
-fix in the SELECT plus alias to keep the destructure intact.
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/FileOrganizer/commit/c287b9993d6ef73793199ba2e91d240e712adcca" target="_blank" rel="noopener noreferrer">c287b99</a>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-04-28 11:47</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/FileOrganizer" target="_blank" rel="noopener noreferrer">FileOrganizer</a>
-  </td>
-
-  <td class="msg">
-      docs: expand README with daily-use, troubleshooting, architecture
-
-Merge the M7 plan&#39;s user-guide content into the existing README:
-add an Install-from-source block, a Daily use section that lists
-all eight UI screens with their keyboard shortcuts, a
-Troubleshooting section covering catalog locks, NAS disconnects,
-missing mediainfo, free-space aborts, and paused scans, plus an
-Architecture overview.
-
-Existing content preserved verbatim: screenshot reference, status
-table, prerequisites, &#34;Is it safe to run?&#34; safety section, and
-the License note. M7 row stays at &#34;🚧 in progress&#34; — T08 (perf)
-and T09 (manual e2e + version tag) are still pending.
-
-Task: M7-T07
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/FileOrganizer/commit/ac34d9189c3751a8d4c019e968b9930634662bdf" target="_blank" rel="noopener noreferrer">ac34d91</a>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-04-28 11:46</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/FileOrganizer" target="_blank" rel="noopener noreferrer">FileOrganizer</a>
-  </td>
-
-  <td class="msg">
-      chore(scripts): extract mediainfo zip into engine/bin/ on fetch
-
-After downloading the MediaInfo CLI zip, parse the ZIP central
-directory and inflate the requested entry directly into
-packages/engine/bin/&lt;binary&gt;, then delete the zip. POSIX builds
-get chmod 0o755. Writes go through a .partial sidecar + rename so
-a partial extraction can never look like a successful one.
-
-Plan called for the unzipper package, but the cloud sandbox blocks
-the npm registry entirely (zod, vitest, unzipper all 403&#39;d), and
-shipping a package.json change without a matching lockfile update
-would break `npm ci` in CI. The ZIP format is small enough to
-parse with node:zlib&#39;s inflateRaw, so this avoids the new dep
-without sacrificing clarity. Supports stored (method 0) and
-deflate (method 8) — all that mediainfo&#39;s archive uses.
-
-Engine tolerates a missing mediainfo binary; failure path logs
-clear manual-install instructions and exits 1 instead of leaving
-behind a partial file.
-
-Task: M7-T06
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/FileOrganizer/commit/cc8c75e15fc74497426aaccaae09b2bed8533a7b" target="_blank" rel="noopener noreferrer">cc8c75e</a>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-04-28 11:42</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/FileOrganizer" target="_blank" rel="noopener noreferrer">FileOrganizer</a>
-  </td>
-
-  <td class="msg">
-      feat(ui): add keyboard shortcuts (g+letter chord navigation)
-
-Wire a global keydown listener that supports g+letter chord nav
-(gd dashboard, gb browse, gs scans, go organize, gu duplicates,
-gh history, gq quarantine, gr roles, gt throttle) plus &#39;/&#39; to
-focus the search box.
-
-Critical correctness:
-- Skip when target is input/textarea/select or contenteditable so
-  typing inside RuleForm and similar editors works normally.
-- Skip when ctrl/meta/alt is held so browser shortcuts like Ctrl+G
-  (find), Ctrl+T (new tab), Cmd+R, etc. still pass through.
-- Chord pairs reset after 1s so an accidental &#34;g&#34; doesn&#39;t leak
-  into a later keypress.
-
-Tests cover the chord, single-key shortcut, every blur class
-(input/textarea/select/contenteditable), every modifier, the
-chord-timeout, and unmount cleanup.
-
-Task: M7-T05
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/FileOrganizer/commit/2bfd3c6fd5a8ba9f631f7e4f41d97522e1b55881" target="_blank" rel="noopener noreferrer">2bfd3c6</a>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-04-28 11:40</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/FileOrganizer" target="_blank" rel="noopener noreferrer">FileOrganizer</a>
-  </td>
-
-  <td class="msg">
-      feat(engine/organize): handle NAS disconnects during cross-drive copies
-
-When a `pipeline()` in moveCrossDrive throws a disconnect-class
-errno (ENOENT, EBUSY, ETIMEDOUT, ECONNRESET, ENETUNREACH), wrap it
-as a DriveError(DRIVE_DISCONNECTED) so callers can distinguish
-&#34;the drive went away&#34; from &#34;this single file is broken.&#34;
-
-The applier catches DriveError, marks the in-flight op failed,
-finishes the batch as failed with disconnectedDrive label and
-errorCode in the summary, then re-throws so callers see the
-disconnect rather than a generic completion result.
-
-The HTTP API translates DriveError into a 503 with
-{ error, code: &#39;DRIVE_DISCONNECTED&#39; } on /api/organize/apply and
-/api/organize/auto-apply, so the UI can show a &#34;drive went offline&#34;
-banner instead of a vague 500.
-
-Tests simulate the disconnect by deleting the source file before
-the pipeline opens it (yielding ENOENT). EHOSTUNREACH is omitted
-since plain SMB/NFS disconnects surface as ENOENT/ETIMEDOUT in
-practice; ECONNRESET added to cover mid-stream cuts.
-
-Task: M7-T04
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/FileOrganizer/commit/5f7ea1b77a44535eea66371bab03f5c9224dc94d" target="_blank" rel="noopener noreferrer">5f7ea1b</a>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-04-28 11:36</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/FileOrganizer" target="_blank" rel="noopener noreferrer">FileOrganizer</a>
-  </td>
-
-  <td class="msg">
-      feat(engine/organize): pre-flight free-space check on apply
-
-Before any cross-drive copy work begins, sum estimated bytes per
-destination drive and compare against that drive&#39;s free_bytes minus
-a 5% safety margin (computed from total_bytes). If insufficient,
-abort the whole batch up-front: finish the batch as failed with a
-&#34;insufficient free space&#34; reason in the summary, throw before
-recording any operations or touching the filesystem.
-
-freeBytes is the snapshot from the last scan/upsert and may be
-stale; the 5% safety margin absorbs short-term churn. Same-drive
-moves are excluded since they don&#39;t consume new space.
-
-Task: M7-T03
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/FileOrganizer/commit/9c2969b2b208b9e3c1c11320f7a6c1208233cbce" target="_blank" rel="noopener noreferrer">9c2969b</a>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-04-28 11:34</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/FileOrganizer" target="_blank" rel="noopener noreferrer">FileOrganizer</a>
-  </td>
-
-  <td class="msg">
-      feat(engine/catalog): add daily PRAGMA optimize runner
-
-Periodically run SQLite&#39;s PRAGMA optimize so query plans stay
-healthy as the catalog grows. Persists `lastOptimizedAt` in the
-settings k/v table and only re-runs after 24h elapsed.
-
-Wired into serve.ts: runs once at boot if due, then every 24h via
-an unref&#39;d interval so it doesn&#39;t keep the process alive.
-
-Task: M7-T02
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/FileOrganizer/commit/522654068115f0b27405717fd48003de212fd077" target="_blank" rel="noopener noreferrer">5226540</a>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-04-28 11:34</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/FileOrganizer" target="_blank" rel="noopener noreferrer">FileOrganizer</a>
-  </td>
-
-  <td class="msg">
-      feat(engine/catalog): add startup reconciliation for interrupted operations
-
-On boot, scan operations stuck in `in-progress` state from a prior
-crash or kill. Decide each one based on filesystem evidence: if the
-destination exists with the recorded post_hash, mark completed; if
-only the source remains, mark failed; otherwise mark failed with an
-ambiguous message. Then finalize any batch whose ops are all
-terminal so it doesn&#39;t show as in-progress forever.
-
-Wired into serve.ts before the throttle scheduler starts so the
-engine never resumes work on top of an unresolved partial state.
-
-Task: M7-T01
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/FileOrganizer/commit/3411d1b3875821b73e6c6a131757a56f84f184d2" target="_blank" rel="noopener noreferrer">3411d1b</a>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-04-28 11:08</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/FileOrganizer" target="_blank" rel="noopener noreferrer">FileOrganizer</a>
-  </td>
-
-  <td class="msg">
-      docs: mark M6 done in README
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/FileOrganizer/commit/ce72f9d7971c7e8f151e845509aec3a2b877ad0e" target="_blank" rel="noopener noreferrer">ce72f9d</a>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-04-28 11:08</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/FileOrganizer" target="_blank" rel="noopener noreferrer">FileOrganizer</a>
-  </td>
-
-  <td class="msg">
-      feat(api+ui): add settings endpoint and Throttle editor
-
-Engine:
-- GET/PUT /api/settings round-trip the full Settings shape via
-  SettingsRepo.load/save.
-- createServer accepts an optional onSettingsChanged(settings) hook.
-  serve.ts uses it to tear down the old ThrottleScheduler and spin up
-  a fresh one wired to the new manager, so a save on /api/settings
-  takes effect on the running scheduler within one tick — no restart.
-
-UI:
-- Throttle screen with three profile cards (idle / balanced /
-  full-send) editing localHashWorkers, networkHashWorkers,
-  readChunkBytes, interChunkSleepMs, maxOpenFiles, and processPriority
-  in place.
-- Weekly schedule grid: 7×24 cells; click a cell to cycle through
-  empty → idle → balanced → full-send → empty. Each row has a
-  &#34;fill day&#34; select for bulk operations. Empty cells fall through to
-  whatever profile the engine was last set to.
-- Saved/unsaved pill in the header; Revert and Save buttons are
-  disabled when the in-memory settings match the loaded copy.
-
-Sidebar gets a new Throttle entry between Duplicates and History
-(`g t` shortcut) and `app.tsx` mounts the route.
-
-Tests: two new server-side checks for settings GET/PUT round-trip and
-the onSettingsChanged callback firing exactly once per save.
-
-Task: M6-T04
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/FileOrganizer/commit/da4e6832206cf5072d336d8d3de6ea8e32c4fe88" target="_blank" rel="noopener noreferrer">da4e683</a>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-04-28 09:53</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/FileOrganizer" target="_blank" rel="noopener noreferrer">FileOrganizer</a>
-  </td>
-
-  <td class="msg">
-      docs: mark M6 as in progress in README
-
-Roles repo, API, UI, scheduler runtime, and planner-roles wiring
-have all landed. T04 (throttle profile/schedule UI) is still
-pending visual verification, so M6 stays on the in-progress row
-rather than ticking over to done.
-
-Task: M6-T07
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/FileOrganizer/commit/c387a3dbb228db7867153b1c64c82a27bb44a3cc" target="_blank" rel="noopener noreferrer">c387a3d</a>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-04-28 09:52</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/FileOrganizer" target="_blank" rel="noopener noreferrer">FileOrganizer</a>
-  </td>
-
-  <td class="msg">
-      feat(engine): planner reads roles from RolesRepo by default
-
-Roles input on planOrganize is now optional and defaults to the
-catalog&#39;s RolesRepo.list(). Existing tests that pass roles inline
-keep working unchanged. The /api/plan/organize endpoint drops the
-body.roles field entirely so the catalog is the single source of
-truth, with the UI client signature simplified to take only
-driveRoots.
-
-Adds two planner unit tests (catalog-default and explicit-override)
-and an API integration test that demonstrates a role priority
-change in the catalog flips the planner&#39;s destination drive.
-
-Task: M6-T06
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/FileOrganizer/commit/52857b9a8b9e7ce87f4834798f9d07fc2fab6aa0" target="_blank" rel="noopener noreferrer">52857b9</a>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-04-28 09:49</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/FileOrganizer" target="_blank" rel="noopener noreferrer">FileOrganizer</a>
-  </td>
-
-  <td class="msg">
-      feat(engine/throttle): add scheduler that watches the clock
-
-Wraps ThrottleManager with a ThrottleScheduler that polls every
-intervalMs (default 60s in serve), compares the schedule-derived
-profile to the active one, and only fires when they differ. The
-new throttle-changed engine event carries the new profile name so
-the websocket layer can fan it out later.
-
-Wired into runServe with start on boot and stop on SIGINT/SIGTERM,
-sharing the API server&#39;s EventBus.
-
-Task: M6-T05
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/FileOrganizer/commit/d4b4b92dd782b116ad48b47d286f66689e8e2e09" target="_blank" rel="noopener noreferrer">d4b4b92</a>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-04-28 09:48</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/FileOrganizer" target="_blank" rel="noopener noreferrer">FileOrganizer</a>
-  </td>
-
-  <td class="msg">
-      feat(ui): add Roles screen with drive priority editor
-
-Adds a Roles route that mirrors the dense pro-tool look of the
-Organize screen: each role is a card with the priority order shown
-as a numbered table, up/down reorder buttons, an inline fill-
-threshold input that commits on blur, and an &#34;add drive&#34; picker
-that lists only drives not already assigned. New roles are created
-from a modal whose drive picker uses the same numbered-pill order
-that the table uses.
-
-Adds Roles to the sidebar with role count, wires the route in
-app.tsx, and extends ApiClient with listRoles/createRole/updateRole/
-deleteRole.
-
-Task: M6-T03
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/FileOrganizer/commit/bfee376580c2704535d79a4469b7028dd64adf56" target="_blank" rel="noopener noreferrer">bfee376</a>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-04-28 09:45</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/FileOrganizer" target="_blank" rel="noopener noreferrer">FileOrganizer</a>
-  </td>
-
-  <td class="msg">
-      feat(engine/api): add roles CRUD endpoints
-
-Mirrors the rules CRUD shape: GET /api/roles lists, POST creates,
-PUT /api/roles/:name updates (used for both metadata and reordering
-the drivePriority array), DELETE removes. Returns 409 on duplicate
-names, 404 on missing roles, 400 on invalid drive references.
-
-The integration test exercises create, list, two-step reorder, and
-delete; a second test exercises the error paths.
-
-Task: M6-T02
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/FileOrganizer/commit/b43f874f824c2bf38af0916a61bcedbbe75660c1" target="_blank" rel="noopener noreferrer">b43f874</a>
-  </td>
 </tr>        </tbody>
       </table>
 
@@ -3842,8 +3505,8 @@ Task: M6-T02
     <a href="https://github.com/curtyo18" target="_blank" rel="noopener noreferrer">github</a> · <a href="mailto:curtyo18@gmail.com">email</a>
   </div>
   <div class="stats" style="align-items:center">
-    <span><b>1,412</b> commits</span>
-    <span><b>69</b> repos</span>
+    <span><b>1,490</b> commits</span>
+    <span><b>70</b> repos</span>
     <span><b>17</b> years</span>
   </div>
 </footer>    </div>
