@@ -16,7 +16,7 @@
     <small>curt — a public log of private and public work</small>
   </h1>
   <div class="meta">
-    <span><b>1,490</b> commits indexed</span>
+    <span><b>1,515</b> commits indexed</span>
     <span><b>70</b> repos · <b>17</b> years</span>
   </div>
 </div><div class="gr-section-title">
@@ -24,6 +24,17 @@
 </div>
 
 <div class="gr-featured">
+    <a class="card card-link" href="https://github.com/curtyo18/html-utils" target="_blank" rel="noopener noreferrer">
+      <div class="top">
+        <div class="name">html-utils</div>
+        <div class="lang"></div>
+      </div>
+      <div class="blurb"></div>
+      <div class="foot">
+        <span>66 commits</span>
+        <span>last touched 2026-05-27</span>
+      </div>
+    </a>
     <a class="card card-link" href="https://github.com/curtyo18/tampermonkey-scripts" target="_blank" rel="noopener noreferrer">
       <div class="top">
         <div class="name">tampermonkey-scripts</div>
@@ -33,17 +44,6 @@
       <div class="foot">
         <span>31 commits</span>
         <span>last touched 2026-05-22</span>
-      </div>
-    </a>
-    <a class="card card-link" href="https://github.com/curtyo18/html-utils" target="_blank" rel="noopener noreferrer">
-      <div class="top">
-        <div class="name">html-utils</div>
-        <div class="lang"></div>
-      </div>
-      <div class="blurb"></div>
-      <div class="foot">
-        <span>43 commits</span>
-        <span>last touched 2026-05-20</span>
       </div>
     </a>
     <a class="card card-link" href="https://github.com/curtyo18/ClipCutter" target="_blank" rel="noopener noreferrer">
@@ -71,7 +71,7 @@
 </div>
       <div class="gr-section-title" style="margin-top:36px">
         <span>All commits · newest first</span>
-        <span class="right">showing 1–200 of 1490</span>
+        <span class="right">showing 1–200 of 1515</span>
       </div>
 
       <table class="gr-table">
@@ -84,10 +84,1435 @@
             <tr class="gr-month-row">
               <td colspan="4">
                 May 2026
-                <span>200 commits · 79 public</span>
+                <span>200 commits · 78 public</span>
               </td>
             </tr>
-<tr class="anon">
+<tr class="">
+    <td class="when">2026-05-27 00:04</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/html-utils" target="_blank" rel="noopener noreferrer">html-utils</a>
+  </td>
+
+  <td class="msg">
+      feat(fun/chess): visible &#39;thinking…&#39; indicator + defensive FEN restore
+
+A &#39;thinking…&#39; suffix on the rating display while botMove is in flight
+makes it obvious whether the bot is actually working vs. silently
+stuck — the previous silent-failure mode left the user without any
+signal. Tracked with a try/finally counter so the indicator stays
+correct even if botMove throws.
+
+FEN restore now also calls game.reset() in the catch path so chess.js
+doesn&#39;t end up half-initialised on a bad saved FEN.
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/html-utils/commit/8be4cc849e71daf82dc48cbb2ab50c75a2332f65" target="_blank" rel="noopener noreferrer">8be4cc8</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-05-27 00:01</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/html-utils" target="_blank" rel="noopener noreferrer">html-utils</a>
+  </td>
+
+  <td class="msg">
+      fix(fun/chess): tap-to-move via pointer events + FEN persistence
+
+Tap fix: chessboard-element preventDefaults touchstart on squares with
+pieces. On iOS Safari that suppresses the synthesized &#39;click&#39; event,
+so my click-based tap handler never ran on touch. Pointer events bypass
+that suppression — switch to pointerdown/pointerup and detect a tap as
+&#39;released on the same square pressed&#39;. Real drags release elsewhere
+and continue to be handled by the existing drop listener.
+
+Persistence: save FEN to localStorage on every syncBoard. On init,
+load the saved FEN if present, mark gameResolved=true if the saved
+game already ended (so the rating delta isn&#39;t double-applied), and
+kick off bot&#39;s move automatically if it was the bot&#39;s turn when the
+user closed the tab.
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/html-utils/commit/dbbdd163130d3b1445e8d399485b091cfa58bb3e" target="_blank" rel="noopener noreferrer">dbbdd16</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-05-26 23:53</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/html-utils" target="_blank" rel="noopener noreferrer">html-utils</a>
+  </td>
+
+  <td class="msg">
+      style(fun/chess): selection ring on edges + slower capture fade
+
+Selection used background-image which sits behind the piece — barely
+visible past the piece&#39;s outline. Switch to inset box-shadow so the
+selection ring paints the square&#39;s edges, visible around any piece.
+
+Bump trash-speed 350 -&gt; 600ms and the capture-fade inter-stage wait
+350 -&gt; 650ms so taken pieces fade out more deliberately.
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/html-utils/commit/4705cebfd88b57bc830f70f0a287e87b498201ee" target="_blank" rel="noopener noreferrer">4705ceb</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-05-26 23:51</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/html-utils" target="_blank" rel="noopener noreferrer">html-utils</a>
+  </td>
+
+  <td class="msg">
+      style(fun/chess): move capture-hint ring to corners + red for visibility
+
+The ring sat at 50-56% radius — under the piece image, invisible
+against the captured piece. Push to 78-90% so it shows in the square
+corners around the piece, and use red instead of semi-transparent
+black so it stays visible on both light and dark pieces.
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/html-utils/commit/a0a711791fbc2437d0e24328be49a72b1b82ffa8" target="_blank" rel="noopener noreferrer">a0a7117</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-05-26 23:48</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/html-utils" target="_blank" rel="noopener noreferrer">html-utils</a>
+  </td>
+
+  <td class="msg">
+      feat(fun/chess): tap-to-select then tap-to-move (alongside drag)
+
+chessboard-element only fires drag-start/drop on squares with pieces,
+so tap-to-empty-square needed a separate signal. Listen for click and
+locate the square via composedPath() + the lib&#39;s part=&#39;square &lt;name&gt;&#39;
+attribute on each square element.
+
+State machine:
+- No selection + tap own piece -&gt; select (highlight + hints).
+- Selection + tap same square -&gt; deselect.
+- Selection + tap legal target -&gt; execute move.
+- Selection + tap other own piece -&gt; switch selection.
+- Selection + tap illegal/empty target -&gt; deselect.
+
+Pure taps (drop with source === target) now fall through without
+mutating state so the click handler owns the tap path. Drag still
+works exactly as before, and dragging also clears any pending tap
+selection.
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/html-utils/commit/723bee4b0b72e5b86e5fea9d3fbf9c49c6a5eb91" target="_blank" rel="noopener noreferrer">723bee4</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-05-26 23:45</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/html-utils" target="_blank" rel="noopener noreferrer">html-utils</a>
+  </td>
+
+  <td class="msg">
+      feat(fun/chess): highlight bot&#39;s last move + move-speed 800ms
+
+Last-move highlight: tint the bot&#39;s from (softer) and to (stronger)
+squares with an amber background-image gradient. Persists until the
+player makes their next move (cleared in the drop handler) or new
+game. Uses background-image so it layers cleanly with the box-shadow
+rings used for check highlighting.
+
+Bumped move-speed 550 -&gt; 800ms per request — pieces glide more
+deliberately so the move is impossible to miss.
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/html-utils/commit/5453f0d4bb3aae6036eebc0553ff433f4f1d8d48" target="_blank" rel="noopener noreferrer">5453f0d</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-05-26 23:43</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/html-utils" target="_blank" rel="noopener noreferrer">html-utils</a>
+  </td>
+
+  <td class="msg">
+      fix(fun/chess): two-stage setPosition so captures actually animate
+
+Root cause: chessboard-element&#39;s _calculateAnimations intentionally
+skips the &#39;clear&#39; animation when a piece sits on a square that&#39;s the
+target of a &#39;move&#39; (i.e. a capture). The defender just teleports out
+the moment setPosition commits — trash-speed has no effect on captures.
+
+Fix: when the bot&#39;s move is a capture, first render an intermediate
+position with the captured piece removed (the lib now generates a real
+&#39;clear&#39; animation using trashSpeed), wait for the fade, then render
+the final position so the attacker glides into the empty square.
+
+Also bump move-speed 450 -&gt; 550 for slightly more deliberate gliding,
+since the lack of capture animation was making everything feel snappier
+than it should.
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/html-utils/commit/7cb42bf1bd27eabeb0eed093d04712382cec9014" target="_blank" rel="noopener noreferrer">7cb42bf</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-05-26 18:22</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/html-utils" target="_blank" rel="noopener noreferrer">html-utils</a>
+  </td>
+
+  <td class="msg">
+      feat(fun/chess): also highlight the piece(s) giving check/checkmate
+
+Use chess.js&#39;s attackers(square, color) to find pieces attacking the
+king and ring them in amber — distinct from the king&#39;s red ring.
+On checkmate the rings get thicker; on regular check they&#39;re more
+subtle. Makes the cause of the threat visible at a glance.
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/html-utils/commit/acc619fc7447629b01063e1daadb128f67117288" target="_blank" rel="noopener noreferrer">acc619f</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-05-26 18:17</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/html-utils" target="_blank" rel="noopener noreferrer">html-utils</a>
+  </td>
+
+  <td class="msg">
+      feat(fun/chess): smoother captures + highlight king on check/checkmate
+
+Pacing:
+- Engine branch was the only botMove path without a minimum delay;
+  at low depth the bot&#39;s reply could land in &lt;50ms and visually snap
+  on top of the player&#39;s drop. Now Promise.all(stockfish, 350ms-timer)
+  guarantees a steady cadence regardless of search time.
+- Bump trash-speed from the 100ms default to 350ms so captured pieces
+  fade at a pace closer to the attacker&#39;s 450ms move animation —
+  captures no longer look like an instant overwrite.
+
+Check feedback:
+- Inset red box-shadow on the king&#39;s square whenever it&#39;s in check;
+  thicker/brighter on checkmate. Cleared on resolution. Helps a
+  beginner see *why* the game ended (and notice check threats before
+  they become mate).
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/html-utils/commit/efcf8d8ba7703f4c728935c5906ad593eec890d7" target="_blank" rel="noopener noreferrer">efcf8d8</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-05-26 17:41</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/html-utils" target="_blank" rel="noopener noreferrer">html-utils</a>
+  </td>
+
+  <td class="msg">
+      feat(fun/chess): slim toolbar for phone viewports
+
+- Remove flip-board button (player is always White, never useful).
+- Remove &#39;White to move&#39; status indicator (turn implicit from board;
+  bot-thinking feedback dropped — random branch&#39;s 350ms delay and
+  Stockfish latency are short enough at lower tiers).
+- Drop the &#39;difficulty&#39; label before the select; rename &#39;Very Easy&#39;
+  to &#39;Easier&#39; to slim the dropdown&#39;s intrinsic width.
+- Remove .board-stage max-width cap so the board fills available
+  width on tablets instead of sitting in dead space.
+
+Together this stops the toolbar from overflowing horizontally on
+~360px phone screens.
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/html-utils/commit/6a9a62ebfc1a4c338b46751c97eb2b6f3e0562bb" target="_blank" rel="noopener noreferrer">6a9a62e</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-05-26 17:33</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/html-utils" target="_blank" rel="noopener noreferrer">html-utils</a>
+  </td>
+
+  <td class="msg">
+      feat(fun/chess): basic Elo rating + height-aware responsive board
+
+Rating system:
+- Player Elo starts at 500, K=32, persisted in localStorage.
+- Each tier has a bot rating accounting for random-move injection
+  (Easiest 300 -&gt; Expert 2500). Standard expected-score formula.
+- Topbar &#39;meta&#39; slot now shows &#39;Rating N&#39;; game-over banner appends
+  the delta (&#39;checkmate · +24 rating&#39;) so improvement is visible.
+- Resolution guarded with gameResolved flag so renderStatus stays
+  idempotent across multiple calls per game.
+
+Responsive sizing:
+- Board now sizes to min(100%, calc(100dvh - 180px)) and caps at
+  640px, so it fills the available height on small phones (was
+  stuck at width which left vertical gap) and scales up on iPad.
+- chess-board uses width/height 100% of the now-sized stage instead
+  of carrying its own aspect-ratio.
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/html-utils/commit/fa8881bb9100dbff15f3010688c103ea52234ed7" target="_blank" rel="noopener noreferrer">fa8881b</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-05-26 16:26</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/html-utils" target="_blank" rel="noopener noreferrer">html-utils</a>
+  </td>
+
+  <td class="msg">
+      feat(fun/chess): unmissable game-over overlay with play-again button
+
+The old banner was a small amber line below the board — easy to miss.
+Replace with a dimmed-board overlay containing a large &#39;You win!&#39; /
+&#39;You lose&#39; / &#39;Draw&#39; headline, a sub-line for the cause (checkmate,
+stalemate, etc.), and a &#39;play again&#39; button so the next action is
+obvious from the same spot the result appears.
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/html-utils/commit/a99508c1fb82fbd9d06abe793bf8f8fcb82f43a0" target="_blank" rel="noopener noreferrer">a99508c</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-05-26 16:23</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/html-utils" target="_blank" rel="noopener noreferrer">html-utils</a>
+  </td>
+
+  <td class="msg">
+      fix(fun/chess): delay random-tier bot reply so the move actually animates
+
+The random-move branch fired synchronously inside the player&#39;s drop
+microtask, beating the board&#39;s animation pipeline — bot replies on
+Easiest/Very Easy/Easy frequently teleported instead of gliding.
+A 350ms await before setPosition lets the lib&#39;s diff catch up and
+also makes the reply feel like a move instead of a snap.
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/html-utils/commit/e1c17175d12368b45e3ce46bf10d790e5c8067a0" target="_blank" rel="noopener noreferrer">e1c1717</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-05-26 16:21</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/html-utils" target="_blank" rel="noopener noreferrer">html-utils</a>
+  </td>
+
+  <td class="msg">
+      style(fun/chess): slow bot-move animation to 450ms (was 200ms default)
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/html-utils/commit/88824f9e6575c7f03fbc4e0ebe8ca9d319dbba71" target="_blank" rel="noopener noreferrer">88824f9</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-05-26 16:20</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/html-utils" target="_blank" rel="noopener noreferrer">html-utils</a>
+  </td>
+
+  <td class="msg">
+      style(fun/chess): dark-theme the difficulty select to match the toolbar
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/html-utils/commit/243b4819d2a2941b0c663ec53e91232a1017d311" target="_blank" rel="noopener noreferrer">243b481</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-05-26 16:20</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/html-utils" target="_blank" rel="noopener noreferrer">html-utils</a>
+  </td>
+
+  <td class="msg">
+      feat(fun/chess): animate moves and add legal-move hint dots
+
+- syncBoard() now lets setPosition() animate (lib default), so bot
+  moves glide instead of teleporting.
+- New &#39;show move hints&#39; toolbar toggle (persisted) injects a dynamic
+  stylesheet on drag-start that targets each legal destination square
+  via chess-board::part(&lt;square&gt;) — dot for quiet moves, ring for
+  captures. Cleared on drop.
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/html-utils/commit/7843e3edff2b8d2edee99a431320340200ce2b15" target="_blank" rel="noopener noreferrer">7843e3e</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-05-26 16:14</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/html-utils" target="_blank" rel="noopener noreferrer">html-utils</a>
+  </td>
+
+  <td class="msg">
+      fix(fun/chess): catch chess.js v1 throws on illegal moves
+
+chess.js v1+ throws on invalid moves instead of returning null, so
+the drop handler&#39;s null-check never fired — illegal player moves were
+accepted visually while the engine state stayed put, leading to a
+desync on the next move attempt.
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/html-utils/commit/926593d2556b3eb9c7023adfe397d813b7eff8c8" target="_blank" rel="noopener noreferrer">926593d</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-05-26 16:12</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/html-utils" target="_blank" rel="noopener noreferrer">html-utils</a>
+  </td>
+
+  <td class="msg">
+      fix(fun/chess): use setPosition() so pieces render after JS init
+
+The position *property* setter requires a PositionObject; only the HTML
+*attribute* converter parses FEN strings or &#39;start&#39;. Assigning a FEN
+string directly silently emptied the board on first syncBoard() and on
+every new-game reset.
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/html-utils/commit/1f9c2a84e889c9160bb433cfbce1fa663511a888" target="_blank" rel="noopener noreferrer">1f9c2a8</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-05-26 16:06</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/html-utils" target="_blank" rel="noopener noreferrer">html-utils</a>
+  </td>
+
+  <td class="msg">
+      feat(fun/chess): graceful CDN/engine failure handling + final polish
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/html-utils/commit/b23ff959b328a990b11c345ae9e5b03b809812c5" target="_blank" rel="noopener noreferrer">b23ff95</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-05-26 16:04</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/html-utils" target="_blank" rel="noopener noreferrer">html-utils</a>
+  </td>
+
+  <td class="msg">
+      feat(fun/chess): 6-tier difficulty ladder with random-move tiers and persistence
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/html-utils/commit/7d08ff4bcc29b85e6df99ce58414d2bc57d5b835" target="_blank" rel="noopener noreferrer">7d08ff4</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-05-26 16:03</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/html-utils" target="_blank" rel="noopener noreferrer">html-utils</a>
+  </td>
+
+  <td class="msg">
+      feat(fun/chess): wire Stockfish engine via blob Worker for bot replies
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/html-utils/commit/dd14d1f0c33f38dfe714b8878a59f3885abee2b9" target="_blank" rel="noopener noreferrer">dd14d1f</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-05-26 16:01</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/html-utils" target="_blank" rel="noopener noreferrer">html-utils</a>
+  </td>
+
+  <td class="msg">
+      feat(fun/chess): player move validation, status, and game-over detection
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/html-utils/commit/dd09d0434ce12871583eb0f2aa31f8047afc4b82" target="_blank" rel="noopener noreferrer">dd09d04</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-05-26 15:59</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/html-utils" target="_blank" rel="noopener noreferrer">html-utils</a>
+  </td>
+
+  <td class="msg">
+      feat(fun): scaffold chess tool — board renders at start position
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/html-utils/commit/8585d35898fb2af45c3a94cc940ee51f1012c7a0" target="_blank" rel="noopener noreferrer">8585d35</a>
+  </td>
+</tr><tr class="named">
+    <td class="when">2026-05-26 12:59</td>
+
+  <td class="repo">
+      agent-config
+  </td>
+
+  <td class="msg">
+      <span class="redact" aria-label="redacted message" role="img">guard tighter filter when facade changes</span>
+  </td>
+
+  <td class="sha">
+      <span class="redact" aria-label="redacted sha" role="img">4bdff89</span>
+  </td>
+</tr><tr class="named">
+    <td class="when">2026-05-26 12:53</td>
+
+  <td class="repo">
+      agent-config
+  </td>
+
+  <td class="msg">
+      <span class="redact" aria-label="redacted message" role="img">expose registry</span>
+  </td>
+
+  <td class="sha">
+      <span class="redact" aria-label="redacted sha" role="img">65d8c67</span>
+  </td>
+</tr><tr class="named">
+    <td class="when">2026-05-25 18:30</td>
+
+  <td class="repo">
+      network-data-viewer
+  </td>
+
+  <td class="msg">
+      <span class="redact" aria-label="redacted message" role="img">wip: stub</span>
+  </td>
+
+  <td class="sha">
+      <span class="redact" aria-label="redacted sha" role="img">d132097</span>
+  </td>
+</tr><tr class="named">
+    <td class="when">2026-05-25 18:27</td>
+
+  <td class="repo">
+      network-data-viewer
+  </td>
+
+  <td class="msg">
+      <span class="redact" aria-label="redacted message" role="img">wip: refactor task for watcher</span>
+  </td>
+
+  <td class="sha">
+      <span class="redact" aria-label="redacted sha" role="img">98784c7</span>
+  </td>
+</tr><tr class="named">
+    <td class="when">2026-05-25 18:22</td>
+
+  <td class="repo">
+      network-data-viewer
+  </td>
+
+  <td class="msg">
+      <span class="redact" aria-label="redacted message" role="img">expose worker (obsolete)</span>
+  </td>
+
+  <td class="sha">
+      <span class="redact" aria-label="redacted sha" role="img">1fae5e7</span>
+  </td>
+</tr><tr class="named">
+    <td class="when">2026-05-25 18:18</td>
+
+  <td class="repo">
+      network-data-viewer
+  </td>
+
+  <td class="msg">
+      <span class="redact" aria-label="redacted message" role="img">feat: wire facade so task can expose router</span>
+  </td>
+
+  <td class="sha">
+      <span class="redact" aria-label="redacted sha" role="img">6ed6b69</span>
+  </td>
+</tr><tr class="named">
+    <td class="when">2026-05-25 18:16</td>
+
+  <td class="repo">
+      network-data-viewer
+  </td>
+
+  <td class="msg">
+      <span class="redact" aria-label="redacted message" role="img">fix typo in name</span>
+  </td>
+
+  <td class="sha">
+      <span class="redact" aria-label="redacted sha" role="img">029e583</span>
+  </td>
+</tr><tr class="named">
+    <td class="when">2026-05-25 18:13</td>
+
+  <td class="repo">
+      network-data-viewer
+  </td>
+
+  <td class="msg">
+      <span class="redact" aria-label="redacted message" role="img">wip: init model (cleaner)</span>
+  </td>
+
+  <td class="sha">
+      <span class="redact" aria-label="redacted sha" role="img">f749499</span>
+  </td>
+</tr><tr class="named">
+    <td class="when">2026-05-25 18:10</td>
+
+  <td class="repo">
+      network-data-viewer
+  </td>
+
+  <td class="msg">
+      <span class="redact" aria-label="redacted message" role="img">polish dispatcher, loosen buffer</span>
+  </td>
+
+  <td class="sha">
+      <span class="redact" aria-label="redacted sha" role="img">35596d0</span>
+  </td>
+</tr><tr class="named">
+    <td class="when">2026-05-25 18:05</td>
+
+  <td class="repo">
+      network-data-viewer
+  </td>
+
+  <td class="msg">
+      <span class="redact" aria-label="redacted message" role="img">feat: deprecate handler</span>
+  </td>
+
+  <td class="sha">
+      <span class="redact" aria-label="redacted sha" role="img">3e058f6</span>
+  </td>
+</tr><tr class="named">
+    <td class="when">2026-05-25 18:04</td>
+
+  <td class="repo">
+      network-data-viewer
+  </td>
+
+  <td class="msg">
+      <span class="redact" aria-label="redacted message" role="img">rebuild channel so filter can drop facade</span>
+  </td>
+
+  <td class="sha">
+      <span class="redact" aria-label="redacted sha" role="img">c962125</span>
+  </td>
+</tr><tr class="named">
+    <td class="when">2026-05-25 18:03</td>
+
+  <td class="repo">
+      network-data-viewer
+  </td>
+
+  <td class="msg">
+      <span class="redact" aria-label="redacted message" role="img">wire redundant filter</span>
+  </td>
+
+  <td class="sha">
+      <span class="redact" aria-label="redacted sha" role="img">a68d47b</span>
+  </td>
+</tr><tr class="named">
+    <td class="when">2026-05-25 18:02</td>
+
+  <td class="repo">
+      network-data-viewer
+  </td>
+
+  <td class="msg">
+      <span class="redact" aria-label="redacted message" role="img">test: deprecate flaky watcher for the duplicate parser</span>
+  </td>
+
+  <td class="sha">
+      <span class="redact" aria-label="redacted sha" role="img">4264818</span>
+  </td>
+</tr><tr class="named">
+    <td class="when">2026-05-25 18:02</td>
+
+  <td class="repo">
+      network-data-viewer
+  </td>
+
+  <td class="msg">
+      <span class="redact" aria-label="redacted message" role="img">refactor: refactor broken decoder when session changes</span>
+  </td>
+
+  <td class="sha">
+      <span class="redact" aria-label="redacted sha" role="img">79cd80c</span>
+  </td>
+</tr><tr class="named">
+    <td class="when">2026-05-25 18:00</td>
+
+  <td class="repo">
+      network-data-viewer
+  </td>
+
+  <td class="msg">
+      <span class="redact" aria-label="redacted message" role="img">tidy mailer (obsolete)</span>
+  </td>
+
+  <td class="sha">
+      <span class="redact" aria-label="redacted sha" role="img">5ca2ccb</span>
+  </td>
+</tr><tr class="named">
+    <td class="when">2026-05-25 18:00</td>
+
+  <td class="repo">
+      network-data-viewer
+  </td>
+
+  <td class="msg">
+      <span class="redact" aria-label="redacted message" role="img">feat: throttle cache in schema</span>
+  </td>
+
+  <td class="sha">
+      <span class="redact" aria-label="redacted sha" role="img">7d1f52a</span>
+  </td>
+</tr><tr class="named">
+    <td class="when">2026-05-25 17:26</td>
+
+  <td class="repo">
+      network-data-viewer
+  </td>
+
+  <td class="msg">
+      <span class="redact" aria-label="redacted message" role="img">vendor fallback, throttle buffer</span>
+  </td>
+
+  <td class="sha">
+      <span class="redact" aria-label="redacted sha" role="img">5037e91</span>
+  </td>
+</tr><tr class="named">
+    <td class="when">2026-05-25 17:23</td>
+
+  <td class="repo">
+      network-data-viewer
+  </td>
+
+  <td class="msg">
+      <span class="redact" aria-label="redacted message" role="img">chore: polish reusable config in store</span>
+  </td>
+
+  <td class="sha">
+      <span class="redact" aria-label="redacted sha" role="img">c95111e</span>
+  </td>
+</tr><tr class="named">
+    <td class="when">2026-05-25 17:23</td>
+
+  <td class="repo">
+      network-data-viewer
+  </td>
+
+  <td class="msg">
+      <span class="redact" aria-label="redacted message" role="img">wip: improve lenient client when adapter changes</span>
+  </td>
+
+  <td class="sha">
+      <span class="redact" aria-label="redacted sha" role="img">1165309</span>
+  </td>
+</tr><tr class="named">
+    <td class="when">2026-05-25 17:22</td>
+
+  <td class="repo">
+      network-data-viewer
+  </td>
+
+  <td class="msg">
+      <span class="redact" aria-label="redacted message" role="img">wip: stub</span>
+  </td>
+
+  <td class="sha">
+      <span class="redact" aria-label="redacted sha" role="img">5708455</span>
+  </td>
+</tr><tr class="named">
+    <td class="when">2026-05-25 17:20</td>
+
+  <td class="repo">
+      network-data-viewer
+  </td>
+
+  <td class="msg">
+      <span class="redact" aria-label="redacted message" role="img">wrap stream for builder</span>
+  </td>
+
+  <td class="sha">
+      <span class="redact" aria-label="redacted sha" role="img">8d12dbd</span>
+  </td>
+</tr><tr class="named">
+    <td class="when">2026-05-25 17:19</td>
+
+  <td class="repo">
+      network-data-viewer
+  </td>
+
+  <td class="msg">
+      <span class="redact" aria-label="redacted message" role="img">guard producer and optimize schema</span>
+  </td>
+
+  <td class="sha">
+      <span class="redact" aria-label="redacted sha" role="img">a406775</span>
+  </td>
+</tr><tr class="named">
+    <td class="when">2026-05-25 17:19</td>
+
+  <td class="repo">
+      network-data-viewer
+  </td>
+
+  <td class="msg">
+      <span class="redact" aria-label="redacted message" role="img">refactor redundant task</span>
+  </td>
+
+  <td class="sha">
+      <span class="redact" aria-label="redacted sha" role="img">dc65b64</span>
+  </td>
+</tr><tr class="named">
+    <td class="when">2026-05-25 17:19</td>
+
+  <td class="repo">
+      network-data-viewer
+  </td>
+
+  <td class="msg">
+      <span class="redact" aria-label="redacted message" role="img">refactor: deprecate reader for router</span>
+  </td>
+
+  <td class="sha">
+      <span class="redact" aria-label="redacted sha" role="img">9c579d3</span>
+  </td>
+</tr><tr class="named">
+    <td class="when">2026-05-25 17:17</td>
+
+  <td class="repo">
+      network-data-viewer
+  </td>
+
+  <td class="msg">
+      <span class="redact" aria-label="redacted message" role="img">debounce util</span>
+  </td>
+
+  <td class="sha">
+      <span class="redact" aria-label="redacted sha" role="img">8d35c51</span>
+  </td>
+</tr><tr class="named">
+    <td class="when">2026-05-25 17:15</td>
+
+  <td class="repo">
+      network-data-viewer
+  </td>
+
+  <td class="msg">
+      <span class="redact" aria-label="redacted message" role="img">noop</span>
+  </td>
+
+  <td class="sha">
+      <span class="redact" aria-label="redacted sha" role="img">d9d2688</span>
+  </td>
+</tr><tr class="named">
+    <td class="when">2026-05-25 17:15</td>
+
+  <td class="repo">
+      network-data-viewer
+  </td>
+
+  <td class="msg">
+      <span class="redact" aria-label="redacted message" role="img">wip: wrap incorrect manager</span>
+  </td>
+
+  <td class="sha">
+      <span class="redact" aria-label="redacted sha" role="img">462d65b</span>
+  </td>
+</tr><tr class="named">
+    <td class="when">2026-05-25 17:14</td>
+
+  <td class="repo">
+      network-data-viewer
+  </td>
+
+  <td class="msg">
+      <span class="redact" aria-label="redacted message" role="img">restructure registry, tweak scheduler</span>
+  </td>
+
+  <td class="sha">
+      <span class="redact" aria-label="redacted sha" role="img">8acd8d8</span>
+  </td>
+</tr><tr class="named">
+    <td class="when">2026-05-25 17:14</td>
+
+  <td class="repo">
+      network-data-viewer
+  </td>
+
+  <td class="msg">
+      <span class="redact" aria-label="redacted message" role="img">optimize validator and rebuild scheduler</span>
+  </td>
+
+  <td class="sha">
+      <span class="redact" aria-label="redacted sha" role="img">2e99b2f</span>
+  </td>
+</tr><tr class="named">
+    <td class="when">2026-05-25 17:13</td>
+
+  <td class="repo">
+      network-data-viewer
+  </td>
+
+  <td class="msg">
+      <span class="redact" aria-label="redacted message" role="img">tweak the leaky fallback</span>
+  </td>
+
+  <td class="sha">
+      <span class="redact" aria-label="redacted sha" role="img">460944f</span>
+  </td>
+</tr><tr class="named">
+    <td class="when">2026-05-25 17:11</td>
+
+  <td class="repo">
+      network-data-viewer
+  </td>
+
+  <td class="msg">
+      <span class="redact" aria-label="redacted message" role="img">refactor: drop the duplicate schema</span>
+  </td>
+
+  <td class="sha">
+      <span class="redact" aria-label="redacted sha" role="img">d5b5ef0</span>
+  </td>
+</tr><tr class="named">
+    <td class="when">2026-05-25 17:11</td>
+
+  <td class="repo">
+      network-data-viewer
+  </td>
+
+  <td class="msg">
+      <span class="redact" aria-label="redacted message" role="img">tighten missing config for the leaky builder</span>
+  </td>
+
+  <td class="sha">
+      <span class="redact" aria-label="redacted sha" role="img">c6a7fcb</span>
+  </td>
+</tr><tr class="named">
+    <td class="when">2026-05-25 17:10</td>
+
+  <td class="repo">
+      network-data-viewer
+  </td>
+
+  <td class="msg">
+      <span class="redact" aria-label="redacted message" role="img">fix: deprecate watcher in validator</span>
+  </td>
+
+  <td class="sha">
+      <span class="redact" aria-label="redacted sha" role="img">e4d8cf3</span>
+  </td>
+</tr><tr class="named">
+    <td class="when">2026-05-25 17:10</td>
+
+  <td class="repo">
+      network-data-viewer
+  </td>
+
+  <td class="msg">
+      <span class="redact" aria-label="redacted message" role="img">tighten controller for model</span>
+  </td>
+
+  <td class="sha">
+      <span class="redact" aria-label="redacted sha" role="img">881dc87</span>
+  </td>
+</tr><tr class="named">
+    <td class="when">2026-05-25 17:07</td>
+
+  <td class="repo">
+      network-data-viewer
+  </td>
+
+  <td class="msg">
+      <span class="redact" aria-label="redacted message" role="img">inline the dead queue</span>
+  </td>
+
+  <td class="sha">
+      <span class="redact" aria-label="redacted sha" role="img">018b514</span>
+  </td>
+</tr><tr class="named">
+    <td class="when">2026-05-25 17:07</td>
+
+  <td class="repo">
+      network-data-viewer
+  </td>
+
+  <td class="msg">
+      <span class="redact" aria-label="redacted message" role="img">refactor: extract mailer (dead)</span>
+  </td>
+
+  <td class="sha">
+      <span class="redact" aria-label="redacted sha" role="img">b19d963</span>
+  </td>
+</tr><tr class="named">
+    <td class="when">2026-05-25 17:06</td>
+
+  <td class="repo">
+      network-data-viewer
+  </td>
+
+  <td class="msg">
+      <span class="redact" aria-label="redacted message" role="img">migrate decoder (obsolete)</span>
+  </td>
+
+  <td class="sha">
+      <span class="redact" aria-label="redacted sha" role="img">c3e56e1</span>
+  </td>
+</tr><tr class="named">
+    <td class="when">2026-05-25 17:04</td>
+
+  <td class="repo">
+      network-data-viewer
+  </td>
+
+  <td class="msg">
+      <span class="redact" aria-label="redacted message" role="img">add tighter supervisor</span>
+  </td>
+
+  <td class="sha">
+      <span class="redact" aria-label="redacted sha" role="img">979e663</span>
+  </td>
+</tr><tr class="named">
+    <td class="when">2026-05-25 17:01</td>
+
+  <td class="repo">
+      network-data-viewer
+  </td>
+
+  <td class="msg">
+      <span class="redact" aria-label="redacted message" role="img">wip: bump dispatcher and refactor reader</span>
+  </td>
+
+  <td class="sha">
+      <span class="redact" aria-label="redacted sha" role="img">430a71c</span>
+  </td>
+</tr><tr class="named">
+    <td class="when">2026-05-25 17:01</td>
+
+  <td class="repo">
+      network-data-viewer
+  </td>
+
+  <td class="msg">
+      <span class="redact" aria-label="redacted message" role="img">test: rebuild parser and throttle service</span>
+  </td>
+
+  <td class="sha">
+      <span class="redact" aria-label="redacted sha" role="img">10ddea1</span>
+  </td>
+</tr><tr class="named">
+    <td class="when">2026-05-25 16:58</td>
+
+  <td class="repo">
+      network-data-viewer
+  </td>
+
+  <td class="msg">
+      <span class="redact" aria-label="redacted message" role="img">wire controller</span>
+  </td>
+
+  <td class="sha">
+      <span class="redact" aria-label="redacted sha" role="img">bad8853</span>
+  </td>
+</tr><tr class="named">
+    <td class="when">2026-05-25 16:58</td>
+
+  <td class="repo">
+      network-data-viewer
+  </td>
+
+  <td class="msg">
+      <span class="redact" aria-label="redacted message" role="img">chore: guard the stale service</span>
+  </td>
+
+  <td class="sha">
+      <span class="redact" aria-label="redacted sha" role="img">1fcfeab</span>
+  </td>
+</tr><tr class="named">
+    <td class="when">2026-05-25 16:53</td>
+
+  <td class="repo">
+      network-data-viewer
+  </td>
+
+  <td class="msg">
+      <span class="redact" aria-label="redacted message" role="img">fix: fix view for schema</span>
+  </td>
+
+  <td class="sha">
+      <span class="redact" aria-label="redacted sha" role="img">6ff5384</span>
+  </td>
+</tr><tr class="named">
+    <td class="when">2026-05-25 16:51</td>
+
+  <td class="repo">
+      network-data-viewer
+  </td>
+
+  <td class="msg">
+      <span class="redact" aria-label="redacted message" role="img">trim task and cleanup watcher</span>
+  </td>
+
+  <td class="sha">
+      <span class="redact" aria-label="redacted sha" role="img">ba672dc</span>
+  </td>
+</tr><tr class="named">
+    <td class="when">2026-05-25 16:48</td>
+
+  <td class="repo">
+      network-data-viewer
+  </td>
+
+  <td class="msg">
+      <span class="redact" aria-label="redacted message" role="img">update schema for facade</span>
+  </td>
+
+  <td class="sha">
+      <span class="redact" aria-label="redacted sha" role="img">d171fcd</span>
+  </td>
+</tr><tr class="named">
+    <td class="when">2026-05-25 16:46</td>
+
+  <td class="repo">
+      network-data-viewer
+  </td>
+
+  <td class="msg">
+      <span class="redact" aria-label="redacted message" role="img">docs: rename the faster encoder</span>
+  </td>
+
+  <td class="sha">
+      <span class="redact" aria-label="redacted sha" role="img">303b126</span>
+  </td>
+</tr><tr class="named">
+    <td class="when">2026-05-25 16:45</td>
+
+  <td class="repo">
+      network-data-viewer
+  </td>
+
+  <td class="msg">
+      <span class="redact" aria-label="redacted message" role="img">throttle pipeline, improve handler</span>
+  </td>
+
+  <td class="sha">
+      <span class="redact" aria-label="redacted sha" role="img">5970c3a</span>
+  </td>
+</tr><tr class="named">
+    <td class="when">2026-05-25 16:43</td>
+
+  <td class="repo">
+      network-data-viewer
+  </td>
+
+  <td class="msg">
+      <span class="redact" aria-label="redacted message" role="img">refactor: bump model so ledger can split queue</span>
+  </td>
+
+  <td class="sha">
+      <span class="redact" aria-label="redacted sha" role="img">6a9824e</span>
+  </td>
+</tr><tr class="named">
+    <td class="when">2026-05-25 16:42</td>
+
+  <td class="repo">
+      network-data-viewer
+  </td>
+
+  <td class="msg">
+      <span class="redact" aria-label="redacted message" role="img">wip: remove reusable scheduler when dispatcher changes</span>
+  </td>
+
+  <td class="sha">
+      <span class="redact" aria-label="redacted sha" role="img">8a37d6d</span>
+  </td>
+</tr><tr class="named">
+    <td class="when">2026-05-25 16:42</td>
+
+  <td class="repo">
+      network-data-viewer
+  </td>
+
+  <td class="msg">
+      <span class="redact" aria-label="redacted message" role="img">feat: throttle decoder and cleanup controller</span>
+  </td>
+
+  <td class="sha">
+      <span class="redact" aria-label="redacted sha" role="img">2f8d1fa</span>
+  </td>
+</tr><tr class="named">
+    <td class="when">2026-05-25 16:40</td>
+
+  <td class="repo">
+      network-data-viewer
+  </td>
+
+  <td class="msg">
+      <span class="redact" aria-label="redacted message" role="img">vendor the tighter pipeline</span>
+  </td>
+
+  <td class="sha">
+      <span class="redact" aria-label="redacted sha" role="img">e2a3aac</span>
+  </td>
+</tr><tr class="named">
+    <td class="when">2026-05-25 16:40</td>
+
+  <td class="repo">
+      network-data-viewer
+  </td>
+
+  <td class="msg">
+      <span class="redact" aria-label="redacted message" role="img">docs: optimize indexer</span>
+  </td>
+
+  <td class="sha">
+      <span class="redact" aria-label="redacted sha" role="img">1ce4fdc</span>
+  </td>
+</tr><tr class="named">
+    <td class="when">2026-05-25 16:39</td>
+
+  <td class="repo">
+      network-data-viewer
+  </td>
+
+  <td class="msg">
+      <span class="redact" aria-label="redacted message" role="img">feat: update session for facade</span>
+  </td>
+
+  <td class="sha">
+      <span class="redact" aria-label="redacted sha" role="img">072f5a2</span>
+  </td>
+</tr><tr class="named">
+    <td class="when">2026-05-25 16:38</td>
+
+  <td class="repo">
+      network-data-viewer
+  </td>
+
+  <td class="msg">
+      <span class="redact" aria-label="redacted message" role="img">update the unused supervisor</span>
+  </td>
+
+  <td class="sha">
+      <span class="redact" aria-label="redacted sha" role="img">0332e1c</span>
+  </td>
+</tr><tr class="named">
+    <td class="when">2026-05-25 16:37</td>
+
+  <td class="repo">
+      network-data-viewer
+  </td>
+
+  <td class="msg">
+      <span class="redact" aria-label="redacted message" role="img">docs: vendor manager in worker</span>
+  </td>
+
+  <td class="sha">
+      <span class="redact" aria-label="redacted sha" role="img">6fedd98</span>
+  </td>
+</tr><tr class="named">
+    <td class="when">2026-05-25 16:37</td>
+
+  <td class="repo">
+      network-data-viewer
+  </td>
+
+  <td class="msg">
+      <span class="redact" aria-label="redacted message" role="img">wip: migrate noisy service</span>
+  </td>
+
+  <td class="sha">
+      <span class="redact" aria-label="redacted sha" role="img">5b6e506</span>
+  </td>
+</tr><tr class="named">
+    <td class="when">2026-05-25 16:35</td>
+
+  <td class="repo">
+      network-data-viewer
+  </td>
+
+  <td class="msg">
+      <span class="redact" aria-label="redacted message" role="img">fix: tidy late watcher in util</span>
+  </td>
+
+  <td class="sha">
+      <span class="redact" aria-label="redacted sha" role="img">55a890d</span>
+  </td>
+</tr><tr class="named">
+    <td class="when">2026-05-25 16:33</td>
+
+  <td class="repo">
+      network-data-viewer
+  </td>
+
+  <td class="msg">
+      <span class="redact" aria-label="redacted message" role="img">trim service in supervisor</span>
+  </td>
+
+  <td class="sha">
+      <span class="redact" aria-label="redacted sha" role="img">21a02e0</span>
+  </td>
+</tr><tr class="named">
+    <td class="when">2026-05-25 16:31</td>
+
+  <td class="repo">
+      network-data-viewer
+  </td>
+
+  <td class="msg">
+      <span class="redact" aria-label="redacted message" role="img">tighten model (verbose)</span>
+  </td>
+
+  <td class="sha">
+      <span class="redact" aria-label="redacted sha" role="img">234f2da</span>
+  </td>
+</tr><tr class="named">
+    <td class="when">2026-05-25 16:29</td>
+
+  <td class="repo">
+      network-data-viewer
+  </td>
+
+  <td class="msg">
+      <span class="redact" aria-label="redacted message" role="img">wip: migrate supervisor, migrate filter</span>
+  </td>
+
+  <td class="sha">
+      <span class="redact" aria-label="redacted sha" role="img">53d0422</span>
+  </td>
+</tr><tr class="named">
+    <td class="when">2026-05-25 16:27</td>
+
+  <td class="repo">
+      network-data-viewer
+  </td>
+
+  <td class="msg">
+      <span class="redact" aria-label="redacted message" role="img">refactor: wire wrapper and optimize encoder</span>
+  </td>
+
+  <td class="sha">
+      <span class="redact" aria-label="redacted sha" role="img">d2dd373</span>
+  </td>
+</tr><tr class="named">
+    <td class="when">2026-05-25 16:26</td>
+
+  <td class="repo">
+      network-data-viewer
+  </td>
+
+  <td class="msg">
+      <span class="redact" aria-label="redacted message" role="img">fix: wire cache and expose fallback</span>
+  </td>
+
+  <td class="sha">
+      <span class="redact" aria-label="redacted sha" role="img">4255d17</span>
+  </td>
+</tr><tr class="named">
+    <td class="when">2026-05-25 16:20</td>
+
+  <td class="repo">
+      network-data-viewer
+  </td>
+
+  <td class="msg">
+      <span class="redact" aria-label="redacted message" role="img">refactor: polish client for builder</span>
+  </td>
+
+  <td class="sha">
+      <span class="redact" aria-label="redacted sha" role="img">3f3898c</span>
+  </td>
+</tr><tr class="named">
+    <td class="when">2026-05-25 16:19</td>
+
+  <td class="repo">
+      network-data-viewer
+  </td>
+
+  <td class="msg">
+      <span class="redact" aria-label="redacted message" role="img">fix: update dispatcher, move registry</span>
+  </td>
+
+  <td class="sha">
+      <span class="redact" aria-label="redacted sha" role="img">3c7249a</span>
+  </td>
+</tr><tr class="named">
+    <td class="when">2026-05-25 16:19</td>
+
+  <td class="repo">
+      network-data-viewer
+  </td>
+
+  <td class="msg">
+      <span class="redact" aria-label="redacted message" role="img">docs: guard mailer, improve facade</span>
+  </td>
+
+  <td class="sha">
+      <span class="redact" aria-label="redacted sha" role="img">83202c1</span>
+  </td>
+</tr><tr class="named">
+    <td class="when">2026-05-25 16:18</td>
+
+  <td class="repo">
+      network-data-viewer
+  </td>
+
+  <td class="msg">
+      <span class="redact" aria-label="redacted message" role="img">refactor: tighten scheduler</span>
+  </td>
+
+  <td class="sha">
+      <span class="redact" aria-label="redacted sha" role="img">aab6ec5</span>
+  </td>
+</tr><tr class="named">
+    <td class="when">2026-05-25 16:16</td>
+
+  <td class="repo">
+      network-data-viewer
+  </td>
+
+  <td class="msg">
+      <span class="redact" aria-label="redacted message" role="img">test: trim minor stream</span>
+  </td>
+
+  <td class="sha">
+      <span class="redact" aria-label="redacted sha" role="img">69824a2</span>
+  </td>
+</tr><tr class="named">
+    <td class="when">2026-05-25 16:09</td>
+
+  <td class="repo">
+      network-data-viewer
+  </td>
+
+  <td class="msg">
+      <span class="redact" aria-label="redacted message" role="img">docs: throttle flaky manager for the noisy util</span>
+  </td>
+
+  <td class="sha">
+      <span class="redact" aria-label="redacted sha" role="img">10012a2</span>
+  </td>
+</tr><tr class="anon">
     <td class="when">2026-05-25</td>
 
   <td class="repo">
@@ -254,930 +1679,6 @@
 
   <td class="sha">
       <span class="redact-strong" aria-label="redacted sha" role="img">b1fd207</span>
-  </td>
-</tr><tr class="anon">
-    <td class="when">2026-05-25</td>
-
-  <td class="repo">
-      <span class="redact-strong" aria-label="redacted repo" role="img">buffer-toolkit</span>
-  </td>
-
-  <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">wip: stub</span>
-  </td>
-
-  <td class="sha">
-      <span class="redact-strong" aria-label="redacted sha" role="img">d132097</span>
-  </td>
-</tr><tr class="anon">
-    <td class="when">2026-05-25</td>
-
-  <td class="repo">
-      <span class="redact-strong" aria-label="redacted repo" role="img">registry</span>
-  </td>
-
-  <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">wip: refactor task for watcher</span>
-  </td>
-
-  <td class="sha">
-      <span class="redact-strong" aria-label="redacted sha" role="img">98784c7</span>
-  </td>
-</tr><tr class="anon">
-    <td class="when">2026-05-25</td>
-
-  <td class="repo">
-      <span class="redact-strong" aria-label="redacted repo" role="img">noisy-ledger-mailer</span>
-  </td>
-
-  <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">expose worker (obsolete)</span>
-  </td>
-
-  <td class="sha">
-      <span class="redact-strong" aria-label="redacted sha" role="img">1fae5e7</span>
-  </td>
-</tr><tr class="anon">
-    <td class="when">2026-05-25</td>
-
-  <td class="repo">
-      <span class="redact-strong" aria-label="redacted repo" role="img">helper</span>
-  </td>
-
-  <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">feat: wire facade so task can expose router</span>
-  </td>
-
-  <td class="sha">
-      <span class="redact-strong" aria-label="redacted sha" role="img">6ed6b69</span>
-  </td>
-</tr><tr class="anon">
-    <td class="when">2026-05-25</td>
-
-  <td class="repo">
-      <span class="redact-strong" aria-label="redacted repo" role="img">service-toolkit</span>
-  </td>
-
-  <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">fix typo in name</span>
-  </td>
-
-  <td class="sha">
-      <span class="redact-strong" aria-label="redacted sha" role="img">029e583</span>
-  </td>
-</tr><tr class="anon">
-    <td class="when">2026-05-25</td>
-
-  <td class="repo">
-      <span class="redact-strong" aria-label="redacted repo" role="img">builder</span>
-  </td>
-
-  <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">wip: init model (cleaner)</span>
-  </td>
-
-  <td class="sha">
-      <span class="redact-strong" aria-label="redacted sha" role="img">f749499</span>
-  </td>
-</tr><tr class="anon">
-    <td class="when">2026-05-25</td>
-
-  <td class="repo">
-      <span class="redact-strong" aria-label="redacted repo" role="img">ledger-toolkit</span>
-  </td>
-
-  <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">polish dispatcher, loosen buffer</span>
-  </td>
-
-  <td class="sha">
-      <span class="redact-strong" aria-label="redacted sha" role="img">35596d0</span>
-  </td>
-</tr><tr class="anon">
-    <td class="when">2026-05-25</td>
-
-  <td class="repo">
-      <span class="redact-strong" aria-label="redacted repo" role="img">context</span>
-  </td>
-
-  <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">feat: deprecate handler</span>
-  </td>
-
-  <td class="sha">
-      <span class="redact-strong" aria-label="redacted sha" role="img">3e058f6</span>
-  </td>
-</tr><tr class="anon">
-    <td class="when">2026-05-25</td>
-
-  <td class="repo">
-      <span class="redact-strong" aria-label="redacted repo" role="img">leaky-queue-shim</span>
-  </td>
-
-  <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">rebuild channel so filter can drop facade</span>
-  </td>
-
-  <td class="sha">
-      <span class="redact-strong" aria-label="redacted sha" role="img">c962125</span>
-  </td>
-</tr><tr class="anon">
-    <td class="when">2026-05-25</td>
-
-  <td class="repo">
-      <span class="redact-strong" aria-label="redacted repo" role="img">validator-toolkit</span>
-  </td>
-
-  <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">wire redundant filter</span>
-  </td>
-
-  <td class="sha">
-      <span class="redact-strong" aria-label="redacted sha" role="img">a68d47b</span>
-  </td>
-</tr><tr class="anon">
-    <td class="when">2026-05-25</td>
-
-  <td class="repo">
-      <span class="redact-strong" aria-label="redacted repo" role="img">spurious-controller</span>
-  </td>
-
-  <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">test: deprecate flaky watcher for the duplicate parser</span>
-  </td>
-
-  <td class="sha">
-      <span class="redact-strong" aria-label="redacted sha" role="img">4264818</span>
-  </td>
-</tr><tr class="anon">
-    <td class="when">2026-05-25</td>
-
-  <td class="repo">
-      <span class="redact-strong" aria-label="redacted repo" role="img">validator-toolkit</span>
-  </td>
-
-  <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">refactor: refactor broken decoder when session changes</span>
-  </td>
-
-  <td class="sha">
-      <span class="redact-strong" aria-label="redacted sha" role="img">79cd80c</span>
-  </td>
-</tr><tr class="anon">
-    <td class="when">2026-05-25</td>
-
-  <td class="repo">
-      <span class="redact-strong" aria-label="redacted repo" role="img">config-toolkit</span>
-  </td>
-
-  <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">tidy mailer (obsolete)</span>
-  </td>
-
-  <td class="sha">
-      <span class="redact-strong" aria-label="redacted sha" role="img">5ca2ccb</span>
-  </td>
-</tr><tr class="anon">
-    <td class="when">2026-05-25</td>
-
-  <td class="repo">
-      <span class="redact-strong" aria-label="redacted repo" role="img">bootstrapper</span>
-  </td>
-
-  <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">feat: throttle cache in schema</span>
-  </td>
-
-  <td class="sha">
-      <span class="redact-strong" aria-label="redacted sha" role="img">7d1f52a</span>
-  </td>
-</tr><tr class="anon">
-    <td class="when">2026-05-25</td>
-
-  <td class="repo">
-      <span class="redact-strong" aria-label="redacted repo" role="img">flaky-consumer</span>
-  </td>
-
-  <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">vendor fallback, throttle buffer</span>
-  </td>
-
-  <td class="sha">
-      <span class="redact-strong" aria-label="redacted sha" role="img">5037e91</span>
-  </td>
-</tr><tr class="anon">
-    <td class="when">2026-05-25</td>
-
-  <td class="repo">
-      <span class="redact-strong" aria-label="redacted repo" role="img">reader-handler</span>
-  </td>
-
-  <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">chore: polish reusable config in store</span>
-  </td>
-
-  <td class="sha">
-      <span class="redact-strong" aria-label="redacted sha" role="img">c95111e</span>
-  </td>
-</tr><tr class="anon">
-    <td class="when">2026-05-25</td>
-
-  <td class="repo">
-      <span class="redact-strong" aria-label="redacted repo" role="img">decoder-toolkit</span>
-  </td>
-
-  <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">wip: improve lenient client when adapter changes</span>
-  </td>
-
-  <td class="sha">
-      <span class="redact-strong" aria-label="redacted sha" role="img">1165309</span>
-  </td>
-</tr><tr class="anon">
-    <td class="when">2026-05-25</td>
-
-  <td class="repo">
-      <span class="redact-strong" aria-label="redacted repo" role="img">builder</span>
-  </td>
-
-  <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">wip: stub</span>
-  </td>
-
-  <td class="sha">
-      <span class="redact-strong" aria-label="redacted sha" role="img">5708455</span>
-  </td>
-</tr><tr class="anon">
-    <td class="when">2026-05-25</td>
-
-  <td class="repo">
-      <span class="redact-strong" aria-label="redacted repo" role="img">builder-toolkit</span>
-  </td>
-
-  <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">wrap stream for builder</span>
-  </td>
-
-  <td class="sha">
-      <span class="redact-strong" aria-label="redacted sha" role="img">8d12dbd</span>
-  </td>
-</tr><tr class="anon">
-    <td class="when">2026-05-25</td>
-
-  <td class="repo">
-      <span class="redact-strong" aria-label="redacted repo" role="img">task-stream</span>
-  </td>
-
-  <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">guard producer and optimize schema</span>
-  </td>
-
-  <td class="sha">
-      <span class="redact-strong" aria-label="redacted sha" role="img">a406775</span>
-  </td>
-</tr><tr class="anon">
-    <td class="when">2026-05-25</td>
-
-  <td class="repo">
-      <span class="redact-strong" aria-label="redacted repo" role="img">model-toolkit</span>
-  </td>
-
-  <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">refactor redundant task</span>
-  </td>
-
-  <td class="sha">
-      <span class="redact-strong" aria-label="redacted sha" role="img">dc65b64</span>
-  </td>
-</tr><tr class="anon">
-    <td class="when">2026-05-25</td>
-
-  <td class="repo">
-      <span class="redact-strong" aria-label="redacted repo" role="img">flaky-cache-fallback</span>
-  </td>
-
-  <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">refactor: deprecate reader for router</span>
-  </td>
-
-  <td class="sha">
-      <span class="redact-strong" aria-label="redacted sha" role="img">9c579d3</span>
-  </td>
-</tr><tr class="anon">
-    <td class="when">2026-05-25</td>
-
-  <td class="repo">
-      <span class="redact-strong" aria-label="redacted repo" role="img">obsolete-reader</span>
-  </td>
-
-  <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">debounce util</span>
-  </td>
-
-  <td class="sha">
-      <span class="redact-strong" aria-label="redacted sha" role="img">8d35c51</span>
-  </td>
-</tr><tr class="anon">
-    <td class="when">2026-05-25</td>
-
-  <td class="repo">
-      <span class="redact-strong" aria-label="redacted repo" role="img">cleaner-filter</span>
-  </td>
-
-  <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">noop</span>
-  </td>
-
-  <td class="sha">
-      <span class="redact-strong" aria-label="redacted sha" role="img">d9d2688</span>
-  </td>
-</tr><tr class="anon">
-    <td class="when">2026-05-25</td>
-
-  <td class="repo">
-      <span class="redact-strong" aria-label="redacted repo" role="img">facade-toolkit</span>
-  </td>
-
-  <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">wip: wrap incorrect manager</span>
-  </td>
-
-  <td class="sha">
-      <span class="redact-strong" aria-label="redacted sha" role="img">462d65b</span>
-  </td>
-</tr><tr class="anon">
-    <td class="when">2026-05-25</td>
-
-  <td class="repo">
-      <span class="redact-strong" aria-label="redacted repo" role="img">verbose-reader</span>
-  </td>
-
-  <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">restructure registry, tweak scheduler</span>
-  </td>
-
-  <td class="sha">
-      <span class="redact-strong" aria-label="redacted sha" role="img">8acd8d8</span>
-  </td>
-</tr><tr class="anon">
-    <td class="when">2026-05-25</td>
-
-  <td class="repo">
-      <span class="redact-strong" aria-label="redacted repo" role="img">cache-pipeline</span>
-  </td>
-
-  <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">optimize validator and rebuild scheduler</span>
-  </td>
-
-  <td class="sha">
-      <span class="redact-strong" aria-label="redacted sha" role="img">2e99b2f</span>
-  </td>
-</tr><tr class="anon">
-    <td class="when">2026-05-25</td>
-
-  <td class="repo">
-      <span class="redact-strong" aria-label="redacted repo" role="img">channel</span>
-  </td>
-
-  <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">tweak the leaky fallback</span>
-  </td>
-
-  <td class="sha">
-      <span class="redact-strong" aria-label="redacted sha" role="img">460944f</span>
-  </td>
-</tr><tr class="anon">
-    <td class="when">2026-05-25</td>
-
-  <td class="repo">
-      <span class="redact-strong" aria-label="redacted repo" role="img">adapter-dispatcher</span>
-  </td>
-
-  <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">refactor: drop the duplicate schema</span>
-  </td>
-
-  <td class="sha">
-      <span class="redact-strong" aria-label="redacted sha" role="img">d5b5ef0</span>
-  </td>
-</tr><tr class="anon">
-    <td class="when">2026-05-25</td>
-
-  <td class="repo">
-      <span class="redact-strong" aria-label="redacted repo" role="img">stale-shim</span>
-  </td>
-
-  <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">tighten missing config for the leaky builder</span>
-  </td>
-
-  <td class="sha">
-      <span class="redact-strong" aria-label="redacted sha" role="img">c6a7fcb</span>
-  </td>
-</tr><tr class="anon">
-    <td class="when">2026-05-25</td>
-
-  <td class="repo">
-      <span class="redact-strong" aria-label="redacted repo" role="img">late-guard-wrapper</span>
-  </td>
-
-  <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">fix: deprecate watcher in validator</span>
-  </td>
-
-  <td class="sha">
-      <span class="redact-strong" aria-label="redacted sha" role="img">e4d8cf3</span>
-  </td>
-</tr><tr class="anon">
-    <td class="when">2026-05-25</td>
-
-  <td class="repo">
-      <span class="redact-strong" aria-label="redacted repo" role="img">helper</span>
-  </td>
-
-  <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">tighten controller for model</span>
-  </td>
-
-  <td class="sha">
-      <span class="redact-strong" aria-label="redacted sha" role="img">881dc87</span>
-  </td>
-</tr><tr class="anon">
-    <td class="when">2026-05-25</td>
-
-  <td class="repo">
-      <span class="redact-strong" aria-label="redacted repo" role="img">guard</span>
-  </td>
-
-  <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">inline the dead queue</span>
-  </td>
-
-  <td class="sha">
-      <span class="redact-strong" aria-label="redacted sha" role="img">018b514</span>
-  </td>
-</tr><tr class="anon">
-    <td class="when">2026-05-25</td>
-
-  <td class="repo">
-      <span class="redact-strong" aria-label="redacted repo" role="img">dead-supervisor</span>
-  </td>
-
-  <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">refactor: extract mailer (dead)</span>
-  </td>
-
-  <td class="sha">
-      <span class="redact-strong" aria-label="redacted sha" role="img">b19d963</span>
-  </td>
-</tr><tr class="anon">
-    <td class="when">2026-05-25</td>
-
-  <td class="repo">
-      <span class="redact-strong" aria-label="redacted repo" role="img">shim-toolkit</span>
-  </td>
-
-  <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">migrate decoder (obsolete)</span>
-  </td>
-
-  <td class="sha">
-      <span class="redact-strong" aria-label="redacted sha" role="img">c3e56e1</span>
-  </td>
-</tr><tr class="anon">
-    <td class="when">2026-05-25</td>
-
-  <td class="repo">
-      <span class="redact-strong" aria-label="redacted repo" role="img">router-toolkit</span>
-  </td>
-
-  <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">add tighter supervisor</span>
-  </td>
-
-  <td class="sha">
-      <span class="redact-strong" aria-label="redacted sha" role="img">979e663</span>
-  </td>
-</tr><tr class="anon">
-    <td class="when">2026-05-25</td>
-
-  <td class="repo">
-      <span class="redact-strong" aria-label="redacted repo" role="img">encoder-toolkit</span>
-  </td>
-
-  <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">wip: bump dispatcher and refactor reader</span>
-  </td>
-
-  <td class="sha">
-      <span class="redact-strong" aria-label="redacted sha" role="img">430a71c</span>
-  </td>
-</tr><tr class="anon">
-    <td class="when">2026-05-25</td>
-
-  <td class="repo">
-      <span class="redact-strong" aria-label="redacted repo" role="img">queue-stream</span>
-  </td>
-
-  <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">test: rebuild parser and throttle service</span>
-  </td>
-
-  <td class="sha">
-      <span class="redact-strong" aria-label="redacted sha" role="img">10ddea1</span>
-  </td>
-</tr><tr class="anon">
-    <td class="when">2026-05-25</td>
-
-  <td class="repo">
-      <span class="redact-strong" aria-label="redacted repo" role="img">mailer-util</span>
-  </td>
-
-  <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">wire controller</span>
-  </td>
-
-  <td class="sha">
-      <span class="redact-strong" aria-label="redacted sha" role="img">bad8853</span>
-  </td>
-</tr><tr class="anon">
-    <td class="when">2026-05-25</td>
-
-  <td class="repo">
-      <span class="redact-strong" aria-label="redacted repo" role="img">verbose-task-client</span>
-  </td>
-
-  <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">chore: guard the stale service</span>
-  </td>
-
-  <td class="sha">
-      <span class="redact-strong" aria-label="redacted sha" role="img">1fcfeab</span>
-  </td>
-</tr><tr class="anon">
-    <td class="when">2026-05-25</td>
-
-  <td class="repo">
-      <span class="redact-strong" aria-label="redacted repo" role="img">supervisor-toolkit</span>
-  </td>
-
-  <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">fix: fix view for schema</span>
-  </td>
-
-  <td class="sha">
-      <span class="redact-strong" aria-label="redacted sha" role="img">6ff5384</span>
-  </td>
-</tr><tr class="anon">
-    <td class="when">2026-05-25</td>
-
-  <td class="repo">
-      <span class="redact-strong" aria-label="redacted repo" role="img">view-toolkit</span>
-  </td>
-
-  <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">trim task and cleanup watcher</span>
-  </td>
-
-  <td class="sha">
-      <span class="redact-strong" aria-label="redacted sha" role="img">ba672dc</span>
-  </td>
-</tr><tr class="anon">
-    <td class="when">2026-05-25</td>
-
-  <td class="repo">
-      <span class="redact-strong" aria-label="redacted repo" role="img">adapter-stream</span>
-  </td>
-
-  <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">update schema for facade</span>
-  </td>
-
-  <td class="sha">
-      <span class="redact-strong" aria-label="redacted sha" role="img">d171fcd</span>
-  </td>
-</tr><tr class="anon">
-    <td class="when">2026-05-25</td>
-
-  <td class="repo">
-      <span class="redact-strong" aria-label="redacted repo" role="img">util-model</span>
-  </td>
-
-  <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">docs: rename the faster encoder</span>
-  </td>
-
-  <td class="sha">
-      <span class="redact-strong" aria-label="redacted sha" role="img">303b126</span>
-  </td>
-</tr><tr class="anon">
-    <td class="when">2026-05-25</td>
-
-  <td class="repo">
-      <span class="redact-strong" aria-label="redacted repo" role="img">supervisor</span>
-  </td>
-
-  <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">throttle pipeline, improve handler</span>
-  </td>
-
-  <td class="sha">
-      <span class="redact-strong" aria-label="redacted sha" role="img">5970c3a</span>
-  </td>
-</tr><tr class="anon">
-    <td class="when">2026-05-25</td>
-
-  <td class="repo">
-      <span class="redact-strong" aria-label="redacted repo" role="img">noisy-model</span>
-  </td>
-
-  <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">refactor: bump model so ledger can split queue</span>
-  </td>
-
-  <td class="sha">
-      <span class="redact-strong" aria-label="redacted sha" role="img">6a9824e</span>
-  </td>
-</tr><tr class="anon">
-    <td class="when">2026-05-25</td>
-
-  <td class="repo">
-      <span class="redact-strong" aria-label="redacted repo" role="img">missing-client</span>
-  </td>
-
-  <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">wip: remove reusable scheduler when dispatcher changes</span>
-  </td>
-
-  <td class="sha">
-      <span class="redact-strong" aria-label="redacted sha" role="img">8a37d6d</span>
-  </td>
-</tr><tr class="anon">
-    <td class="when">2026-05-25</td>
-
-  <td class="repo">
-      <span class="redact-strong" aria-label="redacted repo" role="img">wrapper-indexer</span>
-  </td>
-
-  <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">feat: throttle decoder and cleanup controller</span>
-  </td>
-
-  <td class="sha">
-      <span class="redact-strong" aria-label="redacted sha" role="img">2f8d1fa</span>
-  </td>
-</tr><tr class="anon">
-    <td class="when">2026-05-25</td>
-
-  <td class="repo">
-      <span class="redact-strong" aria-label="redacted repo" role="img">pipeline-toolkit</span>
-  </td>
-
-  <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">vendor the tighter pipeline</span>
-  </td>
-
-  <td class="sha">
-      <span class="redact-strong" aria-label="redacted sha" role="img">e2a3aac</span>
-  </td>
-</tr><tr class="anon">
-    <td class="when">2026-05-25</td>
-
-  <td class="repo">
-      <span class="redact-strong" aria-label="redacted repo" role="img">leaky-handler-validator</span>
-  </td>
-
-  <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">docs: optimize indexer</span>
-  </td>
-
-  <td class="sha">
-      <span class="redact-strong" aria-label="redacted sha" role="img">1ce4fdc</span>
-  </td>
-</tr><tr class="anon">
-    <td class="when">2026-05-25</td>
-
-  <td class="repo">
-      <span class="redact-strong" aria-label="redacted repo" role="img">session-toolkit</span>
-  </td>
-
-  <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">feat: update session for facade</span>
-  </td>
-
-  <td class="sha">
-      <span class="redact-strong" aria-label="redacted sha" role="img">072f5a2</span>
-  </td>
-</tr><tr class="anon">
-    <td class="when">2026-05-25</td>
-
-  <td class="repo">
-      <span class="redact-strong" aria-label="redacted repo" role="img">dead-adapter</span>
-  </td>
-
-  <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">update the unused supervisor</span>
-  </td>
-
-  <td class="sha">
-      <span class="redact-strong" aria-label="redacted sha" role="img">0332e1c</span>
-  </td>
-</tr><tr class="anon">
-    <td class="when">2026-05-25</td>
-
-  <td class="repo">
-      <span class="redact-strong" aria-label="redacted repo" role="img">loader</span>
-  </td>
-
-  <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">docs: vendor manager in worker</span>
-  </td>
-
-  <td class="sha">
-      <span class="redact-strong" aria-label="redacted sha" role="img">6fedd98</span>
-  </td>
-</tr><tr class="anon">
-    <td class="when">2026-05-25</td>
-
-  <td class="repo">
-      <span class="redact-strong" aria-label="redacted repo" role="img">leaky-parser</span>
-  </td>
-
-  <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">wip: migrate noisy service</span>
-  </td>
-
-  <td class="sha">
-      <span class="redact-strong" aria-label="redacted sha" role="img">5b6e506</span>
-  </td>
-</tr><tr class="anon">
-    <td class="when">2026-05-25</td>
-
-  <td class="repo">
-      <span class="redact-strong" aria-label="redacted repo" role="img">buffer</span>
-  </td>
-
-  <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">fix: tidy late watcher in util</span>
-  </td>
-
-  <td class="sha">
-      <span class="redact-strong" aria-label="redacted sha" role="img">55a890d</span>
-  </td>
-</tr><tr class="anon">
-    <td class="when">2026-05-25</td>
-
-  <td class="repo">
-      <span class="redact-strong" aria-label="redacted repo" role="img">mailer</span>
-  </td>
-
-  <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">trim service in supervisor</span>
-  </td>
-
-  <td class="sha">
-      <span class="redact-strong" aria-label="redacted sha" role="img">21a02e0</span>
-  </td>
-</tr><tr class="anon">
-    <td class="when">2026-05-25</td>
-
-  <td class="repo">
-      <span class="redact-strong" aria-label="redacted repo" role="img">builder-helper</span>
-  </td>
-
-  <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">tighten model (verbose)</span>
-  </td>
-
-  <td class="sha">
-      <span class="redact-strong" aria-label="redacted sha" role="img">234f2da</span>
-  </td>
-</tr><tr class="anon">
-    <td class="when">2026-05-25</td>
-
-  <td class="repo">
-      <span class="redact-strong" aria-label="redacted repo" role="img">validator-stream</span>
-  </td>
-
-  <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">wip: migrate supervisor, migrate filter</span>
-  </td>
-
-  <td class="sha">
-      <span class="redact-strong" aria-label="redacted sha" role="img">53d0422</span>
-  </td>
-</tr><tr class="anon">
-    <td class="when">2026-05-25</td>
-
-  <td class="repo">
-      <span class="redact-strong" aria-label="redacted repo" role="img">helper-fallback</span>
-  </td>
-
-  <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">refactor: wire wrapper and optimize encoder</span>
-  </td>
-
-  <td class="sha">
-      <span class="redact-strong" aria-label="redacted sha" role="img">d2dd373</span>
-  </td>
-</tr><tr class="anon">
-    <td class="when">2026-05-25</td>
-
-  <td class="repo">
-      <span class="redact-strong" aria-label="redacted repo" role="img">flaky-fallback-store</span>
-  </td>
-
-  <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">fix: wire cache and expose fallback</span>
-  </td>
-
-  <td class="sha">
-      <span class="redact-strong" aria-label="redacted sha" role="img">4255d17</span>
-  </td>
-</tr><tr class="anon">
-    <td class="when">2026-05-25</td>
-
-  <td class="repo">
-      <span class="redact-strong" aria-label="redacted repo" role="img">verbose-decoder</span>
-  </td>
-
-  <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">refactor: polish client for builder</span>
-  </td>
-
-  <td class="sha">
-      <span class="redact-strong" aria-label="redacted sha" role="img">3f3898c</span>
-  </td>
-</tr><tr class="anon">
-    <td class="when">2026-05-25</td>
-
-  <td class="repo">
-      <span class="redact-strong" aria-label="redacted repo" role="img">unused-manager-decoder</span>
-  </td>
-
-  <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">fix: update dispatcher, move registry</span>
-  </td>
-
-  <td class="sha">
-      <span class="redact-strong" aria-label="redacted sha" role="img">3c7249a</span>
-  </td>
-</tr><tr class="anon">
-    <td class="when">2026-05-25</td>
-
-  <td class="repo">
-      <span class="redact-strong" aria-label="redacted repo" role="img">obsolete-writer-client</span>
-  </td>
-
-  <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">docs: guard mailer, improve facade</span>
-  </td>
-
-  <td class="sha">
-      <span class="redact-strong" aria-label="redacted sha" role="img">83202c1</span>
-  </td>
-</tr><tr class="anon">
-    <td class="when">2026-05-25</td>
-
-  <td class="repo">
-      <span class="redact-strong" aria-label="redacted repo" role="img">incorrect-writer</span>
-  </td>
-
-  <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">refactor: tighten scheduler</span>
-  </td>
-
-  <td class="sha">
-      <span class="redact-strong" aria-label="redacted sha" role="img">aab6ec5</span>
-  </td>
-</tr><tr class="anon">
-    <td class="when">2026-05-25</td>
-
-  <td class="repo">
-      <span class="redact-strong" aria-label="redacted repo" role="img">writer-adapter</span>
-  </td>
-
-  <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">test: trim minor stream</span>
-  </td>
-
-  <td class="sha">
-      <span class="redact-strong" aria-label="redacted sha" role="img">69824a2</span>
-  </td>
-</tr><tr class="anon">
-    <td class="when">2026-05-25</td>
-
-  <td class="repo">
-      <span class="redact-strong" aria-label="redacted repo" role="img">util-toolkit</span>
-  </td>
-
-  <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">docs: throttle flaky manager for the noisy util</span>
-  </td>
-
-  <td class="sha">
-      <span class="redact-strong" aria-label="redacted sha" role="img">10012a2</span>
   </td>
 </tr><tr class="">
     <td class="when">2026-05-22 20:17</td>
@@ -2663,778 +3164,6 @@ signal is captured even after the inner span disappears.
   <td class="sha">
       <a class="sha-link" href="https://github.com/curtyo18/ClipCutter/commit/dd68637807b9ebe1982c88d97b6d8b34e2c0148d" target="_blank" rel="noopener noreferrer">dd68637</a>
   </td>
-</tr><tr class="">
-    <td class="when">2026-05-17 22:22</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/ClipCutter" target="_blank" rel="noopener noreferrer">ClipCutter</a>
-  </td>
-
-  <td class="msg">
-      test(ui): accept terminal chip label as proof of progress wiring
-
-On fast hosts the pipeline can complete between polling intervals and
-the chip text flips straight from &#39;0%&#39; to &#39;done&#39; without rendering any
-intermediate value. Accept either &gt;50% (slow hosts) or a terminal label
-(fast hosts) so the test holds across runners while still proving the
-task lifecycle reaches the chip system.
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/ClipCutter/commit/bae793a5d5412a61a39f205f94edd97460a4d675" target="_blank" rel="noopener noreferrer">bae793a</a>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-05-17 22:14</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/FileOrganizer" target="_blank" rel="noopener noreferrer">FileOrganizer</a>
-  </td>
-
-  <td class="msg">
-      chore: spec §11 — polling is the permanent delivery mechanism
-
-The 2026-05-17 quality review considered closing spec §11&#39;s WebSocket
-promise by adding SSE browser delivery. Cost/benefit didn&#39;t justify
-~300-500 lines of new code + reconnect/heartbeat complexity to shave
-1.5-3s lag off one screen on a local 127.0.0.1 server.
-
-Decision recorded in spec §11: polling stays as the permanent UX
-delivery mechanism. The architecture summary&#39;s &#34;HTTP+WebSocket API&#34;
-line is updated to &#34;HTTP API&#34;. Plan dep list is updated to match.
-
-Removes @hono/node-ws from engine runtime deps (was preserved through
-M9 and N1 PRs awaiting this decision; never imported by any code).
-
-EventBus stays — it&#39;s engine-internal coordination (scheduler ↔
-throttle), not browser delivery.
-
-Co-Authored-By: Claude Opus 4.7 &lt;noreply@anthropic.com&gt;
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/FileOrganizer/commit/c039957aa8721f899680596a875b47e36922af22" target="_blank" rel="noopener noreferrer">c039957</a>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-05-17 22:13</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/ClipCutter" target="_blank" rel="noopener noreferrer">ClipCutter</a>
-  </td>
-
-  <td class="msg">
-      test(ui): replace polling chip-pct checks with MutationObserver
-
-The two wait_for_function polls could miss the 100% reading on fast
-hosts where the chip element mounts, jumps 0 -&gt; 100, and unmounts
-between Playwright&#39;s polling intervals. A MutationObserver runs
-synchronously on the DOM change and reliably captures the value.
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/ClipCutter/commit/c84baa329ec01635bd35907994ae6fe69706584d" target="_blank" rel="noopener noreferrer">c84baa3</a>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-05-17 22:02</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/ClipCutter" target="_blank" rel="noopener noreferrer">ClipCutter</a>
-  </td>
-
-  <td class="msg">
-      ci: build frontend bundle before running browser tests
-
-Browser tests depend on clipcutter/static/dist/, which the workflow
-wasn&#39;t producing. Added a Node 20 setup + npm ci + npm run build step
-between Python install and Playwright. npm cache keyed on the static
-lockfile.
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/ClipCutter/commit/4d30985d60549f049610aa8c584f5635dcafa6b6" target="_blank" rel="noopener noreferrer">4d30985</a>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-05-17 21:57</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/FileOrganizer" target="_blank" rel="noopener noreferrer">FileOrganizer</a>
-  </td>
-
-  <td class="msg">
-      chore: remove processPriority field (spec §5.5)
-
-The processPriority field on ThrottleProfile was typed and stored
-in settings but no engine code ever called SetPriorityClass (Windows),
-nice/renice (POSIX), or any OS-level priority API. The UI rendered
-the configured value, giving a false impression that the OS scheduler
-was being adjusted.
-
-Per the F1 (#35) decision Item 1 = C, the field is removed from:
-- shared ThrottleProfile type and default profile literals
-- engine throttle module readers
-- settings persistence path
-- UI throttle render
-- spec §5.5
-
-F1 Item 2 (WebSocket browser event delivery) is being planned
-separately and is NOT touched here — @hono/node-ws stays in
-packages/engine/package.json until that plan lands.
-
-Closes #35
-
-Co-Authored-By: Claude Opus 4.7 &lt;noreply@anthropic.com&gt;
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/FileOrganizer/commit/aab3fa1430d80a7873f87b51e437432ff1adc7ed" target="_blank" rel="noopener noreferrer">aab3fa1</a>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-05-17 21:55</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/ClipCutter" target="_blank" rel="noopener noreferrer">ClipCutter</a>
-  </td>
-
-  <td class="msg">
-      ci: add GitHub Actions workflow for backend and browser tests
-
-Backend job installs ffmpeg + dev extras and runs pytest -k &#34;not browser&#34;.
-Browser job depends on backend, installs Chromium via Playwright with a
-cached ~/.cache/ms-playwright, then runs the test_ui_browser.py suite.
-
-Single Python 3.12 baseline; matrix can be added later if needed.
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/ClipCutter/commit/b61ab1000fc87d0bcba5fd92c13d256609365fea" target="_blank" rel="noopener noreferrer">b61ab10</a>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-05-17 21:48</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/FileOrganizer" target="_blank" rel="noopener noreferrer">FileOrganizer</a>
-  </td>
-
-  <td class="msg">
-      chore: README scan-resume accuracy and Category cast guard
-
-Closes #34 (D1) and #33 (N2). Only the remaining bits of each — spec
-§12.3 and plan M7-T03 (D1) and settings-repo shape drift (N2) were
-already addressed in prior MRs.
-
-D1 — README &#34;Scans resume from the last completed directory&#34; was
-inaccurate; the implementation re-walks but skips unchanged files via
-size+mtime quick-check. Updated to match actual behavior.
-
-N2 — categoryForExtension previously cast arbitrary CategoryMap keys
-to the Category union without a runtime guard. A custom category key
-(legal per the map type) would silently persist out-of-range strings
-into SQLite. Added a runtime guard that returns null for unknown
-keys, with a test asserting the behavior.
-
-Closes #34
-Closes #33
-
-Co-Authored-By: Claude Opus 4.7 &lt;noreply@anthropic.com&gt;
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/FileOrganizer/commit/33c6d6b55a37e517401d84138681e1af84ea7627" target="_blank" rel="noopener noreferrer">33c6d6b</a>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-05-17 21:48</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/ClipCutter" target="_blank" rel="noopener noreferrer">ClipCutter</a>
-  </td>
-
-  <td class="msg">
-      refactor(routes): minor code hygiene cleanups
-
-Three refactor-only cleanups, no behavior change:
-
-- routes/review.py: promote the 9999.0 fallback duration literal to a
-  named module-scope constant MAX_PROBE_FALLBACK_DURATION_SECONDS used
-  when ffprobe fails to measure the clip.
-- routes/youtube.py: drop the redundant `import threading` inside
-  start_youtube_upload; the module already imports threading at top.
-- routes/review.py: flatten the step-label nested ternary in the keep
-  worker. Both Trimming arms collapsed into one default; the full-clip
-  predicate is hoisted into `is_full_clip_keep` and the label is a
-  simple two-arm expression that mirrors the predicate used by _do_keep.
-
-Closes #17
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/ClipCutter/commit/ebce01d8fb2675a9e08da3b7e4c9b8af5821395c" target="_blank" rel="noopener noreferrer">ebce01d</a>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-05-17 21:36</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/FileOrganizer" target="_blank" rel="noopener noreferrer">FileOrganizer</a>
-  </td>
-
-  <td class="msg">
-      chore: wire ruleRole tiebreaker and prune dead code
-
-Closes #31 (M11) and #32 (N1) — bundled because both prune dead
-infrastructure / unused exports.
-
-M11:
-- dedupe/planner now loads rules from DB and passes matchedRule?.destinationRole
-  as ruleRole to the scorer, restoring spec §8.1&#39;s drive-role-priority tiebreaker.
-  Production call site previously hardwired null, leaving the primary
-  keeper-selection criterion dead at runtime.
-- Also threads destinationTemplate from the matched rule to destinationTemplates.
-- Remove @preact/signals from ui runtime deps; never imported, no adoption
-  plan, was just bundle weight.
-- @hono/node-ws is preserved — its disposition is gated on F1 (#35).
-
-N1:
-- Remove prettier from root devDeps (devDep but never called by any npm script).
-- Delete quarantineRoot function from quarantine.ts entirely (not exported,
-  not called — reconcile.ts uses its own local variable of the same name).
-- Remove export from ScanProgressEvent and BatchStatusEvent (events.ts);
-  both are used only within the EngineEvent union type in the same file.
-- Remove export from LogLevel (log.ts); used only internally.
-- Remove export from OperationKindPlanned, UnresolvedRole, RuleStat
-  (organize/planner.ts); all confirmed unimported externally.
-- @testing-library/preact and jsdom: LEFT IN PLACE — jsdom is the vitest
-  environment in vitest.config.ts; @testing-library/preact is imported in
-  use-keyboard.test.tsx.
-
-Closes #31
-Closes #32
-
-Co-Authored-By: Claude Opus 4.7 &lt;noreply@anthropic.com&gt;
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/FileOrganizer/commit/78372d6478024a5416765acb41e4819984139195" target="_blank" rel="noopener noreferrer">78372d6</a>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-05-17 21:33</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/ClipCutter" target="_blank" rel="noopener noreferrer">ClipCutter</a>
-  </td>
-
-  <td class="msg">
-      fix(a11y): associate form inputs with proper &lt;label for=...&gt; elements
-
-Replaced `&lt;span class=&#34;cc-label&#34;&gt;` siblings with `&lt;label class=&#34;cc-label&#34;
-for=&#34;...&#34;&gt;` so every paired input now has a programmatic accessible name.
-The existing `.cc-label` selector already matches both span and label, so
-there is no visual regression.
-
-Converted inputs: sensitivity, context, staleThreshold (Process tab);
-folderPath (visually-hidden label, no visible text label exists); Quality
-and Name in the review trim bar; encodePreset, encodeFps, encodeSlowdown
-in the Encode panel; compTitle, compTransition, compXfadeDur in the
-Compilation builder; ytClientId, ytClientSecret, ytPrivacy, ytCategory,
-ytPlaylist, ytTags, ytDescription in the YouTube subtab.
-
-Added a `.cc-visually-hidden` utility class for the folder-path input,
-which previously had no visible label text.
-
-Extended tests/test_ui_browser.py with TestFormInputLabelAssociation,
-which asserts label[for=] association for the Process-tab inputs and
-the folderPath input (the only inputs reachable without further fixtures).
-
-Closes #16
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/ClipCutter/commit/40a547d4e479b7f151356ab83972a2a41170bc3c" target="_blank" rel="noopener noreferrer">40a547d</a>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-05-17 21:31</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/ClipCutter" target="_blank" rel="noopener noreferrer">ClipCutter</a>
-  </td>
-
-  <td class="msg">
-      fix(routes): correct .webm media-type key and unify video-extension allow-list
-
-_media_type keyed webm as &#34;webm&#34; while Path.suffix yields &#34;.webm&#34;, so
-.webm clips were served as video/mp4. Fix the key.
-
-The folder-scan endpoint had a local VIDEO_EXTENSIONS set missing .flv,
-.wmv, and .m4v, so users with those files (which the pipeline accepts)
-saw nothing in the folder picker. Drop the local set and use
-clipcutter.config.VIDEO_EXTENSIONS as the single source of truth.
-
-Tests added: unit coverage for _media_type (webm/gif/mp4/unknown/case)
-and folder-scan coverage for .flv/.wmv/.m4v inclusion.
-
-Closes #13
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/ClipCutter/commit/f835c8b93fa1d392cd673e23c9a7cd80459b84c0" target="_blank" rel="noopener noreferrer">f835c8b</a>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-05-17 21:29</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/ClipCutter" target="_blank" rel="noopener noreferrer">ClipCutter</a>
-  </td>
-
-  <td class="msg">
-      fix(routes): surface silent failures in keep + youtube paths
-
-Three places were eating signals that should have surfaced to the user:
-
-- routes/review.py: the full-clip keep path wrapped shutil.copy2 in a
-  bare except OSError: pass, so a disk-full or permission-denied copy
-  reported success while no file landed in clips/kept/. Let the OSError
-  propagate so the worker&#39;s outer handler records it as a task error.
-
-- routes/youtube.py: add_to_playlist failure after a successful upload
-  was caught silently. Keep the non-fatal semantics (upload still
-  succeeds) but emit a logger.warning so the user can see why a clip
-  didn&#39;t land in the requested playlist.
-
-- routes/youtube.py: three Exception → HTTPException(500) rethrows
-  (oauth callback token exchange, list_playlists, create_playlist) lost
-  the original traceback. Add `from exc` to preserve __cause__ for
-  server-side debugging.
-
-Tests:
-- test_review.py: TestKeepCopyFailureSurfacesAsError monkeypatches
-  shutil.copy2 to raise and asserts the task&#39;s status flips to &#34;error&#34;,
-  the error string is populated, no file exists in kept/, and metadata
-  status stays &#34;pending&#34;.
-- test_youtube_oauth.py: TestAddToPlaylistFailureLogsWarning uses caplog
-  to assert a WARNING is emitted on the clipcutter.routes.youtube logger
-  when add_to_playlist raises (and that no warning fires on the success
-  path).
-
-Closes #14
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/ClipCutter/commit/1431b48f613546c852bfa3e069eac76b935603d6" target="_blank" rel="noopener noreferrer">1431b48</a>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-05-17 21:28</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/ClipCutter" target="_blank" rel="noopener noreferrer">ClipCutter</a>
-  </td>
-
-  <td class="msg">
-      refactor(metadata): consolidate update_clip_* helpers via shared mutator
-
-Five near-identical update_clip_* / clear_clip_encoding functions each
-re-implemented the same find-by-filename + open/write boilerplate. Extract
-that into a single _update_clip_by_filename(meta_path, filename, mutator)
-helper; each public function is now a thin wrapper that supplies its own
-per-clip mutator callback. Public signatures, return semantics, and call
-sites are unchanged.
-
-Net: clipcutter/metadata.py 229 -&gt; 222 lines (44 deletions, 37 insertions).
-
-Closes #15
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/ClipCutter/commit/4b9f970de4c59a3d7dc328f20f476cf3b44817e7" target="_blank" rel="noopener noreferrer">4b9f970</a>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-05-17 21:22</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/FileOrganizer" target="_blank" rel="noopener noreferrer">FileOrganizer</a>
-  </td>
-
-  <td class="msg">
-      test(engine): cover safety-critical error branches across 8 subsystems
-
-Pure test additions. No production code changes.
-
-Adds coverage for the error paths that guard against silent data
-corruption — paths whose absence in the suite was the M10 finding
-from the 2026-05-17 quality review:
-
-- catalog/migrate: MIGRATION_FAILED (db.exec spy) and
-  MIGRATION_FK_VIOLATIONS (orphan FK row), including foreign_keys
-  pragma re-enabled in finally in both cases
-- dedupe/applier: FILE_MISSING guard (file in catalog, gone from
-  disk) — verifies failed=1 and error_message is typed, not ENOENT
-- dedupe/scorer: zero-copy throw + single-copy &#34;only copy&#34; branch
-- quarantine: COLLISION, NOT_FOUND, FILE_MISSING typed errors all
-  carrying QuarantineError with the correct .code
-- catalog/locator: defaultPointerPath/defaultCatalogPath with APPDATA
-  set vs unset (env restored in afterEach)
-- drives/volume: detectWindows happy path (execFileSync mocked via
-  vi.mock + resolve spy for Linux CI) + subprocess-failure fallback
-  to synthSerial
-- scan/metadata-video: happy path via a real shell-script stub binary
-  that prints canned MediaInfo JSON; exercises full execFileAsync
-  → parseMediainfoOutput pipeline
-- catalog/batches-repo: updateOperationStatus with postHash,
-  errorMessage, and destPath all set; raw DB columns verified plus
-  the OperationRecord mapping
-
-Engine test count: 296 baseline → 310 (+14). UI tests unchanged (21).
-Lint and typecheck clean.
-
-Closes #30
-
-Co-Authored-By: Claude Opus 4.7 &lt;noreply@anthropic.com&gt;
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/FileOrganizer/commit/9576c5b537ab7b086818d0254ba2fb4f9a189aea" target="_blank" rel="noopener noreferrer">9576c5b</a>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-05-17 21:03</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/FileOrganizer" target="_blank" rel="noopener noreferrer">FileOrganizer</a>
-  </td>
-
-  <td class="msg">
-      chore(deps): update hono to patch 5 CVEs, add bodyLimit enforcement
-
-Updates hono in packages/engine to 4.12.19 (resolves 5 advisories
-including GHSA-9vqf-7f2p-gf9v bodyLimit() bypass, GHSA-qp7p-654g-cw7p
-CSS injection, GHSA-hm8q-7f3q-5f36 JWT NumericDate, GHSA-p77w-8qqv-26rm
-cache leakage, GHSA-69xw-7hcm-h432 JSX tag injection).
-
-Adds an 8 MB bodyLimit middleware on all routes; oversized requests
-now return HTTP 413 with a typed JSON error shape. A test asserts the
-limit enforces.
-
-@hono/node-ws removal is gated on F1 (#35) and is not part of this
-MR. The dep remains in packages/engine/package.json until F1 decides
-whether WebSocket browser delivery will be implemented.
-
-Closes #29
-
-Co-Authored-By: Claude Opus 4.7 &lt;noreply@anthropic.com&gt;
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/FileOrganizer/commit/49dd416ec90a861b96b57c60fac46a88fb8177ed" target="_blank" rel="noopener noreferrer">49dd416</a>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-05-17 20:50</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/FileOrganizer" target="_blank" rel="noopener noreferrer">FileOrganizer</a>
-  </td>
-
-  <td class="msg">
-      fix(ui): resilience for engine-offline, stale fetches, and dead polling
-
-Three independent UI resilience fixes:
-
-1. app.tsx tracks consecutive reloadGlobal failures and surfaces an
-   &#34;engine offline&#34; indicator after 3 in a row, replacing the silent
-   .catch(() =&gt; {}). The indicator clears automatically when polling
-   succeeds again.
-
-2. routes/duplicates.tsx wraps each loadPage in an AbortController so
-   rapid minSize filter changes cancel in-flight requests. Stale
-   responses no longer overwrite current-filter state.
-
-3. routes/scans.tsx starts the poll interval on mount independently of
-   initial reload success. A transient engine error at page load no
-   longer permanently disables live scan-progress updates.
-
-Closes #28
-
-Co-Authored-By: Claude Opus 4.7 &lt;noreply@anthropic.com&gt;
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/FileOrganizer/commit/7bd78e20df32a0f2a2b0ce0b332a96b2964afde9" target="_blank" rel="noopener noreferrer">7bd78e2</a>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-05-17 20:14</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/FileOrganizer" target="_blank" rel="noopener noreferrer">FileOrganizer</a>
-  </td>
-
-  <td class="msg">
-      fix(organize): update catalog after partial cross-drive undo failure
-
-When restoreFromQuarantine succeeded but the subsequent unlinkSync
-threw and the source was re-quarantined in the catch block, the
-files row remained state=&#39;moved&#39; pointing at the now-stale destPath.
-Spec §12.3&#39;s &#34;no state requiring SQL surgery&#34; was violated.
-
-The catch block now captures the QuarantineResult from the rollback
-quarantineFile call and updates files.state to &#39;quarantined&#39; and
-files.path to the new quarantine path before re-throwing. The catalog
-update is wrapped in its own try/catch so a secondary DB failure logs
-but does not mask the original unlink failure.
-
-Also adds integration test for reverseCompletedViaExisting which
-previously had zero coverage. The function was confirmed correct;
-only the tests were missing.
-
-Closes #27
-
-Co-Authored-By: Claude Opus 4.7 &lt;noreply@anthropic.com&gt;
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/FileOrganizer/commit/01bf994ce4e6b2cba65321d47f18abdb37623171" target="_blank" rel="noopener noreferrer">01bf994</a>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-05-17 20:06</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/FileOrganizer" target="_blank" rel="noopener noreferrer">FileOrganizer</a>
-  </td>
-
-  <td class="msg">
-      fix(api): harden input validation on POST endpoints
-
-Three independent server.ts hardening fixes:
-
-1. Array.isArray guards on /api/duplicates/apply, /api/quarantine/
-   restore, /api/organize/apply, /api/organize/auto-apply. Null or
-   missing array fields now return HTTP 400 with a typed error shape
-   instead of an unstructured 500.
-
-2. Eliminate the scan-null race in POST /api/scans. The previous 50ms
-   sleep before reading back the scan ID could return { scan: null }
-   on slow disks/runners. Capture registeredId from runScan&#39;s onStart
-   callback via a Promise that resolves the moment onStart fires.
-
-3. rootPaths (plural) now goes through path resolution and drive
-   confinement, matching the singular rootPath branch. Paths outside
-   the registered drive&#39;s mountPath return 400 with the offending
-   path in the error. Drives with no recorded mountPath are exempt
-   (backward compatibility).
-
-Closes #26
-
-Co-Authored-By: Claude Opus 4.7 &lt;noreply@anthropic.com&gt;
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/FileOrganizer/commit/f586de62bb4a0994fa2553638ff1395a179746a5" target="_blank" rel="noopener noreferrer">f586de6</a>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-05-17 19:49</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/FileOrganizer" target="_blank" rel="noopener noreferrer">FileOrganizer</a>
-  </td>
-
-  <td class="msg">
-      fix(scan): walker terminates on directory cycles and depth limit
-
-NTFS junctions report Dirent.isDirectory() === true on Windows; a
-self-referential junction would cause the walker to recurse forever
-until stack overflow. The walker also had no maximum recursion depth.
-
-Adds a Set&lt;string&gt; of visited real paths (via fs.promises.realpath,
-which resolves junctions on Windows and symlinks on POSIX) and a
-MAX_DEPTH = 64 backstop. On a cycle or depth-limit hit, the walker
-logs a structured warning and skips the offending path; it does not
-crash. Non-pathological directory trees are unaffected.
-
-Also handles POSIX symlinks-to-directories (isSymbolicLink() path)
-so cycle detection works on Linux CI as well as Windows junctions.
-
-Tests verify both termination paths using POSIX symlink loops (no
-Windows-specific test infrastructure needed).
-
-Closes #25
-
-Co-Authored-By: Claude Opus 4.7 &lt;noreply@anthropic.com&gt;
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/FileOrganizer/commit/627a89c019ee85d37f9c7c3974280dee28835af5" target="_blank" rel="noopener noreferrer">627a89c</a>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-05-17 19:40</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/FileOrganizer" target="_blank" rel="noopener noreferrer">FileOrganizer</a>
-  </td>
-
-  <td class="msg">
-      fix(api): reject concurrent scans on the same driveId with 409
-
-Two scans on the same drive could race: when the first finished, its
-markMissing pass (orchestrator.ts:179) flagged every files row whose
-scan_id did not match the just-finished scan as missing — including
-rows being indexed by the still-running second scan.
-
-POST /api/scans now checks scansRepo.hasRunning(driveId) and rejects
-the second request with HTTP 409 { error: &#39;scan-already-running&#39;,
-driveId } before registering or starting the scan. The activeScans
-map (keyed by scan ID) cannot detect this; the check is at the
-drive-id boundary instead.
-
-Closes #24
-
-Co-Authored-By: Claude Opus 4.7 &lt;noreply@anthropic.com&gt;
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/FileOrganizer/commit/42e54ca54e298f0e92033fc6808225194989eb90" target="_blank" rel="noopener noreferrer">42e54ca</a>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-05-17 19:29</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/FileOrganizer" target="_blank" rel="noopener noreferrer">FileOrganizer</a>
-  </td>
-
-  <td class="msg">
-      fix(throttle): process-singleton ThrottleManager via swap-safe ref
-
-The scheduler in cli/serve.ts drove a separate ThrottleManager from
-the per-request one created in api/server.ts:97. Schedule-driven
-profile transitions (e.g. full-send → idle at 09:00) never reached
-any API-initiated scan.
-
-Introduces ThrottleManagerRef, a stable wrapper holding a mutable
-inner manager. cli/serve.ts creates one ref at boot and passes it
-into createServer; api/server.ts uses opts.throttle (no per-request
-instantiation). onSettingsChanged replaces ref.inner so in-flight
-scans observe the new profile at the next chunk boundary without
-being passed a new reference.
-
-ThrottleScheduler.opts.manager and RunScanOptions.throttle both
-widened to accept ThrottleManager | ThrottleManagerRef so existing
-unit tests and cli/scan.ts (out-of-scope code path) need no changes.
-
-Plan M6-T05 mandated this shape; the per-request instantiation was a
-confirmed deviation.
-
-Closes #23
-
-Co-Authored-By: Claude Opus 4.7 &lt;noreply@anthropic.com&gt;
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/FileOrganizer/commit/06dd89838d63ae7562c6e19a21fc04750fd80455" target="_blank" rel="noopener noreferrer">06dd898</a>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-05-17 19:16</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/FileOrganizer" target="_blank" rel="noopener noreferrer">FileOrganizer</a>
-  </td>
-
-  <td class="msg">
-      fix(organize): free-space safety margin is fraction of freeBytes
-
-Previous formula `drive.totalBytes * 0.05` produced a ~51 GB margin
-for a 1 TB drive with 1 GB free, rejecting every batch even when
-space was available. Fixed to `drive.freeBytes * 0.05` — margin is a
-fraction of currently-free space, not of total capacity.
-
-Also: unknown destDriveId in a batch now throws a hard error rather
-than silently skipping the free-space check for that drive.
-
-Implementation plan M7-T03 Step 2 had the same wrong formula and is
-updated in the same commit so plan and code stay aligned.
-
-Closes #22
-
-Co-Authored-By: Claude Opus 4.7 &lt;noreply@anthropic.com&gt;
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/FileOrganizer/commit/9f640471e7cdef855d5d092806096065d9ba70ed" target="_blank" rel="noopener noreferrer">9f64047</a>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-05-17 18:58</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/FileOrganizer" target="_blank" rel="noopener noreferrer">FileOrganizer</a>
-  </td>
-
-  <td class="msg">
-      fix(catalog): SQL safety and atomicity (4 fixes)
-
-Four independent catalog-layer correctness fixes:
-
-1. LIKE-escape in files-repo.markMissing: paths containing literal
-   `%` or `_` previously matched siblings via SQL wildcards. Pre-escape
-   the trimmed path and apply ESCAPE &#39;\\&#39; to the LIKE clause.
-
-2. Wrap reconcileOnStartup ops + batch finalization loops in a single
-   db.transaction so a mid-loop crash leaves all-or-nothing state.
-   Pre-compute async decisions before entering the sync transaction
-   (better-sqlite3 transactions are sync-only). The async quarantine
-   scan from B1 stays outside the transaction (filesystem I/O).
-
-3. Eliminate scans-repo.finish() TOCTOU: drop the pre-read findById
-   call; perform stats merge in a single UPDATE using SQLite json_patch
-   so two concurrent finish() calls cannot interleave a corrupted state.
-
-4. settings-repo.load(): replace `{ ...defaults, ...row }` spread with
-   explicit destructuring of known Settings keys. Unknown columns in
-   the settings table no longer accumulate into the in-memory shape
-   and round-trip to disk on the next save().
-
-Closes #21
-
-Co-Authored-By: Claude Opus 4.7 &lt;noreply@anthropic.com&gt;
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/FileOrganizer/commit/c70af1ed4d361746650065f3df5f3f1a3eb95029" target="_blank" rel="noopener noreferrer">c70af1e</a>
-  </td>
-</tr><tr class="named">
-    <td class="when">2026-05-17 18:50</td>
-
-  <td class="repo">
-      agent-config
-  </td>
-
-  <td class="msg">
-      <span class="redact" aria-label="redacted message" role="img">wip: rename validator</span>
-  </td>
-
-  <td class="sha">
-      <span class="redact" aria-label="redacted sha" role="img">2b90878</span>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-05-17 18:47</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/FileOrganizer" target="_blank" rel="noopener noreferrer">FileOrganizer</a>
-  </td>
-
-  <td class="msg">
-      fix(organize): unlink corrupt partial dest after cross-drive hash mismatch
-
-When the post-copy hash check in moveCrossDrive fails, the partially
-written destination file was left on disk indefinitely with no cleanup
-path. Subsequent dedup decisions that hashed the dest could be poisoned
-by the corrupt remnant.
-
-Unlinks the dest before throwing IntegrityError. The unlink is wrapped
-in its own try/catch so a second I/O failure (e.g. file already removed
-by something else) does not mask the original IntegrityError.
-
-Preserves spec §12.3 FS-first ordering invariant; this is cleanup of an
-intermediate corrupt file, not a reversal of the move pipeline.
-
-Closes #20
-
-Co-Authored-By: Claude Opus 4.7 &lt;noreply@anthropic.com&gt;
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/FileOrganizer/commit/9938bff0d8af77240299c8fa8f61ea758179961c" target="_blank" rel="noopener noreferrer">9938bff</a>
-  </td>
 </tr>        </tbody>
       </table>
 
@@ -3459,7 +3188,7 @@ Co-Authored-By: Claude Opus 4.7 &lt;noreply@anthropic.com&gt;
     <a href="https://github.com/curtyo18" target="_blank" rel="noopener noreferrer">github</a> · <a href="mailto:curtyo18@gmail.com">email</a>
   </div>
   <div class="stats" style="align-items:center">
-    <span><b>1,490</b> commits</span>
+    <span><b>1,515</b> commits</span>
     <span><b>70</b> repos</span>
     <span><b>17</b> years</span>
   </div>
