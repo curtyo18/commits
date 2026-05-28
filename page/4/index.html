@@ -16,13 +16,13 @@
     <small>curt — a public log of private and public work</small>
   </h1>
   <div class="meta">
-    <span><b>1,515</b> commits indexed</span>
-    <span><b>70</b> repos · <b>17</b> years</span>
+    <span><b>1,600</b> commits indexed</span>
+    <span><b>71</b> repos · <b>17</b> years</span>
   </div>
 </div>
       <div class="gr-section-title" style="margin-top:36px">
         <span>All commits · newest first</span>
-        <span class="right">showing 601–800 of 1515</span>
+        <span class="right">showing 601–800 of 1600</span>
       </div>
 
       <table class="gr-table">
@@ -35,10 +35,1296 @@
             <tr class="gr-month-row">
               <td colspan="4">
                 April 2026
-                <span>200 commits · 74 public</span>
+                <span>200 commits · 81 public</span>
               </td>
             </tr>
 <tr class="">
+    <td class="when">2026-04-27 20:45</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/FileOrganizer" target="_blank" rel="noopener noreferrer">FileOrganizer</a>
+  </td>
+
+  <td class="msg">
+      feat(engine/organize): add auto-apply + approved-batch orchestrators
+
+autoApply walks a planner&#39;s PlannedOperation list, drops noops,
+auto-runs same-drive moves whose rule is `same-drive-auto` (under one
+auto-batch with kind=move), and returns the remaining ops as a
+reviewQueue for explicit user approval.
+
+applyApprovedBatch executes a user-approved op list under a single
+batch, recording each op (move or copy) and continuing past failures
+so partial progress is preserved. Same-content collisions are recorded
+as completed-via-existing; any thrown error becomes a failed op with
+errorMessage. The batch finishes as &#39;completed&#39; iff every op
+completed.
+
+Task: M5-T07
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/FileOrganizer/commit/28e4d47ed50d710e643cd9ea86239f2bb42c7246" target="_blank" rel="noopener noreferrer">28e4d47</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-04-27 20:42</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/FileOrganizer" target="_blank" rel="noopener noreferrer">FileOrganizer</a>
+  </td>
+
+  <td class="msg">
+      feat(engine/organize): collision handling in movers (never overwrite)
+
+resolveCollision(destPath, sourceHash, chunkBytes) returns one of
+use-as-is / same-content / suffix and is shared by both movers. Both
+movers now return MoveOutcome { kind: &#39;moved&#39; | &#39;completed-via-existing&#39;,
+finalDestPath } so callers can record the right OperationStatus.
+
+- Same hash at destination: source is quarantined and the file row
+  flips to state=&#39;quarantined&#39;; nothing is overwritten. Outcome:
+  completed-via-existing.
+- Different hash at destination: destination filename is suffixed
+  (a.jpg → a_1.jpg, walking up to _999), source is renamed/copied
+  there.
+
+moveSameDrive now also takes driveRoot + batchId + chunkBytes so it
+can hash the destination and quarantine on same-content collisions.
+
+Task: M5-T05b
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/FileOrganizer/commit/c87735e4c397f67cc84de9d0fee2c49f30f08b17" target="_blank" rel="noopener noreferrer">c87735e</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-04-27 20:36</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/FileOrganizer" target="_blank" rel="noopener noreferrer">FileOrganizer</a>
+  </td>
+
+  <td class="msg">
+      feat(engine/organize): add same-drive and cross-drive move executors
+
+moveSameDrive does an atomic rename, mkdir-p the parent, and flips
+the catalog row to state=moved.
+
+moveCrossDrive streams the source to its destination on the other
+drive, re-hashes the written file, throws IntegrityError on mismatch,
+quarantines the source under the source drive&#39;s quarantine root, and
+updates the catalog row&#39;s path + drive_id + state in one shot.
+
+Collision policy (same-content / different-content) handled in
+M5-T05b.
+
+Task: M5-T06
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/FileOrganizer/commit/9acea5f76a210a13bd091ac10a5ce42ce67da90a" target="_blank" rel="noopener noreferrer">9acea5f</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-04-27 20:34</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/FileOrganizer" target="_blank" rel="noopener noreferrer">FileOrganizer</a>
+  </td>
+
+  <td class="msg">
+      feat(engine/organize): add organize planner
+
+planOrganize walks indexed files, picks the first matching enabled
+rule, resolves the rule&#39;s destination role to a connected drive with
+space, renders the template against the file, and emits a
+PlannedOperation tagged &#39;same-drive-move&#39;, &#39;cross-drive-move&#39;, or
+&#39;noop&#39; (when source path already equals destination). Files that
+match nothing show up under `unmatched`; rules whose role is unknown,
+unresolvable, or has no drive root supplied appear in
+`unresolvedRoles` with a human-readable reason.
+
+Task: M5-T05
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/FileOrganizer/commit/520c5a150f5d647b9d51ec7c0a74f1ca42083e25" target="_blank" rel="noopener noreferrer">520c5a1</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-04-27 20:16</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/FileOrganizer" target="_blank" rel="noopener noreferrer">FileOrganizer</a>
+  </td>
+
+  <td class="msg">
+      feat(engine/rules): add role resolver
+
+resolveRole walks a role&#39;s drivePriority list and returns the first
+drive that is registered, connected, and below the role&#39;s fill
+threshold. Returns null with a human-readable reason when nothing
+qualifies, so callers can surface the rejection.
+
+Task: M5-T04
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/FileOrganizer/commit/ea2b38aa64e685d49b30d8316c10238658c71c7b" target="_blank" rel="noopener noreferrer">ea2b38a</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-04-27 20:11</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/FileOrganizer" target="_blank" rel="noopener noreferrer">FileOrganizer</a>
+  </td>
+
+  <td class="msg">
+      feat(engine/rules): add destination template renderer
+
+renderTemplate(template, file, driveLabel) substitutes {year}, {month},
+{day} (with optional zero-pad like {month:02}), {filename}, {stem},
+{ext}, {category}, {drive_label}. Date fields read from exifDate first,
+falling back to mtime; throws RuleError when no usable date is present
+or when an unknown field is referenced.
+
+Task: M5-T03
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/FileOrganizer/commit/d2e5d9ed1d04bf85517085c3ae21269b9ea94987" target="_blank" rel="noopener noreferrer">d2e5d9e</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-04-27 19:45</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/FileOrganizer" target="_blank" rel="noopener noreferrer">FileOrganizer</a>
+  </td>
+
+  <td class="msg">
+      feat(engine/rules): add rule matcher with glob support
+
+matches(file, rule) checks category, dateBefore/dateAfter against
+exifDate or mtime, dateSourceMin floor, size bounds, pathGlob via
+picomatch, and sourceDrives membership. firstMatch(file, rules) walks
+rules in order and returns the first enabled match (or null), so the
+caller controls precedence by ordering.
+
+Task: M5-T02
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/FileOrganizer/commit/11ec7a7d3cdbc2f8d8b604dc707bf1d21c8d0473" target="_blank" rel="noopener noreferrer">11ec7a7</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-04-27 19:42</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/FileOrganizer" target="_blank" rel="noopener noreferrer">FileOrganizer</a>
+  </td>
+
+  <td class="msg">
+      feat(engine/rules): add rules repository
+CRUD for the rules table: create, update, delete, list (ordered by
+priority ASC), findById. Match shape persists as match_json; enabled
+defaults to 1; policies are typed via shared MovePolicy and
+QuarantinePolicy.
+
+Task: M5-T01
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/FileOrganizer/commit/5b29bf1d21b3bae4534b15a928fcf2af71e35f0f" target="_blank" rel="noopener noreferrer">5b29bf1</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-04-27 15:50</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/FileOrganizer" target="_blank" rel="noopener noreferrer">FileOrganizer</a>
+  </td>
+
+  <td class="msg">
+      fix(build): build @fileorganizer/shared before typecheck/test
+
+CI failed on a fresh clone because engine and UI typecheck both import
+from @fileorganizer/shared (resolved via package.json main/types to
+dist/), but dist/ doesn&#39;t exist until shared is built.
+
+Two changes:
+1. Root typecheck and test scripts now build shared first.
+2. Shared&#39;s build uses &#39;tsc -b --force&#39; so a stale .tsbuildinfo can&#39;t
+   claim emit is up-to-date when dist/ has actually been deleted.
+
+Verified locally: rm -rf shared/dist plus delete .tsbuildinfo, then
+both typecheck and test run green.
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/FileOrganizer/commit/732db0b91eff678bf5ba2404ba38354b87ce5e0b" target="_blank" rel="noopener noreferrer">732db0b</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-04-27 08:21</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/FileOrganizer" target="_blank" rel="noopener noreferrer">FileOrganizer</a>
+  </td>
+
+  <td class="msg">
+      chore(docs): add screenshot
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/FileOrganizer/commit/d2af8697565b01d1dc3c0f205b4524aa0aed3ad0" target="_blank" rel="noopener noreferrer">d2af869</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-04-27 08:14</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/FileOrganizer" target="_blank" rel="noopener noreferrer">FileOrganizer</a>
+  </td>
+
+  <td class="msg">
+      docs: reserve screenshot slot in README
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/FileOrganizer/commit/da272fcfe4c38e9b42cb960b36b9f1ee42a93143" target="_blank" rel="noopener noreferrer">da272fc</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-04-27 07:35</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/FileOrganizer" target="_blank" rel="noopener noreferrer">FileOrganizer</a>
+  </td>
+
+  <td class="msg">
+      docs: rewrite README with hook, status, prerequisites, safety notes
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/FileOrganizer/commit/d8bc70fb13800eb24188520c1393c53dddcb1f5a" target="_blank" rel="noopener noreferrer">d8bc70f</a>
+  </td>
+</tr><tr class="anon">
+    <td class="when">2026-04-27</td>
+
+  <td class="repo">
+      <span class="redact-strong" aria-label="redacted repo" role="img">service-producer</span>
+  </td>
+
+  <td class="msg">
+      <span class="redact-strong" aria-label="redacted message" role="img">test: simplify producer</span>
+  </td>
+
+  <td class="sha">
+      <span class="redact-strong" aria-label="redacted sha" role="img">ed03f1f</span>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-04-26 23:20</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/FileOrganizer" target="_blank" rel="noopener noreferrer">FileOrganizer</a>
+  </td>
+
+  <td class="msg">
+      feat(drives): persist mount_path so dedup/restore stop asking for it
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/FileOrganizer/commit/4b5569c5656d2145546d9a0138155b22ff126a54" target="_blank" rel="noopener noreferrer">4b5569c</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-04-26 22:57</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/FileOrganizer" target="_blank" rel="noopener noreferrer">FileOrganizer</a>
+  </td>
+
+  <td class="msg">
+      feat(ui): wire Duplicates and Quarantine screens to live engine data
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/FileOrganizer/commit/c99b261963b4da9da667caf4dd689a984bc40a53" target="_blank" rel="noopener noreferrer">c99b261</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-04-26 22:53</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/FileOrganizer" target="_blank" rel="noopener noreferrer">FileOrganizer</a>
+  </td>
+
+  <td class="msg">
+      feat(engine/api): add duplicates and quarantine endpoints
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/FileOrganizer/commit/7b19afe4a33caa45ad40270272d72d7eadf00c5f" target="_blank" rel="noopener noreferrer">7b19afe</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-04-26 22:34</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/FileOrganizer" target="_blank" rel="noopener noreferrer">FileOrganizer</a>
+  </td>
+
+  <td class="msg">
+      feat(engine/dedupe): add planner and applier with hash-revalidation safety
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/FileOrganizer/commit/fc9be4cf13defa58e3664a062e3ea3a5c0b5a12a" target="_blank" rel="noopener noreferrer">fc9be4c</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-04-26 22:25</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/FileOrganizer" target="_blank" rel="noopener noreferrer">FileOrganizer</a>
+  </td>
+
+  <td class="msg">
+      feat(engine/dedupe): add keeper scoring with documented reasons
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/FileOrganizer/commit/de005b97d07030cfcc11370be5442598a0138189" target="_blank" rel="noopener noreferrer">de005b9</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-04-26 22:23</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/FileOrganizer" target="_blank" rel="noopener noreferrer">FileOrganizer</a>
+  </td>
+
+  <td class="msg">
+      feat(engine/dedupe): add duplicate group detection query
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/FileOrganizer/commit/433a9b3bd653a2cb33cb098837d284fa5d847040" target="_blank" rel="noopener noreferrer">433a9b3</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-04-26 22:08</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/FileOrganizer" target="_blank" rel="noopener noreferrer">FileOrganizer</a>
+  </td>
+
+  <td class="msg">
+      feat(engine/quarantine): add quarantine + restore primitives
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/FileOrganizer/commit/54460f078506eecb506a46f7b85fdfe040ce124e" target="_blank" rel="noopener noreferrer">54460f0</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-04-26 21:54</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/FileOrganizer" target="_blank" rel="noopener noreferrer">FileOrganizer</a>
+  </td>
+
+  <td class="msg">
+      feat(ui): rebuild UI to match design handoff
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/FileOrganizer/commit/25ee273d480a75a4544b097f54e2f1717ce7b87c" target="_blank" rel="noopener noreferrer">25ee273</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-04-26 20:15</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/FileOrganizer" target="_blank" rel="noopener noreferrer">FileOrganizer</a>
+  </td>
+
+  <td class="msg">
+      chore(repo): gitignore .claude/ (untrack accidentally-committed settings)
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/FileOrganizer/commit/42b4c301c19fd430b03ead5250754c0c9911229c" target="_blank" rel="noopener noreferrer">42b4c30</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-04-26 20:15</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/FileOrganizer" target="_blank" rel="noopener noreferrer">FileOrganizer</a>
+  </td>
+
+  <td class="msg">
+      docs(plan): trim cloud-agent specifics; running locally now
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/FileOrganizer/commit/42c2a5864451657282cf081ec3b413dfbb19c596" target="_blank" rel="noopener noreferrer">42c2a58</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-04-26 17:57</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/FileOrganizer" target="_blank" rel="noopener noreferrer">FileOrganizer</a>
+  </td>
+
+  <td class="msg">
+      fix(api): /api/scans returns ScanRecord shape, not raw SQLite rows
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/FileOrganizer/commit/6f6e49b00958f3cc96f13dbf6c103eb5e07550d0" target="_blank" rel="noopener noreferrer">6f6e49b</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-04-26 17:04</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/FileOrganizer" target="_blank" rel="noopener noreferrer">FileOrganizer</a>
+  </td>
+
+  <td class="msg">
+      feat(ui+scan): live scan progress with active-scan card
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/FileOrganizer/commit/efdf59aac800f6eb1710b6d19f19c1f2719ae664" target="_blank" rel="noopener noreferrer">efdf59a</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-04-26 16:51</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/FileOrganizer" target="_blank" rel="noopener noreferrer">FileOrganizer</a>
+  </td>
+
+  <td class="msg">
+      fix(cli): serve command must not return until shutdown signal
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/FileOrganizer/commit/090e961756248ffe2f256a0d1ed6e679e6e45c96" target="_blank" rel="noopener noreferrer">090e961</a>
+  </td>
+</tr><tr class="named">
+    <td class="when">2026-04-26 16:35</td>
+
+  <td class="repo">
+      payments-service
+  </td>
+
+  <td class="msg">
+      <span class="redact" aria-label="redacted message" role="img">rebuild scheduler so shim can bump controller</span>
+  </td>
+
+  <td class="sha">
+      <span class="redact" aria-label="redacted sha" role="img">6dcb6db</span>
+  </td>
+</tr><tr class="named">
+    <td class="when">2026-04-26 16:26</td>
+
+  <td class="repo">
+      payments-service
+  </td>
+
+  <td class="msg">
+      <span class="redact" aria-label="redacted message" role="img">guard consumer</span>
+  </td>
+
+  <td class="sha">
+      <span class="redact" aria-label="redacted sha" role="img">58ac08c</span>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-04-26 15:09</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/FileOrganizer" target="_blank" rel="noopener noreferrer">FileOrganizer</a>
+  </td>
+
+  <td class="msg">
+      feat(cli): npm run start one-command bootstrap
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/FileOrganizer/commit/f303962893a1d908d4f47029d5e555b40393c423" target="_blank" rel="noopener noreferrer">f303962</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-04-26 14:27</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/FileOrganizer" target="_blank" rel="noopener noreferrer">FileOrganizer</a>
+  </td>
+
+  <td class="msg">
+      feat(api+ui): scan a folder from the UI without a pre-registered drive
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/FileOrganizer/commit/b51a8277f2bedf4c8536abc0311cfdcb476792aa" target="_blank" rel="noopener noreferrer">b51a827</a>
+  </td>
+</tr><tr class="named">
+    <td class="when">2026-04-26 14:27</td>
+
+  <td class="repo">
+      payments-service
+  </td>
+
+  <td class="msg">
+      <span class="redact" aria-label="redacted message" role="img">chore: vendor dispatcher for handler</span>
+  </td>
+
+  <td class="sha">
+      <span class="redact" aria-label="redacted sha" role="img">548818a</span>
+  </td>
+</tr><tr class="named">
+    <td class="when">2026-04-26 14:08</td>
+
+  <td class="repo">
+      payments-service
+  </td>
+
+  <td class="msg">
+      <span class="redact" aria-label="redacted message" role="img">tidy leaky supervisor when config changes</span>
+  </td>
+
+  <td class="sha">
+      <span class="redact" aria-label="redacted sha" role="img">ad1c246</span>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-04-26 14:07</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/FileOrganizer" target="_blank" rel="noopener noreferrer">FileOrganizer</a>
+  </td>
+
+  <td class="msg">
+      feat(engine/catalog): add batches and operations repository
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/FileOrganizer/commit/766d25e7631b3abdf01fd722dd8ac965c61ea2c3" target="_blank" rel="noopener noreferrer">766d25e</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-04-26 13:51</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/FileOrganizer" target="_blank" rel="noopener noreferrer">FileOrganizer</a>
+  </td>
+
+  <td class="msg">
+      feat(engine/api): serve built UI assets from the engine
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/FileOrganizer/commit/9c571745a8af5dae9d264d6d42595fe216182e53" target="_blank" rel="noopener noreferrer">9c57174</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-04-26 13:40</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/FileOrganizer" target="_blank" rel="noopener noreferrer">FileOrganizer</a>
+  </td>
+
+  <td class="msg">
+      feat(ui): add Dashboard with drive cards
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/FileOrganizer/commit/5ca1eeeac1a7ccb4ba206716ecc5eef0e81d0ef1" target="_blank" rel="noopener noreferrer">5ca1eee</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-04-26 13:11</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/FileOrganizer" target="_blank" rel="noopener noreferrer">FileOrganizer</a>
+  </td>
+
+  <td class="msg">
+      feat(engine/api): run scans in background from POST /api/scans
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/FileOrganizer/commit/38f3824ae518e9cf95eecb1bd4c25ffbe3374e56" target="_blank" rel="noopener noreferrer">38f3824</a>
+  </td>
+</tr><tr class="named">
+    <td class="when">2026-04-26 13:09</td>
+
+  <td class="repo">
+      payments-service
+  </td>
+
+  <td class="msg">
+      <span class="redact" aria-label="redacted message" role="img">chore: remove buffer so loader can rework facade</span>
+  </td>
+
+  <td class="sha">
+      <span class="redact" aria-label="redacted sha" role="img">f146f73</span>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-04-26 13:09</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/FileOrganizer" target="_blank" rel="noopener noreferrer">FileOrganizer</a>
+  </td>
+
+  <td class="msg">
+      feat(ui): add Browse screen with paginated file list
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/FileOrganizer/commit/ffacc74d8b254a6c7b21cc122f73657f939428bc" target="_blank" rel="noopener noreferrer">ffacc74</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-04-26 13:02</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/FileOrganizer" target="_blank" rel="noopener noreferrer">FileOrganizer</a>
+  </td>
+
+  <td class="msg">
+      feat(api+ui): add scans listing and start endpoint with form
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/FileOrganizer/commit/bfaf92f56baccc7dd879d427ffe47c98f31b554a" target="_blank" rel="noopener noreferrer">bfaf92f</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-04-26 12:58</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/FileOrganizer" target="_blank" rel="noopener noreferrer">FileOrganizer</a>
+  </td>
+
+  <td class="msg">
+      feat(ui): add api client and Drives screen with live data
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/FileOrganizer/commit/ad07e38674d4addab644277e360a2c6ae67a16cf" target="_blank" rel="noopener noreferrer">ad07e38</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-04-26 12:48</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/FileOrganizer" target="_blank" rel="noopener noreferrer">FileOrganizer</a>
+  </td>
+
+  <td class="msg">
+      feat(ui): scaffold preact + vite app with placeholder routes
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/FileOrganizer/commit/fb49b42b9ff3de9044080c80d22a892e6bbfef9a" target="_blank" rel="noopener noreferrer">fb49b42</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-04-26 12:44</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/FileOrganizer" target="_blank" rel="noopener noreferrer">FileOrganizer</a>
+  </td>
+
+  <td class="msg">
+      feat(engine/cli): add serve command that boots the api server
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/FileOrganizer/commit/5f222c2560cddaa3b74525a812b3708ae376394a" target="_blank" rel="noopener noreferrer">5f222c2</a>
+  </td>
+</tr><tr class="anon">
+    <td class="when">2026-04-26</td>
+
+  <td class="repo">
+      <span class="redact-strong" aria-label="redacted repo" role="img">wrapper-dispatcher</span>
+  </td>
+
+  <td class="msg">
+      <span class="redact-strong" aria-label="redacted message" role="img">tidy watcher so producer can remove context</span>
+  </td>
+
+  <td class="sha">
+      <span class="redact-strong" aria-label="redacted sha" role="img">6c96c96</span>
+  </td>
+</tr><tr class="anon">
+    <td class="when">2026-04-26</td>
+
+  <td class="repo">
+      <span class="redact-strong" aria-label="redacted repo" role="img">helper-toolkit</span>
+  </td>
+
+  <td class="msg">
+      <span class="redact-strong" aria-label="redacted message" role="img">fix: merge stream for parser</span>
+  </td>
+
+  <td class="sha">
+      <span class="redact-strong" aria-label="redacted sha" role="img">b1b3dda</span>
+  </td>
+</tr><tr class="anon">
+    <td class="when">2026-04-26</td>
+
+  <td class="repo">
+      <span class="redact-strong" aria-label="redacted repo" role="img">watcher-buffer</span>
+  </td>
+
+  <td class="msg">
+      <span class="redact-strong" aria-label="redacted message" role="img">feat: trim runner so bootstrapper can refactor task</span>
+  </td>
+
+  <td class="sha">
+      <span class="redact-strong" aria-label="redacted sha" role="img">671a393</span>
+  </td>
+</tr><tr class="anon">
+    <td class="when">2026-04-26</td>
+
+  <td class="repo">
+      <span class="redact-strong" aria-label="redacted repo" role="img">lingering-controller</span>
+  </td>
+
+  <td class="msg">
+      <span class="redact-strong" aria-label="redacted message" role="img">rename</span>
+  </td>
+
+  <td class="sha">
+      <span class="redact-strong" aria-label="redacted sha" role="img">689aba5</span>
+  </td>
+</tr><tr class="anon">
+    <td class="when">2026-04-26</td>
+
+  <td class="repo">
+      <span class="redact-strong" aria-label="redacted repo" role="img">duplicate-store-filter</span>
+  </td>
+
+  <td class="msg">
+      <span class="redact-strong" aria-label="redacted message" role="img">init guard so channel can cleanup handler</span>
+  </td>
+
+  <td class="sha">
+      <span class="redact-strong" aria-label="redacted sha" role="img">de94e44</span>
+  </td>
+</tr><tr class="anon">
+    <td class="when">2026-04-26</td>
+
+  <td class="repo">
+      <span class="redact-strong" aria-label="redacted repo" role="img">mailer</span>
+  </td>
+
+  <td class="msg">
+      <span class="redact-strong" aria-label="redacted message" role="img">refactor: expose silent renderer for the dead pipeline</span>
+  </td>
+
+  <td class="sha">
+      <span class="redact-strong" aria-label="redacted sha" role="img">cc58ae5</span>
+  </td>
+</tr><tr class="anon">
+    <td class="when">2026-04-26</td>
+
+  <td class="repo">
+      <span class="redact-strong" aria-label="redacted repo" role="img">schema-shim</span>
+  </td>
+
+  <td class="msg">
+      <span class="redact-strong" aria-label="redacted message" role="img">improve registry, guard config</span>
+  </td>
+
+  <td class="sha">
+      <span class="redact-strong" aria-label="redacted sha" role="img">b5cc114</span>
+  </td>
+</tr><tr class="anon">
+    <td class="when">2026-04-26</td>
+
+  <td class="repo">
+      <span class="redact-strong" aria-label="redacted repo" role="img">pipeline-parser</span>
+  </td>
+
+  <td class="msg">
+      <span class="redact-strong" aria-label="redacted message" role="img">docs: polish stream and throttle validator</span>
+  </td>
+
+  <td class="sha">
+      <span class="redact-strong" aria-label="redacted sha" role="img">90fee8d</span>
+  </td>
+</tr><tr class="anon">
+    <td class="when">2026-04-26</td>
+
+  <td class="repo">
+      <span class="redact-strong" aria-label="redacted repo" role="img">wrapper-decoder</span>
+  </td>
+
+  <td class="msg">
+      <span class="redact-strong" aria-label="redacted message" role="img">remove controller so context can update scheduler</span>
+  </td>
+
+  <td class="sha">
+      <span class="redact-strong" aria-label="redacted sha" role="img">99df7d4</span>
+  </td>
+</tr><tr class="anon">
+    <td class="when">2026-04-26</td>
+
+  <td class="repo">
+      <span class="redact-strong" aria-label="redacted repo" role="img">verbose-validator-config</span>
+  </td>
+
+  <td class="msg">
+      <span class="redact-strong" aria-label="redacted message" role="img">test: init adapter, drop store</span>
+  </td>
+
+  <td class="sha">
+      <span class="redact-strong" aria-label="redacted sha" role="img">e3bf91e</span>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-04-25 21:28</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/FileOrganizer" target="_blank" rel="noopener noreferrer">FileOrganizer</a>
+  </td>
+
+  <td class="msg">
+      feat(engine/api): add hono server skeleton with healthz, drives, files
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/FileOrganizer/commit/ff6aa5c9a910dfb6604599dd8fd2db5f4ccb7b0d" target="_blank" rel="noopener noreferrer">ff6aa5c</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-04-25 20:57</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/FileOrganizer" target="_blank" rel="noopener noreferrer">FileOrganizer</a>
+  </td>
+
+  <td class="msg">
+      feat(engine/cli): add scan command with throttle and mediainfo flags
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/FileOrganizer/commit/263be93426a79e05cc9a2a0af378b1cd705a01ba" target="_blank" rel="noopener noreferrer">263be93</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-04-25 20:54</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/FileOrganizer" target="_blank" rel="noopener noreferrer">FileOrganizer</a>
+  </td>
+
+  <td class="msg">
+      feat(engine/scan): add scan orchestrator integrating walker, hasher, metadata, repos
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/FileOrganizer/commit/d034201b8ff548528d231167d03ee72146700f96" target="_blank" rel="noopener noreferrer">d034201</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-04-25 20:48</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/FileOrganizer" target="_blank" rel="noopener noreferrer">FileOrganizer</a>
+  </td>
+
+  <td class="msg">
+      feat(engine/throttle): add throttle manager with schedule-driven switching
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/FileOrganizer/commit/e63f8e2a14c65809b6967ea15e363180e1c9749c" target="_blank" rel="noopener noreferrer">e63f8e2</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-04-25 20:47</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/FileOrganizer" target="_blank" rel="noopener noreferrer">FileOrganizer</a>
+  </td>
+
+  <td class="msg">
+      feat(engine/scan): add EXIF to mtime date resolver with suspicious flag
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/FileOrganizer/commit/a60a523cb665fbc3538af3b8fe72e88ea9bbc79c" target="_blank" rel="noopener noreferrer">a60a523</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-04-25 20:43</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/FileOrganizer" target="_blank" rel="noopener noreferrer">FileOrganizer</a>
+  </td>
+
+  <td class="msg">
+      feat(engine/scan): add video metadata extractor via mediainfo subprocess
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/FileOrganizer/commit/7a1573ada770e5d8c676ff8c063a4f28bbab3ed0" target="_blank" rel="noopener noreferrer">7a1573a</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-04-25 20:39</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/FileOrganizer" target="_blank" rel="noopener noreferrer">FileOrganizer</a>
+  </td>
+
+  <td class="msg">
+      feat(engine/scan): add image metadata extractor
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/FileOrganizer/commit/f0799298905516c71764945a54ef86132660acec" target="_blank" rel="noopener noreferrer">f079929</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-04-25 20:30</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/FileOrganizer" target="_blank" rel="noopener noreferrer">FileOrganizer</a>
+  </td>
+
+  <td class="msg">
+      feat(engine/scan): add streaming sha256 hasher with chunk + throttle controls
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/FileOrganizer/commit/de91e7ca436e11efc947d3f1788ce7c7dd441c75" target="_blank" rel="noopener noreferrer">de91e7c</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-04-25 20:30</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/FileOrganizer" target="_blank" rel="noopener noreferrer">FileOrganizer</a>
+  </td>
+
+  <td class="msg">
+      feat(engine/scan): add async file walker with category and exclusion filters
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/FileOrganizer/commit/d49bdc764efa0f2b1985ebb37c637656befe8413" target="_blank" rel="noopener noreferrer">d49bdc7</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-04-25 20:29</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/FileOrganizer" target="_blank" rel="noopener noreferrer">FileOrganizer</a>
+  </td>
+
+  <td class="msg">
+      feat(engine/catalog): add scans repository
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/FileOrganizer/commit/2a459dacc8033c1800d2c13558a5a381b243dd2d" target="_blank" rel="noopener noreferrer">2a459da</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-04-25 20:29</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/FileOrganizer" target="_blank" rel="noopener noreferrer">FileOrganizer</a>
+  </td>
+
+  <td class="msg">
+      feat(engine/catalog): add files repository with quick-check semantics
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/FileOrganizer/commit/581996a567ebd371cac4bc1b71a289531c525a0a" target="_blank" rel="noopener noreferrer">581996a</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-04-25 20:28</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/FileOrganizer" target="_blank" rel="noopener noreferrer">FileOrganizer</a>
+  </td>
+
+  <td class="msg">
+      feat(engine/drives): add volume detection (windows + posix synth)
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/FileOrganizer/commit/9b3dc6c8f4980c0658681e6e1549426d41cd496b" target="_blank" rel="noopener noreferrer">9b3dc6c</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-04-25 20:27</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/FileOrganizer" target="_blank" rel="noopener noreferrer">FileOrganizer</a>
+  </td>
+
+  <td class="msg">
+      feat(engine/scan): add path exclusion rules
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/FileOrganizer/commit/f9f11735f9f7b3a99444cd21dba1ddc96b76abad" target="_blank" rel="noopener noreferrer">f9f1173</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-04-25 20:24</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/FileOrganizer" target="_blank" rel="noopener noreferrer">FileOrganizer</a>
+  </td>
+
+  <td class="msg">
+      feat(engine/cli): add CLI scaffolding with init and status commands
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/FileOrganizer/commit/5e86c2452524395799b93441b3e5fc66b77d0b00" target="_blank" rel="noopener noreferrer">5e86c24</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-04-25 20:05</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/FileOrganizer" target="_blank" rel="noopener noreferrer">FileOrganizer</a>
+  </td>
+
+  <td class="msg">
+      feat(engine/catalog): add catalog pointer file locator
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/FileOrganizer/commit/ab71d87bd5bd102e7b94ed83af6bc083c2dc7811" target="_blank" rel="noopener noreferrer">ab71d87</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-04-25 20:05</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/FileOrganizer" target="_blank" rel="noopener noreferrer">FileOrganizer</a>
+  </td>
+
+  <td class="msg">
+      feat(engine/drives): add drive repository with upsert by volume serial
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/FileOrganizer/commit/c6f708b89e555917d77ff19f4583a3c561bbbfa8" target="_blank" rel="noopener noreferrer">c6f708b</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-04-25 20:04</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/FileOrganizer" target="_blank" rel="noopener noreferrer">FileOrganizer</a>
+  </td>
+
+  <td class="msg">
+      feat(engine/catalog): add settings repository with defaults
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/FileOrganizer/commit/6e2f432a45677d8c6a852826afdb1c46963e0bc7" target="_blank" rel="noopener noreferrer">6e2f432</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-04-25 20:04</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/FileOrganizer" target="_blank" rel="noopener noreferrer">FileOrganizer</a>
+  </td>
+
+  <td class="msg">
+      feat(engine): add structured logger
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/FileOrganizer/commit/c06f23fa15de0f4e7fd364fc0a5061b832060b35" target="_blank" rel="noopener noreferrer">c06f23f</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-04-25 20:03</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/FileOrganizer" target="_blank" rel="noopener noreferrer">FileOrganizer</a>
+  </td>
+
+  <td class="msg">
+      feat(engine/catalog): add migration runner with initial schema
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/FileOrganizer/commit/9146c79712c256482fda5e86a8d4b4ed49f6abfe" target="_blank" rel="noopener noreferrer">9146c79</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-04-25 19:59</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/FileOrganizer" target="_blank" rel="noopener noreferrer">FileOrganizer</a>
+  </td>
+
+  <td class="msg">
+      feat(engine/catalog): add sqlite connection wrapper
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/FileOrganizer/commit/d88be15cbc44440254c27718a32fa56f2dc2e8bc" target="_blank" rel="noopener noreferrer">d88be15</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-04-25 19:57</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/FileOrganizer" target="_blank" rel="noopener noreferrer">FileOrganizer</a>
+  </td>
+
+  <td class="msg">
+      chore(engine): add runtime dependencies for catalog, api, metadata
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/FileOrganizer/commit/afa59c44111a9501d2ae3a3c000d40989ff2630f" target="_blank" rel="noopener noreferrer">afa59c4</a>
+  </td>
+</tr><tr class="named">
+    <td class="when">2026-04-25 19:53</td>
+
+  <td class="repo">
+      payments-service
+  </td>
+
+  <td class="msg">
+      <span class="redact" aria-label="redacted message" role="img">wip: extract parser</span>
+  </td>
+
+  <td class="sha">
+      <span class="redact" aria-label="redacted sha" role="img">7e7d621</span>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-04-25 19:37</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/FileOrganizer" target="_blank" rel="noopener noreferrer">FileOrganizer</a>
+  </td>
+
+  <td class="msg">
+      feat(shared): add typed error classes
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/FileOrganizer/commit/c46c5b348b00ae4df0fbdb7b52868472083ba283" target="_blank" rel="noopener noreferrer">c46c5b3</a>
+  </td>
+</tr><tr class="named">
+    <td class="when">2026-04-25 19:36</td>
+
+  <td class="repo">
+      payments-service
+  </td>
+
+  <td class="msg">
+      <span class="redact" aria-label="redacted message" role="img">fix: split verbose queue when fallback changes</span>
+  </td>
+
+  <td class="sha">
+      <span class="redact" aria-label="redacted sha" role="img">86acbb7</span>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-04-25 19:26</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/FileOrganizer" target="_blank" rel="noopener noreferrer">FileOrganizer</a>
+  </td>
+
+  <td class="msg">
+      feat(shared): add rules, throttle profiles, settings types
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/FileOrganizer/commit/4385c5377352e03f0309702150ef8c3cbcf45749" target="_blank" rel="noopener noreferrer">4385c53</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-04-25 19:25</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/FileOrganizer" target="_blank" rel="noopener noreferrer">FileOrganizer</a>
+  </td>
+
+  <td class="msg">
+      feat(shared): add core domain types and enums
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/FileOrganizer/commit/333d52f7a638b29f03e2fcf636534fa2b20d3813" target="_blank" rel="noopener noreferrer">333d52f</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-04-25 19:20</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/FileOrganizer" target="_blank" rel="noopener noreferrer">FileOrganizer</a>
+  </td>
+
+  <td class="msg">
+      chore(repo): add vitest workspace config
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/FileOrganizer/commit/b499fe90a805930b96b3cbcfb60b7c20c890f1f5" target="_blank" rel="noopener noreferrer">b499fe9</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-04-25 19:12</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/FileOrganizer" target="_blank" rel="noopener noreferrer">FileOrganizer</a>
+  </td>
+
+  <td class="msg">
+      chore(repo): scaffold shared, engine, ui workspace packages
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/FileOrganizer/commit/2e2ca13644b0a2cdbcee6a88c2d284357a78d99f" target="_blank" rel="noopener noreferrer">2e2ca13</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-04-25 19:07</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/FileOrganizer" target="_blank" rel="noopener noreferrer">FileOrganizer</a>
+  </td>
+
+  <td class="msg">
+      chore(repo): add prettier and eslint config
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/FileOrganizer/commit/4bf8027e13562ce79c72c405b788583abe3788db" target="_blank" rel="noopener noreferrer">4bf8027</a>
+  </td>
+</tr><tr class="named">
+    <td class="when">2026-04-25 19:03</td>
+
+  <td class="repo">
+      payments-service
+  </td>
+
+  <td class="msg">
+      <span class="redact" aria-label="redacted message" role="img">fix: wire handler and harden filter</span>
+  </td>
+
+  <td class="sha">
+      <span class="redact" aria-label="redacted sha" role="img">1288829</span>
+  </td>
+</tr><tr class="named">
+    <td class="when">2026-04-25 19:03</td>
+
+  <td class="repo">
+      payments-service
+  </td>
+
+  <td class="msg">
+      <span class="redact" aria-label="redacted message" role="img">feat: vendor leaky indexer</span>
+  </td>
+
+  <td class="sha">
+      <span class="redact" aria-label="redacted sha" role="img">db4b0e2</span>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-04-25 19:01</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/FileOrganizer" target="_blank" rel="noopener noreferrer">FileOrganizer</a>
+  </td>
+
+  <td class="msg">
+      chore(repo): add base typescript config and project references
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/FileOrganizer/commit/6811971dd3cd920d2d908b20ce46299cccff9125" target="_blank" rel="noopener noreferrer">6811971</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-04-25 18:56</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/FileOrganizer" target="_blank" rel="noopener noreferrer">FileOrganizer</a>
+  </td>
+
+  <td class="msg">
+      chore(repo): complete M0-T03 (npm install on workstation)
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/FileOrganizer/commit/86a9a376a0de6078d789a7296e896cc09dc4e345" target="_blank" rel="noopener noreferrer">86a9a37</a>
+  </td>
+</tr><tr class="">
     <td class="when">2026-04-25 18:53</td>
 
   <td class="repo">
@@ -154,20 +1440,6 @@
     <td class="when">2026-04-25 17:31</td>
 
   <td class="repo">
-      windows-memory-experiments
-  </td>
-
-  <td class="msg">
-      <span class="redact" aria-label="redacted message" role="img">test: guard tighter pipeline for the lenient fallback</span>
-  </td>
-
-  <td class="sha">
-      <span class="redact" aria-label="redacted sha" role="img">88fc9f4</span>
-  </td>
-</tr><tr class="named">
-    <td class="when">2026-04-25 17:31</td>
-
-  <td class="repo">
       video-loud-splitter
   </td>
 
@@ -182,15 +1454,15 @@
     <td class="when">2026-04-25 17:31</td>
 
   <td class="repo">
-      uni-final-app
+      windows-memory-experiments
   </td>
 
   <td class="msg">
-      <span class="redact" aria-label="redacted message" role="img">chore: wrap view and loosen registry</span>
+      <span class="redact" aria-label="redacted message" role="img">test: guard tighter pipeline for the lenient fallback</span>
   </td>
 
   <td class="sha">
-      <span class="redact" aria-label="redacted sha" role="img">1d0bc3c</span>
+      <span class="redact" aria-label="redacted sha" role="img">88fc9f4</span>
   </td>
 </tr><tr class="named">
     <td class="when">2026-04-25 17:31</td>
@@ -219,6 +1491,20 @@
 
   <td class="sha">
       <span class="redact" aria-label="redacted sha" role="img">1d763a7</span>
+  </td>
+</tr><tr class="named">
+    <td class="when">2026-04-25 17:31</td>
+
+  <td class="repo">
+      uni-final-app
+  </td>
+
+  <td class="msg">
+      <span class="redact" aria-label="redacted message" role="img">chore: wrap view and loosen registry</span>
+  </td>
+
+  <td class="sha">
+      <span class="redact" aria-label="redacted sha" role="img">1d0bc3c</span>
   </td>
 </tr><tr class="named">
     <td class="when">2026-04-25 17:31</td>
@@ -266,20 +1552,6 @@
     <td class="when">2026-04-25 17:31</td>
 
   <td class="repo">
-      csv-transaction-analyzer
-  </td>
-
-  <td class="msg">
-      <span class="redact" aria-label="redacted message" role="img">fix missing decoder when producer changes</span>
-  </td>
-
-  <td class="sha">
-      <span class="redact" aria-label="redacted sha" role="img">f252b29</span>
-  </td>
-</tr><tr class="named">
-    <td class="when">2026-04-25 17:31</td>
-
-  <td class="repo">
       curts-amazing-maths-game
   </td>
 
@@ -289,6 +1561,20 @@
 
   <td class="sha">
       <span class="redact" aria-label="redacted sha" role="img">3c623d6</span>
+  </td>
+</tr><tr class="named">
+    <td class="when">2026-04-25 17:31</td>
+
+  <td class="repo">
+      csv-transaction-analyzer
+  </td>
+
+  <td class="msg">
+      <span class="redact" aria-label="redacted message" role="img">fix missing decoder when producer changes</span>
+  </td>
+
+  <td class="sha">
+      <span class="redact" aria-label="redacted sha" role="img">f252b29</span>
   </td>
 </tr><tr class="named">
     <td class="when">2026-04-25 17:31</td>
@@ -308,20 +1594,6 @@
     <td class="when">2026-04-25 17:31</td>
 
   <td class="repo">
-      arduino-hid-host
-  </td>
-
-  <td class="msg">
-      <span class="redact" aria-label="redacted message" role="img">update util</span>
-  </td>
-
-  <td class="sha">
-      <span class="redact" aria-label="redacted sha" role="img">3f375a2</span>
-  </td>
-</tr><tr class="named">
-    <td class="when">2026-04-25 17:31</td>
-
-  <td class="repo">
       arduino-hid-firmware
   </td>
 
@@ -331,6 +1603,20 @@
 
   <td class="sha">
       <span class="redact" aria-label="redacted sha" role="img">d9a6896</span>
+  </td>
+</tr><tr class="named">
+    <td class="when">2026-04-25 17:31</td>
+
+  <td class="repo">
+      arduino-hid-host
+  </td>
+
+  <td class="msg">
+      <span class="redact" aria-label="redacted message" role="img">update util</span>
+  </td>
+
+  <td class="sha">
+      <span class="redact" aria-label="redacted sha" role="img">3f375a2</span>
   </td>
 </tr><tr class="named">
     <td class="when">2026-04-25 17:31</td>
@@ -686,160 +1972,6 @@
     <td class="when">2026-04-25</td>
 
   <td class="repo">
-      <span class="redact-strong" aria-label="redacted repo" role="img">unused-stream</span>
-  </td>
-
-  <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">merge duplicate reader for the duplicate wrapper</span>
-  </td>
-
-  <td class="sha">
-      <span class="redact-strong" aria-label="redacted sha" role="img">80b0ef2</span>
-  </td>
-</tr><tr class="anon">
-    <td class="when">2026-04-25</td>
-
-  <td class="repo">
-      <span class="redact-strong" aria-label="redacted repo" role="img">reader</span>
-  </td>
-
-  <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">wip</span>
-  </td>
-
-  <td class="sha">
-      <span class="redact-strong" aria-label="redacted sha" role="img">7fcd739</span>
-  </td>
-</tr><tr class="anon">
-    <td class="when">2026-04-25</td>
-
-  <td class="repo">
-      <span class="redact-strong" aria-label="redacted repo" role="img">supervisor-channel</span>
-  </td>
-
-  <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">deprecate fallback (missing)</span>
-  </td>
-
-  <td class="sha">
-      <span class="redact-strong" aria-label="redacted sha" role="img">c08c235</span>
-  </td>
-</tr><tr class="anon">
-    <td class="when">2026-04-25</td>
-
-  <td class="repo">
-      <span class="redact-strong" aria-label="redacted repo" role="img">helper-buffer</span>
-  </td>
-
-  <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">bump controller and update helper</span>
-  </td>
-
-  <td class="sha">
-      <span class="redact-strong" aria-label="redacted sha" role="img">c068c03</span>
-  </td>
-</tr><tr class="anon">
-    <td class="when">2026-04-25</td>
-
-  <td class="repo">
-      <span class="redact-strong" aria-label="redacted repo" role="img">schema-builder</span>
-  </td>
-
-  <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">wip: fix shim and improve ledger</span>
-  </td>
-
-  <td class="sha">
-      <span class="redact-strong" aria-label="redacted sha" role="img">42276a4</span>
-  </td>
-</tr><tr class="anon">
-    <td class="when">2026-04-25</td>
-
-  <td class="repo">
-      <span class="redact-strong" aria-label="redacted repo" role="img">wrapper-toolkit</span>
-  </td>
-
-  <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">vendor queue (spurious)</span>
-  </td>
-
-  <td class="sha">
-      <span class="redact-strong" aria-label="redacted sha" role="img">15d3f6a</span>
-  </td>
-</tr><tr class="anon">
-    <td class="when">2026-04-25</td>
-
-  <td class="repo">
-      <span class="redact-strong" aria-label="redacted repo" role="img">lingering-worker-queue</span>
-  </td>
-
-  <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">docs: wire util</span>
-  </td>
-
-  <td class="sha">
-      <span class="redact-strong" aria-label="redacted sha" role="img">a7258a6</span>
-  </td>
-</tr><tr class="anon">
-    <td class="when">2026-04-25</td>
-
-  <td class="repo">
-      <span class="redact-strong" aria-label="redacted repo" role="img">leaky-util</span>
-  </td>
-
-  <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">test: init worker, restructure adapter</span>
-  </td>
-
-  <td class="sha">
-      <span class="redact-strong" aria-label="redacted sha" role="img">5956b62</span>
-  </td>
-</tr><tr class="anon">
-    <td class="when">2026-04-25</td>
-
-  <td class="repo">
-      <span class="redact-strong" aria-label="redacted repo" role="img">writer-router</span>
-  </td>
-
-  <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">throttle minor parser in store</span>
-  </td>
-
-  <td class="sha">
-      <span class="redact-strong" aria-label="redacted sha" role="img">e232ec5</span>
-  </td>
-</tr><tr class="anon">
-    <td class="when">2026-04-25</td>
-
-  <td class="repo">
-      <span class="redact-strong" aria-label="redacted repo" role="img">encoder-toolkit</span>
-  </td>
-
-  <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">tweak helper</span>
-  </td>
-
-  <td class="sha">
-      <span class="redact-strong" aria-label="redacted sha" role="img">afe7b07</span>
-  </td>
-</tr><tr class="anon">
-    <td class="when">2026-04-25</td>
-
-  <td class="repo">
-      <span class="redact-strong" aria-label="redacted repo" role="img">silent-adapter</span>
-  </td>
-
-  <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">harden the unused adapter</span>
-  </td>
-
-  <td class="sha">
-      <span class="redact-strong" aria-label="redacted sha" role="img">31e7287</span>
-  </td>
-</tr><tr class="anon">
-    <td class="when">2026-04-25</td>
-
-  <td class="repo">
       <span class="redact-strong" aria-label="redacted repo" role="img">lenient-router</span>
   </td>
 
@@ -854,71 +1986,29 @@
     <td class="when">2026-04-25</td>
 
   <td class="repo">
-      <span class="redact-strong" aria-label="redacted repo" role="img">early-scheduler-loader</span>
+      <span class="redact-strong" aria-label="redacted repo" role="img">verbose-runner</span>
   </td>
 
   <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">docs: polish the late service</span>
+      <span class="redact-strong" aria-label="redacted message" role="img">vendor scheduler (late)</span>
   </td>
 
   <td class="sha">
-      <span class="redact-strong" aria-label="redacted sha" role="img">6340aad</span>
+      <span class="redact-strong" aria-label="redacted sha" role="img">0b93651</span>
   </td>
 </tr><tr class="anon">
     <td class="when">2026-04-25</td>
 
   <td class="repo">
-      <span class="redact-strong" aria-label="redacted repo" role="img">client-renderer</span>
+      <span class="redact-strong" aria-label="redacted repo" role="img">helper</span>
   </td>
 
   <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">test: rework router</span>
+      <span class="redact-strong" aria-label="redacted message" role="img">loosen builder, merge facade</span>
   </td>
 
   <td class="sha">
-      <span class="redact-strong" aria-label="redacted sha" role="img">6736c73</span>
-  </td>
-</tr><tr class="anon">
-    <td class="when">2026-04-25</td>
-
-  <td class="repo">
-      <span class="redact-strong" aria-label="redacted repo" role="img">redundant-registry-builder</span>
-  </td>
-
-  <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">wrap context for ledger</span>
-  </td>
-
-  <td class="sha">
-      <span class="redact-strong" aria-label="redacted sha" role="img">0285138</span>
-  </td>
-</tr><tr class="anon">
-    <td class="when">2026-04-25</td>
-
-  <td class="repo">
-      <span class="redact-strong" aria-label="redacted repo" role="img">guard</span>
-  </td>
-
-  <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">wip: restructure the stale guard</span>
-  </td>
-
-  <td class="sha">
-      <span class="redact-strong" aria-label="redacted sha" role="img">3e3e19c</span>
-  </td>
-</tr><tr class="anon">
-    <td class="when">2026-04-25</td>
-
-  <td class="repo">
-      <span class="redact-strong" aria-label="redacted repo" role="img">minor-renderer</span>
-  </td>
-
-  <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">fix: rework the lingering guard</span>
-  </td>
-
-  <td class="sha">
-      <span class="redact-strong" aria-label="redacted sha" role="img">7111b74</span>
+      <span class="redact-strong" aria-label="redacted sha" role="img">e57578c</span>
   </td>
 </tr><tr class="anon">
     <td class="when">2026-04-25</td>
@@ -938,29 +2028,15 @@
     <td class="when">2026-04-25</td>
 
   <td class="repo">
-      <span class="redact-strong" aria-label="redacted repo" role="img">faster-registry-stream</span>
+      <span class="redact-strong" aria-label="redacted repo" role="img">guard</span>
   </td>
 
   <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">improve context so channel can wire util</span>
+      <span class="redact-strong" aria-label="redacted message" role="img">wip: restructure the stale guard</span>
   </td>
 
   <td class="sha">
-      <span class="redact-strong" aria-label="redacted sha" role="img">097b044</span>
-  </td>
-</tr><tr class="anon">
-    <td class="when">2026-04-25</td>
-
-  <td class="repo">
-      <span class="redact-strong" aria-label="redacted repo" role="img">wrapper-toolkit</span>
-  </td>
-
-  <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">rework silent ledger in fallback</span>
-  </td>
-
-  <td class="sha">
-      <span class="redact-strong" aria-label="redacted sha" role="img">a7debd0</span>
+      <span class="redact-strong" aria-label="redacted sha" role="img">3e3e19c</span>
   </td>
 </tr><tr class="anon">
     <td class="when">2026-04-25</td>
@@ -980,15 +2056,29 @@
     <td class="when">2026-04-25</td>
 
   <td class="repo">
-      <span class="redact-strong" aria-label="redacted repo" role="img">parser-worker</span>
+      <span class="redact-strong" aria-label="redacted repo" role="img">channel</span>
   </td>
 
   <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">docs: trim obsolete mailer when wrapper changes</span>
+      <span class="redact-strong" aria-label="redacted message" role="img">trim dispatcher for registry</span>
   </td>
 
   <td class="sha">
-      <span class="redact-strong" aria-label="redacted sha" role="img">a6270ce</span>
+      <span class="redact-strong" aria-label="redacted sha" role="img">6e72312</span>
+  </td>
+</tr><tr class="anon">
+    <td class="when">2026-04-25</td>
+
+  <td class="repo">
+      <span class="redact-strong" aria-label="redacted repo" role="img">unused-stream</span>
+  </td>
+
+  <td class="msg">
+      <span class="redact-strong" aria-label="redacted message" role="img">merge duplicate reader for the duplicate wrapper</span>
+  </td>
+
+  <td class="sha">
+      <span class="redact-strong" aria-label="redacted sha" role="img">80b0ef2</span>
   </td>
 </tr><tr class="anon">
     <td class="when">2026-04-25</td>
@@ -1008,6 +2098,104 @@
     <td class="when">2026-04-25</td>
 
   <td class="repo">
+      <span class="redact-strong" aria-label="redacted repo" role="img">writer-router</span>
+  </td>
+
+  <td class="msg">
+      <span class="redact-strong" aria-label="redacted message" role="img">throttle minor parser in store</span>
+  </td>
+
+  <td class="sha">
+      <span class="redact-strong" aria-label="redacted sha" role="img">e232ec5</span>
+  </td>
+</tr><tr class="anon">
+    <td class="when">2026-04-25</td>
+
+  <td class="repo">
+      <span class="redact-strong" aria-label="redacted repo" role="img">wrapper-toolkit</span>
+  </td>
+
+  <td class="msg">
+      <span class="redact-strong" aria-label="redacted message" role="img">vendor queue (spurious)</span>
+  </td>
+
+  <td class="sha">
+      <span class="redact-strong" aria-label="redacted sha" role="img">15d3f6a</span>
+  </td>
+</tr><tr class="anon">
+    <td class="when">2026-04-25</td>
+
+  <td class="repo">
+      <span class="redact-strong" aria-label="redacted repo" role="img">parser-worker</span>
+  </td>
+
+  <td class="msg">
+      <span class="redact-strong" aria-label="redacted message" role="img">docs: trim obsolete mailer when wrapper changes</span>
+  </td>
+
+  <td class="sha">
+      <span class="redact-strong" aria-label="redacted sha" role="img">a6270ce</span>
+  </td>
+</tr><tr class="anon">
+    <td class="when">2026-04-25</td>
+
+  <td class="repo">
+      <span class="redact-strong" aria-label="redacted repo" role="img">schema-builder</span>
+  </td>
+
+  <td class="msg">
+      <span class="redact-strong" aria-label="redacted message" role="img">wip: fix shim and improve ledger</span>
+  </td>
+
+  <td class="sha">
+      <span class="redact-strong" aria-label="redacted sha" role="img">42276a4</span>
+  </td>
+</tr><tr class="anon">
+    <td class="when">2026-04-25</td>
+
+  <td class="repo">
+      <span class="redact-strong" aria-label="redacted repo" role="img">lingering-worker-queue</span>
+  </td>
+
+  <td class="msg">
+      <span class="redact-strong" aria-label="redacted message" role="img">docs: wire util</span>
+  </td>
+
+  <td class="sha">
+      <span class="redact-strong" aria-label="redacted sha" role="img">a7258a6</span>
+  </td>
+</tr><tr class="anon">
+    <td class="when">2026-04-25</td>
+
+  <td class="repo">
+      <span class="redact-strong" aria-label="redacted repo" role="img">silent-adapter</span>
+  </td>
+
+  <td class="msg">
+      <span class="redact-strong" aria-label="redacted message" role="img">harden the unused adapter</span>
+  </td>
+
+  <td class="sha">
+      <span class="redact-strong" aria-label="redacted sha" role="img">31e7287</span>
+  </td>
+</tr><tr class="anon">
+    <td class="when">2026-04-25</td>
+
+  <td class="repo">
+      <span class="redact-strong" aria-label="redacted repo" role="img">redundant-registry-builder</span>
+  </td>
+
+  <td class="msg">
+      <span class="redact-strong" aria-label="redacted message" role="img">wrap context for ledger</span>
+  </td>
+
+  <td class="sha">
+      <span class="redact-strong" aria-label="redacted sha" role="img">0285138</span>
+  </td>
+</tr><tr class="anon">
+    <td class="when">2026-04-25</td>
+
+  <td class="repo">
       <span class="redact-strong" aria-label="redacted repo" role="img">writer</span>
   </td>
 
@@ -1022,15 +2210,71 @@
     <td class="when">2026-04-25</td>
 
   <td class="repo">
-      <span class="redact-strong" aria-label="redacted repo" role="img">helper</span>
+      <span class="redact-strong" aria-label="redacted repo" role="img">leaky-util</span>
   </td>
 
   <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">loosen builder, merge facade</span>
+      <span class="redact-strong" aria-label="redacted message" role="img">test: init worker, restructure adapter</span>
   </td>
 
   <td class="sha">
-      <span class="redact-strong" aria-label="redacted sha" role="img">e57578c</span>
+      <span class="redact-strong" aria-label="redacted sha" role="img">5956b62</span>
+  </td>
+</tr><tr class="anon">
+    <td class="when">2026-04-25</td>
+
+  <td class="repo">
+      <span class="redact-strong" aria-label="redacted repo" role="img">helper-buffer</span>
+  </td>
+
+  <td class="msg">
+      <span class="redact-strong" aria-label="redacted message" role="img">bump controller and update helper</span>
+  </td>
+
+  <td class="sha">
+      <span class="redact-strong" aria-label="redacted sha" role="img">c068c03</span>
+  </td>
+</tr><tr class="anon">
+    <td class="when">2026-04-25</td>
+
+  <td class="repo">
+      <span class="redact-strong" aria-label="redacted repo" role="img">early-scheduler-loader</span>
+  </td>
+
+  <td class="msg">
+      <span class="redact-strong" aria-label="redacted message" role="img">docs: polish the late service</span>
+  </td>
+
+  <td class="sha">
+      <span class="redact-strong" aria-label="redacted sha" role="img">6340aad</span>
+  </td>
+</tr><tr class="anon">
+    <td class="when">2026-04-25</td>
+
+  <td class="repo">
+      <span class="redact-strong" aria-label="redacted repo" role="img">wrapper-toolkit</span>
+  </td>
+
+  <td class="msg">
+      <span class="redact-strong" aria-label="redacted message" role="img">rework silent ledger in fallback</span>
+  </td>
+
+  <td class="sha">
+      <span class="redact-strong" aria-label="redacted sha" role="img">a7debd0</span>
+  </td>
+</tr><tr class="anon">
+    <td class="when">2026-04-25</td>
+
+  <td class="repo">
+      <span class="redact-strong" aria-label="redacted repo" role="img">client-renderer</span>
+  </td>
+
+  <td class="msg">
+      <span class="redact-strong" aria-label="redacted message" role="img">test: rework router</span>
+  </td>
+
+  <td class="sha">
+      <span class="redact-strong" aria-label="redacted sha" role="img">6736c73</span>
   </td>
 </tr><tr class="anon">
     <td class="when">2026-04-25</td>
@@ -1064,29 +2308,71 @@
     <td class="when">2026-04-25</td>
 
   <td class="repo">
-      <span class="redact-strong" aria-label="redacted repo" role="img">channel</span>
+      <span class="redact-strong" aria-label="redacted repo" role="img">reader</span>
   </td>
 
   <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">trim dispatcher for registry</span>
+      <span class="redact-strong" aria-label="redacted message" role="img">wip</span>
   </td>
 
   <td class="sha">
-      <span class="redact-strong" aria-label="redacted sha" role="img">6e72312</span>
+      <span class="redact-strong" aria-label="redacted sha" role="img">7fcd739</span>
   </td>
 </tr><tr class="anon">
     <td class="when">2026-04-25</td>
 
   <td class="repo">
-      <span class="redact-strong" aria-label="redacted repo" role="img">verbose-runner</span>
+      <span class="redact-strong" aria-label="redacted repo" role="img">encoder-toolkit</span>
   </td>
 
   <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">vendor scheduler (late)</span>
+      <span class="redact-strong" aria-label="redacted message" role="img">tweak helper</span>
   </td>
 
   <td class="sha">
-      <span class="redact-strong" aria-label="redacted sha" role="img">0b93651</span>
+      <span class="redact-strong" aria-label="redacted sha" role="img">afe7b07</span>
+  </td>
+</tr><tr class="anon">
+    <td class="when">2026-04-25</td>
+
+  <td class="repo">
+      <span class="redact-strong" aria-label="redacted repo" role="img">faster-registry-stream</span>
+  </td>
+
+  <td class="msg">
+      <span class="redact-strong" aria-label="redacted message" role="img">improve context so channel can wire util</span>
+  </td>
+
+  <td class="sha">
+      <span class="redact-strong" aria-label="redacted sha" role="img">097b044</span>
+  </td>
+</tr><tr class="anon">
+    <td class="when">2026-04-25</td>
+
+  <td class="repo">
+      <span class="redact-strong" aria-label="redacted repo" role="img">minor-renderer</span>
+  </td>
+
+  <td class="msg">
+      <span class="redact-strong" aria-label="redacted message" role="img">fix: rework the lingering guard</span>
+  </td>
+
+  <td class="sha">
+      <span class="redact-strong" aria-label="redacted sha" role="img">7111b74</span>
+  </td>
+</tr><tr class="anon">
+    <td class="when">2026-04-25</td>
+
+  <td class="repo">
+      <span class="redact-strong" aria-label="redacted repo" role="img">supervisor-channel</span>
+  </td>
+
+  <td class="msg">
+      <span class="redact-strong" aria-label="redacted message" role="img">deprecate fallback (missing)</span>
+  </td>
+
+  <td class="sha">
+      <span class="redact-strong" aria-label="redacted sha" role="img">c08c235</span>
   </td>
 </tr><tr class="">
     <td class="when">2026-04-24 18:50</td>
@@ -1648,1196 +2934,6 @@
   <td class="sha">
       <span class="redact-strong" aria-label="redacted sha" role="img">31ac3e4</span>
   </td>
-</tr><tr class="anon">
-    <td class="when">2026-04-16</td>
-
-  <td class="repo">
-      <span class="redact-strong" aria-label="redacted repo" role="img">loader</span>
-  </td>
-
-  <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">docs: bump lingering context when validator changes</span>
-  </td>
-
-  <td class="sha">
-      <span class="redact-strong" aria-label="redacted sha" role="img">59e696d</span>
-  </td>
-</tr><tr class="anon">
-    <td class="when">2026-04-16</td>
-
-  <td class="repo">
-      <span class="redact-strong" aria-label="redacted repo" role="img">indexer</span>
-  </td>
-
-  <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">fix: merge stricter queue in loader</span>
-  </td>
-
-  <td class="sha">
-      <span class="redact-strong" aria-label="redacted sha" role="img">fc4551c</span>
-  </td>
-</tr><tr class="anon">
-    <td class="when">2026-04-16</td>
-
-  <td class="repo">
-      <span class="redact-strong" aria-label="redacted repo" role="img">faster-controller-ledger</span>
-  </td>
-
-  <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">test: debounce early router</span>
-  </td>
-
-  <td class="sha">
-      <span class="redact-strong" aria-label="redacted sha" role="img">b1c7b4e</span>
-  </td>
-</tr><tr class="anon">
-    <td class="when">2026-04-16</td>
-
-  <td class="repo">
-      <span class="redact-strong" aria-label="redacted repo" role="img">stricter-supervisor-cache</span>
-  </td>
-
-  <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">tighten the tighter stream</span>
-  </td>
-
-  <td class="sha">
-      <span class="redact-strong" aria-label="redacted sha" role="img">e5b317a</span>
-  </td>
-</tr><tr class="anon">
-    <td class="when">2026-04-15</td>
-
-  <td class="repo">
-      <span class="redact-strong" aria-label="redacted repo" role="img">minor-decoder-helper</span>
-  </td>
-
-  <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">refactor: rename router for util</span>
-  </td>
-
-  <td class="sha">
-      <span class="redact-strong" aria-label="redacted sha" role="img">50fa090</span>
-  </td>
-</tr><tr class="anon">
-    <td class="when">2026-04-15</td>
-
-  <td class="repo">
-      <span class="redact-strong" aria-label="redacted repo" role="img">service-toolkit</span>
-  </td>
-
-  <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">chore: add router for store</span>
-  </td>
-
-  <td class="sha">
-      <span class="redact-strong" aria-label="redacted sha" role="img">b9365ca</span>
-  </td>
-</tr><tr class="anon">
-    <td class="when">2026-04-15</td>
-
-  <td class="repo">
-      <span class="redact-strong" aria-label="redacted repo" role="img">validator-channel</span>
-  </td>
-
-  <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">polish</span>
-  </td>
-
-  <td class="sha">
-      <span class="redact-strong" aria-label="redacted sha" role="img">c4f5012</span>
-  </td>
-</tr><tr class="anon">
-    <td class="when">2026-04-15</td>
-
-  <td class="repo">
-      <span class="redact-strong" aria-label="redacted repo" role="img">noisy-channel</span>
-  </td>
-
-  <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">chore: optimize router</span>
-  </td>
-
-  <td class="sha">
-      <span class="redact-strong" aria-label="redacted sha" role="img">6ab23a7</span>
-  </td>
-</tr><tr class="anon">
-    <td class="when">2026-04-15</td>
-
-  <td class="repo">
-      <span class="redact-strong" aria-label="redacted repo" role="img">indexer-task</span>
-  </td>
-
-  <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">test: fix renderer, trim session</span>
-  </td>
-
-  <td class="sha">
-      <span class="redact-strong" aria-label="redacted sha" role="img">163b4b9</span>
-  </td>
-</tr><tr class="anon">
-    <td class="when">2026-04-15</td>
-
-  <td class="repo">
-      <span class="redact-strong" aria-label="redacted repo" role="img">stream-toolkit</span>
-  </td>
-
-  <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">rework adapter in facade</span>
-  </td>
-
-  <td class="sha">
-      <span class="redact-strong" aria-label="redacted sha" role="img">0fa7e2f</span>
-  </td>
-</tr><tr class="anon">
-    <td class="when">2026-04-15</td>
-
-  <td class="repo">
-      <span class="redact-strong" aria-label="redacted repo" role="img">validator-watcher</span>
-  </td>
-
-  <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">fix: migrate minor worker in util</span>
-  </td>
-
-  <td class="sha">
-      <span class="redact-strong" aria-label="redacted sha" role="img">c4727fa</span>
-  </td>
-</tr><tr class="anon">
-    <td class="when">2026-04-15</td>
-
-  <td class="repo">
-      <span class="redact-strong" aria-label="redacted repo" role="img">spurious-fallback-watcher</span>
-  </td>
-
-  <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">feat: rename the leaky task</span>
-  </td>
-
-  <td class="sha">
-      <span class="redact-strong" aria-label="redacted sha" role="img">5253ef7</span>
-  </td>
-</tr><tr class="anon">
-    <td class="when">2026-04-15</td>
-
-  <td class="repo">
-      <span class="redact-strong" aria-label="redacted repo" role="img">duplicate-service</span>
-  </td>
-
-  <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">wip: extract obsolete config</span>
-  </td>
-
-  <td class="sha">
-      <span class="redact-strong" aria-label="redacted sha" role="img">351689f</span>
-  </td>
-</tr><tr class="anon">
-    <td class="when">2026-04-15</td>
-
-  <td class="repo">
-      <span class="redact-strong" aria-label="redacted repo" role="img">task-model</span>
-  </td>
-
-  <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">wip: tighten runner</span>
-  </td>
-
-  <td class="sha">
-      <span class="redact-strong" aria-label="redacted sha" role="img">23eef1d</span>
-  </td>
-</tr><tr class="anon">
-    <td class="when">2026-04-15</td>
-
-  <td class="repo">
-      <span class="redact-strong" aria-label="redacted repo" role="img">bootstrapper</span>
-  </td>
-
-  <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">test: guard config (unused)</span>
-  </td>
-
-  <td class="sha">
-      <span class="redact-strong" aria-label="redacted sha" role="img">e365877</span>
-  </td>
-</tr><tr class="anon">
-    <td class="when">2026-04-15</td>
-
-  <td class="repo">
-      <span class="redact-strong" aria-label="redacted repo" role="img">helper</span>
-  </td>
-
-  <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">migrate worker for ledger</span>
-  </td>
-
-  <td class="sha">
-      <span class="redact-strong" aria-label="redacted sha" role="img">831b821</span>
-  </td>
-</tr><tr class="anon">
-    <td class="when">2026-04-14</td>
-
-  <td class="repo">
-      <span class="redact-strong" aria-label="redacted repo" role="img">spurious-helper-helper</span>
-  </td>
-
-  <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">rework ledger in validator</span>
-  </td>
-
-  <td class="sha">
-      <span class="redact-strong" aria-label="redacted sha" role="img">06bb3c8</span>
-  </td>
-</tr><tr class="anon">
-    <td class="when">2026-04-14</td>
-
-  <td class="repo">
-      <span class="redact-strong" aria-label="redacted repo" role="img">duplicate-registry-decoder</span>
-  </td>
-
-  <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">chore: tweak adapter (stale)</span>
-  </td>
-
-  <td class="sha">
-      <span class="redact-strong" aria-label="redacted sha" role="img">f58b69b</span>
-  </td>
-</tr><tr class="anon">
-    <td class="when">2026-04-14</td>
-
-  <td class="repo">
-      <span class="redact-strong" aria-label="redacted repo" role="img">encoder-renderer</span>
-  </td>
-
-  <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">chore: inline the minor filter</span>
-  </td>
-
-  <td class="sha">
-      <span class="redact-strong" aria-label="redacted sha" role="img">2294c1b</span>
-  </td>
-</tr><tr class="anon">
-    <td class="when">2026-04-14</td>
-
-  <td class="repo">
-      <span class="redact-strong" aria-label="redacted repo" role="img">writer-fallback</span>
-  </td>
-
-  <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">fix: optimize early session in fallback</span>
-  </td>
-
-  <td class="sha">
-      <span class="redact-strong" aria-label="redacted sha" role="img">1f02ac9</span>
-  </td>
-</tr><tr class="anon">
-    <td class="when">2026-04-14</td>
-
-  <td class="repo">
-      <span class="redact-strong" aria-label="redacted repo" role="img">stream</span>
-  </td>
-
-  <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">feat: deprecate manager (missing)</span>
-  </td>
-
-  <td class="sha">
-      <span class="redact-strong" aria-label="redacted sha" role="img">a7a00d5</span>
-  </td>
-</tr><tr class="anon">
-    <td class="when">2026-04-14</td>
-
-  <td class="repo">
-      <span class="redact-strong" aria-label="redacted repo" role="img">producer-toolkit</span>
-  </td>
-
-  <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">inline shim so controller can remove manager</span>
-  </td>
-
-  <td class="sha">
-      <span class="redact-strong" aria-label="redacted sha" role="img">cd70283</span>
-  </td>
-</tr><tr class="anon">
-    <td class="when">2026-04-14</td>
-
-  <td class="repo">
-      <span class="redact-strong" aria-label="redacted repo" role="img">channel-util</span>
-  </td>
-
-  <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">todo</span>
-  </td>
-
-  <td class="sha">
-      <span class="redact-strong" aria-label="redacted sha" role="img">618d1fc</span>
-  </td>
-</tr><tr class="anon">
-    <td class="when">2026-04-14</td>
-
-  <td class="repo">
-      <span class="redact-strong" aria-label="redacted repo" role="img">adapter</span>
-  </td>
-
-  <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">refactor: wire runner so renderer can merge config</span>
-  </td>
-
-  <td class="sha">
-      <span class="redact-strong" aria-label="redacted sha" role="img">981f998</span>
-  </td>
-</tr><tr class="anon">
-    <td class="when">2026-04-14</td>
-
-  <td class="repo">
-      <span class="redact-strong" aria-label="redacted repo" role="img">router-toolkit</span>
-  </td>
-
-  <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">tighten mailer and deprecate session</span>
-  </td>
-
-  <td class="sha">
-      <span class="redact-strong" aria-label="redacted sha" role="img">84fcd3b</span>
-  </td>
-</tr><tr class="anon">
-    <td class="when">2026-04-14</td>
-
-  <td class="repo">
-      <span class="redact-strong" aria-label="redacted repo" role="img">consumer-registry</span>
-  </td>
-
-  <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">chore: inline watcher</span>
-  </td>
-
-  <td class="sha">
-      <span class="redact-strong" aria-label="redacted sha" role="img">57dcadd</span>
-  </td>
-</tr><tr class="anon">
-    <td class="when">2026-04-14</td>
-
-  <td class="repo">
-      <span class="redact-strong" aria-label="redacted repo" role="img">client</span>
-  </td>
-
-  <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">chore: optimize unused stream for the broken client</span>
-  </td>
-
-  <td class="sha">
-      <span class="redact-strong" aria-label="redacted sha" role="img">3557996</span>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-04-13 23:38</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/rust-build-planner" target="_blank" rel="noopener noreferrer">rust-build-planner</a>
-  </td>
-
-  <td class="msg">
-      fix: enable ghost snapping on top floor for low walls
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/rust-build-planner/commit/f945fd7108c9d790d2d22a50ac64f949b7ba90b1" target="_blank" rel="noopener noreferrer">f945fd7</a>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-04-13 23:28</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/rust-build-planner" target="_blank" rel="noopener noreferrer">rust-build-planner</a>
-  </td>
-
-  <td class="msg">
-      feat: allow low walls on topmost floor
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/rust-build-planner/commit/3797edbbfcdd5232122d383fa31581baca0f69e3" target="_blank" rel="noopener noreferrer">3797edb</a>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-04-13 22:38</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/rust-build-planner" target="_blank" rel="noopener noreferrer">rust-build-planner</a>
-  </td>
-
-  <td class="msg">
-      deploy: f945fd7108c9d790d2d22a50ac64f949b7ba90b1
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/rust-build-planner/commit/0014551631178aecc393f3b5a33cad0e29c6f4c4" target="_blank" rel="noopener noreferrer">0014551</a>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-04-13 22:29</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/rust-build-planner" target="_blank" rel="noopener noreferrer">rust-build-planner</a>
-  </td>
-
-  <td class="msg">
-      deploy: 3797edbbfcdd5232122d383fa31581baca0f69e3
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/rust-build-planner/commit/c8084466b7cde1204764bd25b89a9165bcd84707" target="_blank" rel="noopener noreferrer">c808446</a>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-04-13 22:14</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/rust-build-planner" target="_blank" rel="noopener noreferrer">rust-build-planner</a>
-  </td>
-
-  <td class="msg">
-      feat: compress share URLs with deflate and compact encoding
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/rust-build-planner/commit/2b596a356284a8d8b8f47262a29f9b31fe48336f" target="_blank" rel="noopener noreferrer">2b596a3</a>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-04-13 22:04</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/rust-build-planner" target="_blank" rel="noopener noreferrer">rust-build-planner</a>
-  </td>
-
-  <td class="msg">
-      fix: scale down UI for 100% browser zoom, remove land planner link
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/rust-build-planner/commit/d95f41d93849ef66e0afd5e711dd135fb575d66b" target="_blank" rel="noopener noreferrer">d95f41d</a>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-04-13 21:53</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/rust-build-planner" target="_blank" rel="noopener noreferrer">rust-build-planner</a>
-  </td>
-
-  <td class="msg">
-      chore: rename package to rust-naval-boat-builder, bump to v1.0.0
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/rust-build-planner/commit/d4eb19b8055d0e4415b9c74ec6adc51083a43e92" target="_blank" rel="noopener noreferrer">d4eb19b</a>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-04-13 21:51</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/rust-build-planner" target="_blank" rel="noopener noreferrer">rust-build-planner</a>
-  </td>
-
-  <td class="msg">
-      chore: prepare repo for public — add LICENSE, README, merge test dirs, fix build
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/rust-build-planner/commit/6278f7a4b0eb9fc8765ed5e0479237422095ae19" target="_blank" rel="noopener noreferrer">6278f7a</a>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-04-13 21:34</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/rust-build-planner" target="_blank" rel="noopener noreferrer">rust-build-planner</a>
-  </td>
-
-  <td class="msg">
-      feat(#26): expand stats widget with hp, mass, speed, raid cost (#27)
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/rust-build-planner/commit/372f4e4621d8914fa29b2ab670997a15897f7915" target="_blank" rel="noopener noreferrer">372f4e4</a>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-04-13 21:15</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/rust-build-planner" target="_blank" rel="noopener noreferrer">rust-build-planner</a>
-  </td>
-
-  <td class="msg">
-      deploy: 2b596a356284a8d8b8f47262a29f9b31fe48336f
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/rust-build-planner/commit/adabecd29c8952d98cd3949bfcc750223c808c86" target="_blank" rel="noopener noreferrer">adabecd</a>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-04-13 21:05</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/rust-build-planner" target="_blank" rel="noopener noreferrer">rust-build-planner</a>
-  </td>
-
-  <td class="msg">
-      deploy: d95f41d93849ef66e0afd5e711dd135fb575d66b
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/rust-build-planner/commit/065b5f2d4950a3842f7dac3a1690d05b46690d98" target="_blank" rel="noopener noreferrer">065b5f2</a>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-04-13 20:54</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/rust-build-planner" target="_blank" rel="noopener noreferrer">rust-build-planner</a>
-  </td>
-
-  <td class="msg">
-      deploy: d4eb19b8055d0e4415b9c74ec6adc51083a43e92
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/rust-build-planner/commit/e98f9b37a2dc2ad8358244afc857f1972e59522e" target="_blank" rel="noopener noreferrer">e98f9b3</a>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-04-13 20:52</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/rust-build-planner" target="_blank" rel="noopener noreferrer">rust-build-planner</a>
-  </td>
-
-  <td class="msg">
-      deploy: 6278f7a4b0eb9fc8765ed5e0479237422095ae19
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/rust-build-planner/commit/666c521ad26cb0c51abf9726c9281e3ee719ec07" target="_blank" rel="noopener noreferrer">666c521</a>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-04-13 19:53</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/rust-build-planner" target="_blank" rel="noopener noreferrer">rust-build-planner</a>
-  </td>
-
-  <td class="msg">
-      feat: UI enhancements: larger toolbars, camera hints, model fixes
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/rust-build-planner/commit/24f34f13e54299fefc0c079fd594cba5beb36463" target="_blank" rel="noopener noreferrer">24f34f1</a>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-04-13 17:39</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/rust-build-planner" target="_blank" rel="noopener noreferrer">rust-build-planner</a>
-  </td>
-
-  <td class="msg">
-      feat(#21,#22): wall stacking, floor snapping, and wall variant models (#23)
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/rust-build-planner/commit/c50548f4e5deb329906e9f7debd1c4aa6cb53533" target="_blank" rel="noopener noreferrer">c50548f</a>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-04-13 13:23</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/rust-build-planner" target="_blank" rel="noopener noreferrer">rust-build-planner</a>
-  </td>
-
-  <td class="msg">
-      fix: prevent placement on camera drag, render floor frames as cutouts (#20)
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/rust-build-planner/commit/e7b46bdab3cd382c1ae93b95063cfa4c56fef957" target="_blank" rel="noopener noreferrer">e7b46bd</a>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-04-13 12:23</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/rust-build-planner" target="_blank" rel="noopener noreferrer">rust-build-planner</a>
-  </td>
-
-  <td class="msg">
-      deploy: e7b46bdab3cd382c1ae93b95063cfa4c56fef957
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/rust-build-planner/commit/c8032fd2ee616916eed2c6c72a557095a2294034" target="_blank" rel="noopener noreferrer">c8032fd</a>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-04-13 11:42</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/rust-build-planner" target="_blank" rel="noopener noreferrer">rust-build-planner</a>
-  </td>
-
-  <td class="msg">
-      feat(#16): improve styling — wood textures, naval blue buildable area, cost widget, hull height fix (#19)
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/rust-build-planner/commit/0316f99f79c893dca1d165df74a89f950a3feb9d" target="_blank" rel="noopener noreferrer">0316f99</a>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-04-13 10:50</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/rust-build-planner" target="_blank" rel="noopener noreferrer">rust-build-planner</a>
-  </td>
-
-  <td class="msg">
-      feat(#13): snap squares to triangle edges + fix deploy (#14) (#15)
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/rust-build-planner/commit/4f4aba5504d784a72e8b302c4be2f20a2aa04cc0" target="_blank" rel="noopener noreferrer">4f4aba5</a>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-04-13 10:42</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/rust-build-planner" target="_blank" rel="noopener noreferrer">rust-build-planner</a>
-  </td>
-
-  <td class="msg">
-      deploy: 0316f99f79c893dca1d165df74a89f950a3feb9d
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/rust-build-planner/commit/98a389d9b05a849383844d846dbdfe05332bba21" target="_blank" rel="noopener noreferrer">98a389d</a>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-04-13 10:12</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/rust-build-planner" target="_blank" rel="noopener noreferrer">rust-build-planner</a>
-  </td>
-
-  <td class="msg">
-      feat(#11): hex-based triangle snapping system (#12)
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/rust-build-planner/commit/34fc0a86ac4f10980cfa3e69e885c13364ec45cf" target="_blank" rel="noopener noreferrer">34fc0a8</a>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-04-13 09:51</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/rust-build-planner" target="_blank" rel="noopener noreferrer">rust-build-planner</a>
-  </td>
-
-  <td class="msg">
-      deploy: 4f4aba5504d784a72e8b302c4be2f20a2aa04cc0
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/rust-build-planner/commit/030c472bab908cf70f8b0243a766e0acd27b5b4b" target="_blank" rel="noopener noreferrer">030c472</a>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-04-12 18:44</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/rust-build-planner" target="_blank" rel="noopener noreferrer">rust-build-planner</a>
-  </td>
-
-  <td class="msg">
-      fix: triangle pieces and stairs shapes (#9) (#10)
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/rust-build-planner/commit/4074db4caedaf82aa85b84880764cde8481bb46c" target="_blank" rel="noopener noreferrer">4074db4</a>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-04-12 17:44</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/rust-build-planner" target="_blank" rel="noopener noreferrer">rust-build-planner</a>
-  </td>
-
-  <td class="msg">
-      deploy: 4074db4caedaf82aa85b84880764cde8481bb46c
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/rust-build-planner/commit/2f0850bfa7392f111b8f1826360005e2ad09eb72" target="_blank" rel="noopener noreferrer">2f0850b</a>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-04-12 16:56</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/rust-build-planner" target="_blank" rel="noopener noreferrer">rust-build-planner</a>
-  </td>
-
-  <td class="msg">
-      feat: click to select piece, Delete key to remove (#7)
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/rust-build-planner/commit/18ee73e72196eb62b0fd11b6c5a1b692e7a52018" target="_blank" rel="noopener noreferrer">18ee73e</a>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-04-12 16:04</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/rust-build-planner" target="_blank" rel="noopener noreferrer">rust-build-planner</a>
-  </td>
-
-  <td class="msg">
-      feat: add Ctrl+Z undo and Ctrl+Y redo for piece operations (#6)
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/rust-build-planner/commit/1dcab817bea149affbfb5fd662894efaba5ec133" target="_blank" rel="noopener noreferrer">1dcab81</a>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-04-12 16:04</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/rust-build-planner" target="_blank" rel="noopener noreferrer">rust-build-planner</a>
-  </td>
-
-  <td class="msg">
-      fix: right-click to delete placed pieces (#5)
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/rust-build-planner/commit/288bde31ab7acc32a0cd1a990405146985732539" target="_blank" rel="noopener noreferrer">288bde3</a>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-04-12 15:57</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/rust-build-planner" target="_blank" rel="noopener noreferrer">rust-build-planner</a>
-  </td>
-
-  <td class="msg">
-      feat: distinct window and doorway models with cutout shapes (#4)
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/rust-build-planner/commit/014577082ea34c2058898f0b16d70861028dc5d1" target="_blank" rel="noopener noreferrer">0145770</a>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-04-12 15:56</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/rust-build-planner" target="_blank" rel="noopener noreferrer">rust-build-planner</a>
-  </td>
-
-  <td class="msg">
-      deploy: 18ee73e72196eb62b0fd11b6c5a1b692e7a52018
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/rust-build-planner/commit/8af4f335c897922411823a266276a5fcd7849087" target="_blank" rel="noopener noreferrer">8af4f33</a>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-04-12 15:55</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/rust-build-planner" target="_blank" rel="noopener noreferrer">rust-build-planner</a>
-  </td>
-
-  <td class="msg">
-      feat: angle default camera to show 3D depth (#3)
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/rust-build-planner/commit/632d5a737077a83fb5faa2b5c955751f5de3ad0e" target="_blank" rel="noopener noreferrer">632d5a7</a>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-04-12 15:54</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/rust-build-planner" target="_blank" rel="noopener noreferrer">rust-build-planner</a>
-  </td>
-
-  <td class="msg">
-      style: brighten colour palette from dark browns to warm timber tones (#2)
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/rust-build-planner/commit/069929c9a62b754258bc2e08a0aca20d8fd9ce79" target="_blank" rel="noopener noreferrer">069929c</a>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-04-12 15:19</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/rust-build-planner" target="_blank" rel="noopener noreferrer">rust-build-planner</a>
-  </td>
-
-  <td class="msg">
-      feat: add edge placement for walls and stylized piece rendering
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/rust-build-planner/commit/6d8f3b857ed3e12647897f53685ad0a0d409f181" target="_blank" rel="noopener noreferrer">6d8f3b8</a>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-04-12 15:08</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/rust-build-planner" target="_blank" rel="noopener noreferrer">rust-build-planner</a>
-  </td>
-
-  <td class="msg">
-      fix: render single HitPlane at correct floor based on piece constraint and visibility
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/rust-build-planner/commit/7706c5e283712fa01fba61d1c15409a28b1b4b8e" target="_blank" rel="noopener noreferrer">7706c5e</a>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-04-12 15:05</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/rust-build-planner" target="_blank" rel="noopener noreferrer">rust-build-planner</a>
-  </td>
-
-  <td class="msg">
-      deploy: 1dcab817bea149affbfb5fd662894efaba5ec133
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/rust-build-planner/commit/0d083f24a24d9675adb313c9e61f01e04796030c" target="_blank" rel="noopener noreferrer">0d083f2</a>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-04-12 15:05</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/rust-build-planner" target="_blank" rel="noopener noreferrer">rust-build-planner</a>
-  </td>
-
-  <td class="msg">
-      deploy: 288bde31ab7acc32a0cd1a990405146985732539
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/rust-build-planner/commit/7affe8a1b1ff1d39fd23e2bbb24c0c9aca3ba01b" target="_blank" rel="noopener noreferrer">7affe8a</a>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-04-12 14:58</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/rust-build-planner" target="_blank" rel="noopener noreferrer">rust-build-planner</a>
-  </td>
-
-  <td class="msg">
-      feat: wire Share, Clear, Reset Camera, persistence, and Escape key in App
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/rust-build-planner/commit/f8b7348edc426a6738700211d3ccc7074d4839e7" target="_blank" rel="noopener noreferrer">f8b7348</a>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-04-12 14:57</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/rust-build-planner" target="_blank" rel="noopener noreferrer">rust-build-planner</a>
-  </td>
-
-  <td class="msg">
-      feat: add ghost piece preview and click-to-place interaction
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/rust-build-planner/commit/cc92d86a7a9ccd9e815a677633b70c0d301e9231" target="_blank" rel="noopener noreferrer">cc92d86</a>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-04-12 14:57</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/rust-build-planner" target="_blank" rel="noopener noreferrer">rust-build-planner</a>
-  </td>
-
-  <td class="msg">
-      deploy: 014577082ea34c2058898f0b16d70861028dc5d1
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/rust-build-planner/commit/e45fab68bfdb18aefa74a4558cdec5d09da8b9ae" target="_blank" rel="noopener noreferrer">e45fab6</a>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-04-12 14:55</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/rust-build-planner" target="_blank" rel="noopener noreferrer">rust-build-planner</a>
-  </td>
-
-  <td class="msg">
-      deploy: 632d5a737077a83fb5faa2b5c955751f5de3ad0e
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/rust-build-planner/commit/0de2456872a80774817dd562c4ccfbcef94f0310" target="_blank" rel="noopener noreferrer">0de2456</a>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-04-12 14:54</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/rust-build-planner" target="_blank" rel="noopener noreferrer">rust-build-planner</a>
-  </td>
-
-  <td class="msg">
-      deploy: 069929c9a62b754258bc2e08a0aca20d8fd9ce79
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/rust-build-planner/commit/2696202d12b67104bb865b19c1c4098457853de4" target="_blank" rel="noopener noreferrer">2696202</a>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-04-12 14:51</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/rust-build-planner" target="_blank" rel="noopener noreferrer">rust-build-planner</a>
-  </td>
-
-  <td class="msg">
-      feat: render placed pieces in 3D scene, delete on click in select mode
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/rust-build-planner/commit/2565a3d570ea90ca919c617bc936051b7c85ee6d" target="_blank" rel="noopener noreferrer">2565a3d</a>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-04-12 14:48</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/rust-build-planner" target="_blank" rel="noopener noreferrer">rust-build-planner</a>
-  </td>
-
-  <td class="msg">
-      feat: add R3F viewport with hull mesh, scene grid, and orbit controls
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/rust-build-planner/commit/7c7fd8d2b1ca87e805e82a2460217af763dbed29" target="_blank" rel="noopener noreferrer">7c7fd8d</a>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-04-12 14:34</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/rust-build-planner" target="_blank" rel="noopener noreferrer">rust-build-planner</a>
-  </td>
-
-  <td class="msg">
-      deploy: 740f87a9222df0914fc8ad263e619742771b7cda
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/rust-build-planner/commit/2f23210685a195786f421c0e8d3d766f91c56366" target="_blank" rel="noopener noreferrer">2f23210</a>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-04-12 14:32</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/rust-build-planner" target="_blank" rel="noopener noreferrer">rust-build-planner</a>
-  </td>
-
-  <td class="msg">
-      feat: add CostBar component with live material totals
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/rust-build-planner/commit/bc44fba29d113ccc7da5b307f5a357b1f2728566" target="_blank" rel="noopener noreferrer">bc44fba</a>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-04-12 14:31</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/rust-build-planner" target="_blank" rel="noopener noreferrer">rust-build-planner</a>
-  </td>
-
-  <td class="msg">
-      feat: add Sidebar component with piece picker and floor toggles
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/rust-build-planner/commit/d99a2cef85e266b19a23fce515d0459b7d3fa8f8" target="_blank" rel="noopener noreferrer">d99a2ce</a>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-04-12 14:30</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/rust-build-planner" target="_blank" rel="noopener noreferrer">rust-build-planner</a>
-  </td>
-
-  <td class="msg">
-      feat: add TopBar component
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/rust-build-planner/commit/aad6d8d507bd7db2d0678c2b6b81142561966610" target="_blank" rel="noopener noreferrer">aad6d8d</a>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-04-12 14:30</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/rust-build-planner" target="_blank" rel="noopener noreferrer">rust-build-planner</a>
-  </td>
-
-  <td class="msg">
-      feat: add app layout shell with global reset and flex layout
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/rust-build-planner/commit/ac5ccc27051119db400d54e95d17597b5cf6c495" target="_blank" rel="noopener noreferrer">ac5ccc2</a>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-04-12 14:29</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/rust-build-planner" target="_blank" rel="noopener noreferrer">rust-build-planner</a>
-  </td>
-
-  <td class="msg">
-      feat: add usePersistence hook for localStorage and URL hash restore
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/rust-build-planner/commit/b4d1a24067d467eec2fe7494b5fb4ffcdb08fb4f" target="_blank" rel="noopener noreferrer">b4d1a24</a>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-04-12 14:28</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/rust-build-planner" target="_blank" rel="noopener noreferrer">rust-build-planner</a>
-  </td>
-
-  <td class="msg">
-      feat: add Zustand store with piece placement and coordinate index
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/rust-build-planner/commit/ff39b96819bf1ac43bcbfe980407e0eeda606110" target="_blank" rel="noopener noreferrer">ff39b96</a>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-04-12 14:22</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/rust-build-planner" target="_blank" rel="noopener noreferrer">rust-build-planner</a>
-  </td>
-
-  <td class="msg">
-      feat: add serialization utility for URL hash encoding
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/rust-build-planner/commit/29130701a88a5eb9c227cf664c2efe4e073ee19b" target="_blank" rel="noopener noreferrer">2913070</a>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-04-12 14:22</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/rust-build-planner" target="_blank" rel="noopener noreferrer">rust-build-planner</a>
-  </td>
-
-  <td class="msg">
-      feat: add costs utility
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/rust-build-planner/commit/bbeaa43278dd519e8a2624c2a0a4beb129085589" target="_blank" rel="noopener noreferrer">bbeaa43</a>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-04-12 14:21</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/rust-build-planner" target="_blank" rel="noopener noreferrer">rust-build-planner</a>
-  </td>
-
-  <td class="msg">
-      feat: add coordinateKey and validation utilities
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/rust-build-planner/commit/69ac4bb33a998306685d95a6985e49b4477f107f" target="_blank" rel="noopener noreferrer">69ac4bb</a>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-04-12 14:17</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/rust-build-planner" target="_blank" rel="noopener noreferrer">rust-build-planner</a>
-  </td>
-
-  <td class="msg">
-      feat: add pieces-config.json with all piece definitions and costs
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/rust-build-planner/commit/533c05db5393060a608e767620b388f3dd032030" target="_blank" rel="noopener noreferrer">533c05d</a>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-04-12 14:14</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/rust-build-planner" target="_blank" rel="noopener noreferrer">rust-build-planner</a>
-  </td>
-
-  <td class="msg">
-      feat: add shared TypeScript types
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/rust-build-planner/commit/d62e1e1916cb4d043dec1bcc15c113c827e5d94f" target="_blank" rel="noopener noreferrer">d62e1e1</a>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-04-12 14:13</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/rust-build-planner" target="_blank" rel="noopener noreferrer">rust-build-planner</a>
-  </td>
-
-  <td class="msg">
-      ci: add GitHub Actions deploy to GitHub Pages
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/rust-build-planner/commit/28e8d15dd13ad891fc6ba307427fb9ae904b543b" target="_blank" rel="noopener noreferrer">28e8d15</a>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-04-12 14:11</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/rust-build-planner" target="_blank" rel="noopener noreferrer">rust-build-planner</a>
-  </td>
-
-  <td class="msg">
-      chore: install deps, configure Vitest with jsdom
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/rust-build-planner/commit/01b80b7fb8f34fb552b0e0981c3c4b43c2a133af" target="_blank" rel="noopener noreferrer">01b80b7</a>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-04-12 14:06</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/rust-build-planner" target="_blank" rel="noopener noreferrer">rust-build-planner</a>
-  </td>
-
-  <td class="msg">
-      chore: untrack docs and .claude, update gitignore
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/rust-build-planner/commit/b9a48260601134086a98817572768984a0b1e921" target="_blank" rel="noopener noreferrer">b9a4826</a>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-04-12 14:02</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/rust-build-planner" target="_blank" rel="noopener noreferrer">rust-build-planner</a>
-  </td>
-
-  <td class="msg">
-      chore: scaffold Vite + React + TypeScript project
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/rust-build-planner/commit/fd0f638290a4dd27597f2d596614e70816aee922" target="_blank" rel="noopener noreferrer">fd0f638</a>
-  </td>
 </tr>        </tbody>
       </table>
 
@@ -2865,8 +2961,8 @@
     <a href="https://github.com/curtyo18" target="_blank" rel="noopener noreferrer">github</a> · <a href="mailto:curtyo18@gmail.com">email</a>
   </div>
   <div class="stats" style="align-items:center">
-    <span><b>1,515</b> commits</span>
-    <span><b>70</b> repos</span>
+    <span><b>1,600</b> commits</span>
+    <span><b>71</b> repos</span>
     <span><b>17</b> years</span>
   </div>
 </footer>    </div>
