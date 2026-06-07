@@ -16,14 +16,25 @@
     <small>curt — a public log of private and public work</small>
   </h1>
   <div class="meta">
-    <span><b>1,740</b> commits indexed</span>
-    <span><b>71</b> repos · <b>17</b> years</span>
+    <span><b>1,771</b> commits indexed</span>
+    <span><b>74</b> repos · <b>17</b> years</span>
   </div>
 </div><div class="gr-section-title">
   <span>Featured · most recently active public repos</span>
 </div>
 
 <div class="gr-featured">
+    <a class="card card-link" href="https://github.com/curtyo18/agent-config" target="_blank" rel="noopener noreferrer">
+      <div class="top">
+        <div class="name">agent-config</div>
+        <div class="lang"></div>
+      </div>
+      <div class="blurb"></div>
+      <div class="foot">
+        <span>26 commits</span>
+        <span>last touched 2026-06-06</span>
+      </div>
+    </a>
     <a class="card card-link" href="https://github.com/curtyo18/html-utils" target="_blank" rel="noopener noreferrer">
       <div class="top">
         <div class="name">html-utils</div>
@@ -33,17 +44,6 @@
       <div class="foot">
         <span>72 commits</span>
         <span>last touched 2026-06-04</span>
-      </div>
-    </a>
-    <a class="card card-link" href="https://github.com/curtyo18/agent-config" target="_blank" rel="noopener noreferrer">
-      <div class="top">
-        <div class="name">agent-config</div>
-        <div class="lang"></div>
-      </div>
-      <div class="blurb"></div>
-      <div class="foot">
-        <span>24 commits</span>
-        <span>last touched 2026-06-03</span>
       </div>
     </a>
     <a class="card card-link" href="https://github.com/curtyo18/agent-sandbox" target="_blank" rel="noopener noreferrer">
@@ -71,7 +71,7 @@
 </div>
       <div class="gr-section-title" style="margin-top:36px">
         <span>All commits · newest first</span>
-        <span class="right">showing 1–200 of 1740</span>
+        <span class="right">showing 1–200 of 1771</span>
       </div>
 
       <table class="gr-table">
@@ -84,10 +84,198 @@
             <tr class="gr-month-row">
               <td colspan="4">
                 June 2026
-                <span>50 commits · 22 public</span>
+                <span>62 commits · 24 public</span>
               </td>
             </tr>
 <tr class="named">
+    <td class="when">2026-06-06 16:47</td>
+
+  <td class="repo">
+      tampermonkey-scripts-private
+  </td>
+
+  <td class="msg">
+      <span class="redact" aria-label="redacted message" role="img">harden shim so decoder can improve shim</span>
+  </td>
+
+  <td class="sha">
+      <span class="redact" aria-label="redacted sha" role="img">07fbdb7</span>
+  </td>
+</tr><tr class="named">
+    <td class="when">2026-06-06 14:00</td>
+
+  <td class="repo">
+      network-data-viewer
+  </td>
+
+  <td class="msg">
+      <span class="redact" aria-label="redacted message" role="img">guard cleaner facade in util</span>
+  </td>
+
+  <td class="sha">
+      <span class="redact" aria-label="redacted sha" role="img">b7c319e</span>
+  </td>
+</tr><tr class="named">
+    <td class="when">2026-06-06 13:57</td>
+
+  <td class="repo">
+      network-data-viewer
+  </td>
+
+  <td class="msg">
+      <span class="redact" aria-label="redacted message" role="img">wip: stub</span>
+  </td>
+
+  <td class="sha">
+      <span class="redact" aria-label="redacted sha" role="img">b4e3932</span>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-06-06 13:54</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/agent-config" target="_blank" rel="noopener noreferrer">agent-config</a>
+  </td>
+
+  <td class="msg">
+      docs(chrome-extension): scaffold a tag-triggered release workflow by default
+
+Manual `gh release create` is where the built extension artifact gets forgotten,
+leaving the release with only GitHub&#39;s auto source archives. Tell the skill to
+add a `v*`-tag-triggered workflow that builds, zips, and publishes with the zip
+attached, plus a tag==package.json version guard and (for hand-rolled builds) a
+built-manifest version check.
+
+Co-Authored-By: Claude Opus 4.8 &lt;noreply@anthropic.com&gt;
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/agent-config/commit/61727a8af990d9c2aaa0ba64f53ab84698ad22dc" target="_blank" rel="noopener noreferrer">61727a8</a>
+  </td>
+</tr><tr class="named">
+    <td class="when">2026-06-06 13:53</td>
+
+  <td class="repo">
+      network-data-viewer
+  </td>
+
+  <td class="msg">
+      <span class="redact" aria-label="redacted message" role="img">inline filter (late)</span>
+  </td>
+
+  <td class="sha">
+      <span class="redact" aria-label="redacted sha" role="img">bd58a1d</span>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-06-06 13:48</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/agent-config" target="_blank" rel="noopener noreferrer">agent-config</a>
+  </td>
+
+  <td class="msg">
+      docs(chrome-extension,release): single-source manifest version + catch stale build artifacts
+
+A crxjs/vite extension shipped a stale version: package.json was bumped but the
+hardcoded version literal in the manifest config (hence the gitignored built
+manifest) wasn&#39;t, so the reloaded unpacked extension showed the old version.
+
+- chrome-extension.md: single-source the version from package.json (WXT stamps it;
+  hand-rolled/crxjs configs must read it at build time, never duplicate a literal);
+  reload the .output/ build artifact and never hand-edit the generated manifest.
+- release.md: the dry-run build step now verifies the built artifact&#39;s embedded
+  version matches the bumped source version — a forgotten rebuild can&#39;t ship stale.
+
+Co-Authored-By: Claude Opus 4.8 &lt;noreply@anthropic.com&gt;
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/agent-config/commit/96f90d8a97971b0677a3a674ed91476ce18af642" target="_blank" rel="noopener noreferrer">96f90d8</a>
+  </td>
+</tr><tr class="named">
+    <td class="when">2026-06-06 13:39</td>
+
+  <td class="repo">
+      network-data-viewer
+  </td>
+
+  <td class="msg">
+      <span class="redact" aria-label="redacted message" role="img">feat: simplify service for registry</span>
+  </td>
+
+  <td class="sha">
+      <span class="redact" aria-label="redacted sha" role="img">dfc7281</span>
+  </td>
+</tr><tr class="anon">
+    <td class="when">2026-06-06</td>
+
+  <td class="repo">
+      <span class="redact-strong" aria-label="redacted repo" role="img">spurious-bootstrapper-queue</span>
+  </td>
+
+  <td class="msg">
+      <span class="redact-strong" aria-label="redacted message" role="img">rename</span>
+  </td>
+
+  <td class="sha">
+      <span class="redact-strong" aria-label="redacted sha" role="img">5d28d71</span>
+  </td>
+</tr><tr class="anon">
+    <td class="when">2026-06-06</td>
+
+  <td class="repo">
+      <span class="redact-strong" aria-label="redacted repo" role="img">reusable-context-decoder</span>
+  </td>
+
+  <td class="msg">
+      <span class="redact-strong" aria-label="redacted message" role="img">chore: tighten watcher (broken)</span>
+  </td>
+
+  <td class="sha">
+      <span class="redact-strong" aria-label="redacted sha" role="img">97415be</span>
+  </td>
+</tr><tr class="anon">
+    <td class="when">2026-06-06</td>
+
+  <td class="repo">
+      <span class="redact-strong" aria-label="redacted repo" role="img">indexer-toolkit</span>
+  </td>
+
+  <td class="msg">
+      <span class="redact-strong" aria-label="redacted message" role="img">add broken manager</span>
+  </td>
+
+  <td class="sha">
+      <span class="redact-strong" aria-label="redacted sha" role="img">7c6a251</span>
+  </td>
+</tr><tr class="anon">
+    <td class="when">2026-06-06</td>
+
+  <td class="repo">
+      <span class="redact-strong" aria-label="redacted repo" role="img">handler-toolkit</span>
+  </td>
+
+  <td class="msg">
+      <span class="redact-strong" aria-label="redacted message" role="img">feat: vendor handler for session</span>
+  </td>
+
+  <td class="sha">
+      <span class="redact-strong" aria-label="redacted sha" role="img">558bc1b</span>
+  </td>
+</tr><tr class="anon">
+    <td class="when">2026-06-06</td>
+
+  <td class="repo">
+      <span class="redact-strong" aria-label="redacted repo" role="img">incorrect-adapter-reader</span>
+  </td>
+
+  <td class="msg">
+      <span class="redact-strong" aria-label="redacted message" role="img">rework facade in writer</span>
+  </td>
+
+  <td class="sha">
+      <span class="redact-strong" aria-label="redacted sha" role="img">0feab08</span>
+  </td>
+</tr><tr class="named">
     <td class="when">2026-06-05 18:47</td>
 
   <td class="repo">
@@ -895,7 +1083,7 @@ Verified: tests/test-agent-init.sh (Cases 3-6: single/multi/upsert/skip) and bas
 </tr>            <tr class="gr-month-row">
               <td colspan="4">
                 May 2026
-                <span>150 commits · 54 public</span>
+                <span>138 commits · 54 public</span>
               </td>
             </tr>
 <tr class="anon">
@@ -3101,174 +3289,6 @@ than it should.
   <td class="sha">
       <span class="redact" aria-label="redacted sha" role="img">d9ea567</span>
   </td>
-</tr><tr class="named">
-    <td class="when">2026-05-26 20:33</td>
-
-  <td class="repo">
-      network-data-viewer
-  </td>
-
-  <td class="msg">
-      <span class="redact" aria-label="redacted message" role="img">fix: merge fallback</span>
-  </td>
-
-  <td class="sha">
-      <span class="redact" aria-label="redacted sha" role="img">f95a753</span>
-  </td>
-</tr><tr class="named">
-    <td class="when">2026-05-26 20:31</td>
-
-  <td class="repo">
-      network-data-viewer
-  </td>
-
-  <td class="msg">
-      <span class="redact" aria-label="redacted message" role="img">vendor the faster config</span>
-  </td>
-
-  <td class="sha">
-      <span class="redact" aria-label="redacted sha" role="img">79970d8</span>
-  </td>
-</tr><tr class="named">
-    <td class="when">2026-05-26 20:15</td>
-
-  <td class="repo">
-      network-data-viewer
-  </td>
-
-  <td class="msg">
-      <span class="redact" aria-label="redacted message" role="img">vendor queue</span>
-  </td>
-
-  <td class="sha">
-      <span class="redact" aria-label="redacted sha" role="img">883d9f5</span>
-  </td>
-</tr><tr class="named">
-    <td class="when">2026-05-26 20:12</td>
-
-  <td class="repo">
-      network-data-viewer
-  </td>
-
-  <td class="msg">
-      <span class="redact" aria-label="redacted message" role="img">tighten worker and rename task</span>
-  </td>
-
-  <td class="sha">
-      <span class="redact" aria-label="redacted sha" role="img">f2876c8</span>
-  </td>
-</tr><tr class="named">
-    <td class="when">2026-05-26 20:11</td>
-
-  <td class="repo">
-      network-data-viewer
-  </td>
-
-  <td class="msg">
-      <span class="redact" aria-label="redacted message" role="img">noop</span>
-  </td>
-
-  <td class="sha">
-      <span class="redact" aria-label="redacted sha" role="img">7ceec5e</span>
-  </td>
-</tr><tr class="named">
-    <td class="when">2026-05-26 20:10</td>
-
-  <td class="repo">
-      network-data-viewer
-  </td>
-
-  <td class="msg">
-      <span class="redact" aria-label="redacted message" role="img">docs: add duplicate mailer when manager changes</span>
-  </td>
-
-  <td class="sha">
-      <span class="redact" aria-label="redacted sha" role="img">5c12cbe</span>
-  </td>
-</tr><tr class="named">
-    <td class="when">2026-05-26 20:08</td>
-
-  <td class="repo">
-      network-data-viewer
-  </td>
-
-  <td class="msg">
-      <span class="redact" aria-label="redacted message" role="img">chore: refactor dispatcher so adapter can throttle model</span>
-  </td>
-
-  <td class="sha">
-      <span class="redact" aria-label="redacted sha" role="img">8a21e24</span>
-  </td>
-</tr><tr class="named">
-    <td class="when">2026-05-26 20:04</td>
-
-  <td class="repo">
-      network-data-viewer
-  </td>
-
-  <td class="msg">
-      <span class="redact" aria-label="redacted message" role="img">test: tidy reusable decoder when dispatcher changes</span>
-  </td>
-
-  <td class="sha">
-      <span class="redact" aria-label="redacted sha" role="img">ca6a2eb</span>
-  </td>
-</tr><tr class="named">
-    <td class="when">2026-05-26 20:00</td>
-
-  <td class="repo">
-      network-data-viewer
-  </td>
-
-  <td class="msg">
-      <span class="redact" aria-label="redacted message" role="img">wip: wrap channel, rename dispatcher</span>
-  </td>
-
-  <td class="sha">
-      <span class="redact" aria-label="redacted sha" role="img">3420c6e</span>
-  </td>
-</tr><tr class="named">
-    <td class="when">2026-05-26 19:56</td>
-
-  <td class="repo">
-      network-data-viewer
-  </td>
-
-  <td class="msg">
-      <span class="redact" aria-label="redacted message" role="img">test: optimize mailer and tidy queue</span>
-  </td>
-
-  <td class="sha">
-      <span class="redact" aria-label="redacted sha" role="img">298a216</span>
-  </td>
-</tr><tr class="named">
-    <td class="when">2026-05-26 19:56</td>
-
-  <td class="repo">
-      network-data-viewer
-  </td>
-
-  <td class="msg">
-      <span class="redact" aria-label="redacted message" role="img">bump loader in wrapper</span>
-  </td>
-
-  <td class="sha">
-      <span class="redact" aria-label="redacted sha" role="img">13c744c</span>
-  </td>
-</tr><tr class="named">
-    <td class="when">2026-05-26 19:55</td>
-
-  <td class="repo">
-      network-data-viewer
-  </td>
-
-  <td class="msg">
-      <span class="redact" aria-label="redacted message" role="img">test: polish adapter in pipeline</span>
-  </td>
-
-  <td class="sha">
-      <span class="redact" aria-label="redacted sha" role="img">264c28c</span>
-  </td>
 </tr>        </tbody>
       </table>
 
@@ -3293,8 +3313,8 @@ than it should.
     <a href="https://github.com/curtyo18" target="_blank" rel="noopener noreferrer">github</a> · <a href="mailto:curtyo18@gmail.com">email</a>
   </div>
   <div class="stats" style="align-items:center">
-    <span><b>1,740</b> commits</span>
-    <span><b>71</b> repos</span>
+    <span><b>1,771</b> commits</span>
+    <span><b>74</b> repos</span>
     <span><b>17</b> years</span>
   </div>
 </footer>    </div>
