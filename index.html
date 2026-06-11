@@ -16,7 +16,7 @@
     <small>curt — a public log of private and public work</small>
   </h1>
   <div class="meta">
-    <span><b>1,999</b> commits indexed</span>
+    <span><b>2,008</b> commits indexed</span>
     <span><b>76</b> repos · <b>17</b> years</span>
   </div>
 </div><div class="gr-section-title">
@@ -24,6 +24,28 @@
 </div>
 
 <div class="gr-featured">
+    <a class="card card-link" href="https://github.com/curtyo18/agent-config" target="_blank" rel="noopener noreferrer">
+      <div class="top">
+        <div class="name">agent-config</div>
+        <div class="lang"></div>
+      </div>
+      <div class="blurb"></div>
+      <div class="foot">
+        <span>33 commits</span>
+        <span>last touched 2026-06-10</span>
+      </div>
+    </a>
+    <a class="card card-link" href="https://github.com/curtyo18/agent-sandbox" target="_blank" rel="noopener noreferrer">
+      <div class="top">
+        <div class="name">agent-sandbox</div>
+        <div class="lang"></div>
+      </div>
+      <div class="blurb"></div>
+      <div class="foot">
+        <span>101 commits</span>
+        <span>last touched 2026-06-10</span>
+      </div>
+    </a>
     <a class="card card-link" href="https://github.com/curtyo18/GitLabJobStarter" target="_blank" rel="noopener noreferrer">
       <div class="top">
         <div class="name">GitLabJobStarter</div>
@@ -46,32 +68,10 @@
         <span>last touched 2026-06-09</span>
       </div>
     </a>
-    <a class="card card-link" href="https://github.com/curtyo18/StopYappingBro" target="_blank" rel="noopener noreferrer">
-      <div class="top">
-        <div class="name">StopYappingBro</div>
-        <div class="lang"></div>
-      </div>
-      <div class="blurb"></div>
-      <div class="foot">
-        <span>31 commits</span>
-        <span>last touched 2026-06-09</span>
-      </div>
-    </a>
-    <a class="card card-link" href="https://github.com/curtyo18/agent-config" target="_blank" rel="noopener noreferrer">
-      <div class="top">
-        <div class="name">agent-config</div>
-        <div class="lang"></div>
-      </div>
-      <div class="blurb"></div>
-      <div class="foot">
-        <span>29 commits</span>
-        <span>last touched 2026-06-08</span>
-      </div>
-    </a>
 </div>
       <div class="gr-section-title" style="margin-top:36px">
         <span>All commits · newest first</span>
-        <span class="right">showing 1–200 of 1999</span>
+        <span class="right">showing 1–200 of 2008</span>
       </div>
 
       <table class="gr-table">
@@ -84,10 +84,281 @@
             <tr class="gr-month-row">
               <td colspan="4">
                 June 2026
-                <span>139 commits · 85 public</span>
+                <span>148 commits · 94 public</span>
               </td>
             </tr>
 <tr class="">
+    <td class="when">2026-06-10 18:31</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/agent-config" target="_blank" rel="noopener noreferrer">agent-config</a>
+  </td>
+
+  <td class="msg">
+      fix(hooks): anchor +++ header exclusion on trailing space
+
+Code review found that `grep -v &#39;^+++&#39;` also drops added *content* lines
+that start with `++` (they appear as `+++...` in the diff), reopening a
+narrow secret-leak path in layer 2. Anchor on `^+++ ` (trailing space),
+which matches git&#39;s actual file-header format (`+++ b/path`) while
+keeping `++`-prefixed content lines in scope.
+
+Co-Authored-By: Claude Fable 5 &lt;noreply@anthropic.com&gt;
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/agent-config/commit/d4b4f4b0517fd941c0213980fc240f5936eab486" target="_blank" rel="noopener noreferrer">d4b4f4b</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-06-10 18:31</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/agent-sandbox" target="_blank" rel="noopener noreferrer">agent-sandbox</a>
+  </td>
+
+  <td class="msg">
+      fix(gh-wrapper): remove dead has_token helper
+
+Code review flagged has_token() as unreachable — it was defined during
+the argv-aware rewrite but never wired into any intent check. Remove it.
+
+Co-Authored-By: Claude Fable 5 &lt;noreply@anthropic.com&gt;
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/agent-sandbox/commit/709ce7e797bbe3fa63eee68266570023de76bd5e" target="_blank" rel="noopener noreferrer">709ce7e</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-06-10 18:24</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/agent-sandbox" target="_blank" rel="noopener noreferrer">agent-sandbox</a>
+  </td>
+
+  <td class="msg">
+      fix(bootstrap.ps1): UTF-8 wsl output, param-driven paths, native exit checks
+
+Three reliability fixes:
+
+- Distro detection: `wsl -l -q | Select-String &#39;Ubuntu-24.04&#39;` fails under
+  Windows PowerShell 5.1 because wsl.exe emits UTF-16LE that arrives
+  NUL-interleaved, so an already-installed distro went undetected and the
+  script re-ran `wsl --install` and exited, wedging the user. Set
+  $env:WSL_UTF8=&#39;1&#39; before any wsl invocation and strip stray NULs from the
+  listing defensively.
+
+- Hand-edit placeholder: the tracked `&lt;your-wsl-username&gt;` had to be edited by
+  hand, and unedited it made the heredoc line `mkdir -p /home/&lt;...&gt;/projects`
+  parse as bash redirections. Replace it with a param() block ($WslUser,
+  $ProjectsPath, $AgentSandboxUrl) that defaults from the WSL default user
+  (falling back to $env:USERNAME) and ~/projects, matching bootstrap.sh&#39;s
+  env-driven philosophy. No literal &lt;...&gt; placeholders reach bash.
+
+- Native command failures: $ErrorActionPreference=&#39;Stop&#39; does not catch native
+  exit codes, so the script printed &#34;Bootstrap complete.&#34; even on failure.
+  Check $LASTEXITCODE after `wsl --set-default-version` and the `wsl ... bash`
+  hand-off and Die with the real status.
+
+Not runnable here (no PowerShell/WSL); changes reasoned for correctness and
+kept minimal to the script&#39;s existing structure.
+
+Co-Authored-By: Claude Fable 5 &lt;noreply@anthropic.com&gt;
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/agent-sandbox/commit/4fb47b485f0490176a94c43374ef886760dba9dc" target="_blank" rel="noopener noreferrer">4fb47b4</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-06-10 18:24</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/agent-config" target="_blank" rel="noopener noreferrer">agent-config</a>
+  </td>
+
+  <td class="msg">
+      docs: fix standards-path, extension-stack, and trigger-scope inconsistencies
+
+- code-review.md / deep-code-review.md: standards fallback path is now
+  ~/.claude/standards/ (the documented install location); the old
+  ~/code/agent-config/standards/ never resolved.
+- ui-prefs.md: defer the Chrome/browser-extension category to
+  commands/chrome-extension.md (WXT + Preact, no Tailwind) instead of
+  prescribing a contradicting WXT + React + Tailwind stack.
+- README.md: add `git config --global core.hooksPath ~/.claude/hooks` to the
+  standalone install steps so the secret scan is actually wired (the sandbox
+  sets it automatically; standalone clones got inert scanning).
+- deep-code-review.md: soften &#34;intentionally identical&#34; — the Strengths/Issues
+  shape is shared, but the Assessment block is area-scoped by design.
+- dependency-discipline.md: reword the trigger so the line-8 hand-rolled-utility
+  rule (no manifest change) is in scope.
+
+Co-Authored-By: Claude Fable 5 &lt;noreply@anthropic.com&gt;
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/agent-config/commit/de6e3f7c884fc093e616837d19dd4b4e8aa7d041" target="_blank" rel="noopener noreferrer">de6e3f7</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-06-10 18:23</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/agent-sandbox" target="_blank" rel="noopener noreferrer">agent-sandbox</a>
+  </td>
+
+  <td class="msg">
+      fix(audit): escape argv in audit-log JSON via shared helper
+
+Both wrappers built audit JSONL by interpolating raw argv through printf with
+no escaping, so any argument containing a double quote or backslash (e.g.
+`gh issue create --title &#39;he said &#34;hi&#34;&#39;`) wrote a line that broke JSON parsing.
+
+Add a shared json_escape helper to scripts/agent-lib.sh (escaping backslashes
+then double quotes, mirroring wrappers/audit-shell.sh:18-20) and use it in
+wrappers/gh and wrappers/git-audit-wrapper for the action/argv field and the
+other interpolated free-text fields (cwd, reason). Both wrappers now source
+agent-lib via the existing `${AGENT_LIB:-/usr/local/bin/agent-lib.sh}` pattern;
+the gh test exports AGENT_LIB at the repo copy.
+
+wrappers/audit-shell.sh is left as-is: it is sourced into interactive bash via
+a DEBUG trap and does not source agent-lib, so wiring it to the shared helper
+would widen scope; its inline escaping already matches the helper&#39;s logic.
+
+Verified: running each wrapper with a quoted/backslashed arg and piping the
+audit line through json.loads now parses as valid JSON.
+
+Co-Authored-By: Claude Fable 5 &lt;noreply@anthropic.com&gt;
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/agent-sandbox/commit/6a669a1fbba03f28df822e13e06606aa05556d79" target="_blank" rel="noopener noreferrer">6a669a1</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-06-10 18:23</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/agent-config" target="_blank" rel="noopener noreferrer">agent-config</a>
+  </td>
+
+  <td class="msg">
+      fix(statusline): guard null used_percentage and correct color docstring
+
+- int(ctx.get(&#34;used_percentage&#34;) or 0) so an explicit null (documented as
+  nullable early in a session) no longer raises TypeError; matches the sibling
+  total_input_tokens idiom.
+- Correct color_for_pct docstring to match the code and README thresholds
+  (green&lt;40, yellow&lt;55, orange&lt;75, red&lt;90, bold red&gt;=90).
+
+Co-Authored-By: Claude Fable 5 &lt;noreply@anthropic.com&gt;
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/agent-config/commit/b0b8edf7b318dc9c6fbd72ddd0ebfa8a2be228c2" target="_blank" rel="noopener noreferrer">b0b8edf</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-06-10 18:22</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/agent-config" target="_blank" rel="noopener noreferrer">agent-config</a>
+  </td>
+
+  <td class="msg">
+      fix(hooks): harden secret-scan against bypass, leak, and audit corruption
+
+Five fixes to pre-commit-secret-scan.sh:
+- Fail closed on override: CLAUDE_ALLOW_SECRET_COMMIT=1 now refuses (exit 1)
+  when the audit log is unwritable, instead of bypassing untracked.
+- Redact regex hits: report only the pattern + staged file list, never the
+  matched line (which leaked the secret to stderr/transcript via head -c 80).
+- Catch renames: --diff-filter=ACMR so `git mv x id_rsa` hits the filename layer.
+- Escape JSON in the audit writer: json_escape (backslash then quote) on all
+  dynamic fields so patterns containing \s / \- produce valid JSONL.
+- Scan added lines only: filter to &#39;^+&#39; (minus &#39;^+++&#39;) so removing a secret
+  from a kept file (the remediation) is no longer blocked; adding one still is.
+
+Preserves the intentional `set -uo pipefail` (no -e).
+
+Co-Authored-By: Claude Fable 5 &lt;noreply@anthropic.com&gt;
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/agent-config/commit/c941184109160c3137aa70e0a0d9693165658e36" target="_blank" rel="noopener noreferrer">c941184</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-06-10 18:21</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/agent-sandbox" target="_blank" rel="noopener noreferrer">agent-sandbox</a>
+  </td>
+
+  <td class="msg">
+      fix(git-wrapper): handle global options and force-anywhere in research mode
+
+The research-mode guard used `case &#34;$*&#34; in push ...)`, anchoring the
+subcommand at argv start. Two bypasses (CONTAINER_MODE=research):
+  - A leading git global option (`git -C /dir push ...`, `git -c k=v push ...`)
+    means $* starts with -C/-c, matching no push* case, so the ENTIRE guard
+    was skipped and real git ran — pushing anywhere, not just RESEARCH_REPO.
+  - `git push origin main --force` (force flag after the refspec) fell through
+    to the generic `push *` arm, skipping the explicit force block, so a
+    force-push to RESEARCH_REPO was allowed despite the unconditional message.
+
+Parse argv to find the real subcommand by skipping leading global options
+(-C/-c/--git-dir/--work-tree/--namespace/--exec-path/--config-env and their
+=value forms), then for `push` scan all push args for --force/-f/
+--force-with-lease[=..]/--force-if-includes anywhere and block; otherwise
+apply the existing remote-vs-RESEARCH_REPO check. Pass-through is unchanged
+for non-push commands and non-research mode.
+
+Add regression tests for `-C &lt;dir&gt; push`, `-c k=v push`, force-after-refspec,
+and `push -f`, and convert the allowed case to a local bare repo so it
+positively asserts the push landed, offline.
+
+Co-Authored-By: Claude Fable 5 &lt;noreply@anthropic.com&gt;
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/agent-sandbox/commit/5928b184f42090dcb74dc8dec2f020d3a2528a19" target="_blank" rel="noopener noreferrer">5928b18</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-06-10 18:20</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/agent-sandbox" target="_blank" rel="noopener noreferrer">agent-sandbox</a>
+  </td>
+
+  <td class="msg">
+      fix(gh-wrapper): close destructive-op bypasses with argv-aware matching
+
+The previous BLOCK_PATTERNS were substring regexes over &#34;$*&#34;, which let
+several destructive forms reach real gh unblocked:
+  - repo edit --visibility=public (equals form had no pattern)
+  - repo edit &lt;repo&gt; --flag --visibility public (intervening token)
+  - api --method DELETE /repos/... (--method is gh long form of -X)
+  - api -X DELETE /repos/... --silent (trailing flag defeated the $ anchor)
+  - api /repos/... -X DELETE (path-before-method ordering)
+And it over-blocked benign free text, e.g. an issue/pr comment whose --body
+mentioned &#34;repo delete&#34;.
+
+Replace the substring matching with an argv-aware check: normalize argv
+(split --flag=value, map --method-&gt;-X and --field/--raw-field/-F-&gt;-f),
+identify the subcommand from positional tokens, and match intents
+position-aware regardless of flag order. Block repo delete/transfer/archive,
+repo edit visibility flip to public/internal (any spelling incl. =), and api
+PATCH/DELETE targeting /repos OR any api call carrying visibility=public.
+Preserve the CLAUDE_UNLOCK_DESTRUCTIVE=1 escape hatch, audit logging on all
+paths, exit code 75, and the BLOCKED stderr format.
+
+Add regression tests for each closed bypass, the previously-untested intended
+blocks, and the comment-body over-block. Update docs/architecture.md to
+describe the argv-aware design accurately.
+
+Co-Authored-By: Claude Fable 5 &lt;noreply@anthropic.com&gt;
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/agent-sandbox/commit/1efb2d4026a2d5e5eb8fd3d1a4e8d4f7a3c63178" target="_blank" rel="noopener noreferrer">1efb2d4</a>
+  </td>
+</tr><tr class="">
     <td class="when">2026-06-09 19:55</td>
 
   <td class="repo">
@@ -443,20 +714,6 @@ Co-Authored-By: Claude Opus 4.8 &lt;noreply@anthropic.com&gt;
   <td class="sha">
       <a class="sha-link" href="https://github.com/curtyo18/StopYappingBro/commit/6080251feca563ed8b2503702c27da3f2934f357" target="_blank" rel="noopener noreferrer">6080251</a>
   </td>
-</tr><tr class="">
-    <td class="when">2026-06-08 18:38</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/GitLabJobStarter" target="_blank" rel="noopener noreferrer">GitLabJobStarter</a>
-  </td>
-
-  <td class="msg">
-      chore: drop redundant package script alias
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/GitLabJobStarter/commit/3087247770cb91d840a42f5a41775927abfc5aa6" target="_blank" rel="noopener noreferrer">3087247</a>
-  </td>
 </tr><tr class="anon">
     <td class="when">2026-06-08</td>
 
@@ -472,18 +729,18 @@ Co-Authored-By: Claude Opus 4.8 &lt;noreply@anthropic.com&gt;
       <span class="redact-strong" aria-label="redacted sha" role="img">6613e63</span>
   </td>
 </tr><tr class="">
-    <td class="when">2026-06-08 18:16</td>
+    <td class="when">2026-06-08 18:38</td>
 
   <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/network-data-viewer" target="_blank" rel="noopener noreferrer">network-data-viewer</a>
+      <a class="repo-link" href="https://github.com/curtyo18/GitLabJobStarter" target="_blank" rel="noopener noreferrer">GitLabJobStarter</a>
   </td>
 
   <td class="msg">
-      docs(spec): mark design spec pre-WXT; point to current layout
+      chore: drop redundant package script alias
   </td>
 
   <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/network-data-viewer/commit/d6c6061e7c57c4cc3e3b4bc6e6719349949702c7" target="_blank" rel="noopener noreferrer">d6c6061</a>
+      <a class="sha-link" href="https://github.com/curtyo18/GitLabJobStarter/commit/3087247770cb91d840a42f5a41775927abfc5aa6" target="_blank" rel="noopener noreferrer">3087247</a>
   </td>
 </tr><tr class="named">
     <td class="when">2026-06-08 17:16</td>
@@ -500,18 +757,18 @@ Co-Authored-By: Claude Opus 4.8 &lt;noreply@anthropic.com&gt;
       <span class="redact" aria-label="redacted sha" role="img">7373855</span>
   </td>
 </tr><tr class="">
-    <td class="when">2026-06-08 18:15</td>
+    <td class="when">2026-06-08 18:16</td>
 
   <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/GitLabJobStarter" target="_blank" rel="noopener noreferrer">GitLabJobStarter</a>
+      <a class="repo-link" href="https://github.com/curtyo18/network-data-viewer" target="_blank" rel="noopener noreferrer">network-data-viewer</a>
   </td>
 
   <td class="msg">
-      docs(readme): align with WXT layout &amp; CI release
+      docs(spec): mark design spec pre-WXT; point to current layout
   </td>
 
   <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/GitLabJobStarter/commit/7d7f6c4a9d72d0b720e3bc60ddcb64701eab3287" target="_blank" rel="noopener noreferrer">7d7f6c4</a>
+      <a class="sha-link" href="https://github.com/curtyo18/network-data-viewer/commit/d6c6061e7c57c4cc3e3b4bc6e6719349949702c7" target="_blank" rel="noopener noreferrer">d6c6061</a>
   </td>
 </tr><tr class="anon">
     <td class="when">2026-06-08</td>
@@ -526,6 +783,20 @@ Co-Authored-By: Claude Opus 4.8 &lt;noreply@anthropic.com&gt;
 
   <td class="sha">
       <span class="redact-strong" aria-label="redacted sha" role="img">233b225</span>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-06-08 18:15</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/GitLabJobStarter" target="_blank" rel="noopener noreferrer">GitLabJobStarter</a>
+  </td>
+
+  <td class="msg">
+      docs(readme): align with WXT layout &amp; CI release
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/GitLabJobStarter/commit/7d7f6c4a9d72d0b720e3bc60ddcb64701eab3287" target="_blank" rel="noopener noreferrer">7d7f6c4</a>
   </td>
 </tr><tr class="">
     <td class="when">2026-06-08 16:46</td>
@@ -588,20 +859,6 @@ Co-Authored-By: Claude Opus 4.8 &lt;noreply@anthropic.com&gt;
   <td class="sha">
       <a class="sha-link" href="https://github.com/curtyo18/agent-config/commit/cfcef13d86f60550181d7cb4845d1d552bf7ca81" target="_blank" rel="noopener noreferrer">cfcef13</a>
   </td>
-</tr><tr class="">
-    <td class="when">2026-06-08 17:31</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/GitLabJobStarter" target="_blank" rel="noopener noreferrer">GitLabJobStarter</a>
-  </td>
-
-  <td class="msg">
-      ci(release): also publish a repo-named folder-wrapped zip
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/GitLabJobStarter/commit/6c3f20274c5d50e3f796966c44e57814565bf228" target="_blank" rel="noopener noreferrer">6c3f202</a>
-  </td>
 </tr><tr class="anon">
     <td class="when">2026-06-08</td>
 
@@ -615,6 +872,20 @@ Co-Authored-By: Claude Opus 4.8 &lt;noreply@anthropic.com&gt;
 
   <td class="sha">
       <span class="redact-strong" aria-label="redacted sha" role="img">92611dd</span>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-06-08 17:31</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/GitLabJobStarter" target="_blank" rel="noopener noreferrer">GitLabJobStarter</a>
+  </td>
+
+  <td class="msg">
+      ci(release): also publish a repo-named folder-wrapped zip
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/GitLabJobStarter/commit/6c3f20274c5d50e3f796966c44e57814565bf228" target="_blank" rel="noopener noreferrer">6c3f202</a>
   </td>
 </tr><tr class="">
     <td class="when">2026-06-08 16:31</td>
@@ -638,20 +909,6 @@ Co-Authored-By: Claude Opus 4.8 &lt;noreply@anthropic.com&gt;
   <td class="sha">
       <a class="sha-link" href="https://github.com/curtyo18/StopYappingBro/commit/cd6e7ad43bd8b3ddf82047330739b21e7d12c2f5" target="_blank" rel="noopener noreferrer">cd6e7ad</a>
   </td>
-</tr><tr class="">
-    <td class="when">2026-06-08 17:31</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/network-data-viewer" target="_blank" rel="noopener noreferrer">network-data-viewer</a>
-  </td>
-
-  <td class="msg">
-      ci(release): also publish a repo-named folder-wrapped zip
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/network-data-viewer/commit/bd559c555b96a4283f8e11da405bde93613e3a81" target="_blank" rel="noopener noreferrer">bd559c5</a>
-  </td>
 </tr><tr class="named">
     <td class="when">2026-06-08 16:31</td>
 
@@ -667,18 +924,18 @@ Co-Authored-By: Claude Opus 4.8 &lt;noreply@anthropic.com&gt;
       <span class="redact" aria-label="redacted sha" role="img">29906fd</span>
   </td>
 </tr><tr class="">
-    <td class="when">2026-06-08 10:40</td>
+    <td class="when">2026-06-08 17:31</td>
 
   <td class="repo">
       <a class="repo-link" href="https://github.com/curtyo18/network-data-viewer" target="_blank" rel="noopener noreferrer">network-data-viewer</a>
   </td>
 
   <td class="msg">
-      0.5.4
+      ci(release): also publish a repo-named folder-wrapped zip
   </td>
 
   <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/network-data-viewer/commit/7111dcdfa1fb7063f2789011e3d8277b71c7a5fe" target="_blank" rel="noopener noreferrer">7111dcd</a>
+      <a class="sha-link" href="https://github.com/curtyo18/network-data-viewer/commit/bd559c555b96a4283f8e11da405bde93613e3a81" target="_blank" rel="noopener noreferrer">bd559c5</a>
   </td>
 </tr><tr class="named">
     <td class="when">2026-06-08 09:40</td>
@@ -702,11 +959,11 @@ Co-Authored-By: Claude Opus 4.8 &lt;noreply@anthropic.com&gt;
   </td>
 
   <td class="msg">
-      chore: migrate to WXT (#56)
+      0.5.4
   </td>
 
   <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/network-data-viewer/commit/77d0a7c8e7843fc7e41ddd2adaece69c92993543" target="_blank" rel="noopener noreferrer">77d0a7c</a>
+      <a class="sha-link" href="https://github.com/curtyo18/network-data-viewer/commit/7111dcdfa1fb7063f2789011e3d8277b71c7a5fe" target="_blank" rel="noopener noreferrer">7111dcd</a>
   </td>
 </tr><tr class="named">
     <td class="when">2026-06-08 09:40</td>
@@ -721,6 +978,20 @@ Co-Authored-By: Claude Opus 4.8 &lt;noreply@anthropic.com&gt;
 
   <td class="sha">
       <span class="redact" aria-label="redacted sha" role="img">da00721</span>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-06-08 10:40</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/network-data-viewer" target="_blank" rel="noopener noreferrer">network-data-viewer</a>
+  </td>
+
+  <td class="msg">
+      chore: migrate to WXT (#56)
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/network-data-viewer/commit/77d0a7c8e7843fc7e41ddd2adaece69c92993543" target="_blank" rel="noopener noreferrer">77d0a7c</a>
   </td>
 </tr><tr class="anon">
     <td class="when">2026-06-08</td>
@@ -897,6 +1168,20 @@ Co-Authored-By: Claude Opus 4.8 &lt;noreply@anthropic.com&gt;
   <td class="sha">
       <a class="sha-link" href="https://github.com/curtyo18/StopYappingBro/commit/d7edc94f0122e2f75e054ef71c11406abf0e60fb" target="_blank" rel="noopener noreferrer">d7edc94</a>
   </td>
+</tr><tr class="anon">
+    <td class="when">2026-06-07</td>
+
+  <td class="repo">
+      <span class="redact-strong" aria-label="redacted repo" role="img">indexer-session</span>
+  </td>
+
+  <td class="msg">
+      <span class="redact-strong" aria-label="redacted message" role="img">wip: stub</span>
+  </td>
+
+  <td class="sha">
+      <span class="redact-strong" aria-label="redacted sha" role="img">79dd0d3</span>
+  </td>
 </tr><tr class="">
     <td class="when">2026-06-07 14:17</td>
 
@@ -915,15 +1200,15 @@ Co-Authored-By: Claude Opus 4.8 &lt;noreply@anthropic.com&gt;
     <td class="when">2026-06-07</td>
 
   <td class="repo">
-      <span class="redact-strong" aria-label="redacted repo" role="img">indexer-session</span>
+      <span class="redact-strong" aria-label="redacted repo" role="img">indexer-toolkit</span>
   </td>
 
   <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">wip: stub</span>
+      <span class="redact-strong" aria-label="redacted message" role="img">docs: tweak supervisor in encoder</span>
   </td>
 
   <td class="sha">
-      <span class="redact-strong" aria-label="redacted sha" role="img">79dd0d3</span>
+      <span class="redact-strong" aria-label="redacted sha" role="img">4e0a0a7</span>
   </td>
 </tr><tr class="">
     <td class="when">2026-06-07 13:37</td>
@@ -938,20 +1223,6 @@ Co-Authored-By: Claude Opus 4.8 &lt;noreply@anthropic.com&gt;
 
   <td class="sha">
       <a class="sha-link" href="https://github.com/curtyo18/GitLabJobStarter/commit/0efb49f348bf1a5fc5d71997825f8294bb892f49" target="_blank" rel="noopener noreferrer">0efb49f</a>
-  </td>
-</tr><tr class="anon">
-    <td class="when">2026-06-07</td>
-
-  <td class="repo">
-      <span class="redact-strong" aria-label="redacted repo" role="img">indexer-toolkit</span>
-  </td>
-
-  <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">docs: tweak supervisor in encoder</span>
-  </td>
-
-  <td class="sha">
-      <span class="redact-strong" aria-label="redacted sha" role="img">4e0a0a7</span>
   </td>
 </tr><tr class="">
     <td class="when">2026-06-07 12:27</td>
@@ -998,20 +1269,6 @@ Co-Authored-By: Claude Opus 4.8 &lt;noreply@anthropic.com&gt;
   <td class="sha">
       <a class="sha-link" href="https://github.com/curtyo18/StopYappingBro/commit/d4457ffbd5a92390e53fe6ff76bb5e754ace6671" target="_blank" rel="noopener noreferrer">d4457ff</a>
   </td>
-</tr><tr class="">
-    <td class="when">2026-06-07 10:46</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/GitLabJobStarter" target="_blank" rel="noopener noreferrer">GitLabJobStarter</a>
-  </td>
-
-  <td class="msg">
-      chore: single-source manifest version + add release workflow
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/GitLabJobStarter/commit/64c9d4c86a9efb792967ae573c1505e9568bd36e" target="_blank" rel="noopener noreferrer">64c9d4c</a>
-  </td>
 </tr><tr class="anon">
     <td class="when">2026-06-07</td>
 
@@ -1025,6 +1282,20 @@ Co-Authored-By: Claude Opus 4.8 &lt;noreply@anthropic.com&gt;
 
   <td class="sha">
       <span class="redact-strong" aria-label="redacted sha" role="img">40b69b3</span>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-06-07 10:46</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/GitLabJobStarter" target="_blank" rel="noopener noreferrer">GitLabJobStarter</a>
+  </td>
+
+  <td class="msg">
+      chore: single-source manifest version + add release workflow
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/GitLabJobStarter/commit/64c9d4c86a9efb792967ae573c1505e9568bd36e" target="_blank" rel="noopener noreferrer">64c9d4c</a>
   </td>
 </tr><tr class="">
     <td class="when">2026-06-07 09:46</td>
@@ -1062,20 +1333,6 @@ Co-Authored-By: Claude Opus 4.8 &lt;noreply@anthropic.com&gt;
   <td class="sha">
       <span class="redact" aria-label="redacted sha" role="img">07fbdb7</span>
   </td>
-</tr><tr class="">
-    <td class="when">2026-06-06 15:00</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/network-data-viewer" target="_blank" rel="noopener noreferrer">network-data-viewer</a>
-  </td>
-
-  <td class="msg">
-      ci: bump GitHub Actions off the deprecated Node 20 runtime
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/network-data-viewer/commit/dadb19d2950ca0697a97cee5386094f13695b994" target="_blank" rel="noopener noreferrer">dadb19d</a>
-  </td>
 </tr><tr class="named">
     <td class="when">2026-06-06 14:00</td>
 
@@ -1091,18 +1348,18 @@ Co-Authored-By: Claude Opus 4.8 &lt;noreply@anthropic.com&gt;
       <span class="redact" aria-label="redacted sha" role="img">b7c319e</span>
   </td>
 </tr><tr class="">
-    <td class="when">2026-06-06 14:57</td>
+    <td class="when">2026-06-06 15:00</td>
 
   <td class="repo">
       <a class="repo-link" href="https://github.com/curtyo18/network-data-viewer" target="_blank" rel="noopener noreferrer">network-data-viewer</a>
   </td>
 
   <td class="msg">
-      chore(release): bump to v0.5.3
+      ci: bump GitHub Actions off the deprecated Node 20 runtime
   </td>
 
   <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/network-data-viewer/commit/67540f41f7fd5eeacc4c450b8024a5747ed42f24" target="_blank" rel="noopener noreferrer">67540f4</a>
+      <a class="sha-link" href="https://github.com/curtyo18/network-data-viewer/commit/dadb19d2950ca0697a97cee5386094f13695b994" target="_blank" rel="noopener noreferrer">dadb19d</a>
   </td>
 </tr><tr class="named">
     <td class="when">2026-06-06 13:57</td>
@@ -1117,6 +1374,20 @@ Co-Authored-By: Claude Opus 4.8 &lt;noreply@anthropic.com&gt;
 
   <td class="sha">
       <span class="redact" aria-label="redacted sha" role="img">b4e3932</span>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-06-06 14:57</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/network-data-viewer" target="_blank" rel="noopener noreferrer">network-data-viewer</a>
+  </td>
+
+  <td class="msg">
+      chore(release): bump to v0.5.3
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/network-data-viewer/commit/67540f41f7fd5eeacc4c450b8024a5747ed42f24" target="_blank" rel="noopener noreferrer">67540f4</a>
   </td>
 </tr><tr class="">
     <td class="when">2026-06-06 13:54</td>
@@ -1140,20 +1411,6 @@ Co-Authored-By: Claude Opus 4.8 &lt;noreply@anthropic.com&gt;
   <td class="sha">
       <a class="sha-link" href="https://github.com/curtyo18/agent-config/commit/61727a8af990d9c2aaa0ba64f53ab84698ad22dc" target="_blank" rel="noopener noreferrer">61727a8</a>
   </td>
-</tr><tr class="">
-    <td class="when">2026-06-06 14:53</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/network-data-viewer" target="_blank" rel="noopener noreferrer">network-data-viewer</a>
-  </td>
-
-  <td class="msg">
-      ci(release): publish GitHub release with extension zip on tag push
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/network-data-viewer/commit/cebfcb8984a245b0ffee90fb28c964b5872d0941" target="_blank" rel="noopener noreferrer">cebfcb8</a>
-  </td>
 </tr><tr class="named">
     <td class="when">2026-06-06 13:53</td>
 
@@ -1167,6 +1424,20 @@ Co-Authored-By: Claude Opus 4.8 &lt;noreply@anthropic.com&gt;
 
   <td class="sha">
       <span class="redact" aria-label="redacted sha" role="img">bd58a1d</span>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-06-06 14:53</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/network-data-viewer" target="_blank" rel="noopener noreferrer">network-data-viewer</a>
+  </td>
+
+  <td class="msg">
+      ci(release): publish GitHub release with extension zip on tag push
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/network-data-viewer/commit/cebfcb8984a245b0ffee90fb28c964b5872d0941" target="_blank" rel="noopener noreferrer">cebfcb8</a>
   </td>
 </tr><tr class="">
     <td class="when">2026-06-06 13:48</td>
@@ -1194,20 +1465,6 @@ Co-Authored-By: Claude Opus 4.8 &lt;noreply@anthropic.com&gt;
   <td class="sha">
       <a class="sha-link" href="https://github.com/curtyo18/agent-config/commit/96f90d8a97971b0677a3a674ed91476ce18af642" target="_blank" rel="noopener noreferrer">96f90d8</a>
   </td>
-</tr><tr class="">
-    <td class="when">2026-06-06 14:39</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/network-data-viewer" target="_blank" rel="noopener noreferrer">network-data-viewer</a>
-  </td>
-
-  <td class="msg">
-      chore(build): single-source manifest version from package.json + stale-dist guard
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/network-data-viewer/commit/ebac5a631ec8d5d93fd0ad26954e665d4a337903" target="_blank" rel="noopener noreferrer">ebac5a6</a>
-  </td>
 </tr><tr class="named">
     <td class="when">2026-06-06 13:39</td>
 
@@ -1223,6 +1480,20 @@ Co-Authored-By: Claude Opus 4.8 &lt;noreply@anthropic.com&gt;
       <span class="redact" aria-label="redacted sha" role="img">dfc7281</span>
   </td>
 </tr><tr class="">
+    <td class="when">2026-06-06 14:39</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/network-data-viewer" target="_blank" rel="noopener noreferrer">network-data-viewer</a>
+  </td>
+
+  <td class="msg">
+      chore(build): single-source manifest version from package.json + stale-dist guard
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/network-data-viewer/commit/ebac5a631ec8d5d93fd0ad26954e665d4a337903" target="_blank" rel="noopener noreferrer">ebac5a6</a>
+  </td>
+</tr><tr class="">
     <td class="when">2026-06-06 13:17</td>
 
   <td class="repo">
@@ -1235,20 +1506,6 @@ Co-Authored-By: Claude Opus 4.8 &lt;noreply@anthropic.com&gt;
 
   <td class="sha">
       <a class="sha-link" href="https://github.com/curtyo18/StopYappingBro/commit/97e48628a4b74a42dfc8483dc4d7fb9fc437c9d3" target="_blank" rel="noopener noreferrer">97e4862</a>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-06-06 13:16</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/GitLabJobStarter" target="_blank" rel="noopener noreferrer">GitLabJobStarter</a>
-  </td>
-
-  <td class="msg">
-      chore: address code-review findings
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/GitLabJobStarter/commit/c05d3ecbb7c34f6ee05c6bbe5d7dc85ec86173fc" target="_blank" rel="noopener noreferrer">c05d3ec</a>
   </td>
 </tr><tr class="anon">
     <td class="when">2026-06-06</td>
@@ -1263,6 +1520,20 @@ Co-Authored-By: Claude Opus 4.8 &lt;noreply@anthropic.com&gt;
 
   <td class="sha">
       <span class="redact-strong" aria-label="redacted sha" role="img">97415be</span>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-06-06 13:16</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/GitLabJobStarter" target="_blank" rel="noopener noreferrer">GitLabJobStarter</a>
+  </td>
+
+  <td class="msg">
+      chore: address code-review findings
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/GitLabJobStarter/commit/c05d3ecbb7c34f6ee05c6bbe5d7dc85ec86173fc" target="_blank" rel="noopener noreferrer">c05d3ec</a>
   </td>
 </tr><tr class="">
     <td class="when">2026-06-06 12:37</td>
@@ -1292,20 +1563,6 @@ Co-Authored-By: Claude Opus 4.8 &lt;noreply@anthropic.com&gt;
   <td class="sha">
       <a class="sha-link" href="https://github.com/curtyo18/StopYappingBro/commit/55f094cecd2c983f45be4d6671cccccedb547761" target="_blank" rel="noopener noreferrer">55f094c</a>
   </td>
-</tr><tr class="">
-    <td class="when">2026-06-06 12:37</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/GitLabJobStarter" target="_blank" rel="noopener noreferrer">GitLabJobStarter</a>
-  </td>
-
-  <td class="msg">
-      chore: bring repo up to public-release quality
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/GitLabJobStarter/commit/810b1c4fbe9b6a0b6e5626c2245bf551275619dc" target="_blank" rel="noopener noreferrer">810b1c4</a>
-  </td>
 </tr><tr class="anon">
     <td class="when">2026-06-06</td>
 
@@ -1321,18 +1578,18 @@ Co-Authored-By: Claude Opus 4.8 &lt;noreply@anthropic.com&gt;
       <span class="redact-strong" aria-label="redacted sha" role="img">0feab08</span>
   </td>
 </tr><tr class="">
-    <td class="when">2026-06-05 19:47</td>
+    <td class="when">2026-06-06 12:37</td>
 
   <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/network-data-viewer" target="_blank" rel="noopener noreferrer">network-data-viewer</a>
+      <a class="repo-link" href="https://github.com/curtyo18/GitLabJobStarter" target="_blank" rel="noopener noreferrer">GitLabJobStarter</a>
   </td>
 
   <td class="msg">
-      chore(release): bump to v0.5.2
+      chore: bring repo up to public-release quality
   </td>
 
   <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/network-data-viewer/commit/16bda3ee43a68ca91fb4b6142c692d21a8dc0be4" target="_blank" rel="noopener noreferrer">16bda3e</a>
+      <a class="sha-link" href="https://github.com/curtyo18/GitLabJobStarter/commit/810b1c4fbe9b6a0b6e5626c2245bf551275619dc" target="_blank" rel="noopener noreferrer">810b1c4</a>
   </td>
 </tr><tr class="named">
     <td class="when">2026-06-05 18:47</td>
@@ -1349,18 +1606,18 @@ Co-Authored-By: Claude Opus 4.8 &lt;noreply@anthropic.com&gt;
       <span class="redact" aria-label="redacted sha" role="img">9a09990</span>
   </td>
 </tr><tr class="">
-    <td class="when">2026-06-05 19:42</td>
+    <td class="when">2026-06-05 19:47</td>
 
   <td class="repo">
       <a class="repo-link" href="https://github.com/curtyo18/network-data-viewer" target="_blank" rel="noopener noreferrer">network-data-viewer</a>
   </td>
 
   <td class="msg">
-      fix(dsl): run DSL chain against configurable source; harden offscreen race
+      chore(release): bump to v0.5.2
   </td>
 
   <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/network-data-viewer/commit/888a3770562a1dee258c71e5371be9ab4d7e20a3" target="_blank" rel="noopener noreferrer">888a377</a>
+      <a class="sha-link" href="https://github.com/curtyo18/network-data-viewer/commit/16bda3ee43a68ca91fb4b6142c692d21a8dc0be4" target="_blank" rel="noopener noreferrer">16bda3e</a>
   </td>
 </tr><tr class="named">
     <td class="when">2026-06-05 18:42</td>
@@ -1375,6 +1632,20 @@ Co-Authored-By: Claude Opus 4.8 &lt;noreply@anthropic.com&gt;
 
   <td class="sha">
       <span class="redact" aria-label="redacted sha" role="img">d0e28a2</span>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-06-05 19:42</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/network-data-viewer" target="_blank" rel="noopener noreferrer">network-data-viewer</a>
+  </td>
+
+  <td class="msg">
+      fix(dsl): run DSL chain against configurable source; harden offscreen race
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/network-data-viewer/commit/888a3770562a1dee258c71e5371be9ab4d7e20a3" target="_blank" rel="noopener noreferrer">888a377</a>
   </td>
 </tr><tr class="anon">
     <td class="when">2026-06-05</td>
@@ -1614,20 +1885,6 @@ Co-Authored-By: Claude Opus 4.8 &lt;noreply@anthropic.com&gt;
   <td class="sha">
       <span class="redact-strong" aria-label="redacted sha" role="img">2f6a3be</span>
   </td>
-</tr><tr class="">
-    <td class="when">2026-06-01 19:15</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/network-data-viewer" target="_blank" rel="noopener noreferrer">network-data-viewer</a>
-  </td>
-
-  <td class="msg">
-      chore(release): bump to v0.5.1
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/network-data-viewer/commit/a8d849f5622e3e8eef2aad933d2cac83f8fadbf8" target="_blank" rel="noopener noreferrer">a8d849f</a>
-  </td>
 </tr><tr class="named">
     <td class="when">2026-06-01 18:15</td>
 
@@ -1643,18 +1900,18 @@ Co-Authored-By: Claude Opus 4.8 &lt;noreply@anthropic.com&gt;
       <span class="redact" aria-label="redacted sha" role="img">f2e86be</span>
   </td>
 </tr><tr class="">
-    <td class="when">2026-06-01 19:11</td>
+    <td class="when">2026-06-01 19:15</td>
 
   <td class="repo">
       <a class="repo-link" href="https://github.com/curtyo18/network-data-viewer" target="_blank" rel="noopener noreferrer">network-data-viewer</a>
   </td>
 
   <td class="msg">
-      fix(event-list): de-duplicate replayed results so cards stop overlapping
+      chore(release): bump to v0.5.1
   </td>
 
   <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/network-data-viewer/commit/b76be0636822ceec05d837dec29ce518630f97fe" target="_blank" rel="noopener noreferrer">b76be06</a>
+      <a class="sha-link" href="https://github.com/curtyo18/network-data-viewer/commit/a8d849f5622e3e8eef2aad933d2cac83f8fadbf8" target="_blank" rel="noopener noreferrer">a8d849f</a>
   </td>
 </tr><tr class="named">
     <td class="when">2026-06-01 18:11</td>
@@ -1671,18 +1928,18 @@ Co-Authored-By: Claude Opus 4.8 &lt;noreply@anthropic.com&gt;
       <span class="redact" aria-label="redacted sha" role="img">39cf38f</span>
   </td>
 </tr><tr class="">
-    <td class="when">2026-06-01 17:30</td>
+    <td class="when">2026-06-01 19:11</td>
 
   <td class="repo">
       <a class="repo-link" href="https://github.com/curtyo18/network-data-viewer" target="_blank" rel="noopener noreferrer">network-data-viewer</a>
   </td>
 
   <td class="msg">
-      chore(release): bump to v0.5.0
+      fix(event-list): de-duplicate replayed results so cards stop overlapping
   </td>
 
   <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/network-data-viewer/commit/db6591801fb18c650d9eccbf4b2e8153c3fbda19" target="_blank" rel="noopener noreferrer">db65918</a>
+      <a class="sha-link" href="https://github.com/curtyo18/network-data-viewer/commit/b76be0636822ceec05d837dec29ce518630f97fe" target="_blank" rel="noopener noreferrer">b76be06</a>
   </td>
 </tr><tr class="named">
     <td class="when">2026-06-01 16:30</td>
@@ -1699,18 +1956,18 @@ Co-Authored-By: Claude Opus 4.8 &lt;noreply@anthropic.com&gt;
       <span class="redact" aria-label="redacted sha" role="img">c0229fd</span>
   </td>
 </tr><tr class="">
-    <td class="when">2026-06-01 17:13</td>
+    <td class="when">2026-06-01 17:30</td>
 
   <td class="repo">
       <a class="repo-link" href="https://github.com/curtyo18/network-data-viewer" target="_blank" rel="noopener noreferrer">network-data-viewer</a>
   </td>
 
   <td class="msg">
-      chore(dev): add e2e setup script and pre-push test hook
+      chore(release): bump to v0.5.0
   </td>
 
   <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/network-data-viewer/commit/1833a906c7a992e092ed9341cdeced32c5c37e34" target="_blank" rel="noopener noreferrer">1833a90</a>
+      <a class="sha-link" href="https://github.com/curtyo18/network-data-viewer/commit/db6591801fb18c650d9eccbf4b2e8153c3fbda19" target="_blank" rel="noopener noreferrer">db65918</a>
   </td>
 </tr><tr class="named">
     <td class="when">2026-06-01 16:13</td>
@@ -1727,18 +1984,18 @@ Co-Authored-By: Claude Opus 4.8 &lt;noreply@anthropic.com&gt;
       <span class="redact" aria-label="redacted sha" role="img">642863b</span>
   </td>
 </tr><tr class="">
-    <td class="when">2026-06-01 17:00</td>
+    <td class="when">2026-06-01 17:13</td>
 
   <td class="repo">
       <a class="repo-link" href="https://github.com/curtyo18/network-data-viewer" target="_blank" rel="noopener noreferrer">network-data-viewer</a>
   </td>
 
   <td class="msg">
-      test(e2e): update selectors for controls moved into the config menu
+      chore(dev): add e2e setup script and pre-push test hook
   </td>
 
   <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/network-data-viewer/commit/8a26397414d546f89a3d49439531ca878c675db0" target="_blank" rel="noopener noreferrer">8a26397</a>
+      <a class="sha-link" href="https://github.com/curtyo18/network-data-viewer/commit/1833a906c7a992e092ed9341cdeced32c5c37e34" target="_blank" rel="noopener noreferrer">1833a90</a>
   </td>
 </tr><tr class="named">
     <td class="when">2026-06-01 16:00</td>
@@ -1755,18 +2012,18 @@ Co-Authored-By: Claude Opus 4.8 &lt;noreply@anthropic.com&gt;
       <span class="redact" aria-label="redacted sha" role="img">4d6c8bb</span>
   </td>
 </tr><tr class="">
-    <td class="when">2026-06-01 16:54</td>
+    <td class="when">2026-06-01 17:00</td>
 
   <td class="repo">
       <a class="repo-link" href="https://github.com/curtyo18/network-data-viewer" target="_blank" rel="noopener noreferrer">network-data-viewer</a>
   </td>
 
   <td class="msg">
-      fix(config-menu): drop role=menu/aria-haspopup for a truthful popover
+      test(e2e): update selectors for controls moved into the config menu
   </td>
 
   <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/network-data-viewer/commit/93cf93a08e5f7cbd53b83fe7a66c35abdcca7b42" target="_blank" rel="noopener noreferrer">93cf93a</a>
+      <a class="sha-link" href="https://github.com/curtyo18/network-data-viewer/commit/8a26397414d546f89a3d49439531ca878c675db0" target="_blank" rel="noopener noreferrer">8a26397</a>
   </td>
 </tr><tr class="named">
     <td class="when">2026-06-01 15:54</td>
@@ -1783,18 +2040,18 @@ Co-Authored-By: Claude Opus 4.8 &lt;noreply@anthropic.com&gt;
       <span class="redact" aria-label="redacted sha" role="img">f91a313</span>
   </td>
 </tr><tr class="">
-    <td class="when">2026-06-01 16:44</td>
+    <td class="when">2026-06-01 16:54</td>
 
   <td class="repo">
       <a class="repo-link" href="https://github.com/curtyo18/network-data-viewer" target="_blank" rel="noopener noreferrer">network-data-viewer</a>
   </td>
 
   <td class="msg">
-      refactor(side-panel): move show raw/import/export into the config menu
+      fix(config-menu): drop role=menu/aria-haspopup for a truthful popover
   </td>
 
   <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/network-data-viewer/commit/fe521344771028f22746f6306159c6b7c3a81ed6" target="_blank" rel="noopener noreferrer">fe52134</a>
+      <a class="sha-link" href="https://github.com/curtyo18/network-data-viewer/commit/93cf93a08e5f7cbd53b83fe7a66c35abdcca7b42" target="_blank" rel="noopener noreferrer">93cf93a</a>
   </td>
 </tr><tr class="named">
     <td class="when">2026-06-01 15:44</td>
@@ -1811,18 +2068,18 @@ Co-Authored-By: Claude Opus 4.8 &lt;noreply@anthropic.com&gt;
       <span class="redact" aria-label="redacted sha" role="img">a5dd653</span>
   </td>
 </tr><tr class="">
-    <td class="when">2026-06-01 16:41</td>
+    <td class="when">2026-06-01 16:44</td>
 
   <td class="repo">
       <a class="repo-link" href="https://github.com/curtyo18/network-data-viewer" target="_blank" rel="noopener noreferrer">network-data-viewer</a>
   </td>
 
   <td class="msg">
-      test(config-menu): cover outside-click, Esc, and export-keeps-open
+      refactor(side-panel): move show raw/import/export into the config menu
   </td>
 
   <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/network-data-viewer/commit/f1339076cbe180497032862c5ffbab255b15146e" target="_blank" rel="noopener noreferrer">f133907</a>
+      <a class="sha-link" href="https://github.com/curtyo18/network-data-viewer/commit/fe521344771028f22746f6306159c6b7c3a81ed6" target="_blank" rel="noopener noreferrer">fe52134</a>
   </td>
 </tr><tr class="named">
     <td class="when">2026-06-01 15:41</td>
@@ -1839,18 +2096,18 @@ Co-Authored-By: Claude Opus 4.8 &lt;noreply@anthropic.com&gt;
       <span class="redact" aria-label="redacted sha" role="img">46b8854</span>
   </td>
 </tr><tr class="">
-    <td class="when">2026-06-01 16:38</td>
+    <td class="when">2026-06-01 16:41</td>
 
   <td class="repo">
       <a class="repo-link" href="https://github.com/curtyo18/network-data-viewer" target="_blank" rel="noopener noreferrer">network-data-viewer</a>
   </td>
 
   <td class="msg">
-      feat(config-menu): add gear popover housing show raw, import, export
+      test(config-menu): cover outside-click, Esc, and export-keeps-open
   </td>
 
   <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/network-data-viewer/commit/0104ac12041aa97ba789732b418f41553bf91685" target="_blank" rel="noopener noreferrer">0104ac1</a>
+      <a class="sha-link" href="https://github.com/curtyo18/network-data-viewer/commit/f1339076cbe180497032862c5ffbab255b15146e" target="_blank" rel="noopener noreferrer">f133907</a>
   </td>
 </tr><tr class="named">
     <td class="when">2026-06-01 15:38</td>
@@ -1867,18 +2124,18 @@ Co-Authored-By: Claude Opus 4.8 &lt;noreply@anthropic.com&gt;
       <span class="redact" aria-label="redacted sha" role="img">a73e718</span>
   </td>
 </tr><tr class="">
-    <td class="when">2026-06-01 16:34</td>
+    <td class="when">2026-06-01 16:38</td>
 
   <td class="repo">
       <a class="repo-link" href="https://github.com/curtyo18/network-data-viewer" target="_blank" rel="noopener noreferrer">network-data-viewer</a>
   </td>
 
   <td class="msg">
-      fix(event-list): key virtualizer measurements by event id to stop row overlap on prepend
+      feat(config-menu): add gear popover housing show raw, import, export
   </td>
 
   <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/network-data-viewer/commit/d3337c182edada993dc337343037401581a285cc" target="_blank" rel="noopener noreferrer">d3337c1</a>
+      <a class="sha-link" href="https://github.com/curtyo18/network-data-viewer/commit/0104ac12041aa97ba789732b418f41553bf91685" target="_blank" rel="noopener noreferrer">0104ac1</a>
   </td>
 </tr><tr class="named">
     <td class="when">2026-06-01 15:34</td>
@@ -1893,6 +2150,20 @@ Co-Authored-By: Claude Opus 4.8 &lt;noreply@anthropic.com&gt;
 
   <td class="sha">
       <span class="redact" aria-label="redacted sha" role="img">e1dc28e</span>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-06-01 16:34</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/network-data-viewer" target="_blank" rel="noopener noreferrer">network-data-viewer</a>
+  </td>
+
+  <td class="msg">
+      fix(event-list): key virtualizer measurements by event id to stop row overlap on prepend
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/network-data-viewer/commit/d3337c182edada993dc337343037401581a285cc" target="_blank" rel="noopener noreferrer">d3337c1</a>
   </td>
 </tr><tr class="anon">
     <td class="when">2026-06-01</td>
@@ -2296,7 +2567,7 @@ Verified: tests/test-agent-init.sh (Cases 3-6: single/multi/upsert/skip) and bas
 </tr>            <tr class="gr-month-row">
               <td colspan="4">
                 May 2026
-                <span>61 commits · 30 public</span>
+                <span>52 commits · 24 public</span>
               </td>
             </tr>
 <tr class="anon">
@@ -3199,158 +3470,21 @@ README skills enumeration. Composes with the two-strike rule in CLAUDE.md.
   <td class="sha">
       <a class="sha-link" href="https://github.com/curtyo18/agent-config/commit/954e0546859933735aafc7aba6ae1115b270e594" target="_blank" rel="noopener noreferrer">954e054</a>
   </td>
-</tr><tr class="">
-    <td class="when">2026-05-30 17:26</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/agent-config" target="_blank" rel="noopener noreferrer">agent-config</a>
-  </td>
-
-  <td class="msg">
-      fix: restore executable bit on pre-commit hooks
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/agent-config/commit/ce606b7027c495454b811958f79e21540c381269" target="_blank" rel="noopener noreferrer">ce606b7</a>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-05-30 17:21</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/agent-config" target="_blank" rel="noopener noreferrer">agent-config</a>
-  </td>
-
-  <td class="msg">
-      docs: credit Matt Pocock as inspiration for grill-me
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/agent-config/commit/4f81dd0984cc5a49d746bd887e89ace4f353b890" target="_blank" rel="noopener noreferrer">4f81dd0</a>
-  </td>
-</tr><tr class="anon">
-    <td class="when">2026-05-30</td>
-
-  <td class="repo">
-      <span class="redact-strong" aria-label="redacted repo" role="img">unused-scheduler-view</span>
-  </td>
-
-  <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">feat: split stream in session</span>
-  </td>
-
-  <td class="sha">
-      <span class="redact-strong" aria-label="redacted sha" role="img">936041c</span>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-05-30 16:50</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/agent-sandbox" target="_blank" rel="noopener noreferrer">agent-sandbox</a>
-  </td>
-
-  <td class="msg">
-      chore: drop personal ref from Dockerfile UID comment
-
-&#34;matches host curt UID&#34; → &#34;matches typical host UID&#34;. The comment
-explains why UID 1000 is reused — it never needed a name attached.
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/agent-sandbox/commit/16e40be3cbbd82787e814008cff8b5ab769eeda2" target="_blank" rel="noopener noreferrer">16e40be</a>
-  </td>
-</tr><tr class="named">
-    <td class="when">2026-05-30 16:49</td>
-
-  <td class="repo">
-      agent-config-private
-  </td>
-
-  <td class="msg">
-      <span class="redact" aria-label="redacted message" role="img">guard missing schema in channel</span>
-  </td>
-
-  <td class="sha">
-      <span class="redact" aria-label="redacted sha" role="img">05856de</span>
-  </td>
-</tr><tr class="named">
-    <td class="when">2026-05-30 16:44</td>
-
-  <td class="repo">
-      agent-config-private
-  </td>
-
-  <td class="msg">
-      <span class="redact" aria-label="redacted message" role="img">refactor helper (tighter)</span>
-  </td>
-
-  <td class="sha">
-      <span class="redact" aria-label="redacted sha" role="img">b56a2e2</span>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-05-30 16:44</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/agent-sandbox" target="_blank" rel="noopener noreferrer">agent-sandbox</a>
-  </td>
-
-  <td class="msg">
-      feat: allow env-var override of bootstrap.sh customisation values
-
-Convert the 8 customisation variables (REPO_DIR, PROJECTS_HOST_PATH,
-AUDIT_HOST_PATH, CONTAINER_NAME, IMAGE_TAG, AGENT_SANDBOX_REPO,
-GIT_USER_EMAIL, GIT_USER_NAME) from bare assignments to ${VAR:-default}
-syntax. Also pass AGENT_CONFIG_PRIVATE_REPO through to the container env.
-
-A wrapper script can now drive bootstrap.sh by exporting these vars,
-without locally editing the tracked file.
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/agent-sandbox/commit/9515a64952f65836a09305f9e53b1b66e975f664" target="_blank" rel="noopener noreferrer">9515a64</a>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-05-29 22:33</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/network-data-viewer" target="_blank" rel="noopener noreferrer">network-data-viewer</a>
-  </td>
-
-  <td class="msg">
-      chore(release): bump to v0.4.2
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/network-data-viewer/commit/3e012d667ba86d410b8a85b2c8f88640db94b153" target="_blank" rel="noopener noreferrer">3e012d6</a>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-05-29 22:33</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/network-data-viewer" target="_blank" rel="noopener noreferrer">network-data-viewer</a>
-  </td>
-
-  <td class="msg">
-      fix(offscreen): wait for the document&#39;s ready ping before sending CREATE_IFRAME
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/network-data-viewer/commit/b677d390e76d5ac3c608bc0bfb3a5c58754d2856" target="_blank" rel="noopener noreferrer">b677d39</a>
-  </td>
 </tr>        </tbody>
       </table>
 
       <nav class="pager" aria-label="Pagination">
-        <div class="of">page 1 of 10</div>
+        <div class="of">page 1 of 11</div>
         <div class="nav">
             <span class="step disabled" aria-disabled="true">« first</span>
             <span class="step disabled" aria-disabled="true">‹ newer</span>
               <a class="num current" href="" aria-current="page" aria-label="Page 1">1</a>
               <a class="num " href="page/2/" aria-label="Page 2">2</a>
               <span class="ellipsis" aria-hidden="true">…</span>
-              <a class="num " href="page/9/" aria-label="Page 9">9</a>
               <a class="num " href="page/10/" aria-label="Page 10">10</a>
+              <a class="num " href="page/11/" aria-label="Page 11">11</a>
             <a class="step" href="page/2/" rel="next" aria-label="Older page">older ›</a>
-            <a class="step" href="page/10/" aria-label="Last page">last »</a>
+            <a class="step" href="page/11/" aria-label="Last page">last »</a>
         </div>
       </nav>
 
@@ -3360,7 +3494,7 @@ without locally editing the tracked file.
     <a href="https://github.com/curtyo18" target="_blank" rel="noopener noreferrer">github</a> · <a href="mailto:curtyo18@gmail.com">email</a>
   </div>
   <div class="stats" style="align-items:center">
-    <span><b>1,999</b> commits</span>
+    <span><b>2,008</b> commits</span>
     <span><b>76</b> repos</span>
     <span><b>17</b> years</span>
   </div>
