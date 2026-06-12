@@ -16,13 +16,13 @@
     <small>curt — a public log of private and public work</small>
   </h1>
   <div class="meta">
-    <span><b>2,008</b> commits indexed</span>
+    <span><b>2,018</b> commits indexed</span>
     <span><b>76</b> repos · <b>17</b> years</span>
   </div>
 </div>
       <div class="gr-section-title" style="margin-top:36px">
         <span>All commits · newest first</span>
-        <span class="right">showing 1001–1200 of 2008</span>
+        <span class="right">showing 1001–1200 of 2018</span>
       </div>
 
       <table class="gr-table">
@@ -35,10 +35,162 @@
             <tr class="gr-month-row">
               <td colspan="4">
                 April 2026
-                <span>200 commits · 63 public</span>
+                <span>200 commits · 103 public</span>
               </td>
             </tr>
 <tr class="">
+    <td class="when">2026-04-27 15:50</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/FileOrganizer" target="_blank" rel="noopener noreferrer">FileOrganizer</a>
+  </td>
+
+  <td class="msg">
+      fix(build): build @fileorganizer/shared before typecheck/test
+
+CI failed on a fresh clone because engine and UI typecheck both import
+from @fileorganizer/shared (resolved via package.json main/types to
+dist/), but dist/ doesn&#39;t exist until shared is built.
+
+Two changes:
+1. Root typecheck and test scripts now build shared first.
+2. Shared&#39;s build uses &#39;tsc -b --force&#39; so a stale .tsbuildinfo can&#39;t
+   claim emit is up-to-date when dist/ has actually been deleted.
+
+Verified locally: rm -rf shared/dist plus delete .tsbuildinfo, then
+both typecheck and test run green.
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/FileOrganizer/commit/732db0b91eff678bf5ba2404ba38354b87ce5e0b" target="_blank" rel="noopener noreferrer">732db0b</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-04-27 08:21</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/FileOrganizer" target="_blank" rel="noopener noreferrer">FileOrganizer</a>
+  </td>
+
+  <td class="msg">
+      chore(docs): add screenshot
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/FileOrganizer/commit/d2af8697565b01d1dc3c0f205b4524aa0aed3ad0" target="_blank" rel="noopener noreferrer">d2af869</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-04-27 08:14</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/FileOrganizer" target="_blank" rel="noopener noreferrer">FileOrganizer</a>
+  </td>
+
+  <td class="msg">
+      docs: reserve screenshot slot in README
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/FileOrganizer/commit/da272fcfe4c38e9b42cb960b36b9f1ee42a93143" target="_blank" rel="noopener noreferrer">da272fc</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-04-27 07:35</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/FileOrganizer" target="_blank" rel="noopener noreferrer">FileOrganizer</a>
+  </td>
+
+  <td class="msg">
+      docs: rewrite README with hook, status, prerequisites, safety notes
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/FileOrganizer/commit/d8bc70fb13800eb24188520c1393c53dddcb1f5a" target="_blank" rel="noopener noreferrer">d8bc70f</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-04-26 23:20</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/FileOrganizer" target="_blank" rel="noopener noreferrer">FileOrganizer</a>
+  </td>
+
+  <td class="msg">
+      feat(drives): persist mount_path so dedup/restore stop asking for it
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/FileOrganizer/commit/4b5569c5656d2145546d9a0138155b22ff126a54" target="_blank" rel="noopener noreferrer">4b5569c</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-04-26 22:57</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/FileOrganizer" target="_blank" rel="noopener noreferrer">FileOrganizer</a>
+  </td>
+
+  <td class="msg">
+      feat(ui): wire Duplicates and Quarantine screens to live engine data
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/FileOrganizer/commit/c99b261963b4da9da667caf4dd689a984bc40a53" target="_blank" rel="noopener noreferrer">c99b261</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-04-26 22:53</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/FileOrganizer" target="_blank" rel="noopener noreferrer">FileOrganizer</a>
+  </td>
+
+  <td class="msg">
+      feat(engine/api): add duplicates and quarantine endpoints
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/FileOrganizer/commit/7b19afe4a33caa45ad40270272d72d7eadf00c5f" target="_blank" rel="noopener noreferrer">7b19afe</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-04-26 22:34</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/FileOrganizer" target="_blank" rel="noopener noreferrer">FileOrganizer</a>
+  </td>
+
+  <td class="msg">
+      feat(engine/dedupe): add planner and applier with hash-revalidation safety
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/FileOrganizer/commit/fc9be4cf13defa58e3664a062e3ea3a5c0b5a12a" target="_blank" rel="noopener noreferrer">fc9be4c</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-04-26 22:25</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/FileOrganizer" target="_blank" rel="noopener noreferrer">FileOrganizer</a>
+  </td>
+
+  <td class="msg">
+      feat(engine/dedupe): add keeper scoring with documented reasons
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/FileOrganizer/commit/de005b97d07030cfcc11370be5442598a0138189" target="_blank" rel="noopener noreferrer">de005b9</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-04-26 22:23</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/FileOrganizer" target="_blank" rel="noopener noreferrer">FileOrganizer</a>
+  </td>
+
+  <td class="msg">
+      feat(engine/dedupe): add duplicate group detection query
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/FileOrganizer/commit/433a9b3bd653a2cb33cb098837d284fa5d847040" target="_blank" rel="noopener noreferrer">433a9b3</a>
+  </td>
+</tr><tr class="">
     <td class="when">2026-04-26 22:08</td>
 
   <td class="repo">
@@ -150,33 +302,33 @@
   <td class="sha">
       <a class="sha-link" href="https://github.com/curtyo18/FileOrganizer/commit/090e961756248ffe2f256a0d1ed6e679e6e45c96" target="_blank" rel="noopener noreferrer">090e961</a>
   </td>
-</tr><tr class="named">
+</tr><tr class="">
     <td class="when">2026-04-26 16:35</td>
 
   <td class="repo">
-      payments-service
+      <a class="repo-link" href="https://github.com/curtyo18/payments-service" target="_blank" rel="noopener noreferrer">payments-service</a>
   </td>
 
   <td class="msg">
-      <span class="redact" aria-label="redacted message" role="img">rebuild scheduler so shim can bump controller</span>
+      docs: add MIT license and document orphaned-authorization sweep as out-of-scope (#9)
   </td>
 
   <td class="sha">
-      <span class="redact" aria-label="redacted sha" role="img">6dcb6db</span>
+      <a class="sha-link" href="https://github.com/curtyo18/payments-service/commit/d2489a125fc11931577f1e3db637a48efe5ba42a" target="_blank" rel="noopener noreferrer">d2489a1</a>
   </td>
-</tr><tr class="named">
+</tr><tr class="">
     <td class="when">2026-04-26 16:26</td>
 
   <td class="repo">
-      payments-service
+      <a class="repo-link" href="https://github.com/curtyo18/payments-service" target="_blank" rel="noopener noreferrer">payments-service</a>
   </td>
 
   <td class="msg">
-      <span class="redact" aria-label="redacted message" role="img">guard consumer</span>
+      docs: README with diagrams + final verification (Tasks 30-31, plan complete) (#8)
   </td>
 
   <td class="sha">
-      <span class="redact" aria-label="redacted sha" role="img">58ac08c</span>
+      <a class="sha-link" href="https://github.com/curtyo18/payments-service/commit/056695276d38b07245ed7a4b25f82e75bf08cd1f" target="_blank" rel="noopener noreferrer">0566952</a>
   </td>
 </tr><tr class="">
     <td class="when">2026-04-26 15:09</td>
@@ -206,33 +358,33 @@
   <td class="sha">
       <a class="sha-link" href="https://github.com/curtyo18/FileOrganizer/commit/b51a8277f2bedf4c8536abc0311cfdcb476792aa" target="_blank" rel="noopener noreferrer">b51a827</a>
   </td>
-</tr><tr class="named">
+</tr><tr class="">
     <td class="when">2026-04-26 14:27</td>
 
   <td class="repo">
-      payments-service
+      <a class="repo-link" href="https://github.com/curtyo18/payments-service" target="_blank" rel="noopener noreferrer">payments-service</a>
   </td>
 
   <td class="msg">
-      <span class="redact" aria-label="redacted message" role="img">chore: vendor dispatcher for handler</span>
+      feat(k6): four load scenarios driving the API via x-mock-scenario (#7)
   </td>
 
   <td class="sha">
-      <span class="redact" aria-label="redacted sha" role="img">548818a</span>
+      <a class="sha-link" href="https://github.com/curtyo18/payments-service/commit/d46be3d2f801ca6a845e3fb89fb6e11c0fbe38c2" target="_blank" rel="noopener noreferrer">d46be3d</a>
   </td>
-</tr><tr class="named">
+</tr><tr class="">
     <td class="when">2026-04-26 14:08</td>
 
   <td class="repo">
-      payments-service
+      <a class="repo-link" href="https://github.com/curtyo18/payments-service" target="_blank" rel="noopener noreferrer">payments-service</a>
   </td>
 
   <td class="msg">
-      <span class="redact" aria-label="redacted message" role="img">tidy leaky supervisor when config changes</span>
+      feat(webhooks): Stripe + Adyen webhook handlers + settlement consumer (Tasks 26-27) (#6)
   </td>
 
   <td class="sha">
-      <span class="redact" aria-label="redacted sha" role="img">ad1c246</span>
+      <a class="sha-link" href="https://github.com/curtyo18/payments-service/commit/5bafc23c0e4825d238f04908ff1a402ee8fa5830" target="_blank" rel="noopener noreferrer">5bafc23</a>
   </td>
 </tr><tr class="">
     <td class="when">2026-04-26 14:07</td>
@@ -290,19 +442,19 @@
   <td class="sha">
       <a class="sha-link" href="https://github.com/curtyo18/FileOrganizer/commit/38f3824ae518e9cf95eecb1bd4c25ffbe3374e56" target="_blank" rel="noopener noreferrer">38f3824</a>
   </td>
-</tr><tr class="named">
+</tr><tr class="">
     <td class="when">2026-04-26 13:09</td>
 
   <td class="repo">
-      payments-service
+      <a class="repo-link" href="https://github.com/curtyo18/payments-service" target="_blank" rel="noopener noreferrer">payments-service</a>
   </td>
 
   <td class="msg">
-      <span class="redact" aria-label="redacted message" role="img">chore: remove buffer so loader can rework facade</span>
+      feat(api): event publisher + PaymentIntentService + HTTP routes (Tasks 21-25, end-to-end failover demo) (#5)
   </td>
 
   <td class="sha">
-      <span class="redact" aria-label="redacted sha" role="img">f146f73</span>
+      <a class="sha-link" href="https://github.com/curtyo18/payments-service/commit/e136c65083c9d9a8b58d8a5c431e91a8c6548cda" target="_blank" rel="noopener noreferrer">e136c65</a>
   </td>
 </tr><tr class="">
     <td class="when">2026-04-26 13:09</td>
@@ -794,19 +946,19 @@
   <td class="sha">
       <a class="sha-link" href="https://github.com/curtyo18/FileOrganizer/commit/afa59c44111a9501d2ae3a3c000d40989ff2630f" target="_blank" rel="noopener noreferrer">afa59c4</a>
   </td>
-</tr><tr class="named">
+</tr><tr class="">
     <td class="when">2026-04-25 19:53</td>
 
   <td class="repo">
-      payments-service
+      <a class="repo-link" href="https://github.com/curtyo18/payments-service" target="_blank" rel="noopener noreferrer">payments-service</a>
   </td>
 
   <td class="msg">
-      <span class="redact" aria-label="redacted message" role="img">wip: extract parser</span>
+      feat(providers): Stripe + Adyen + FailoverProviderStrategy (Tasks 15-20) (#4)
   </td>
 
   <td class="sha">
-      <span class="redact" aria-label="redacted sha" role="img">7e7d621</span>
+      <a class="sha-link" href="https://github.com/curtyo18/payments-service/commit/36971605c6dc4d2f4f7d44eb9409f9aca76e0598" target="_blank" rel="noopener noreferrer">3697160</a>
   </td>
 </tr><tr class="">
     <td class="when">2026-04-25 19:37</td>
@@ -822,19 +974,19 @@
   <td class="sha">
       <a class="sha-link" href="https://github.com/curtyo18/FileOrganizer/commit/c46c5b348b00ae4df0fbdb7b52868472083ba283" target="_blank" rel="noopener noreferrer">c46c5b3</a>
   </td>
-</tr><tr class="named">
+</tr><tr class="">
     <td class="when">2026-04-25 19:36</td>
 
   <td class="repo">
-      payments-service
+      <a class="repo-link" href="https://github.com/curtyo18/payments-service" target="_blank" rel="noopener noreferrer">payments-service</a>
   </td>
 
   <td class="msg">
-      <span class="redact" aria-label="redacted message" role="img">fix: split verbose queue when fallback changes</span>
+      feat(db): single-table DynamoDB + 3 repositories + CI integration job (Tasks 11-14) (#3)
   </td>
 
   <td class="sha">
-      <span class="redact" aria-label="redacted sha" role="img">86acbb7</span>
+      <a class="sha-link" href="https://github.com/curtyo18/payments-service/commit/dc15e8df1a944800f3de1c0a3277ae9bd515371c" target="_blank" rel="noopener noreferrer">dc15e8d</a>
   </td>
 </tr><tr class="">
     <td class="when">2026-04-25 19:26</td>
@@ -906,33 +1058,33 @@
   <td class="sha">
       <a class="sha-link" href="https://github.com/curtyo18/FileOrganizer/commit/4bf8027e13562ce79c72c405b788583abe3788db" target="_blank" rel="noopener noreferrer">4bf8027</a>
   </td>
-</tr><tr class="named">
+</tr><tr class="">
     <td class="when">2026-04-25 19:03</td>
 
   <td class="repo">
-      payments-service
+      <a class="repo-link" href="https://github.com/curtyo18/payments-service" target="_blank" rel="noopener noreferrer">payments-service</a>
   </td>
 
   <td class="msg">
-      <span class="redact" aria-label="redacted message" role="img">fix: wire handler and harden filter</span>
+      fix(plugin): drop null arg from decorateRequest for fastify v5 compatibility
   </td>
 
   <td class="sha">
-      <span class="redact" aria-label="redacted sha" role="img">1288829</span>
+      <a class="sha-link" href="https://github.com/curtyo18/payments-service/commit/0626d31a2f978ab957a5b0ad93c2312313e887af" target="_blank" rel="noopener noreferrer">0626d31</a>
   </td>
-</tr><tr class="named">
+</tr><tr class="">
     <td class="when">2026-04-25 19:03</td>
 
   <td class="repo">
-      payments-service
+      <a class="repo-link" href="https://github.com/curtyo18/payments-service" target="_blank" rel="noopener noreferrer">payments-service</a>
   </td>
 
   <td class="msg">
-      <span class="redact" aria-label="redacted message" role="img">feat: vendor leaky indexer</span>
+      fix(deps): bump fastify, aws-sdk, esbuild, tsx to resolve audit advisories
   </td>
 
   <td class="sha">
-      <span class="redact" aria-label="redacted sha" role="img">db4b0e2</span>
+      <a class="sha-link" href="https://github.com/curtyo18/payments-service/commit/ebbc49ace373e3d8e0c42f1bd42941636c154619" target="_blank" rel="noopener noreferrer">ebbc49a</a>
   </td>
 </tr><tr class="">
     <td class="when">2026-04-25 19:01</td>
@@ -976,89 +1128,89 @@
   <td class="sha">
       <a class="sha-link" href="https://github.com/curtyo18/FileOrganizer/commit/a12e916395e73d6f8bfee4f116f05c5d78d82c8a" target="_blank" rel="noopener noreferrer">a12e916</a>
   </td>
-</tr><tr class="named">
+</tr><tr class="">
     <td class="when">2026-04-25 18:36</td>
 
   <td class="repo">
-      payments-service
+      <a class="repo-link" href="https://github.com/curtyo18/payments-service" target="_blank" rel="noopener noreferrer">payments-service</a>
   </td>
 
   <td class="msg">
-      <span class="redact" aria-label="redacted message" role="img">extract bootstrapper (minor)</span>
+      chore: remove git push deny from settings (cloud agent operates on its own branches)
   </td>
 
   <td class="sha">
-      <span class="redact" aria-label="redacted sha" role="img">af21191</span>
+      <a class="sha-link" href="https://github.com/curtyo18/payments-service/commit/5e2c4a9b545c24ea519ba0bf6a7e2c605b93e606" target="_blank" rel="noopener noreferrer">5e2c4a9</a>
   </td>
-</tr><tr class="named">
+</tr><tr class="">
     <td class="when">2026-04-25 18:32</td>
 
   <td class="repo">
-      payments-service
+      <a class="repo-link" href="https://github.com/curtyo18/payments-service" target="_blank" rel="noopener noreferrer">payments-service</a>
   </td>
 
   <td class="msg">
-      <span class="redact" aria-label="redacted message" role="img">refactor: refactor incorrect config for the redundant worker</span>
+      ci: switch to npm ci, drop continue-on-error, restore npm cache
   </td>
 
   <td class="sha">
-      <span class="redact" aria-label="redacted sha" role="img">99e1784</span>
+      <a class="sha-link" href="https://github.com/curtyo18/payments-service/commit/10fc3a55d9f46a7735856a2df0f6cc721e6c188a" target="_blank" rel="noopener noreferrer">10fc3a5</a>
   </td>
-</tr><tr class="named">
+</tr><tr class="">
     <td class="when">2026-04-25 18:32</td>
 
   <td class="repo">
-      payments-service
+      <a class="repo-link" href="https://github.com/curtyo18/payments-service" target="_blank" rel="noopener noreferrer">payments-service</a>
   </td>
 
   <td class="msg">
-      <span class="redact" aria-label="redacted message" role="img">init dead dispatcher when builder changes</span>
+      fix(plugin): wrap request-deps-plugin with fastify-plugin
   </td>
 
   <td class="sha">
-      <span class="redact" aria-label="redacted sha" role="img">d85d40d</span>
+      <a class="sha-link" href="https://github.com/curtyo18/payments-service/commit/238e340b1d9d71b33c5233c8f74e0284cf76196c" target="_blank" rel="noopener noreferrer">238e340</a>
   </td>
-</tr><tr class="named">
+</tr><tr class="">
     <td class="when">2026-04-25 18:31</td>
 
   <td class="repo">
-      payments-service
+      <a class="repo-link" href="https://github.com/curtyo18/payments-service" target="_blank" rel="noopener noreferrer">payments-service</a>
   </td>
 
   <td class="msg">
-      <span class="redact" aria-label="redacted message" role="img">feat: wrap faster channel when ledger changes</span>
+      fix(test): override tsconfig in ts-jest to resolve verbatimModuleSyntax conflict
   </td>
 
   <td class="sha">
-      <span class="redact" aria-label="redacted sha" role="img">b3ff0df</span>
+      <a class="sha-link" href="https://github.com/curtyo18/payments-service/commit/2bae374af39877271eefe7178e65ad12ab55246d" target="_blank" rel="noopener noreferrer">2bae374</a>
   </td>
-</tr><tr class="named">
+</tr><tr class="">
     <td class="when">2026-04-25 18:31</td>
 
   <td class="repo">
-      payments-service
+      <a class="repo-link" href="https://github.com/curtyo18/payments-service" target="_blank" rel="noopener noreferrer">payments-service</a>
   </td>
 
   <td class="msg">
-      <span class="redact" aria-label="redacted message" role="img">refactor: drop view so handler can refactor schema</span>
+      chore(deps): add fastify-plugin and commit lockfile
   </td>
 
   <td class="sha">
-      <span class="redact" aria-label="redacted sha" role="img">25d7bf9</span>
+      <a class="sha-link" href="https://github.com/curtyo18/payments-service/commit/86b7a6f6c29eee88ffd66052579e5729f96453bf" target="_blank" rel="noopener noreferrer">86b7a6f</a>
   </td>
-</tr><tr class="named">
+</tr><tr class="">
     <td class="when">2026-04-25 16:51</td>
 
   <td class="repo">
-      payments-service
+      <a class="repo-link" href="https://github.com/curtyo18/payments-service" target="_blank" rel="noopener noreferrer">payments-service</a>
   </td>
 
   <td class="msg">
-      <span class="redact" aria-label="redacted message" role="img">wip: stub</span>
+      fix(ci): convert jest configs to .mjs (avoids ts-node dep for config loading)
   </td>
 
   <td class="sha">
-      <span class="redact" aria-label="redacted sha" role="img">8c3013b</span>
+      <a class="sha-link" href="https://github.com/curtyo18/payments-service/commit/47e5adc57a16b60e76e00c7180bdd7465db5daab" target="_blank" rel="noopener noreferrer">47e5adc</a>
   </td>
 </tr><tr class="">
     <td class="when">2026-04-25 16:50</td>
@@ -1074,61 +1226,61 @@
   <td class="sha">
       <a class="sha-link" href="https://github.com/curtyo18/FileOrganizer/commit/dc55f76397b042155c5a8e7c03c5606a9faaa0eb" target="_blank" rel="noopener noreferrer">dc55f76</a>
   </td>
-</tr><tr class="named">
+</tr><tr class="">
     <td class="when">2026-04-25 16:48</td>
 
   <td class="repo">
-      payments-service
+      <a class="repo-link" href="https://github.com/curtyo18/payments-service" target="_blank" rel="noopener noreferrer">payments-service</a>
   </td>
 
   <td class="msg">
-      <span class="redact" aria-label="redacted message" role="img">wip: inline encoder so schema can guard model</span>
+      fix: jest ESM mode requires --experimental-vm-modules; inline integration config
   </td>
 
   <td class="sha">
-      <span class="redact" aria-label="redacted sha" role="img">90b4221</span>
+      <a class="sha-link" href="https://github.com/curtyo18/payments-service/commit/468c53719718219d0e72a6255e22391224cda931" target="_blank" rel="noopener noreferrer">468c537</a>
   </td>
-</tr><tr class="named">
+</tr><tr class="">
     <td class="when">2026-04-25 16:46</td>
 
   <td class="repo">
-      payments-service
+      <a class="repo-link" href="https://github.com/curtyo18/payments-service" target="_blank" rel="noopener noreferrer">payments-service</a>
   </td>
 
   <td class="msg">
-      <span class="redact" aria-label="redacted message" role="img">feat: rename model for channel</span>
+      ci: continue-on-error per step so all failures surface in one run
   </td>
 
   <td class="sha">
-      <span class="redact" aria-label="redacted sha" role="img">d115359</span>
+      <a class="sha-link" href="https://github.com/curtyo18/payments-service/commit/31090e74185a8b32a5ab0ab4991623c9895f79e2" target="_blank" rel="noopener noreferrer">31090e7</a>
   </td>
-</tr><tr class="named">
+</tr><tr class="">
     <td class="when">2026-04-25 16:44</td>
 
   <td class="repo">
-      payments-service
+      <a class="repo-link" href="https://github.com/curtyo18/payments-service" target="_blank" rel="noopener noreferrer">payments-service</a>
   </td>
 
   <td class="msg">
-      <span class="redact" aria-label="redacted message" role="img">chore: restructure util (lenient)</span>
+      ci: remove npm cache (no package-lock.json committed yet)
   </td>
 
   <td class="sha">
-      <span class="redact" aria-label="redacted sha" role="img">cf8eaa3</span>
+      <a class="sha-link" href="https://github.com/curtyo18/payments-service/commit/be9c96c03f20fca53423720ccfa54c6916ccae32" target="_blank" rel="noopener noreferrer">be9c96c</a>
   </td>
-</tr><tr class="named">
+</tr><tr class="">
     <td class="when">2026-04-25 16:42</td>
 
   <td class="repo">
-      payments-service
+      <a class="repo-link" href="https://github.com/curtyo18/payments-service" target="_blank" rel="noopener noreferrer">payments-service</a>
   </td>
 
   <td class="msg">
-      <span class="redact" aria-label="redacted message" role="img">chore: deprecate dispatcher and debounce manager</span>
+      ci: add GitHub Actions workflow for typecheck and unit tests
   </td>
 
   <td class="sha">
-      <span class="redact" aria-label="redacted sha" role="img">7bb0785</span>
+      <a class="sha-link" href="https://github.com/curtyo18/payments-service/commit/d94cade3ddbc0f85c76701dbe2b6038ddce1b8b1" target="_blank" rel="noopener noreferrer">d94cade</a>
   </td>
 </tr><tr class="">
     <td class="when">2026-04-25 16:41</td>
@@ -1144,19 +1296,19 @@
   <td class="sha">
       <a class="sha-link" href="https://github.com/curtyo18/FileOrganizer/commit/3c44cdbc4280a50d1f807d2515a5fd253d2b7642" target="_blank" rel="noopener noreferrer">3c44cdb</a>
   </td>
-</tr><tr class="named">
+</tr><tr class="">
     <td class="when">2026-04-25 16:39</td>
 
   <td class="repo">
-      payments-service
+      <a class="repo-link" href="https://github.com/curtyo18/payments-service" target="_blank" rel="noopener noreferrer">payments-service</a>
   </td>
 
   <td class="msg">
-      <span class="redact" aria-label="redacted message" role="img">feat: guard session (stale)</span>
+      feat(composition): add request-scoped deps + Fastify plugin honouring x-mock-scenario
   </td>
 
   <td class="sha">
-      <span class="redact" aria-label="redacted sha" role="img">26ead7f</span>
+      <a class="sha-link" href="https://github.com/curtyo18/payments-service/commit/b1791c048c3579fa9eded969a020374bc566c9b5" target="_blank" rel="noopener noreferrer">b1791c0</a>
   </td>
 </tr><tr class="">
     <td class="when">2026-04-25 16:38</td>
@@ -1172,103 +1324,103 @@
   <td class="sha">
       <a class="sha-link" href="https://github.com/curtyo18/FileOrganizer/commit/d2d5a98810deb9c1e0591c14bb461d97974e955e" target="_blank" rel="noopener noreferrer">d2d5a98</a>
   </td>
-</tr><tr class="named">
+</tr><tr class="">
     <td class="when">2026-04-25 16:38</td>
 
   <td class="repo">
-      payments-service
+      <a class="repo-link" href="https://github.com/curtyo18/payments-service" target="_blank" rel="noopener noreferrer">payments-service</a>
   </td>
 
   <td class="msg">
-      <span class="redact" aria-label="redacted message" role="img">harden stale encoder when config changes</span>
+      feat(composition): add app-scoped dependency builder
   </td>
 
   <td class="sha">
-      <span class="redact" aria-label="redacted sha" role="img">0b61343</span>
+      <a class="sha-link" href="https://github.com/curtyo18/payments-service/commit/01d82ccdd262c6e987000718ebfcc7d53bcb90c0" target="_blank" rel="noopener noreferrer">01d82cc</a>
   </td>
-</tr><tr class="named">
+</tr><tr class="">
     <td class="when">2026-04-25 16:38</td>
 
   <td class="repo">
-      payments-service
+      <a class="repo-link" href="https://github.com/curtyo18/payments-service" target="_blank" rel="noopener noreferrer">payments-service</a>
   </td>
 
   <td class="msg">
-      <span class="redact" aria-label="redacted message" role="img">refactor watcher (redundant)</span>
+      feat(auth): add InternalAuthClient with discriminated-union result
   </td>
 
   <td class="sha">
-      <span class="redact" aria-label="redacted sha" role="img">2988a26</span>
+      <a class="sha-link" href="https://github.com/curtyo18/payments-service/commit/31b673c83f9e1cea206fe751404e6cdbbdae2266" target="_blank" rel="noopener noreferrer">31b673c</a>
   </td>
-</tr><tr class="named">
+</tr><tr class="">
     <td class="when">2026-04-25 16:37</td>
 
   <td class="repo">
-      payments-service
+      <a class="repo-link" href="https://github.com/curtyo18/payments-service" target="_blank" rel="noopener noreferrer">payments-service</a>
   </td>
 
   <td class="msg">
-      <span class="redact" aria-label="redacted message" role="img">test: throttle encoder (tighter)</span>
+      feat(mock): add scenario catalogues for stripe, adyen, auth-service
   </td>
 
   <td class="sha">
-      <span class="redact" aria-label="redacted sha" role="img">586ddc4</span>
+      <a class="sha-link" href="https://github.com/curtyo18/payments-service/commit/3a99684531b9afd9b4150bc99c54f76f2c4b2131" target="_blank" rel="noopener noreferrer">3a99684</a>
   </td>
-</tr><tr class="named">
+</tr><tr class="">
     <td class="when">2026-04-25 16:36</td>
 
   <td class="repo">
-      payments-service
+      <a class="repo-link" href="https://github.com/curtyo18/payments-service" target="_blank" rel="noopener noreferrer">payments-service</a>
   </td>
 
   <td class="msg">
-      <span class="redact" aria-label="redacted message" role="img">polish</span>
+      feat(mock): add x-mock-scenario header parser
   </td>
 
   <td class="sha">
-      <span class="redact" aria-label="redacted sha" role="img">54f16c5</span>
+      <a class="sha-link" href="https://github.com/curtyo18/payments-service/commit/420c1815f14e6e5f73a833f08d96ed9cabd94573" target="_blank" rel="noopener noreferrer">420c181</a>
   </td>
-</tr><tr class="named">
+</tr><tr class="">
     <td class="when">2026-04-25 16:36</td>
 
   <td class="repo">
-      payments-service
+      <a class="repo-link" href="https://github.com/curtyo18/payments-service" target="_blank" rel="noopener noreferrer">payments-service</a>
   </td>
 
   <td class="msg">
-      <span class="redact" aria-label="redacted message" role="img">test: bump context</span>
+      feat(http): add Fetcher type and systemFetcher
   </td>
 
   <td class="sha">
-      <span class="redact" aria-label="redacted sha" role="img">a5604fd</span>
+      <a class="sha-link" href="https://github.com/curtyo18/payments-service/commit/946a7586eb33f2ac945d9e9148437df1266b69ef" target="_blank" rel="noopener noreferrer">946a758</a>
   </td>
-</tr><tr class="named">
+</tr><tr class="">
     <td class="when">2026-04-25 16:36</td>
 
   <td class="repo">
-      payments-service
+      <a class="repo-link" href="https://github.com/curtyo18/payments-service" target="_blank" rel="noopener noreferrer">payments-service</a>
   </td>
 
   <td class="msg">
-      <span class="redact" aria-label="redacted message" role="img">wip: wire obsolete adapter in util</span>
+      feat(alerts): add IAlertService interface and ConsoleAlertService
   </td>
 
   <td class="sha">
-      <span class="redact" aria-label="redacted sha" role="img">79e308f</span>
+      <a class="sha-link" href="https://github.com/curtyo18/payments-service/commit/5d60778539d689ec5c1c225726c9d7b27758e008" target="_blank" rel="noopener noreferrer">5d60778</a>
   </td>
-</tr><tr class="named">
+</tr><tr class="">
     <td class="when">2026-04-25 16:36</td>
 
   <td class="repo">
-      payments-service
+      <a class="repo-link" href="https://github.com/curtyo18/payments-service" target="_blank" rel="noopener noreferrer">payments-service</a>
   </td>
 
   <td class="msg">
-      <span class="redact" aria-label="redacted message" role="img">polish reusable filter in fallback</span>
+      feat(domain): add core types (money, clock, ids, intent, provider, events)
   </td>
 
   <td class="sha">
-      <span class="redact" aria-label="redacted sha" role="img">13d35ad</span>
+      <a class="sha-link" href="https://github.com/curtyo18/payments-service/commit/1ab9cfb445087a1874d51d49d4384ced2f906cc9" target="_blank" rel="noopener noreferrer">1ab9cfb</a>
   </td>
 </tr><tr class="named">
     <td class="when">2026-04-25 17:35</td>
@@ -1284,33 +1436,33 @@
   <td class="sha">
       <span class="redact" aria-label="redacted sha" role="img">c0a618f</span>
   </td>
-</tr><tr class="named">
+</tr><tr class="">
     <td class="when">2026-04-25 16:35</td>
 
   <td class="repo">
-      payments-service
+      <a class="repo-link" href="https://github.com/curtyo18/payments-service" target="_blank" rel="noopener noreferrer">payments-service</a>
   </td>
 
   <td class="msg">
-      <span class="redact" aria-label="redacted message" role="img">tighten supervisor for queue</span>
+      feat(server): add Fastify skeleton with /health endpoint
   </td>
 
   <td class="sha">
-      <span class="redact" aria-label="redacted sha" role="img">ae0eb8d</span>
+      <a class="sha-link" href="https://github.com/curtyo18/payments-service/commit/fbe1a2604c4bfad823572aa12b727d6be8cf4f28" target="_blank" rel="noopener noreferrer">fbe1a26</a>
   </td>
-</tr><tr class="named">
+</tr><tr class="">
     <td class="when">2026-04-25 16:34</td>
 
   <td class="repo">
-      payments-service
+      <a class="repo-link" href="https://github.com/curtyo18/payments-service" target="_blank" rel="noopener noreferrer">payments-service</a>
   </td>
 
   <td class="msg">
-      <span class="redact" aria-label="redacted message" role="img">feat: update store</span>
+      chore: bootstrap repository (deps, tsconfig, jest, prettier, settings)
   </td>
 
   <td class="sha">
-      <span class="redact" aria-label="redacted sha" role="img">e6eddf6</span>
+      <a class="sha-link" href="https://github.com/curtyo18/payments-service/commit/b28b7ab0bc4e79da79f2976867f0183397f99e5d" target="_blank" rel="noopener noreferrer">b28b7ab</a>
   </td>
 </tr><tr class="">
     <td class="when">2026-04-25 17:31</td>
@@ -1956,19 +2108,19 @@
   <td class="sha">
       <span class="redact-strong" aria-label="redacted sha" role="img">975660c</span>
   </td>
-</tr><tr class="named">
+</tr><tr class="">
     <td class="when">2026-04-25 16:34</td>
 
   <td class="repo">
-      payments-service
+      <a class="repo-link" href="https://github.com/curtyo18/payments-service" target="_blank" rel="noopener noreferrer">payments-service</a>
   </td>
 
   <td class="msg">
-      <span class="redact" aria-label="redacted message" role="img">wip: stub</span>
+      docs: add design spec and implementation plan
   </td>
 
   <td class="sha">
-      <span class="redact" aria-label="redacted sha" role="img">f14bf0a</span>
+      <a class="sha-link" href="https://github.com/curtyo18/payments-service/commit/4383b369530d41c972c8ca10c62815d63400dcf6" target="_blank" rel="noopener noreferrer">4383b36</a>
   </td>
 </tr><tr class="anon">
     <td class="when">2026-04-25</td>
@@ -2698,146 +2850,6 @@
   <td class="sha">
       <span class="redact-strong" aria-label="redacted sha" role="img">163b4b9</span>
   </td>
-</tr><tr class="anon">
-    <td class="when">2026-04-15</td>
-
-  <td class="repo">
-      <span class="redact-strong" aria-label="redacted repo" role="img">stream-toolkit</span>
-  </td>
-
-  <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">rework adapter in facade</span>
-  </td>
-
-  <td class="sha">
-      <span class="redact-strong" aria-label="redacted sha" role="img">0fa7e2f</span>
-  </td>
-</tr><tr class="anon">
-    <td class="when">2026-04-15</td>
-
-  <td class="repo">
-      <span class="redact-strong" aria-label="redacted repo" role="img">validator-watcher</span>
-  </td>
-
-  <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">fix: migrate minor worker in util</span>
-  </td>
-
-  <td class="sha">
-      <span class="redact-strong" aria-label="redacted sha" role="img">c4727fa</span>
-  </td>
-</tr><tr class="anon">
-    <td class="when">2026-04-15</td>
-
-  <td class="repo">
-      <span class="redact-strong" aria-label="redacted repo" role="img">spurious-fallback-watcher</span>
-  </td>
-
-  <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">feat: rename the leaky task</span>
-  </td>
-
-  <td class="sha">
-      <span class="redact-strong" aria-label="redacted sha" role="img">5253ef7</span>
-  </td>
-</tr><tr class="anon">
-    <td class="when">2026-04-15</td>
-
-  <td class="repo">
-      <span class="redact-strong" aria-label="redacted repo" role="img">duplicate-service</span>
-  </td>
-
-  <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">wip: extract obsolete config</span>
-  </td>
-
-  <td class="sha">
-      <span class="redact-strong" aria-label="redacted sha" role="img">351689f</span>
-  </td>
-</tr><tr class="anon">
-    <td class="when">2026-04-15</td>
-
-  <td class="repo">
-      <span class="redact-strong" aria-label="redacted repo" role="img">task-model</span>
-  </td>
-
-  <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">wip: tighten runner</span>
-  </td>
-
-  <td class="sha">
-      <span class="redact-strong" aria-label="redacted sha" role="img">23eef1d</span>
-  </td>
-</tr><tr class="anon">
-    <td class="when">2026-04-15</td>
-
-  <td class="repo">
-      <span class="redact-strong" aria-label="redacted repo" role="img">bootstrapper</span>
-  </td>
-
-  <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">test: guard config (unused)</span>
-  </td>
-
-  <td class="sha">
-      <span class="redact-strong" aria-label="redacted sha" role="img">e365877</span>
-  </td>
-</tr><tr class="anon">
-    <td class="when">2026-04-15</td>
-
-  <td class="repo">
-      <span class="redact-strong" aria-label="redacted repo" role="img">helper</span>
-  </td>
-
-  <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">migrate worker for ledger</span>
-  </td>
-
-  <td class="sha">
-      <span class="redact-strong" aria-label="redacted sha" role="img">831b821</span>
-  </td>
-</tr><tr class="anon">
-    <td class="when">2026-04-14</td>
-
-  <td class="repo">
-      <span class="redact-strong" aria-label="redacted repo" role="img">spurious-helper-helper</span>
-  </td>
-
-  <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">rework ledger in validator</span>
-  </td>
-
-  <td class="sha">
-      <span class="redact-strong" aria-label="redacted sha" role="img">06bb3c8</span>
-  </td>
-</tr><tr class="anon">
-    <td class="when">2026-04-14</td>
-
-  <td class="repo">
-      <span class="redact-strong" aria-label="redacted repo" role="img">duplicate-registry-decoder</span>
-  </td>
-
-  <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">chore: tweak adapter (stale)</span>
-  </td>
-
-  <td class="sha">
-      <span class="redact-strong" aria-label="redacted sha" role="img">f58b69b</span>
-  </td>
-</tr><tr class="anon">
-    <td class="when">2026-04-14</td>
-
-  <td class="repo">
-      <span class="redact-strong" aria-label="redacted repo" role="img">encoder-renderer</span>
-  </td>
-
-  <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">chore: inline the minor filter</span>
-  </td>
-
-  <td class="sha">
-      <span class="redact-strong" aria-label="redacted sha" role="img">2294c1b</span>
-  </td>
 </tr>        </tbody>
       </table>
 
@@ -2866,7 +2878,7 @@
     <a href="https://github.com/curtyo18" target="_blank" rel="noopener noreferrer">github</a> · <a href="mailto:curtyo18@gmail.com">email</a>
   </div>
   <div class="stats" style="align-items:center">
-    <span><b>2,008</b> commits</span>
+    <span><b>2,018</b> commits</span>
     <span><b>76</b> repos</span>
     <span><b>17</b> years</span>
   </div>
