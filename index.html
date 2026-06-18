@@ -16,7 +16,7 @@
     <small>curt — a public log of private and public work</small>
   </h1>
   <div class="meta">
-    <span><b>2,047</b> commits indexed</span>
+    <span><b>2,055</b> commits indexed</span>
     <span><b>76</b> repos · <b>17</b> years</span>
   </div>
 </div><div class="gr-section-title">
@@ -24,6 +24,17 @@
 </div>
 
 <div class="gr-featured">
+    <a class="card card-link" href="https://github.com/curtyo18/network-data-viewer" target="_blank" rel="noopener noreferrer">
+      <div class="top">
+        <div class="name">network-data-viewer</div>
+        <div class="lang"></div>
+      </div>
+      <div class="blurb"></div>
+      <div class="foot">
+        <span>178 commits</span>
+        <span>last touched 2026-06-17</span>
+      </div>
+    </a>
     <a class="card card-link" href="https://github.com/curtyo18/agent-config" target="_blank" rel="noopener noreferrer">
       <div class="top">
         <div class="name">agent-config</div>
@@ -57,21 +68,10 @@
         <span>last touched 2026-06-11</span>
       </div>
     </a>
-    <a class="card card-link" href="https://github.com/curtyo18/payments-service" target="_blank" rel="noopener noreferrer">
-      <div class="top">
-        <div class="name">payments-service</div>
-        <div class="lang"></div>
-      </div>
-      <div class="blurb"></div>
-      <div class="foot">
-        <span>40 commits</span>
-        <span>last touched 2026-06-11</span>
-      </div>
-    </a>
 </div>
       <div class="gr-section-title" style="margin-top:36px">
         <span>All commits · newest first</span>
-        <span class="right">showing 1–200 of 2047</span>
+        <span class="right">showing 1–200 of 2055</span>
       </div>
 
       <table class="gr-table">
@@ -84,10 +84,198 @@
             <tr class="gr-month-row">
               <td colspan="4">
                 June 2026
-                <span>187 commits · 118 public</span>
+                <span>195 commits · 126 public</span>
               </td>
             </tr>
-<tr class="anon">
+<tr class="">
+    <td class="when">2026-06-17 21:53</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/network-data-viewer" target="_blank" rel="noopener noreferrer">network-data-viewer</a>
+  </td>
+
+  <td class="msg">
+      chore: release v1.0.0
+
+Stable public-launch milestone (no code change since v0.6.1).
+
+- Bump version 0.6.1 -&gt; 1.0.0
+- Store listing: new pre-packaged-analysers opening line; replace the vague
+  &#34;linked below&#34; with the real source URL
+- Reviewer-facing accuracy: single-purpose description and the &lt;all_urls&gt;
+  permission justification now list the image-pixel-beacon transport added in
+  v0.6.1 (the public four-transport description is left as-is by choice)
+
+Co-Authored-By: Claude Opus 4.8 &lt;noreply@anthropic.com&gt;
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/network-data-viewer/commit/0511bf7edebafcc4d4c094d1552d38421b74a125" target="_blank" rel="noopener noreferrer">0511bf7</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-06-17 20:03</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/network-data-viewer" target="_blank" rel="noopener noreferrer">network-data-viewer</a>
+  </td>
+
+  <td class="msg">
+      chore: release v0.6.1
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/network-data-viewer/commit/7d7cff882a783f24f3d857477ed13e18bb9f684c" target="_blank" rel="noopener noreferrer">7d7cff8</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-06-17 19:49</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/network-data-viewer" target="_blank" rel="noopener noreferrer">network-data-viewer</a>
+  </td>
+
+  <td class="msg">
+      refactor(capture): address adversarial review of image hook
+
+- Extract the image-src hook into src/content/patch-image.ts so the safety
+  invariants are unit-testable (never throw into the page, always run the native
+  setter, preserve the getter, forward the raw value for TrustedURL survival).
+- Add lossless URL dedup (capped Set): suppresses the dominant volume source —
+  lazy-load swaps, re-renders, and carousels re-setting identical srcs — without
+  dropping any distinct beacon (real pixel URLs differ per fire). Avoids a lossy
+  content heuristic that could silently miss real beacons.
+- Skip empty/whitespace src resets, which otherwise resolve to the document URL
+  and emit the page&#39;s own URL on every clear.
+- Unit tests (patch-image.test.ts) cover emit, getter readback, dedup, relative
+  resolution, data:/blob:/empty skips, hostile-toString no-throw, and raw-value
+  forwarding.
+
+Co-Authored-By: Claude Opus 4.8 &lt;noreply@anthropic.com&gt;
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/network-data-viewer/commit/a3c7c65091dcabf8c65ee5c912386fad3f11e0d9" target="_blank" rel="noopener noreferrer">a3c7c65</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-06-17 19:42</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/network-data-viewer" target="_blank" rel="noopener noreferrer">network-data-viewer</a>
+  </td>
+
+  <td class="msg">
+      feat: capture image-beacon (tracking pixel) requests
+
+Meta&#39;s fbevents.js, Google Ads conversion pixels, Pinterest and others fire GET
+beacons by assigning to an Image&#39;s `src`, which bypasses the fetch/XHR/
+sendBeacon/WebSocket patches — so e.g. the Meta Pixel PageView never appeared in
+the panel (confirmed via the request&#39;s &#34;Initiator: Image / fbevents.js&#34; stack).
+
+Hook the HTMLImageElement.prototype `src` setter (the lean transport fbevents
+uses) and emit a capture event with source &#34;image&#34;, method GET, no body. Only
+http(s) URLs are emitted (skips data:/blob:/empty resets); the original getter
+is preserved and the native setter still runs, so image loading is unchanged.
+Analyser URL patterns filter the noise — ordinary &lt;img&gt; content matches nothing.
+
+- CaptureSource / CapturedEventSchema gain &#34;image&#34;
+- e2e: fixture #fire-image + a capture-and-render case (full suite stays green)
+
+Co-Authored-By: Claude Opus 4.8 &lt;noreply@anthropic.com&gt;
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/network-data-viewer/commit/16a677a247c8faf76dda8f1abe6c52075eb80c41" target="_blank" rel="noopener noreferrer">16a677a</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-06-17 17:43</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/network-data-viewer" target="_blank" rel="noopener noreferrer">network-data-viewer</a>
+  </td>
+
+  <td class="msg">
+      docs: list the Meta analyser in README and store listing
+
+README said three bundled analysers; there are now four. Add Meta to the
+default-analyser list and to the store listing&#39;s example beacons.
+
+Co-Authored-By: Claude Opus 4.8 &lt;noreply@anthropic.com&gt;
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/network-data-viewer/commit/77f7580dc99413baceddd3d040c3f3dc23f015c3" target="_blank" rel="noopener noreferrer">77f7580</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-06-17 17:40</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/network-data-viewer" target="_blank" rel="noopener noreferrer">network-data-viewer</a>
+  </td>
+
+  <td class="msg">
+      chore: release v0.6.0
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/network-data-viewer/commit/1d9e9ebb321cab5bcde1af8bfbd9e5f3214fc648" target="_blank" rel="noopener noreferrer">1d9e9eb</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-06-17 17:28</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/network-data-viewer" target="_blank" rel="noopener noreferrer">network-data-viewer</a>
+  </td>
+
+  <td class="msg">
+      fix(meta): address adversarial review — regex drift, field clobbering
+
+- Align the seed urlPattern CAPI branch with the sandbox&#39;s CAPI detector and
+  anchor the detector at the scheme: allows a trailing slash on /events (no
+  longer dropped at the gate) and prevents an unencoded graph.facebook.com URL
+  in a /tr param value from diverting the pixel beacon into the JSON branch.
+- Write analyser-controlled labels (transport, eventIndex) and the top-level
+  access_token last so a same-named wire field can&#39;t clobber them.
+- Split canonical top-level pixel params from cd[]/ud[] custom data so a custom
+  key (e.g. cd[id]) can&#39;t silently overwrite the real id/ev.
+- Surface non-object CAPI data[] items under `value` instead of emitting phantom
+  empty rows.
+- Add regression tests for each of the above.
+
+Co-Authored-By: Claude Opus 4.8 &lt;noreply@anthropic.com&gt;
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/network-data-viewer/commit/5a9af4350584e7479207f16307ddc866e04fed33" target="_blank" rel="noopener noreferrer">5a9af43</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-06-17 17:21</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/network-data-viewer" target="_blank" rel="noopener noreferrer">network-data-viewer</a>
+  </td>
+
+  <td class="msg">
+      feat: add Meta (Facebook) analyser for Pixel and direct CAPI traffic
+
+Adds a built-in &#34;Meta&#34; analyser seed (id ...0004, seedVersion 1) decoding two
+browser-visible Meta tracking shapes:
+
+- Meta Pixel `/tr` beacon — path-anchored + id=/ev= query guard so it also
+  catches first-party Conversions-API-gateway / sGTM proxies that re-front the
+  pixel under a customer domain; flattens cd[]/ud[] into inline fields.
+- Direct client-side Conversions API (graph.facebook.com/v&lt;n&gt;/&lt;id&gt;/events) —
+  fans out the JSON data[] batch, surfacing access_token verbatim (the tool is
+  local-only / no-network).
+
+Pure server-to-server CAPI is out of scope (never reaches the browser). Uses the
+existing SandboxInput/fanOut contracts; no dispatcher/schema/DSL changes.
+
+Co-Authored-By: Claude Opus 4.8 &lt;noreply@anthropic.com&gt;
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/network-data-viewer/commit/8ac9469dc1bbcd84ca12ed67254184a4c213c3ca" target="_blank" rel="noopener noreferrer">8ac9469</a>
+  </td>
+</tr><tr class="anon">
     <td class="when">2026-06-16</td>
 
   <td class="repo">
@@ -3177,7 +3365,7 @@ Verified: tests/test-agent-init.sh (Cases 3-6: single/multi/upsert/skip) and bas
 </tr>            <tr class="gr-month-row">
               <td colspan="4">
                 May 2026
-                <span>13 commits · 5 public</span>
+                <span>5 commits · 2 public</span>
               </td>
             </tr>
 <tr class="anon">
@@ -3262,144 +3450,6 @@ Docs only.
   <td class="sha">
       <a class="sha-link" href="https://github.com/curtyo18/agent-sandbox/commit/0c4f44722085af3b812d9f159b5874d32b0289ae" target="_blank" rel="noopener noreferrer">0c4f447</a>
   </td>
-</tr><tr class="anon">
-    <td class="when">2026-05-31</td>
-
-  <td class="repo">
-      <span class="redact-strong" aria-label="redacted repo" role="img">supervisor-reader</span>
-  </td>
-
-  <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">refactor: vendor redundant shim for the stale cache</span>
-  </td>
-
-  <td class="sha">
-      <span class="redact-strong" aria-label="redacted sha" role="img">358670c</span>
-  </td>
-</tr><tr class="anon">
-    <td class="when">2026-05-31</td>
-
-  <td class="repo">
-      <span class="redact-strong" aria-label="redacted repo" role="img">handler-schema</span>
-  </td>
-
-  <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">refactor: tidy unused ledger when queue changes</span>
-  </td>
-
-  <td class="sha">
-      <span class="redact-strong" aria-label="redacted sha" role="img">9e8dc27</span>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-05-31 23:11</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/agent-sandbox" target="_blank" rel="noopener noreferrer">agent-sandbox</a>
-  </td>
-
-  <td class="msg">
-      fix(clip-watcher): derive host clipboard dir from PROJECTS_HOST_PATH
-
-The watcher hardcoded DIR=/mnt/e/Projects/.claude-clipboard -- a personal host path in a live script. A public user who clones to ~/projects got a silently broken clipboard bridge, and the path exposed the maintainer host layout.
-
-Parameterize as ${CLAUDE_CLIPBOARD_DIR:-$HOME/projects/.claude-clipboard} and have bootstrap pin the real value via a systemd drop-in (Environment=CLAUDE_CLIPBOARD_DIR=$PROJECTS_HOST_PATH/.claude-clipboard), so the dir always tracks the /projects bind. clip/paste already use the container-side /projects/.claude-clipboard mount and are unchanged.
-
-Maintainer-preserving: launch.sh exports PROJECTS_HOST_PATH=/mnt/e/Projects, so the drop-in resolves to /mnt/e/Projects/.claude-clipboard, byte-identical to the old hardcoded value.
-
-Verified: bash -n on clip-watcher and bootstrap.sh; drop-in and DIR resolution checked for the systemd (env-set) and manual (fallback) paths.
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/agent-sandbox/commit/6a5831f4ccaf5f400a40340435dda2ecbf92f35c" target="_blank" rel="noopener noreferrer">6a5831f</a>
-  </td>
-</tr><tr class="anon">
-    <td class="when">2026-05-31</td>
-
-  <td class="repo">
-      <span class="redact-strong" aria-label="redacted repo" role="img">helper</span>
-  </td>
-
-  <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">test: extract faster handler</span>
-  </td>
-
-  <td class="sha">
-      <span class="redact-strong" aria-label="redacted sha" role="img">d8c4f72</span>
-  </td>
-</tr><tr class="anon">
-    <td class="when">2026-05-31</td>
-
-  <td class="repo">
-      <span class="redact-strong" aria-label="redacted repo" role="img">spurious-config-util</span>
-  </td>
-
-  <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">minor cleanup</span>
-  </td>
-
-  <td class="sha">
-      <span class="redact-strong" aria-label="redacted sha" role="img">be8a99a</span>
-  </td>
-</tr><tr class="anon">
-    <td class="when">2026-05-31</td>
-
-  <td class="repo">
-      <span class="redact-strong" aria-label="redacted repo" role="img">duplicate-manager-supervisor</span>
-  </td>
-
-  <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">rework service, simplify validator</span>
-  </td>
-
-  <td class="sha">
-      <span class="redact-strong" aria-label="redacted sha" role="img">cc50a3b</span>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-05-31 22:53</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/agent-sandbox" target="_blank" rel="noopener noreferrer">agent-sandbox</a>
-  </td>
-
-  <td class="msg">
-      README: align docs with the tokenless / .env / multi-host features
-
-- Network allowlist: name the always-on curated git hosts (github/gitlab/bitbucket, baked into
-  render-squid-conf) and defer the rest to agent-config&#39;s network-allowlist.conf, replacing a
-  stale 6-host list that omitted gitlab/bitbucket and contradicted &#34;Using other git hosts&#34;.
-- Configuration: lead with ~/.agent-sandbox/.env and drop the undefined &#34;launch.sh&#34; references
-  in favour of a generic wrapper note (also in dotenv.example).
-- Document --print-config / --dry-run and --init --non-interactive (CI).
-- Note that per-host git-credentials coexist with the GitHub gh login (separate helpers).
-
-Docs only.
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/agent-sandbox/commit/b0aa318dcc9fad5dd8a54cb66be6df54713b1180" target="_blank" rel="noopener noreferrer">b0aa318</a>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-05-31 22:34</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/agent-sandbox" target="_blank" rel="noopener noreferrer">agent-sandbox</a>
-  </td>
-
-  <td class="msg">
-      Make test-agent-config-sync host-hermetic via LAUNCHER_PROJECT
-
-The nopat &#34;trust seeded&#34; assertion keyed off an ambient /projects dir, which only
-exists inside the container, so the suite passed in-container but failed on a bare
-WSL host. agent-config-sync already seeds workspace trust for $LAUNCHER_PROJECT;
-point it at a test-owned temp dir so the case is self-contained. Production code
-unchanged.
-
-Verified: passes on the WSL host and inside claude-box (8/8).
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/agent-sandbox/commit/70450af1d1af92cac155c2af836f332b589c0d71" target="_blank" rel="noopener noreferrer">70450af</a>
-  </td>
 </tr>        </tbody>
       </table>
 
@@ -3424,7 +3474,7 @@ Verified: passes on the WSL host and inside claude-box (8/8).
     <a href="https://github.com/curtyo18" target="_blank" rel="noopener noreferrer">github</a> · <a href="mailto:curtyo18@gmail.com">email</a>
   </div>
   <div class="stats" style="align-items:center">
-    <span><b>2,047</b> commits</span>
+    <span><b>2,055</b> commits</span>
     <span><b>76</b> repos</span>
     <span><b>17</b> years</span>
   </div>

@@ -16,13 +16,13 @@
     <small>curt — a public log of private and public work</small>
   </h1>
   <div class="meta">
-    <span><b>2,047</b> commits indexed</span>
+    <span><b>2,055</b> commits indexed</span>
     <span><b>76</b> repos · <b>17</b> years</span>
   </div>
 </div>
       <div class="gr-section-title" style="margin-top:36px">
         <span>All commits · newest first</span>
-        <span class="right">showing 1001–1200 of 2047</span>
+        <span class="right">showing 1001–1200 of 2055</span>
       </div>
 
       <table class="gr-table">
@@ -35,10 +35,246 @@
             <tr class="gr-month-row">
               <td colspan="4">
                 April 2026
-                <span>200 commits · 130 public</span>
+                <span>200 commits · 136 public</span>
               </td>
             </tr>
 <tr class="">
+    <td class="when">2026-04-28 14:47</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/FileOrganizer" target="_blank" rel="noopener noreferrer">FileOrganizer</a>
+  </td>
+
+  <td class="msg">
+      fix(ui): get the keyboard-shortcut tests green in CI
+
+Three small problems landed together, fixing them as one commit so
+CI doesn&#39;t stay red between hops:
+
+1. vite.config.ts had no `test` block, so vitest defaulted to node
+   instead of jsdom and ignored the preact JSX transform. Added
+   `test.environment = &#39;jsdom&#39;`.
+2. Even with jsdom, vitest&#39;s esbuild step was emitting
+   `React.createElement` from the .tsx test rather than running it
+   through @preact/preset-vite. Rewrote the test to call `h()`
+   directly instead of relying on the JSX transform — avoids the
+   plugin/transform plumbing entirely and keeps the test fast.
+3. `target.isContentEditable` evaluates to false in jsdom for nodes
+   that haven&#39;t propagated computed style, so a contenteditable div
+   was slipping past the editable-target guard. Hook now also
+   inspects the raw `contenteditable` attribute (`&#34;&#34;`, `&#34;true&#34;`,
+   `&#34;plaintext-only&#34;`) so the test and the real browser both behave
+   the same way.
+
+11/11 UI tests pass locally; full root gate (191 engine + 8 shared +
+11 ui = 210) green.
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/FileOrganizer/commit/2101b022512852ae8eb7cb327a7298a40b3b7b1b" target="_blank" rel="noopener noreferrer">2101b02</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-04-28 13:23</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/FileOrganizer" target="_blank" rel="noopener noreferrer">FileOrganizer</a>
+  </td>
+
+  <td class="msg">
+      fix(engine/catalog): reconcile queries batches by id, not batch_id
+
+The startup-reconciliation finalizer was selecting `batch_id` from
+the `batches` table, but `batches.id` is the PK — the column
+`batch_id` only exists on `operations`. CI failed across every M7
+commit with `SqliteError: no such column: batch_id`. One-character
+fix in the SELECT plus alias to keep the destructure intact.
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/FileOrganizer/commit/c287b9993d6ef73793199ba2e91d240e712adcca" target="_blank" rel="noopener noreferrer">c287b99</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-04-28 11:47</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/FileOrganizer" target="_blank" rel="noopener noreferrer">FileOrganizer</a>
+  </td>
+
+  <td class="msg">
+      docs: expand README with daily-use, troubleshooting, architecture
+
+Merge the M7 plan&#39;s user-guide content into the existing README:
+add an Install-from-source block, a Daily use section that lists
+all eight UI screens with their keyboard shortcuts, a
+Troubleshooting section covering catalog locks, NAS disconnects,
+missing mediainfo, free-space aborts, and paused scans, plus an
+Architecture overview.
+
+Existing content preserved verbatim: screenshot reference, status
+table, prerequisites, &#34;Is it safe to run?&#34; safety section, and
+the License note. M7 row stays at &#34;🚧 in progress&#34; — T08 (perf)
+and T09 (manual e2e + version tag) are still pending.
+
+Task: M7-T07
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/FileOrganizer/commit/ac34d9189c3751a8d4c019e968b9930634662bdf" target="_blank" rel="noopener noreferrer">ac34d91</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-04-28 11:46</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/FileOrganizer" target="_blank" rel="noopener noreferrer">FileOrganizer</a>
+  </td>
+
+  <td class="msg">
+      chore(scripts): extract mediainfo zip into engine/bin/ on fetch
+
+After downloading the MediaInfo CLI zip, parse the ZIP central
+directory and inflate the requested entry directly into
+packages/engine/bin/&lt;binary&gt;, then delete the zip. POSIX builds
+get chmod 0o755. Writes go through a .partial sidecar + rename so
+a partial extraction can never look like a successful one.
+
+Plan called for the unzipper package, but the cloud sandbox blocks
+the npm registry entirely (zod, vitest, unzipper all 403&#39;d), and
+shipping a package.json change without a matching lockfile update
+would break `npm ci` in CI. The ZIP format is small enough to
+parse with node:zlib&#39;s inflateRaw, so this avoids the new dep
+without sacrificing clarity. Supports stored (method 0) and
+deflate (method 8) — all that mediainfo&#39;s archive uses.
+
+Engine tolerates a missing mediainfo binary; failure path logs
+clear manual-install instructions and exits 1 instead of leaving
+behind a partial file.
+
+Task: M7-T06
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/FileOrganizer/commit/cc8c75e15fc74497426aaccaae09b2bed8533a7b" target="_blank" rel="noopener noreferrer">cc8c75e</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-04-28 11:42</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/FileOrganizer" target="_blank" rel="noopener noreferrer">FileOrganizer</a>
+  </td>
+
+  <td class="msg">
+      feat(ui): add keyboard shortcuts (g+letter chord navigation)
+
+Wire a global keydown listener that supports g+letter chord nav
+(gd dashboard, gb browse, gs scans, go organize, gu duplicates,
+gh history, gq quarantine, gr roles, gt throttle) plus &#39;/&#39; to
+focus the search box.
+
+Critical correctness:
+- Skip when target is input/textarea/select or contenteditable so
+  typing inside RuleForm and similar editors works normally.
+- Skip when ctrl/meta/alt is held so browser shortcuts like Ctrl+G
+  (find), Ctrl+T (new tab), Cmd+R, etc. still pass through.
+- Chord pairs reset after 1s so an accidental &#34;g&#34; doesn&#39;t leak
+  into a later keypress.
+
+Tests cover the chord, single-key shortcut, every blur class
+(input/textarea/select/contenteditable), every modifier, the
+chord-timeout, and unmount cleanup.
+
+Task: M7-T05
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/FileOrganizer/commit/2bfd3c6fd5a8ba9f631f7e4f41d97522e1b55881" target="_blank" rel="noopener noreferrer">2bfd3c6</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-04-28 11:40</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/FileOrganizer" target="_blank" rel="noopener noreferrer">FileOrganizer</a>
+  </td>
+
+  <td class="msg">
+      feat(engine/organize): handle NAS disconnects during cross-drive copies
+
+When a `pipeline()` in moveCrossDrive throws a disconnect-class
+errno (ENOENT, EBUSY, ETIMEDOUT, ECONNRESET, ENETUNREACH), wrap it
+as a DriveError(DRIVE_DISCONNECTED) so callers can distinguish
+&#34;the drive went away&#34; from &#34;this single file is broken.&#34;
+
+The applier catches DriveError, marks the in-flight op failed,
+finishes the batch as failed with disconnectedDrive label and
+errorCode in the summary, then re-throws so callers see the
+disconnect rather than a generic completion result.
+
+The HTTP API translates DriveError into a 503 with
+{ error, code: &#39;DRIVE_DISCONNECTED&#39; } on /api/organize/apply and
+/api/organize/auto-apply, so the UI can show a &#34;drive went offline&#34;
+banner instead of a vague 500.
+
+Tests simulate the disconnect by deleting the source file before
+the pipeline opens it (yielding ENOENT). EHOSTUNREACH is omitted
+since plain SMB/NFS disconnects surface as ENOENT/ETIMEDOUT in
+practice; ECONNRESET added to cover mid-stream cuts.
+
+Task: M7-T04
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/FileOrganizer/commit/5f7ea1b77a44535eea66371bab03f5c9224dc94d" target="_blank" rel="noopener noreferrer">5f7ea1b</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-04-28 11:36</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/FileOrganizer" target="_blank" rel="noopener noreferrer">FileOrganizer</a>
+  </td>
+
+  <td class="msg">
+      feat(engine/organize): pre-flight free-space check on apply
+
+Before any cross-drive copy work begins, sum estimated bytes per
+destination drive and compare against that drive&#39;s free_bytes minus
+a 5% safety margin (computed from total_bytes). If insufficient,
+abort the whole batch up-front: finish the batch as failed with a
+&#34;insufficient free space&#34; reason in the summary, throw before
+recording any operations or touching the filesystem.
+
+freeBytes is the snapshot from the last scan/upsert and may be
+stale; the 5% safety margin absorbs short-term churn. Same-drive
+moves are excluded since they don&#39;t consume new space.
+
+Task: M7-T03
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/FileOrganizer/commit/9c2969b2b208b9e3c1c11320f7a6c1208233cbce" target="_blank" rel="noopener noreferrer">9c2969b</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-04-28 11:34</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/FileOrganizer" target="_blank" rel="noopener noreferrer">FileOrganizer</a>
+  </td>
+
+  <td class="msg">
+      feat(engine/catalog): add daily PRAGMA optimize runner
+
+Periodically run SQLite&#39;s PRAGMA optimize so query plans stay
+healthy as the catalog grows. Persists `lastOptimizedAt` in the
+settings k/v table and only re-runs after 24h elapsed.
+
+Wired into serve.ts: runs once at boot if due, then every 24h via
+an unref&#39;d interval so it doesn&#39;t keep the process alive.
+
+Task: M7-T02
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/FileOrganizer/commit/522654068115f0b27405717fd48003de212fd077" target="_blank" rel="noopener noreferrer">5226540</a>
+  </td>
+</tr><tr class="">
     <td class="when">2026-04-28 11:34</td>
 
   <td class="repo">
@@ -3065,118 +3301,6 @@ both typecheck and test run green.
   <td class="sha">
       <a class="sha-link" href="https://github.com/curtyo18/tampermonkey-scripts/commit/b21fbd2984996d80c3048d719a4cc067634c7fb0" target="_blank" rel="noopener noreferrer">b21fbd2</a>
   </td>
-</tr><tr class="">
-    <td class="when">2026-04-18 10:56</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/tampermonkey-scripts" target="_blank" rel="noopener noreferrer">tampermonkey-scripts</a>
-  </td>
-
-  <td class="msg">
-      Add BattleMetrics Wipe Stats userscript
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/tampermonkey-scripts/commit/741cb8c65679da44447a8c38df00429a1700e79b" target="_blank" rel="noopener noreferrer">741cb8c</a>
-  </td>
-</tr><tr class="anon">
-    <td class="when">2026-04-18</td>
-
-  <td class="repo">
-      <span class="redact-strong" aria-label="redacted repo" role="img">loader-toolkit</span>
-  </td>
-
-  <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">simplify session, inline worker</span>
-  </td>
-
-  <td class="sha">
-      <span class="redact-strong" aria-label="redacted sha" role="img">e94c3a6</span>
-  </td>
-</tr><tr class="anon">
-    <td class="when">2026-04-18</td>
-
-  <td class="repo">
-      <span class="redact-strong" aria-label="redacted repo" role="img">unused-router-handler</span>
-  </td>
-
-  <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">test: init consumer for queue</span>
-  </td>
-
-  <td class="sha">
-      <span class="redact-strong" aria-label="redacted sha" role="img">33209c1</span>
-  </td>
-</tr><tr class="anon">
-    <td class="when">2026-04-18</td>
-
-  <td class="repo">
-      <span class="redact-strong" aria-label="redacted repo" role="img">stricter-adapter-dispatcher</span>
-  </td>
-
-  <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">merge watcher and simplify runner</span>
-  </td>
-
-  <td class="sha">
-      <span class="redact-strong" aria-label="redacted sha" role="img">3144998</span>
-  </td>
-</tr><tr class="anon">
-    <td class="when">2026-04-18</td>
-
-  <td class="repo">
-      <span class="redact-strong" aria-label="redacted repo" role="img">silent-supervisor</span>
-  </td>
-
-  <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">move early renderer</span>
-  </td>
-
-  <td class="sha">
-      <span class="redact-strong" aria-label="redacted sha" role="img">5f510ef</span>
-  </td>
-</tr><tr class="anon">
-    <td class="when">2026-04-17</td>
-
-  <td class="repo">
-      <span class="redact-strong" aria-label="redacted repo" role="img">broken-validator</span>
-  </td>
-
-  <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">init leaky guard in adapter</span>
-  </td>
-
-  <td class="sha">
-      <span class="redact-strong" aria-label="redacted sha" role="img">3751f97</span>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-04-17 19:48</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/tampermonkey-scripts" target="_blank" rel="noopener noreferrer">tampermonkey-scripts</a>
-  </td>
-
-  <td class="msg">
-      Add GitLab Deploy Bar userscript
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/tampermonkey-scripts/commit/23599b1f4d721dd7c0775ed3e3ba48f706c0f29b" target="_blank" rel="noopener noreferrer">23599b1</a>
-  </td>
-</tr><tr class="anon">
-    <td class="when">2026-04-17</td>
-
-  <td class="repo">
-      <span class="redact-strong" aria-label="redacted repo" role="img">validator-toolkit</span>
-  </td>
-
-  <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">refactor: guard silent model</span>
-  </td>
-
-  <td class="sha">
-      <span class="redact-strong" aria-label="redacted sha" role="img">81874ca</span>
-  </td>
 </tr>        </tbody>
       </table>
 
@@ -3205,7 +3329,7 @@ both typecheck and test run green.
     <a href="https://github.com/curtyo18" target="_blank" rel="noopener noreferrer">github</a> · <a href="mailto:curtyo18@gmail.com">email</a>
   </div>
   <div class="stats" style="align-items:center">
-    <span><b>2,047</b> commits</span>
+    <span><b>2,055</b> commits</span>
     <span><b>76</b> repos</span>
     <span><b>17</b> years</span>
   </div>
