@@ -16,13 +16,13 @@
     <small>curt — a public log of private and public work</small>
   </h1>
   <div class="meta">
-    <span><b>2,061</b> commits indexed</span>
+    <span><b>2,064</b> commits indexed</span>
     <span><b>77</b> repos · <b>17</b> years</span>
   </div>
 </div>
       <div class="gr-section-title" style="margin-top:36px">
         <span>All commits · newest first</span>
-        <span class="right">showing 801–1000 of 2061</span>
+        <span class="right">showing 801–1000 of 2064</span>
       </div>
 
       <table class="gr-table">
@@ -35,10 +35,52 @@
             <tr class="gr-month-row">
               <td colspan="4">
                 May 2026
-                <span>175 commits · 112 public</span>
+                <span>178 commits · 113 public</span>
               </td>
             </tr>
-<tr class="">
+<tr class="anon">
+    <td class="when">2026-05-16</td>
+
+  <td class="repo">
+      <span class="redact-strong" aria-label="redacted repo" role="img">channel</span>
+  </td>
+
+  <td class="msg">
+      <span class="redact-strong" aria-label="redacted message" role="img">chore: split the incorrect shim</span>
+  </td>
+
+  <td class="sha">
+      <span class="redact-strong" aria-label="redacted sha" role="img">d542a86</span>
+  </td>
+</tr><tr class="anon">
+    <td class="when">2026-05-16</td>
+
+  <td class="repo">
+      <span class="redact-strong" aria-label="redacted repo" role="img">reusable-worker</span>
+  </td>
+
+  <td class="msg">
+      <span class="redact-strong" aria-label="redacted message" role="img">polish decoder, refactor supervisor</span>
+  </td>
+
+  <td class="sha">
+      <span class="redact-strong" aria-label="redacted sha" role="img">3e04d18</span>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-05-16 23:37</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/agent-sandbox" target="_blank" rel="noopener noreferrer">agent-sandbox</a>
+  </td>
+
+  <td class="msg">
+      fix: mkdir /home/claude/.config in Dockerfile so gh volume mounts as claude-owned
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/agent-sandbox/commit/141a87825706cd976b5582bf131cf9776e1c2fa4" target="_blank" rel="noopener noreferrer">141a878</a>
+  </td>
+</tr><tr class="">
     <td class="when">2026-05-16 23:34</td>
 
   <td class="repo">
@@ -2906,7 +2948,7 @@ findEmptyDirs gains an `unbounded` option that maps to cap=null.
 </tr>            <tr class="gr-month-row">
               <td colspan="4">
                 April 2026
-                <span>25 commits · 23 public</span>
+                <span>22 commits · 20 public</span>
               </td>
             </tr>
 <tr class="">
@@ -3449,95 +3491,6 @@ Closes #9 (preview-cache)
   <td class="sha">
       <a class="sha-link" href="https://github.com/curtyo18/FileOrganizer/commit/53638c1276435bda40bfb02516889c90fc1dcbb0" target="_blank" rel="noopener noreferrer">53638c1</a>
   </td>
-</tr><tr class="">
-    <td class="when">2026-04-29 07:58</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/FileOrganizer" target="_blank" rel="noopener noreferrer">FileOrganizer</a>
-  </td>
-
-  <td class="msg">
-      perf(ui): add minSize selector and pagination wiring on duplicates list
-
-Pair with the server-side pagination from the previous commit. The
-list now requests groups in pages of 50 and appends as the user
-scrolls within ~240px of the bottom. Default minimum size is 1 MB so
-the list opens with a manageable working set on a 95k-file catalog.
-
-Selector exposes 1 KB / 1 MB / 10 MB / 100 MB / 1 GB. Changing it
-resets the accumulated groups and reloads page 0. Header now shows
-&#34;loaded / total&#34; so the user can see they haven&#39;t exhausted the list.
-
-Note: the brief asked for @tanstack/virtual virtualization on top of
-this. That dep can&#39;t be installed in the sandbox (registry 403);
-pagination + the 1 MB default already gets the Duplicates page out of
-&#34;hangs the browser&#34; territory on 95k-file catalogs. Virtualization can
-land in a follow-up once @tanstack/virtual is added locally.
-
-Closes #9 (virtualization)
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/FileOrganizer/commit/af968781496b687cc3b42a0efad44a07bbcfcd27" target="_blank" rel="noopener noreferrer">af96878</a>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-04-29 07:55</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/FileOrganizer" target="_blank" rel="noopener noreferrer">FileOrganizer</a>
-  </td>
-
-  <td class="msg">
-      perf(engine/dedupe): paginate /api/duplicates by reclaimable bytes desc
-
-The Duplicates screen tries to render every duplicate group at once.
-On a 95k-file catalog that&#39;s tens of thousands of cards and the
-browser hangs.
-
-Push the slice to SQL: the GROUP BY query already orders by
-(copies-1)*MIN(size_bytes) DESC, so a LIMIT/OFFSET tacked on returns
-the highest-impact groups first. The endpoint now accepts ?limit
-(default 50, cap 500) and ?offset (default 0), returns total/hasMore
-so the UI can wire infinite scroll.
-
-planDedupe takes the same triple and forwards limit/offset through to
-detectDuplicates. countDuplicateGroups runs the same GROUP-BY skeleton
-without aggregations to populate total without paying for full
-group materialization.
-
-Closes #9 (pagination)
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/FileOrganizer/commit/3decb993c9e7d76fa86262367a49ddb86a7d098d" target="_blank" rel="noopener noreferrer">3decb99</a>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-04-28 23:08</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/FileOrganizer" target="_blank" rel="noopener noreferrer">FileOrganizer</a>
-  </td>
-
-  <td class="msg">
-      feat(engine/scan): exclude well-known game launcher folders by default
-
-Adds 20 game-launcher folder names to DEFAULT_EXCLUDED_NAMES so the
-walker stops at game install roots instead of indexing every UI sprite,
-voice line, and cutscene as if it were the user&#39;s media. Covers Steam,
-Epic, GOG, Battle.net, Origin/EA, Riot, Ubisoft, Microsoft Store/Xbox,
-Rockstar, and itch.io — the launchers that account for nearly all
-installed games on Windows.
-
-Custom-named installs (e.g. D:\Games\MyCoolGame\) are not caught here;
-that needs marker-file detection or a user-editable exclusions list,
-both filed as separate work.
-
-Closes #8
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/FileOrganizer/commit/52f4fe58320a2247e2f905b08d3428becbc74f8b" target="_blank" rel="noopener noreferrer">52f4fe5</a>
-  </td>
 </tr>        </tbody>
       </table>
 
@@ -3566,7 +3519,7 @@ Closes #8
     <a href="https://github.com/curtyo18" target="_blank" rel="noopener noreferrer">github</a> · <a href="mailto:curtyo18@gmail.com">email</a>
   </div>
   <div class="stats" style="align-items:center">
-    <span><b>2,061</b> commits</span>
+    <span><b>2,064</b> commits</span>
     <span><b>77</b> repos</span>
     <span><b>17</b> years</span>
   </div>
