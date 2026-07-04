@@ -16,13 +16,13 @@
     <small>curt — a public log of private and public work</small>
   </h1>
   <div class="meta">
-    <span><b>2,064</b> commits indexed</span>
+    <span><b>2,079</b> commits indexed</span>
     <span><b>77</b> repos · <b>17</b> years</span>
   </div>
 </div>
       <div class="gr-section-title" style="margin-top:36px">
         <span>All commits · newest first</span>
-        <span class="right">showing 201–400 of 2064</span>
+        <span class="right">showing 201–400 of 2079</span>
       </div>
 
       <table class="gr-table">
@@ -35,10 +35,270 @@
             <tr class="gr-month-row">
               <td colspan="4">
                 June 2026
-                <span>4 commits · 3 public</span>
+                <span>19 commits · 14 public</span>
               </td>
             </tr>
-<tr class="anon">
+<tr class="">
+    <td class="when">2026-06-01 13:28</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/agent-sandbox" target="_blank" rel="noopener noreferrer">agent-sandbox</a>
+  </td>
+
+  <td class="msg">
+      feat(image): install Claude via native installer instead of npm-global
+
+Root-owned /usr/local npm global dir made auto-update fail for the claude user
+(claude doctor warning). Install the native standalone binary into the
+claude-owned ~/.local after USER claude, prepend ~/.local/bin to PATH, and drop
+the npm install -g. Safety wrappers in /usr/local/bin stay root-owned.
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/agent-sandbox/commit/a9dc8a73a9437bec2baadcaaeae9a5f529c854f9" target="_blank" rel="noopener noreferrer">a9dc8a7</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-06-01 13:28</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/agent-config" target="_blank" rel="noopener noreferrer">agent-config</a>
+  </td>
+
+  <td class="msg">
+      fix(allowlist): widen claude.ai to .claude.ai for native installer host
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/agent-config/commit/22b99fb93a4a806a8da281e52e1f3156b65db812" target="_blank" rel="noopener noreferrer">22b99fb</a>
+  </td>
+</tr><tr class="anon">
+    <td class="when">2026-06-01</td>
+
+  <td class="repo">
+      <span class="redact-strong" aria-label="redacted repo" role="img">store-bootstrapper</span>
+  </td>
+
+  <td class="msg">
+      <span class="redact-strong" aria-label="redacted message" role="img">add flaky task for the stricter dispatcher</span>
+  </td>
+
+  <td class="sha">
+      <span class="redact-strong" aria-label="redacted sha" role="img">8e24229</span>
+  </td>
+</tr><tr class="anon">
+    <td class="when">2026-06-01</td>
+
+  <td class="repo">
+      <span class="redact-strong" aria-label="redacted repo" role="img">buffer-toolkit</span>
+  </td>
+
+  <td class="msg">
+      <span class="redact-strong" aria-label="redacted message" role="img">wip: rebuild reader, tweak scheduler</span>
+  </td>
+
+  <td class="sha">
+      <span class="redact-strong" aria-label="redacted sha" role="img">91db2ab</span>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-06-01 12:32</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/agent-config" target="_blank" rel="noopener noreferrer">agent-config</a>
+  </td>
+
+  <td class="msg">
+      Harden /context-collect: real timestamp, clip fallback, abort path
+
+Review follow-ups on the command prompt:
+- Timestamp is now captured from the shell (date +%Y%m%d-%H%M%S) and the
+  same value is reused for both the filename and the Captured field, so
+  the agent can&#39;t fabricate a time or let the two drift.
+- Step 4 guards the clip call with command -v and falls back to the
+  printed path, so the command works where the clip bridge isn&#39;t present
+  (forks / other machines).
+- Step 2 gains an explicit abort/keep-nothing branch that writes no file.
+
+Co-Authored-By: Claude Opus 4.8 (1M context) &lt;noreply@anthropic.com&gt;
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/agent-config/commit/0f7350d21b3a16d426754a6a005b64edc468efce" target="_blank" rel="noopener noreferrer">0f7350d</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-06-01 12:26</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/agent-config" target="_blank" rel="noopener noreferrer">agent-config</a>
+  </td>
+
+  <td class="msg">
+      Add /context-collect command for selective context compaction
+
+A spin on garbage collection: an interactive alternative to /compact.
+Scans the live context, buckets it (decisions, files, tasks, code,
+constraints, facts, commands, errors), recommends a keep-set, and lets
+the user accept or override. Writes a curated hybrid snapshot (narrative
+preamble + structured buckets, with a self-bootstrapping header and an
+honesty note) to /tmp/context-collector/&lt;timestamp&gt;-&lt;slug&gt;.md for
+resuming in a fresh session. Offers to copy the path via the clip bridge.
+
+Temp-file only; does not evict tokens from the current session.
+
+Co-Authored-By: Claude Opus 4.8 (1M context) &lt;noreply@anthropic.com&gt;
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/agent-config/commit/2b3bcfa2ffdcb41e9bc43033f37228b0f7862235" target="_blank" rel="noopener noreferrer">2b3bcfa</a>
+  </td>
+</tr><tr class="anon">
+    <td class="when">2026-06-01</td>
+
+  <td class="repo">
+      <span class="redact-strong" aria-label="redacted repo" role="img">consumer-toolkit</span>
+  </td>
+
+  <td class="msg">
+      <span class="redact-strong" aria-label="redacted message" role="img">expose obsolete controller for the obsolete guard</span>
+  </td>
+
+  <td class="sha">
+      <span class="redact-strong" aria-label="redacted sha" role="img">f782c3c</span>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-06-01 09:42</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/agent-config" target="_blank" rel="noopener noreferrer">agent-config</a>
+  </td>
+
+  <td class="msg">
+      docs(readme): add status-line screenshot
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/agent-config/commit/28017b0bd4d59018a594b9c046d3b1210e3e62f4" target="_blank" rel="noopener noreferrer">28017b0</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-06-01 09:38</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/agent-sandbox" target="_blank" rel="noopener noreferrer">agent-sandbox</a>
+  </td>
+
+  <td class="msg">
+      fix(clip-watcher): do not crash under set -u when HOME is unset
+
+A systemd service has no $HOME, so `DIR=&#34;${CLAUDE_CLIPBOARD_DIR:-$HOME/...}&#34;` aborted under set -u (crash-loop) whenever the CLAUDE_CLIPBOARD_DIR drop-in was absent — e.g. before bootstrap writes it. Guard with ${HOME:-/root} so it degrades to a path instead of dying. The drop-in remains the real fix for pointing at the right dir.
+
+Verified: bash -n.
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/agent-sandbox/commit/08d47559990f10b7fec22f80da933acef7af05fa" target="_blank" rel="noopener noreferrer">08d4755</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-06-01 09:13</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/agent-sandbox" target="_blank" rel="noopener noreferrer">agent-sandbox</a>
+  </td>
+
+  <td class="msg">
+      feat(clip-watcher): paste images from the Windows clipboard, not just text
+
+paste only ever returned text because the watcher captured the clipboard with `Get-Clipboard -Raw`. The request handler now tries an image first: PowerShell Clipboard.GetImage() saved to a PNG (Windows path via `wslpath -w`, run -Sta), and paste returns that PNG container path so Claude can Read it. Falls back to the existing text capture when there is no image, wslpath is missing, or PowerShell errors — so text paste is unchanged and the image attempt cannot break it.
+
+Verified: bash -n on both scripts. The image path is host/Windows-only (PowerShell + a real clipboard image) and is pending a host test.
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/agent-sandbox/commit/69c3d2fe1bac792a78645c51e8841e366affdd75" target="_blank" rel="noopener noreferrer">69c3d2f</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-06-01 08:51</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/agent-config" target="_blank" rel="noopener noreferrer">agent-config</a>
+  </td>
+
+  <td class="msg">
+      docs(readme): document status-line fields + context-rot colour thresholds
+
+Explain each field (cwd, ctx:N% (Mk), 5hr, weekly), note that the context colour tracks absolute tokens rather than window percentage, and add a threshold table: red at 75k, bold red at &gt;=100k (context-rot territory). Verified against statusline.py color_for_ctx_tokens.
+
+Docs only.
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/agent-config/commit/10d924c9e8b344e6cfd93a1e53eecb9ad92449da" target="_blank" rel="noopener noreferrer">10d924c</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-06-01 08:37</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/agent-config" target="_blank" rel="noopener noreferrer">agent-config</a>
+  </td>
+
+  <td class="msg">
+      docs(readme): expand inventory, flag defaults, add status-line placeholder
+
+Add CLAUDE.md + settings.json to &#34;What&#39;s here&#34; (the two omitted behaviour-shaping files). Note in &#34;Using this&#34; that the permissive defaults (bypassPermissions / skipDangerousModePermissionPrompt) assume the agent-sandbox container — review settings.json before cloning standalone onto a host. Call out deep-code-review distinctly and trim the superpowers-migration section to lead with what is here. Add a Status line section with a screenshot placeholder (image to be dropped at docs/statusline.png).
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/agent-config/commit/c17335edc9a905558247610251489157a6b8798a" target="_blank" rel="noopener noreferrer">c17335e</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-06-01 08:23</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/agent-sandbox" target="_blank" rel="noopener noreferrer">agent-sandbox</a>
+  </td>
+
+  <td class="msg">
+      docs(readme): tighten flow — multi-host up top, unify container name
+
+Four flow fixes from a top-to-bottom read: (1) add an &#34;Any git host&#34; feature bullet so multi-host support shows in the opening list, not just the architecture prose; (2) the raw-docker &#34;Running without WSL&#34; example used claude-sandbox while everything else (and cbox) uses claude-box — unify on claude-box; (3) quick-start step 4 said &#34;separate from GitHub&#34; -&gt; &#34;separate from your git host&#34; for non-GitHub users; (4) trim the tokenless reassurance duplicated in How-it-boots and Running-without-WSL toward the canonical GitHub access section.
+
+Docs only.
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/agent-sandbox/commit/2ecccf4ff577f56d6edf50a8a6570e0ced1fa574" target="_blank" rel="noopener noreferrer">2ecccf4</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-06-01 08:13</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/agent-sandbox" target="_blank" rel="noopener noreferrer">agent-sandbox</a>
+  </td>
+
+  <td class="msg">
+      docs(readme): make multi-host support explicit in requirements + quick start
+
+Requirements and Quick start read GitHub-only, where a GitLab/Bitbucket user decides whether the tool is for them. Reframe the requirement as host-agnostic (any HTTPS host; GitHub via gh/PAT, others via a per-host credential) and note that --init now provisions credentials for any other host too, not just GitHub.
+
+Docs only.
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/agent-sandbox/commit/24474f4bf524e3b8f3131addfc9c135d9e4484ab" target="_blank" rel="noopener noreferrer">24474f4</a>
+  </td>
+</tr><tr class="anon">
+    <td class="when">2026-06-01</td>
+
+  <td class="repo">
+      <span class="redact-strong" aria-label="redacted repo" role="img">stricter-loader-reader</span>
+  </td>
+
+  <td class="msg">
+      <span class="redact-strong" aria-label="redacted message" role="img">split client for model</span>
+  </td>
+
+  <td class="sha">
+      <span class="redact-strong" aria-label="redacted sha" role="img">a150d04</span>
+  </td>
+</tr><tr class="anon">
     <td class="when">2026-06-01</td>
 
   <td class="repo">
@@ -113,7 +373,7 @@ Verified: tests/test-agent-init.sh (Cases 3-6: single/multi/upsert/skip) and bas
 </tr>            <tr class="gr-month-row">
               <td colspan="4">
                 May 2026
-                <span>196 commits · 99 public</span>
+                <span>181 commits · 92 public</span>
               </td>
             </tr>
 <tr class="anon">
@@ -2921,216 +3181,6 @@ than it should.
   <td class="sha">
       <a class="sha-link" href="https://github.com/curtyo18/network-data-viewer/commit/97e9cf19922d5a4ef439392572e25954d0ddf29f" target="_blank" rel="noopener noreferrer">97e9cf1</a>
   </td>
-</tr><tr class="named">
-    <td class="when">2026-05-26 20:10</td>
-
-  <td class="repo">
-      network-data-viewer-archive
-  </td>
-
-  <td class="msg">
-      <span class="redact" aria-label="redacted message" role="img">docs: add duplicate mailer when manager changes</span>
-  </td>
-
-  <td class="sha">
-      <span class="redact" aria-label="redacted sha" role="img">5c12cbe</span>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-05-26 21:10</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/network-data-viewer" target="_blank" rel="noopener noreferrer">network-data-viewer</a>
-  </td>
-
-  <td class="msg">
-      feat(panel): virtualise EventList with @tanstack/react-virtual (#20)
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/network-data-viewer/commit/993c4aacc4e39e7c0aacb3928d63063b7a8a36fa" target="_blank" rel="noopener noreferrer">993c4aa</a>
-  </td>
-</tr><tr class="named">
-    <td class="when">2026-05-26 20:08</td>
-
-  <td class="repo">
-      network-data-viewer-archive
-  </td>
-
-  <td class="msg">
-      <span class="redact" aria-label="redacted message" role="img">chore: refactor dispatcher so adapter can throttle model</span>
-  </td>
-
-  <td class="sha">
-      <span class="redact" aria-label="redacted sha" role="img">8a21e24</span>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-05-26 21:08</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/network-data-viewer" target="_blank" rel="noopener noreferrer">network-data-viewer</a>
-  </td>
-
-  <td class="msg">
-      feat(sw): buffer recent MatchResults and replay on panel connect (#23)
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/network-data-viewer/commit/79ca6da79a67453f97680236145d30c39b15096e" target="_blank" rel="noopener noreferrer">79ca6da</a>
-  </td>
-</tr><tr class="named">
-    <td class="when">2026-05-26 20:04</td>
-
-  <td class="repo">
-      network-data-viewer-archive
-  </td>
-
-  <td class="msg">
-      <span class="redact" aria-label="redacted message" role="img">test: tidy reusable decoder when dispatcher changes</span>
-  </td>
-
-  <td class="sha">
-      <span class="redact" aria-label="redacted sha" role="img">ca6a2eb</span>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-05-26 21:04</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/network-data-viewer" target="_blank" rel="noopener noreferrer">network-data-viewer</a>
-  </td>
-
-  <td class="msg">
-      feat(panel): per-analyser last-error badge in AnalyserManager (#21)
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/network-data-viewer/commit/6d345d27b124f13aaf9b3e695ae569313aa57fb1" target="_blank" rel="noopener noreferrer">6d345d2</a>
-  </td>
-</tr><tr class="named">
-    <td class="when">2026-05-26 20:00</td>
-
-  <td class="repo">
-      network-data-viewer-archive
-  </td>
-
-  <td class="msg">
-      <span class="redact" aria-label="redacted message" role="img">wip: wrap channel, rename dispatcher</span>
-  </td>
-
-  <td class="sha">
-      <span class="redact" aria-label="redacted sha" role="img">3420c6e</span>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-05-26 21:00</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/network-data-viewer" target="_blank" rel="noopener noreferrer">network-data-viewer</a>
-  </td>
-
-  <td class="msg">
-      feat(capture): encode binary request bodies as base64 (#19)
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/network-data-viewer/commit/8c00e020824c1b5f4fbab38216a5da0a92e88b52" target="_blank" rel="noopener noreferrer">8c00e02</a>
-  </td>
-</tr><tr class="named">
-    <td class="when">2026-05-26 19:56</td>
-
-  <td class="repo">
-      network-data-viewer-archive
-  </td>
-
-  <td class="msg">
-      <span class="redact" aria-label="redacted message" role="img">test: optimize mailer and tidy queue</span>
-  </td>
-
-  <td class="sha">
-      <span class="redact" aria-label="redacted sha" role="img">298a216</span>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-05-26 20:56</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/network-data-viewer" target="_blank" rel="noopener noreferrer">network-data-viewer</a>
-  </td>
-
-  <td class="msg">
-      test(build): assert packaged zip contains all runtime HTML entries (#30)
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/network-data-viewer/commit/bed8348696872c8e246644257a64de298ef767e5" target="_blank" rel="noopener noreferrer">bed8348</a>
-  </td>
-</tr><tr class="named">
-    <td class="when">2026-05-26 19:56</td>
-
-  <td class="repo">
-      network-data-viewer-archive
-  </td>
-
-  <td class="msg">
-      <span class="redact" aria-label="redacted message" role="img">bump loader in wrapper</span>
-  </td>
-
-  <td class="sha">
-      <span class="redact" aria-label="redacted sha" role="img">13c744c</span>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-05-26 20:56</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/network-data-viewer" target="_blank" rel="noopener noreferrer">network-data-viewer</a>
-  </td>
-
-  <td class="msg">
-      fix(bridge): swallow synchronous &#39;context invalidated&#39; throw from sendMessage (#18)
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/network-data-viewer/commit/58effce38df6eef748a160e31eef574c530765ba" target="_blank" rel="noopener noreferrer">58effce</a>
-  </td>
-</tr><tr class="named">
-    <td class="when">2026-05-26 19:55</td>
-
-  <td class="repo">
-      network-data-viewer-archive
-  </td>
-
-  <td class="msg">
-      <span class="redact" aria-label="redacted message" role="img">test: polish adapter in pipeline</span>
-  </td>
-
-  <td class="sha">
-      <span class="redact" aria-label="redacted sha" role="img">264c28c</span>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-05-26 20:55</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/network-data-viewer" target="_blank" rel="noopener noreferrer">network-data-viewer</a>
-  </td>
-
-  <td class="msg">
-      perf(dispatcher): compile analyser regexes once per config cache rebuild (#17)
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/network-data-viewer/commit/a744f9201277da66d6267f8b07add12f829fbdeb" target="_blank" rel="noopener noreferrer">a744f92</a>
-  </td>
-</tr><tr class="named">
-    <td class="when">2026-05-26 19:53</td>
-
-  <td class="repo">
-      network-data-viewer-archive
-  </td>
-
-  <td class="msg">
-      <span class="redact" aria-label="redacted message" role="img">chore: tweak missing cache in decoder</span>
-  </td>
-
-  <td class="sha">
-      <span class="redact" aria-label="redacted sha" role="img">574d031</span>
-  </td>
 </tr>        </tbody>
       </table>
 
@@ -3156,7 +3206,7 @@ than it should.
     <a href="https://github.com/curtyo18" target="_blank" rel="noopener noreferrer">github</a> · <a href="mailto:curtyo18@gmail.com">email</a>
   </div>
   <div class="stats" style="align-items:center">
-    <span><b>2,064</b> commits</span>
+    <span><b>2,079</b> commits</span>
     <span><b>77</b> repos</span>
     <span><b>17</b> years</span>
   </div>
