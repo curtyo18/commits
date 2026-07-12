@@ -16,13 +16,13 @@
     <small>curt — a public log of private and public work</small>
   </h1>
   <div class="meta">
-    <span><b>2,079</b> commits indexed</span>
-    <span><b>77</b> repos · <b>17</b> years</span>
+    <span><b>2,103</b> commits indexed</span>
+    <span><b>78</b> repos · <b>17</b> years</span>
   </div>
 </div>
       <div class="gr-section-title" style="margin-top:36px">
         <span>All commits · newest first</span>
-        <span class="right">showing 401–600 of 2079</span>
+        <span class="right">showing 401–600 of 2103</span>
       </div>
 
       <table class="gr-table">
@@ -35,10 +35,391 @@
             <tr class="gr-month-row">
               <td colspan="4">
                 May 2026
-                <span>200 commits · 107 public</span>
+                <span>200 commits · 109 public</span>
               </td>
             </tr>
-<tr class="named">
+<tr class="">
+    <td class="when">2026-05-26 23:51</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/html-utils" target="_blank" rel="noopener noreferrer">html-utils</a>
+  </td>
+
+  <td class="msg">
+      style(fun/chess): move capture-hint ring to corners + red for visibility
+
+The ring sat at 50-56% radius — under the piece image, invisible
+against the captured piece. Push to 78-90% so it shows in the square
+corners around the piece, and use red instead of semi-transparent
+black so it stays visible on both light and dark pieces.
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/html-utils/commit/a0a711791fbc2437d0e24328be49a72b1b82ffa8" target="_blank" rel="noopener noreferrer">a0a7117</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-05-26 23:48</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/html-utils" target="_blank" rel="noopener noreferrer">html-utils</a>
+  </td>
+
+  <td class="msg">
+      feat(fun/chess): tap-to-select then tap-to-move (alongside drag)
+
+chessboard-element only fires drag-start/drop on squares with pieces,
+so tap-to-empty-square needed a separate signal. Listen for click and
+locate the square via composedPath() + the lib&#39;s part=&#39;square &lt;name&gt;&#39;
+attribute on each square element.
+
+State machine:
+- No selection + tap own piece -&gt; select (highlight + hints).
+- Selection + tap same square -&gt; deselect.
+- Selection + tap legal target -&gt; execute move.
+- Selection + tap other own piece -&gt; switch selection.
+- Selection + tap illegal/empty target -&gt; deselect.
+
+Pure taps (drop with source === target) now fall through without
+mutating state so the click handler owns the tap path. Drag still
+works exactly as before, and dragging also clears any pending tap
+selection.
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/html-utils/commit/723bee4b0b72e5b86e5fea9d3fbf9c49c6a5eb91" target="_blank" rel="noopener noreferrer">723bee4</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-05-26 23:45</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/html-utils" target="_blank" rel="noopener noreferrer">html-utils</a>
+  </td>
+
+  <td class="msg">
+      feat(fun/chess): highlight bot&#39;s last move + move-speed 800ms
+
+Last-move highlight: tint the bot&#39;s from (softer) and to (stronger)
+squares with an amber background-image gradient. Persists until the
+player makes their next move (cleared in the drop handler) or new
+game. Uses background-image so it layers cleanly with the box-shadow
+rings used for check highlighting.
+
+Bumped move-speed 550 -&gt; 800ms per request — pieces glide more
+deliberately so the move is impossible to miss.
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/html-utils/commit/5453f0d4bb3aae6036eebc0553ff433f4f1d8d48" target="_blank" rel="noopener noreferrer">5453f0d</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-05-26 23:43</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/html-utils" target="_blank" rel="noopener noreferrer">html-utils</a>
+  </td>
+
+  <td class="msg">
+      fix(fun/chess): two-stage setPosition so captures actually animate
+
+Root cause: chessboard-element&#39;s _calculateAnimations intentionally
+skips the &#39;clear&#39; animation when a piece sits on a square that&#39;s the
+target of a &#39;move&#39; (i.e. a capture). The defender just teleports out
+the moment setPosition commits — trash-speed has no effect on captures.
+
+Fix: when the bot&#39;s move is a capture, first render an intermediate
+position with the captured piece removed (the lib now generates a real
+&#39;clear&#39; animation using trashSpeed), wait for the fade, then render
+the final position so the attacker glides into the empty square.
+
+Also bump move-speed 450 -&gt; 550 for slightly more deliberate gliding,
+since the lack of capture animation was making everything feel snappier
+than it should.
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/html-utils/commit/7cb42bf1bd27eabeb0eed093d04712382cec9014" target="_blank" rel="noopener noreferrer">7cb42bf</a>
+  </td>
+</tr><tr class="named">
+    <td class="when">2026-05-26 21:47</td>
+
+  <td class="repo">
+      network-data-viewer-archive
+  </td>
+
+  <td class="msg">
+      <span class="redact" aria-label="redacted message" role="img">add view</span>
+  </td>
+
+  <td class="sha">
+      <span class="redact" aria-label="redacted sha" role="img">0c0fea1</span>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-05-26 22:47</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/network-data-viewer" target="_blank" rel="noopener noreferrer">network-data-viewer</a>
+  </td>
+
+  <td class="msg">
+      chore(security): adopt curt-configs .npmrc supply-chain hardening defaults
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/network-data-viewer/commit/9f4b4634ac121bce49db01d1574d1d4ea51fe835" target="_blank" rel="noopener noreferrer">9f4b463</a>
+  </td>
+</tr><tr class="named">
+    <td class="when">2026-05-26 20:53</td>
+
+  <td class="repo">
+      network-data-viewer-archive
+  </td>
+
+  <td class="msg">
+      <span class="redact" aria-label="redacted message" role="img">rename reader, throttle schema</span>
+  </td>
+
+  <td class="sha">
+      <span class="redact" aria-label="redacted sha" role="img">fbf41f4</span>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-05-26 21:53</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/network-data-viewer" target="_blank" rel="noopener noreferrer">network-data-viewer</a>
+  </td>
+
+  <td class="msg">
+      chore(release): bump to v0.3.0
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/network-data-viewer/commit/bf23c244c8831c62a09921978c6a365bd3a0528a" target="_blank" rel="noopener noreferrer">bf23c24</a>
+  </td>
+</tr><tr class="named">
+    <td class="when">2026-05-26 20:48</td>
+
+  <td class="repo">
+      network-data-viewer-archive
+  </td>
+
+  <td class="msg">
+      <span class="redact" aria-label="redacted message" role="img">wip: rework view in task</span>
+  </td>
+
+  <td class="sha">
+      <span class="redact" aria-label="redacted sha" role="img">2ad9938</span>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-05-26 21:48</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/network-data-viewer" target="_blank" rel="noopener noreferrer">network-data-viewer</a>
+  </td>
+
+  <td class="msg">
+      fix: post-review polish — label semantics, dead code, type dedupe, truncation tests, named ref (#16-#30)
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/network-data-viewer/commit/1dacee01a73efc7d217761fbdf6e780402e37ff0" target="_blank" rel="noopener noreferrer">1dacee0</a>
+  </td>
+</tr><tr class="named">
+    <td class="when">2026-05-26 20:38</td>
+
+  <td class="repo">
+      network-data-viewer-archive
+  </td>
+
+  <td class="msg">
+      <span class="redact" aria-label="redacted message" role="img">wip: expose builder and trim loader</span>
+  </td>
+
+  <td class="sha">
+      <span class="redact" aria-label="redacted sha" role="img">9263653</span>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-05-26 21:38</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/network-data-viewer" target="_blank" rel="noopener noreferrer">network-data-viewer</a>
+  </td>
+
+  <td class="msg">
+      docs: Web Store submission artifacts (privacy, permissions, screenshot mock) (#25)
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/network-data-viewer/commit/35aeffd5739fd04542b5ad06677ee9210fbf560d" target="_blank" rel="noopener noreferrer">35aeffd</a>
+  </td>
+</tr><tr class="named">
+    <td class="when">2026-05-26 20:36</td>
+
+  <td class="repo">
+      network-data-viewer-archive
+  </td>
+
+  <td class="msg">
+      <span class="redact" aria-label="redacted message" role="img">trim registry for consumer</span>
+  </td>
+
+  <td class="sha">
+      <span class="redact" aria-label="redacted sha" role="img">d9ea567</span>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-05-26 21:36</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/network-data-viewer" target="_blank" rel="noopener noreferrer">network-data-viewer</a>
+  </td>
+
+  <td class="msg">
+      docs: rewrite README for public release + add design spec addendum (#24)
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/network-data-viewer/commit/44494660c6f55b5f78011d88014323acd00533d6" target="_blank" rel="noopener noreferrer">4449466</a>
+  </td>
+</tr><tr class="named">
+    <td class="when">2026-05-26 20:33</td>
+
+  <td class="repo">
+      network-data-viewer-archive
+  </td>
+
+  <td class="msg">
+      <span class="redact" aria-label="redacted message" role="img">fix: merge fallback</span>
+  </td>
+
+  <td class="sha">
+      <span class="redact" aria-label="redacted sha" role="img">f95a753</span>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-05-26 21:33</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/network-data-viewer" target="_blank" rel="noopener noreferrer">network-data-viewer</a>
+  </td>
+
+  <td class="msg">
+      test(perf): pin dispatcher budget to &lt;5ms median with 10 analysers (#29)
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/network-data-viewer/commit/203ce3b97dd32ae0c600b016f33d62254740b6f5" target="_blank" rel="noopener noreferrer">203ce3b</a>
+  </td>
+</tr><tr class="named">
+    <td class="when">2026-05-26 20:31</td>
+
+  <td class="repo">
+      network-data-viewer-archive
+  </td>
+
+  <td class="msg">
+      <span class="redact" aria-label="redacted message" role="img">vendor the faster config</span>
+  </td>
+
+  <td class="sha">
+      <span class="redact" aria-label="redacted sha" role="img">79970d8</span>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-05-26 21:31</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/network-data-viewer" target="_blank" rel="noopener noreferrer">network-data-viewer</a>
+  </td>
+
+  <td class="msg">
+      test(panel): RTL component tests for AnalyserManager, ConfigEditor, ImportDialog, ExportButton (#22)
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/network-data-viewer/commit/a889c7ca3ed135e1b973030d97eccf8b3769972c" target="_blank" rel="noopener noreferrer">a889c7c</a>
+  </td>
+</tr><tr class="named">
+    <td class="when">2026-05-26 20:15</td>
+
+  <td class="repo">
+      network-data-viewer-archive
+  </td>
+
+  <td class="msg">
+      <span class="redact" aria-label="redacted message" role="img">vendor queue</span>
+  </td>
+
+  <td class="sha">
+      <span class="redact" aria-label="redacted sha" role="img">883d9f5</span>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-05-26 21:15</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/network-data-viewer" target="_blank" rel="noopener noreferrer">network-data-viewer</a>
+  </td>
+
+  <td class="msg">
+      feat(panel): dsl preview against sample input in ConfigEditor (#26)
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/network-data-viewer/commit/288fb632a09d6f14d367a1ce6f6fa5d0c7a883a5" target="_blank" rel="noopener noreferrer">288fb63</a>
+  </td>
+</tr><tr class="named">
+    <td class="when">2026-05-26 20:12</td>
+
+  <td class="repo">
+      network-data-viewer-archive
+  </td>
+
+  <td class="msg">
+      <span class="redact" aria-label="redacted message" role="img">tighten worker and rename task</span>
+  </td>
+
+  <td class="sha">
+      <span class="redact" aria-label="redacted sha" role="img">f2876c8</span>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-05-26 21:12</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/network-data-viewer" target="_blank" rel="noopener noreferrer">network-data-viewer</a>
+  </td>
+
+  <td class="msg">
+      feat(panel): keyboard shortcuts (Esc / Ctrl+L / Ctrl+F / Ctrl+E) (#27)
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/network-data-viewer/commit/aa051b0ef6c04b9b603b17b3beaa1e0b001f5d2d" target="_blank" rel="noopener noreferrer">aa051b0</a>
+  </td>
+</tr><tr class="named">
+    <td class="when">2026-05-26 20:11</td>
+
+  <td class="repo">
+      network-data-viewer-archive
+  </td>
+
+  <td class="msg">
+      <span class="redact" aria-label="redacted message" role="img">noop</span>
+  </td>
+
+  <td class="sha">
+      <span class="redact" aria-label="redacted sha" role="img">7ceec5e</span>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-05-26 21:11</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/network-data-viewer" target="_blank" rel="noopener noreferrer">network-data-viewer</a>
+  </td>
+
+  <td class="msg">
+      feat(panel): filter bar above EventList (#28)
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/network-data-viewer/commit/97e9cf19922d5a4ef439392572e25954d0ddf29f" target="_blank" rel="noopener noreferrer">97e9cf1</a>
+  </td>
+</tr><tr class="named">
     <td class="when">2026-05-26 20:10</td>
 
   <td class="repo">
@@ -2579,342 +2960,6 @@ every new-game reset.
   <td class="sha">
       <a class="sha-link" href="https://github.com/curtyo18/network-data-viewer/commit/e0416f41ef14bfce242f02ed37484758a476d9f9" target="_blank" rel="noopener noreferrer">e0416f4</a>
   </td>
-</tr><tr class="named">
-    <td class="when">2026-05-25 16:53</td>
-
-  <td class="repo">
-      network-data-viewer-archive
-  </td>
-
-  <td class="msg">
-      <span class="redact" aria-label="redacted message" role="img">fix: fix view for schema</span>
-  </td>
-
-  <td class="sha">
-      <span class="redact" aria-label="redacted sha" role="img">6ff5384</span>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-05-25 16:53</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/network-data-viewer" target="_blank" rel="noopener noreferrer">network-data-viewer</a>
-  </td>
-
-  <td class="msg">
-      dispatcher (regex match + DSL chain + sandbox dispatch)
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/network-data-viewer/commit/f258aa81074a9632a0eda69a6c85ae4c696a97fa" target="_blank" rel="noopener noreferrer">f258aa8</a>
-  </td>
-</tr><tr class="named">
-    <td class="when">2026-05-25 16:51</td>
-
-  <td class="repo">
-      network-data-viewer-archive
-  </td>
-
-  <td class="msg">
-      <span class="redact" aria-label="redacted message" role="img">trim task and cleanup watcher</span>
-  </td>
-
-  <td class="sha">
-      <span class="redact" aria-label="redacted sha" role="img">ba672dc</span>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-05-25 16:51</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/network-data-viewer" target="_blank" rel="noopener noreferrer">network-data-viewer</a>
-  </td>
-
-  <td class="msg">
-      storage adapter around chrome.storage.StorageArea
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/network-data-viewer/commit/6919d3d4ce203f8b4cabbc93110928a2ba580ce1" target="_blank" rel="noopener noreferrer">6919d3d</a>
-  </td>
-</tr><tr class="named">
-    <td class="when">2026-05-25 16:48</td>
-
-  <td class="repo">
-      network-data-viewer-archive
-  </td>
-
-  <td class="msg">
-      <span class="redact" aria-label="redacted message" role="img">update schema for facade</span>
-  </td>
-
-  <td class="sha">
-      <span class="redact" aria-label="redacted sha" role="img">d171fcd</span>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-05-25 16:48</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/network-data-viewer" target="_blank" rel="noopener noreferrer">network-data-viewer</a>
-  </td>
-
-  <td class="msg">
-      share encode/decode with dvw:1: prefix and LZ-String
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/network-data-viewer/commit/bc6e6176494ca5f8e5dacac2d830cc3d30f1c137" target="_blank" rel="noopener noreferrer">bc6e617</a>
-  </td>
-</tr><tr class="named">
-    <td class="when">2026-05-25 16:46</td>
-
-  <td class="repo">
-      network-data-viewer-archive
-  </td>
-
-  <td class="msg">
-      <span class="redact" aria-label="redacted message" role="img">docs: rename the faster encoder</span>
-  </td>
-
-  <td class="sha">
-      <span class="redact" aria-label="redacted sha" role="img">303b126</span>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-05-25 16:46</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/network-data-viewer" target="_blank" rel="noopener noreferrer">network-data-viewer</a>
-  </td>
-
-  <td class="msg">
-      add @types/node so gunzip test compiles under tsc
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/network-data-viewer/commit/54361b644dd7d3800237f2c2d076031692c89508" target="_blank" rel="noopener noreferrer">54361b6</a>
-  </td>
-</tr><tr class="named">
-    <td class="when">2026-05-25 16:45</td>
-
-  <td class="repo">
-      network-data-viewer-archive
-  </td>
-
-  <td class="msg">
-      <span class="redact" aria-label="redacted message" role="img">throttle pipeline, improve handler</span>
-  </td>
-
-  <td class="sha">
-      <span class="redact" aria-label="redacted sha" role="img">5970c3a</span>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-05-25 16:45</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/network-data-viewer" target="_blank" rel="noopener noreferrer">network-data-viewer</a>
-  </td>
-
-  <td class="msg">
-      dsl chain runner
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/network-data-viewer/commit/5d8783f1f15c4410128d6d6f34e63649ee8afb8c" target="_blank" rel="noopener noreferrer">5d8783f</a>
-  </td>
-</tr><tr class="named">
-    <td class="when">2026-05-25 16:43</td>
-
-  <td class="repo">
-      network-data-viewer-archive
-  </td>
-
-  <td class="msg">
-      <span class="redact" aria-label="redacted message" role="img">refactor: bump model so ledger can split queue</span>
-  </td>
-
-  <td class="sha">
-      <span class="redact" aria-label="redacted sha" role="img">6a9824e</span>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-05-25 16:43</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/network-data-viewer" target="_blank" rel="noopener noreferrer">network-data-viewer</a>
-  </td>
-
-  <td class="msg">
-      dsl op to-string
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/network-data-viewer/commit/8a79f8ac2e8ae412eabdc761b62d7933b7858f1e" target="_blank" rel="noopener noreferrer">8a79f8a</a>
-  </td>
-</tr><tr class="named">
-    <td class="when">2026-05-25 16:42</td>
-
-  <td class="repo">
-      network-data-viewer-archive
-  </td>
-
-  <td class="msg">
-      <span class="redact" aria-label="redacted message" role="img">wip: remove reusable scheduler when dispatcher changes</span>
-  </td>
-
-  <td class="sha">
-      <span class="redact" aria-label="redacted sha" role="img">8a37d6d</span>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-05-25 16:42</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/network-data-viewer" target="_blank" rel="noopener noreferrer">network-data-viewer</a>
-  </td>
-
-  <td class="msg">
-      dsl op regex-extract
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/network-data-viewer/commit/c64a27358d786963411a22b8ab263a04dbce06c3" target="_blank" rel="noopener noreferrer">c64a273</a>
-  </td>
-</tr><tr class="named">
-    <td class="when">2026-05-25 16:42</td>
-
-  <td class="repo">
-      network-data-viewer-archive
-  </td>
-
-  <td class="msg">
-      <span class="redact" aria-label="redacted message" role="img">feat: throttle decoder and cleanup controller</span>
-  </td>
-
-  <td class="sha">
-      <span class="redact" aria-label="redacted sha" role="img">2f8d1fa</span>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-05-25 16:42</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/network-data-viewer" target="_blank" rel="noopener noreferrer">network-data-viewer</a>
-  </td>
-
-  <td class="msg">
-      dsl op pluck
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/network-data-viewer/commit/b2f1279415cb9f2282a84215fac04db04304e4ef" target="_blank" rel="noopener noreferrer">b2f1279</a>
-  </td>
-</tr><tr class="named">
-    <td class="when">2026-05-25 16:40</td>
-
-  <td class="repo">
-      network-data-viewer-archive
-  </td>
-
-  <td class="msg">
-      <span class="redact" aria-label="redacted message" role="img">vendor the tighter pipeline</span>
-  </td>
-
-  <td class="sha">
-      <span class="redact" aria-label="redacted sha" role="img">e2a3aac</span>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-05-25 16:40</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/network-data-viewer" target="_blank" rel="noopener noreferrer">network-data-viewer</a>
-  </td>
-
-  <td class="msg">
-      dsl op jsonpath (minimal subset, no filters)
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/network-data-viewer/commit/380d0791ba4ff6b1a51da08292351a73792e143f" target="_blank" rel="noopener noreferrer">380d079</a>
-  </td>
-</tr><tr class="named">
-    <td class="when">2026-05-25 16:40</td>
-
-  <td class="repo">
-      network-data-viewer-archive
-  </td>
-
-  <td class="msg">
-      <span class="redact" aria-label="redacted message" role="img">docs: optimize indexer</span>
-  </td>
-
-  <td class="sha">
-      <span class="redact" aria-label="redacted sha" role="img">1ce4fdc</span>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-05-25 16:40</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/network-data-viewer" target="_blank" rel="noopener noreferrer">network-data-viewer</a>
-  </td>
-
-  <td class="msg">
-      dsl op query-parse
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/network-data-viewer/commit/43bcd489bb89ed6648e4f1a22750201c9695124a" target="_blank" rel="noopener noreferrer">43bcd48</a>
-  </td>
-</tr><tr class="named">
-    <td class="when">2026-05-25 16:39</td>
-
-  <td class="repo">
-      network-data-viewer-archive
-  </td>
-
-  <td class="msg">
-      <span class="redact" aria-label="redacted message" role="img">feat: update session for facade</span>
-  </td>
-
-  <td class="sha">
-      <span class="redact" aria-label="redacted sha" role="img">072f5a2</span>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-05-25 16:39</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/network-data-viewer" target="_blank" rel="noopener noreferrer">network-data-viewer</a>
-  </td>
-
-  <td class="msg">
-      dsl op json-parse
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/network-data-viewer/commit/3a37bd8302f7a67da8dd45bde411d6d9acb8e481" target="_blank" rel="noopener noreferrer">3a37bd8</a>
-  </td>
-</tr><tr class="named">
-    <td class="when">2026-05-25 16:38</td>
-
-  <td class="repo">
-      network-data-viewer-archive
-  </td>
-
-  <td class="msg">
-      <span class="redact" aria-label="redacted message" role="img">update the unused supervisor</span>
-  </td>
-
-  <td class="sha">
-      <span class="redact" aria-label="redacted sha" role="img">0332e1c</span>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-05-25 16:38</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/network-data-viewer" target="_blank" rel="noopener noreferrer">network-data-viewer</a>
-  </td>
-
-  <td class="msg">
-      dsl op gunzip (DecompressionStream)
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/network-data-viewer/commit/418db6fd5fd0af9d70d37659b4f7917bdb541dfe" target="_blank" rel="noopener noreferrer">418db6f</a>
-  </td>
 </tr>        </tbody>
       </table>
 
@@ -2941,8 +2986,8 @@ every new-game reset.
     <a href="https://github.com/curtyo18" target="_blank" rel="noopener noreferrer">github</a> · <a href="mailto:curtyo18@gmail.com">email</a>
   </div>
   <div class="stats" style="align-items:center">
-    <span><b>2,079</b> commits</span>
-    <span><b>77</b> repos</span>
+    <span><b>2,103</b> commits</span>
+    <span><b>78</b> repos</span>
     <span><b>17</b> years</span>
   </div>
 </footer>    </div>
