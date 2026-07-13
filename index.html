@@ -16,7 +16,7 @@
     <small>curt — a public log of private and public work</small>
   </h1>
   <div class="meta">
-    <span><b>2,103</b> commits indexed</span>
+    <span><b>2,127</b> commits indexed</span>
     <span><b>78</b> repos · <b>17</b> years</span>
   </div>
 </div><div class="gr-section-title">
@@ -31,7 +31,18 @@
       </div>
       <div class="blurb"></div>
       <div class="foot">
-        <span>24 commits</span>
+        <span>46 commits</span>
+        <span>last touched 2026-07-12</span>
+      </div>
+    </a>
+    <a class="card card-link" href="https://github.com/curtyo18/agent-config" target="_blank" rel="noopener noreferrer">
+      <div class="top">
+        <div class="name">agent-config</div>
+        <div class="lang"></div>
+      </div>
+      <div class="blurb"></div>
+      <div class="foot">
+        <span>41 commits</span>
         <span>last touched 2026-07-12</span>
       </div>
     </a>
@@ -57,21 +68,10 @@
         <span>last touched 2026-07-02</span>
       </div>
     </a>
-    <a class="card card-link" href="https://github.com/curtyo18/blog" target="_blank" rel="noopener noreferrer">
-      <div class="top">
-        <div class="name">blog</div>
-        <div class="lang"></div>
-      </div>
-      <div class="blurb"></div>
-      <div class="foot">
-        <span>2 commits</span>
-        <span>last touched 2026-07-01</span>
-      </div>
-    </a>
 </div>
       <div class="gr-section-title" style="margin-top:36px">
         <span>All commits · newest first</span>
-        <span class="right">showing 1–200 of 2103</span>
+        <span class="right">showing 1–200 of 2127</span>
       </div>
 
       <table class="gr-table">
@@ -84,10 +84,633 @@
             <tr class="gr-month-row">
               <td colspan="4">
                 July 2026
-                <span>46 commits · 44 public</span>
+                <span>70 commits · 68 public</span>
               </td>
             </tr>
 <tr class="">
+    <td class="when">2026-07-12 17:08</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/header-handler" target="_blank" rel="noopener noreferrer">header-handler</a>
+  </td>
+
+  <td class="msg">
+      docs: CWS doc updates
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/header-handler/commit/0e21cd0ce97d77488dabfc6422c67fa2721be310" target="_blank" rel="noopener noreferrer">0e21cd0</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-07-12 17:03</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/agent-config" target="_blank" rel="noopener noreferrer">agent-config</a>
+  </td>
+
+  <td class="msg">
+      docs(chrome-extension): correct data-usage guidance per CWS User Data FAQ
+
+The prior note implied &#34;transmits nothing off-device → can answer does not
+collect.&#34; Google&#39;s FAQ (Q3, Q14) is the opposite: locally-handled data must be
+disclosed. Rewrite the note so &#34;does not collect&#34; is scoped to extensions that
+handle no user data at all, require declarations to match what the code reads
+(discrepancy = suspendable), and call for an explicit Limited Use disclosure.
+
+Co-Authored-By: Claude Opus 4.8 &lt;noreply@anthropic.com&gt;
+Claude-Session: https://claude.ai/code/session_016KfbANbjoA9K3w8AChXyJm
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/agent-config/commit/dc1941c48c3f48a389b0202b8136732c3e2d30e6" target="_blank" rel="noopener noreferrer">dc1941c</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-07-12 16:56</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/header-handler" target="_blank" rel="noopener noreferrer">header-handler</a>
+  </td>
+
+  <td class="msg">
+      docs: restructure store listing pack to match the CWS dashboard form (#15)
+
+Reorder docs/store/listing.md into the dashboard&#39;s two tabs (Store listing,
+Privacy) field-by-field so submission is copy-paste. Adds the fields the form
+now requires that were missing — Homepage URL and Support URL (GitHub issues) —
+and expands Data usage into Google&#39;s nine per-category answers plus the three
+Limited-Use certification checkboxes. Keeps the deliberate &#34;declare
+auth-info + web-history, don&#39;t claim does-not-collect&#34; stance but flags it and
+the User-activity classification as decisions to confirm before submitting.
+
+
+Claude-Session: https://claude.ai/code/session_016KfbANbjoA9K3w8AChXyJm
+
+Co-authored-by: Claude Opus 4.8 &lt;noreply@anthropic.com&gt;
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/header-handler/commit/c54b6601b3af175902121ee359e6ca8d956650e7" target="_blank" rel="noopener noreferrer">c54b660</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-07-12 16:36</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/agent-config" target="_blank" rel="noopener noreferrer">agent-config</a>
+  </td>
+
+  <td class="msg">
+      docs(chrome-extension): add store-listing-pack template matching the CWS form
+
+Document a docs/store/listing.md template ordered as the Chrome Web Store
+dashboard&#39;s two tabs (Store listing, Privacy), including the fields the form now
+requires — Homepage URL, Support URL — and the Data usage section&#39;s nine
+per-category answers plus three Limited-Use certifications. Flags the
+collect-vs-does-not-collect stance as a decision to surface, not bury.
+
+Co-Authored-By: Claude Opus 4.8 &lt;noreply@anthropic.com&gt;
+Claude-Session: https://claude.ai/code/session_016KfbANbjoA9K3w8AChXyJm
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/agent-config/commit/a9d262d114451b24e54fd343eea7ad8d83361b51" target="_blank" rel="noopener noreferrer">a9d262d</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-07-12 15:43</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/header-handler" target="_blank" rel="noopener noreferrer">header-handler</a>
+  </td>
+
+  <td class="msg">
+      docs: add UI screenshots to the README (#14)
+
+Embed the three store-listing screenshots (docs/store/screenshots/) in the
+README where each is relevant: the options page as a hero shot up top, the
+popup under Install, and the live-log panel in the Live log section. Reuses
+the existing 1280×800 assets — no new files.
+
+
+Claude-Session: https://claude.ai/code/session_016KfbANbjoA9K3w8AChXyJm
+
+Co-authored-by: Claude Opus 4.8 &lt;noreply@anthropic.com&gt;
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/header-handler/commit/24ecdd7108553cde0486fa022dc2fe06c541199f" target="_blank" rel="noopener noreferrer">24ecdd7</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-07-12 15:39</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/header-handler" target="_blank" rel="noopener noreferrer">header-handler</a>
+  </td>
+
+  <td class="msg">
+      Release v1.2.0
+
+Compress the config at rest with LZString (#12/#13), raising the effective
+chrome.storage.sync per-item ceiling ~2–3× while keeping cross-device sync.
+
+Co-Authored-By: Claude Opus 4.8 &lt;noreply@anthropic.com&gt;
+Claude-Session: https://claude.ai/code/session_016KfbANbjoA9K3w8AChXyJm
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/header-handler/commit/e81edc77fab9ff438f082fe1ef6412798e4fc196" target="_blank" rel="noopener noreferrer">e81edc7</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-07-12 15:38</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/header-handler" target="_blank" rel="noopener noreferrer">header-handler</a>
+  </td>
+
+  <td class="msg">
+      Compress config at rest to raise the effective sync-item ceiling (#12) (#13)
+
+The whole config is one chrome.storage.sync item capped at 8 KB
+(QUOTA_BYTES_PER_ITEM). The config JSON is highly repetitive, so compress
+it at rest with LZString (compressToEncodedURIComponent, marker-prefixed
+HHC1…) before writing and decompress on read — raising the effective
+ceiling ~2–3× while keeping cross-device sync and adding no new dependency
+(lz-string is already bundled for share strings).
+
+- New WXT-free src/lib/config-codec.ts holds the pure (de)serialization and
+  byte accounting, so it unit-tests without a fake browser; storage.ts wraps
+  it behind the unchanged configStore get/set/watch surface.
+- Legacy read-compat: a raw-object config written by v1.1.0 still reads and
+  re-compresses on the next save; null and undecodable values fall back to an
+  empty config with a console.warn (no silent fallback).
+- Options near-quota warning now measures the compressed size (the real
+  quota budget), not the raw JSON length.
+- Regression tests: round-trip, empty, compression ratio, legacy-object read,
+  and every corrupt/unrecognized fallback path.
+- Docs: README / design spec / privacy + ADR 0003.
+
+
+Claude-Session: https://claude.ai/code/session_016KfbANbjoA9K3w8AChXyJm
+
+Co-authored-by: Claude Opus 4.8 &lt;noreply@anthropic.com&gt;
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/header-handler/commit/39508a7568f637f09f65c49e87eda41672463e23" target="_blank" rel="noopener noreferrer">39508a7</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-07-12 13:32</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/header-handler" target="_blank" rel="noopener noreferrer">header-handler</a>
+  </td>
+
+  <td class="msg">
+      Release v1.1.0
+
+Pre-publish fixes for issues #4–#10: DNR rule validation/normalization with
+a non-fatal batch and surfaced failures, honest storage-quota handling,
+import share-string validation, gesture-safe live-log open, live-log/badge
+accuracy + accessibility, worker/perf cleanups, and corrected docs.
+
+Co-Authored-By: Claude Opus 4.8 &lt;noreply@anthropic.com&gt;
+Claude-Session: https://claude.ai/code/session_016KfbANbjoA9K3w8AChXyJm
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/header-handler/commit/d81539d44b900baf931c1aaf23d4105d80b2143f" target="_blank" rel="noopener noreferrer">d81539d</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-07-12 13:30</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/header-handler" target="_blank" rel="noopener noreferrer">header-handler</a>
+  </td>
+
+  <td class="msg">
+      Add regression tests for save-failure and blocked-rule UI; drop dead helper
+
+Addresses the code-review findings on the pre-publish fixes:
+
+- #5: export App and guard the top-level render so Options is testable;
+  add a test that a rejected (over-quota) configStore.setValue flips the
+  pill to &#34;Save failed&#34; and shows the quota message instead of &#34;Saved&#34;.
+- #4: test ruleHasBlockingError directly and assert HeaderRow renders the
+  &#34;won&#39;t apply&#34; note + rule-card-blocked class for a rule with a blocking
+  error (and not for a valid one).
+- Remove isLikelyJson: dropping it from looksLikeJson left it referenced
+  only by its own test — dead product code — so remove the export and test.
+
+Co-Authored-By: Claude Opus 4.8 &lt;noreply@anthropic.com&gt;
+Claude-Session: https://claude.ai/code/session_016KfbANbjoA9K3w8AChXyJm
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/header-handler/commit/81170c7c00fbf2b25b9f3489cd96dcdb12ecd2bd" target="_blank" rel="noopener noreferrer">81170c7</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-07-12 13:22</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/header-handler" target="_blank" rel="noopener noreferrer">header-handler</a>
+  </td>
+
+  <td class="msg">
+      Correct pre-publish doc &amp; CWS listing claims (#9)
+
+- Regex &#34;can&#39;t drift&#34; claim was false: the log evaluates regex with JS
+  RegExp while DNR compiles it to RE2. Softened everywhere it appeared —
+  README (live-log + architecture), ADR 0001 (Decision + Consequences),
+  and the CWS reviewer notes — to &#34;aligned for the string modes; regex can
+  diverge (JS RegExp vs RE2)&#34;. No copy tells the reviewer the log can&#39;t drift.
+- Document the chrome.storage.sync 8 KB-per-item cap in README, the spec,
+  and privacy.html (whole config is one item; options warns near the limit).
+- Spec error-handling section rewritten to match what now ships: RE2
+  (isRegexSupported) validation at edit time, per-rule fallback on an atomic
+  batch rejection, and a persistent options banner (not the old &#34;toast&#34;).
+- Listing: badge reads open tabs&#39; active URL (host access, no tabs perm) —
+  widened the data-use wording; refreshed the stale &#34;Screenshots (Needed)&#34;
+  section to point at the three PNGs already in docs/store/screenshots/.
+
+The privacy-policy URL still needs GitHub Pages enabled and a browser check
+before submission — a user-side step, left flagged in listing.md.
+
+Co-Authored-By: Claude Opus 4.8 &lt;noreply@anthropic.com&gt;
+Claude-Session: https://claude.ai/code/session_016KfbANbjoA9K3w8AChXyJm
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/header-handler/commit/b606ced04a4c7611017e5af84409e69fdf74e4d9" target="_blank" rel="noopener noreferrer">b606ced</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-07-12 13:20</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/header-handler" target="_blank" rel="noopener noreferrer">header-handler</a>
+  </td>
+
+  <td class="msg">
+      Minor cleanups: worker config cache, stable diff, share offsets (#10)
+
+- background.ts: cache the config in the worker (getConfig + a watch that
+  keeps it current) so the onSendHeaders hot path under &lt;all_urls&gt; no longer
+  reads chrome.storage.sync per request; an MV3 restart re-seeds it.
+- compile.ts: diffRules compares rules with a key-order-stable serialization
+  instead of JSON.stringify, so a reordered-keys rule from getDynamicRules()
+  no longer reads as changed and churns a full remove+re-add each recompile.
+- share.ts: decodeShare derives field offsets from PREFIX/VERSION lengths
+  rather than hardcoded s[2]/s[3]/s.slice(4).
+- HeaderRow.tsx: drop the redundant isLikelyJson clause from looksLikeJson
+  (it&#39;s a strict subset of the two startsWith checks).
+
+Co-Authored-By: Claude Opus 4.8 &lt;noreply@anthropic.com&gt;
+Claude-Session: https://claude.ai/code/session_016KfbANbjoA9K3w8AChXyJm
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/header-handler/commit/510df0a15845e3ac8dfdea532ba6b1589f7d2cc0" target="_blank" rel="noopener noreferrer">510df0a</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-07-12 13:18</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/header-handler" target="_blank" rel="noopener noreferrer">header-handler</a>
+  </td>
+
+  <td class="msg">
+      Make &#34;Open live log&#34; gesture-safe and non-silent (#7)
+
+chrome.sidePanel.open() requires an active user gesture, but the handler
+awaited chrome.windows.getCurrent() first — the intervening await can trip
+Chrome&#39;s gesture check and the headline feature would then do nothing on
+click, silently.
+
+- Resolve the window id at popup mount, so open() is the first await in the
+  click handler (gesture still active).
+- Wrap the open in try/catch and surface a visible error line on failure
+  instead of failing silently; fall back to a fresh getCurrent() if the id
+  isn&#39;t cached yet.
+
+Note: per the issue this needs a real-Chrome click-test (load .output/
+chrome-mv3, click 📋) to confirm the panel opens — cannot be verified
+statically. The defensive fallback lands regardless.
+
+Co-Authored-By: Claude Opus 4.8 &lt;noreply@anthropic.com&gt;
+Claude-Session: https://claude.ai/code/session_016KfbANbjoA9K3w8AChXyJm
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/header-handler/commit/bc97165c9d91b84f9a67ba667a44d58c09cd5090" target="_blank" rel="noopener noreferrer">bc97165</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-07-12 13:17</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/header-handler" target="_blank" rel="noopener noreferrer">header-handler</a>
+  </td>
+
+  <td class="msg">
+      Live log &amp; badge: accuracy + accessibility (#8)
+
+- matches.ts: skip blank-name rules so the badge and live log agree with
+  compileRules (which emits no DNR rule for them) — one source of truth.
+- LogEntry gains a stable id; the sidepanel keys on it instead of ts, so
+  two requests in the same millisecond (parallel subresources) no longer
+  collide and misreconcile a card&#39;s expanded state.
+- background.ts: log appends are serialized through a chained promise, so
+  concurrent matched requests can&#39;t clobber each other&#39;s read-modify-write.
+- sidepanel: the log row is a keyboard-operable role=&#34;button&#34; (tabIndex,
+  Enter/Space, aria-expanded, focus ring) instead of a bare clickable div.
+- popup: the icon-only live-log button gets an aria-label.
+
+Co-Authored-By: Claude Opus 4.8 &lt;noreply@anthropic.com&gt;
+Claude-Session: https://claude.ai/code/session_016KfbANbjoA9K3w8AChXyJm
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/header-handler/commit/9486dc0d7e0ac3ced46483d63eb1ca79ebac1e76" target="_blank" rel="noopener noreferrer">9486dc0</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-07-12 13:15</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/header-handler" target="_blank" rel="noopener noreferrer">header-handler</a>
+  </td>
+
+  <td class="msg">
+      Surface storage-quota failures instead of a false &#34;Saved&#34; (#5)
+
+The whole config is one chrome.storage.sync item, capped at 8 KB. Writes
+past it rejected, but update() called setValue fire-and-forget with no
+.catch and the pill settled to &#34;Saved&#34; on a 600 ms timer decoupled from
+the write — so an over-quota edit was silently lost while the UI affirmed
+&#34;Saved&#34;. Per the storage decision, keep sync and surface the cap honestly.
+
+- options/main.tsx: update() drives the pill from the write promise —
+  &#34;Saving…&#34; → &#34;Saved&#34; or a red &#34;Save failed&#34; pill + banner with a quota-
+  aware message. A whole-config size warning fires near the 8 KB budget
+  (byteLength of the serialized config), not just per-value bytes.
+- popup: master/profile toggles now revert the optimistic switch if the
+  write fails, so the control can&#39;t disagree with what&#39;s stored.
+- storage.ts: SYNC_ITEM_QUOTA_BYTES constant documents the real limit.
+
+Co-Authored-By: Claude Opus 4.8 &lt;noreply@anthropic.com&gt;
+Claude-Session: https://claude.ai/code/session_016KfbANbjoA9K3w8AChXyJm
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/header-handler/commit/7f1153409c90b4d75c9c217ba70ac864a50264a0" target="_blank" rel="noopener noreferrer">7f11534</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-07-12 13:12</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/header-handler" target="_blank" rel="noopener noreferrer">header-handler</a>
+  </td>
+
+  <td class="msg">
+      Validate/normalize DNR rules; make a bad rule non-fatal and visible (#4)
+
+updateDynamicRules is atomic, so one rule Chrome rejects dropped the
+entire batch and silently disabled header rewriting for every profile —
+surfaced only via console.error. Ordinary inputs triggered it: an
+uppercase/pasted-URL Domain matcher, an RE2-unsupported regex the JS-only
+UI check green-lit, or a raw newline in a plain value.
+
+- matcher.ts: normalizeDomain (lowercase, strip scheme/port/path) applied
+  in matcherToDnrCondition and mirrored in evaluateMatcher so the log agrees.
+- compile.ts: sanitizeHeaderValue strips CR/LF before emit; new
+  applyRulesWithFallback re-adds survivors one-by-one on a batch rejection
+  and returns the rules DNR refused.
+- background.ts: recompile uses the fallback and records failures to a new
+  session:dnrError store instead of console.error.
+- options: a persistent banner surfaces the DNR failure; MatcherControl now
+  runs chrome.declarativeNetRequest.isRegexSupported (RE2) at edit time, and
+  the dead ruleHasBlockingError is wired to a per-rule &#34;won&#39;t apply&#34; note.
+- Tests: domain normalization, CR/LF strip, unknown-mode skip, and the
+  batch→per-rule fallback path.
+
+Co-Authored-By: Claude Opus 4.8 &lt;noreply@anthropic.com&gt;
+Claude-Session: https://claude.ai/code/session_016KfbANbjoA9K3w8AChXyJm
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/header-handler/commit/c862281b47f1e7f39c62e091a83975379717009a" target="_blank" rel="noopener noreferrer">c862281</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-07-12 13:06</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/header-handler" target="_blank" rel="noopener noreferrer">header-handler</a>
+  </td>
+
+  <td class="msg">
+      Validate imported share strings; guard unknown matcher modes (#6)
+
+decodeShare JSON.parse&#39;d arbitrary input and cast it straight to Profile
+with no validation. Three reachable failure modes: an unknown matcher
+mode compiled to a filter-less (match-all) DNR condition — global header
+injection; a missing matcher/rules threw deep in compileRules (which runs
+outside any try/catch) and permanently wedged recompiles; a bundle with
+two same-named profiles silently overwrote one.
+
+- Add validateProfile/validateRule/isMatcher in decodeShare; reject
+  wrong-shape, unknown-mode, and missing-rules payloads with a clear error
+  before returning.
+- Add isMatchMode + default cases to the matcher switches; compileRules
+  now skips an unrecognized-mode rule instead of throwing or match-all&#39;ing.
+- ImportModal: in-bundle collision detection also considers already-
+  accepted profiles (acc), and withFreshIds now runs inside the try/catch.
+- Tests: wrong-shape/unknown-mode/missing-rules/bad-op shares, missing
+  bundle list, and a duplicate-name bundle prompt.
+
+Co-Authored-By: Claude Opus 4.8 &lt;noreply@anthropic.com&gt;
+Claude-Session: https://claude.ai/code/session_016KfbANbjoA9K3w8AChXyJm
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/header-handler/commit/9de913be0174201e21608132a67b1c01c0b1b244" target="_blank" rel="noopener noreferrer">9de913b</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-07-12 10:45</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/header-handler" target="_blank" rel="noopener noreferrer">header-handler</a>
+  </td>
+
+  <td class="msg">
+      Lead store listing with the simple/open-source/no-tracking framing
+
+Rewrites the detailed-description opening to put the &#34;simple, open source,
+no tracking, no servers&#34; vibe first, and promotes shareable profiles to a
+prominent &#34;shareable in one string&#34; line to emphasise ease of use. Trims the
+now-duplicated lower share paragraph and network-claims bullet.
+
+Co-Authored-By: Claude Opus 4.8 &lt;noreply@anthropic.com&gt;
+Claude-Session: https://claude.ai/code/session_016KfbANbjoA9K3w8AChXyJm
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/header-handler/commit/41c5e094c33f27f35cb52719e7842a1ebfd9da61" target="_blank" rel="noopener noreferrer">41c5e09</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-07-12 10:40</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/header-handler" target="_blank" rel="noopener noreferrer">header-handler</a>
+  </td>
+
+  <td class="msg">
+      Add options footer with repo/issue links; add store screenshots; bump to 1.0.3
+
+Options page now shows a footer — &#34;Open source · no tracking · no servers&#34;
+tagline plus GitHub and &#34;Spot an issue?&#34; links (repo + new-issue page) — so
+users can find the source and file issues from inside the extension.
+
+Also adds three 1280×800 Chrome Web Store screenshots (options, popup,
+live-log) under docs/store/screenshots/, and makes the store listing
+checklist version-agnostic so it can&#39;t fall out of sync.
+
+Co-Authored-By: Claude Opus 4.8 &lt;noreply@anthropic.com&gt;
+Claude-Session: https://claude.ai/code/session_016KfbANbjoA9K3w8AChXyJm
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/header-handler/commit/fcc80571609f6ef81e1e6cd6e895f2fafd7f6b68" target="_blank" rel="noopener noreferrer">fcc8057</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-07-12 09:59</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/header-handler" target="_blank" rel="noopener noreferrer">header-handler</a>
+  </td>
+
+  <td class="msg">
+      Bump checkout and setup-node actions to v5 (Node 24)
+
+Clears the CI deprecation warning that was forcing actions/checkout@v4 and
+actions/setup-node@v4 onto Node 24; v5 of both targets Node 24 natively.
+
+Co-Authored-By: Claude Opus 4.8 &lt;noreply@anthropic.com&gt;
+Claude-Session: https://claude.ai/code/session_016KfbANbjoA9K3w8AChXyJm
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/header-handler/commit/69f793446fb88e91418561844073139a2e771e66" target="_blank" rel="noopener noreferrer">69f7934</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-07-12 09:21</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/header-handler" target="_blank" rel="noopener noreferrer">header-handler</a>
+  </td>
+
+  <td class="msg">
+      Live-save the value field and show a save-status pill; bump to 1.0.2
+
+The header value/JSON field only committed on blur, so edits felt lost until
+you clicked away. Debounce a commit ~400ms after typing stops (still flushing
+on blur), matching the other fields that already save on every keystroke —
+valid JSON is stored minified without reflowing the box, invalid JSON is held.
+
+Add a quiet &#39;Saved&#39; / &#39;Saving…&#39; pill in the options top bar, routed through
+the single update() choke point plus the value field&#39;s onEditing signal, so
+every edit gives visible save confirmation without per-keystroke flicker.
+
+Co-Authored-By: Claude Opus 4.8 &lt;noreply@anthropic.com&gt;
+Claude-Session: https://claude.ai/code/session_016KfbANbjoA9K3w8AChXyJm
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/header-handler/commit/65e741a592898452ba4541707fb309f01b0dfd7e" target="_blank" rel="noopener noreferrer">65e741a</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-07-12 09:20</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/header-handler" target="_blank" rel="noopener noreferrer">header-handler</a>
+  </td>
+
+  <td class="msg">
+      Apply header rules to main_frame requests
+
+DNR excludes main_frame when a condition omits resourceTypes, so header
+rules silently skipped the top-level page navigation while still applying to
+its sub-resources (scripts, XHR, …) — e.g. a document request showed no
+header but an AJAX call from the same page did. Enumerate every resource type
+so &#39;modify headers for this URL&#39; covers the document request too.
+
+Co-Authored-By: Claude Opus 4.8 &lt;noreply@anthropic.com&gt;
+Claude-Session: https://claude.ai/code/session_016KfbANbjoA9K3w8AChXyJm
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/header-handler/commit/228b080ae7132ee37e1f5becf39359b0d1c692b1" target="_blank" rel="noopener noreferrer">228b080</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-07-12 09:20</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/header-handler" target="_blank" rel="noopener noreferrer">header-handler</a>
+  </td>
+
+  <td class="msg">
+      Fix focus loss when the value field flips into JSON mode
+
+Typing { switched ValueEditor from a plain textarea to the JSON editor&#39;s
+differently-nested textarea, so Preact unmounted the focused node and the
+caret was lost mid-keystroke. Track the caret on the flip and restore focus
+to the newly-mounted textarea in a layout effect.
+
+Co-Authored-By: Claude Opus 4.8 &lt;noreply@anthropic.com&gt;
+Claude-Session: https://claude.ai/code/session_016KfbANbjoA9K3w8AChXyJm
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/header-handler/commit/89b19808a6cd94bc4949cecc482dd23c3092b669" target="_blank" rel="noopener noreferrer">89b1980</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-07-12 08:37</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/header-handler" target="_blank" rel="noopener noreferrer">header-handler</a>
+  </td>
+
+  <td class="msg">
+      Document the tag-driven release process
+
+Capture the release steps (bump package.json, commit, push a v* tag, CI
+publishes) plus the convention of delegating the mechanical ship step to a
+Sonnet subagent. Previously this only lived in release.yml.
+
+Co-Authored-By: Claude Opus 4.8 &lt;noreply@anthropic.com&gt;
+Claude-Session: https://claude.ai/code/session_016KfbANbjoA9K3w8AChXyJm
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/header-handler/commit/9cfa92dfce8ea05ab589ff5a8b95c3340c06a634" target="_blank" rel="noopener noreferrer">9cfa92d</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-07-12 08:37</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/header-handler" target="_blank" rel="noopener noreferrer">header-handler</a>
+  </td>
+
+  <td class="msg">
+      Promote options entry to primary popup action; bump to 1.0.1
+
+Make &#39;Manage profiles &amp; rules&#39; the full-width accent action in the popup
+footer and demote the live-log control to the icon slot the gear used to
+occupy. The options page is the extension&#39;s only editing surface, so its
+entry should carry the most visual weight.
+
+Co-Authored-By: Claude Opus 4.8 &lt;noreply@anthropic.com&gt;
+Claude-Session: https://claude.ai/code/session_016KfbANbjoA9K3w8AChXyJm
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/header-handler/commit/31ae7bbb1a2369e594329ee6a122251f38090afb" target="_blank" rel="noopener noreferrer">31ae7bb</a>
+  </td>
+</tr><tr class="">
     <td class="when">2026-07-12 02:11</td>
 
   <td class="repo">
@@ -796,7 +1419,7 @@ Co-Authored-By: Claude Opus 4.8 &lt;noreply@anthropic.com&gt;
 </tr>            <tr class="gr-month-row">
               <td colspan="4">
                 June 2026
-                <span>154 commits · 101 public</span>
+                <span>130 commits · 90 public</span>
               </td>
             </tr>
 <tr class="">
@@ -3061,370 +3684,6 @@ Co-Authored-By: Claude Opus 4.8 &lt;noreply@anthropic.com&gt;
   <td class="sha">
       <span class="redact-strong" aria-label="redacted sha" role="img">97415be</span>
   </td>
-</tr><tr class="">
-    <td class="when">2026-06-06 13:16</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/GitLabJobStarter" target="_blank" rel="noopener noreferrer">GitLabJobStarter</a>
-  </td>
-
-  <td class="msg">
-      chore: address code-review findings
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/GitLabJobStarter/commit/c05d3ecbb7c34f6ee05c6bbe5d7dc85ec86173fc" target="_blank" rel="noopener noreferrer">c05d3ec</a>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-06-06 12:37</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/StopYappingBro" target="_blank" rel="noopener noreferrer">StopYappingBro</a>
-  </td>
-
-  <td class="msg">
-      chore: public-release readiness — docs, license, tooling, tests, CI
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/StopYappingBro/commit/fa7e4587e7bad067afd613e464ed949371af1e61" target="_blank" rel="noopener noreferrer">fa7e458</a>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-06-06 12:37</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/StopYappingBro" target="_blank" rel="noopener noreferrer">StopYappingBro</a>
-  </td>
-
-  <td class="msg">
-      chore: normalize line endings, ignore planning docs, fix version drift
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/StopYappingBro/commit/55f094cecd2c983f45be4d6671cccccedb547761" target="_blank" rel="noopener noreferrer">55f094c</a>
-  </td>
-</tr><tr class="anon">
-    <td class="when">2026-06-06</td>
-
-  <td class="repo">
-      <span class="redact-strong" aria-label="redacted repo" role="img">incorrect-adapter-reader</span>
-  </td>
-
-  <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">rework facade in writer</span>
-  </td>
-
-  <td class="sha">
-      <span class="redact-strong" aria-label="redacted sha" role="img">0feab08</span>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-06-06 12:37</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/GitLabJobStarter" target="_blank" rel="noopener noreferrer">GitLabJobStarter</a>
-  </td>
-
-  <td class="msg">
-      chore: bring repo up to public-release quality
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/GitLabJobStarter/commit/810b1c4fbe9b6a0b6e5626c2245bf551275619dc" target="_blank" rel="noopener noreferrer">810b1c4</a>
-  </td>
-</tr><tr class="named">
-    <td class="when">2026-06-05 18:47</td>
-
-  <td class="repo">
-      network-data-viewer-archive
-  </td>
-
-  <td class="msg">
-      <span class="redact" aria-label="redacted message" role="img">feat: debounce verbose client when parser changes</span>
-  </td>
-
-  <td class="sha">
-      <span class="redact" aria-label="redacted sha" role="img">9a09990</span>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-06-05 19:47</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/network-data-viewer" target="_blank" rel="noopener noreferrer">network-data-viewer</a>
-  </td>
-
-  <td class="msg">
-      chore(release): bump to v0.5.2
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/network-data-viewer/commit/16bda3ee43a68ca91fb4b6142c692d21a8dc0be4" target="_blank" rel="noopener noreferrer">16bda3e</a>
-  </td>
-</tr><tr class="named">
-    <td class="when">2026-06-05 18:42</td>
-
-  <td class="repo">
-      network-data-viewer-archive
-  </td>
-
-  <td class="msg">
-      <span class="redact" aria-label="redacted message" role="img">docs: optimize filter so handler can rework wrapper</span>
-  </td>
-
-  <td class="sha">
-      <span class="redact" aria-label="redacted sha" role="img">d0e28a2</span>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-06-05 19:42</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/network-data-viewer" target="_blank" rel="noopener noreferrer">network-data-viewer</a>
-  </td>
-
-  <td class="msg">
-      fix(dsl): run DSL chain against configurable source; harden offscreen race
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/network-data-viewer/commit/888a3770562a1dee258c71e5371be9ab4d7e20a3" target="_blank" rel="noopener noreferrer">888a377</a>
-  </td>
-</tr><tr class="anon">
-    <td class="when">2026-06-05</td>
-
-  <td class="repo">
-      <span class="redact-strong" aria-label="redacted repo" role="img">client-runner</span>
-  </td>
-
-  <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">rename</span>
-  </td>
-
-  <td class="sha">
-      <span class="redact-strong" aria-label="redacted sha" role="img">8263304</span>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-06-04 17:43</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/html-utils" target="_blank" rel="noopener noreferrer">html-utils</a>
-  </td>
-
-  <td class="msg">
-      chore(ci): bump test runner Node 20 -&gt; 22 (LTS)
-
-Node 20 reached end-of-life; move the build/test runtime to the current
-active LTS (22). Pairs with the action-runtime bump in this branch.
-
-Co-Authored-By: Claude Opus 4.8 &lt;noreply@anthropic.com&gt;
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/html-utils/commit/23114f5b9d82b98684a3009c95ef061587558a17" target="_blank" rel="noopener noreferrer">23114f5</a>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-06-04 17:29</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/html-utils" target="_blank" rel="noopener noreferrer">html-utils</a>
-  </td>
-
-  <td class="msg">
-      chore(ci): bump GitHub Actions to node24 runtimes
-
-GitHub is forcing Node 20 actions onto Node 24 from 2026-06-16 and removing
-the Node 20 runner on 2026-09-16. Bump all first-party actions in the Pages
-deploy workflow to their latest majors, all of which run on node24:
-
-  checkout            v4 -&gt; v6
-  setup-node          v4 -&gt; v6
-  configure-pages     v5 -&gt; v6
-  upload-pages-artifact v3 -&gt; v5  (now a composite action)
-  deploy-pages        v4 -&gt; v5
-
-Clears the Node 20 deprecation warning on the deploy run. No behaviour change.
-
-Co-Authored-By: Claude Opus 4.8 &lt;noreply@anthropic.com&gt;
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/html-utils/commit/24b59f9bdd2729a56a5c57fce4ba7b24c681cb69" target="_blank" rel="noopener noreferrer">24b59f9</a>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-06-04 16:43</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/html-utils" target="_blank" rel="noopener noreferrer">html-utils</a>
-  </td>
-
-  <td class="msg">
-      feat(inspect/decode): repair lightly-broken JSON instead of falling to ROT13
-
-Extend detectJson&#39;s catch into an ordered, parse-verified repair chain:
-un-double quotes (existing), un-escape backslash-escaped JSON, and a generic
-cleanup pass (strip comments + trailing commas, close unbalanced braces).
-Each repair only yields a candidate if its output re-parses, so there are no
-false positives. Escaped/stringified JSON now auto-selects as JSON (unescaped)
-rather than ROT13.
-
-Co-Authored-By: Claude Opus 4.8 &lt;noreply@anthropic.com&gt;
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/html-utils/commit/b4554b35951879bdccef5d353f911b2021d3c267" target="_blank" rel="noopener noreferrer">b4554b3</a>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-06-03 21:56</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/agent-config" target="_blank" rel="noopener noreferrer">agent-config</a>
-  </td>
-
-  <td class="msg">
-      feat(idea): doc-aware grilling with CONTEXT.md glossary and ADR emission
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/agent-config/commit/e8be39ba50493bae7be58eeda3a02cb513809c2b" target="_blank" rel="noopener noreferrer">e8be39b</a>
-  </td>
-</tr><tr class="anon">
-    <td class="when">2026-06-03</td>
-
-  <td class="repo">
-      <span class="redact-strong" aria-label="redacted repo" role="img">cleaner-cache</span>
-  </td>
-
-  <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">fix: loosen stricter shim</span>
-  </td>
-
-  <td class="sha">
-      <span class="redact-strong" aria-label="redacted sha" role="img">a90cc53</span>
-  </td>
-</tr><tr class="anon">
-    <td class="when">2026-06-03</td>
-
-  <td class="repo">
-      <span class="redact-strong" aria-label="redacted repo" role="img">flaky-filter</span>
-  </td>
-
-  <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">docs: update supervisor in validator</span>
-  </td>
-
-  <td class="sha">
-      <span class="redact-strong" aria-label="redacted sha" role="img">5ab8ae0</span>
-  </td>
-</tr><tr class="anon">
-    <td class="when">2026-06-03</td>
-
-  <td class="repo">
-      <span class="redact-strong" aria-label="redacted repo" role="img">reusable-validator-facade</span>
-  </td>
-
-  <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">improve missing queue</span>
-  </td>
-
-  <td class="sha">
-      <span class="redact-strong" aria-label="redacted sha" role="img">7aad3ec</span>
-  </td>
-</tr><tr class="anon">
-    <td class="when">2026-06-03</td>
-
-  <td class="repo">
-      <span class="redact-strong" aria-label="redacted repo" role="img">writer-cache</span>
-  </td>
-
-  <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">refactor: init bootstrapper</span>
-  </td>
-
-  <td class="sha">
-      <span class="redact-strong" aria-label="redacted sha" role="img">8d2a7bf</span>
-  </td>
-</tr><tr class="anon">
-    <td class="when">2026-06-03</td>
-
-  <td class="repo">
-      <span class="redact-strong" aria-label="redacted repo" role="img">mailer</span>
-  </td>
-
-  <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">fix: wire task for writer</span>
-  </td>
-
-  <td class="sha">
-      <span class="redact-strong" aria-label="redacted sha" role="img">1982ae9</span>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-06-03 12:46</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/agent-config" target="_blank" rel="noopener noreferrer">agent-config</a>
-  </td>
-
-  <td class="msg">
-      docs(idea): drop life-repo-specific save-location exception
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/agent-config/commit/22583f179f6df02ddc5d1c6367f283441740de59" target="_blank" rel="noopener noreferrer">22583f1</a>
-  </td>
-</tr><tr class="anon">
-    <td class="when">2026-06-02</td>
-
-  <td class="repo">
-      <span class="redact-strong" aria-label="redacted repo" role="img">worker-supervisor</span>
-  </td>
-
-  <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">refactor: init buffer and refactor router</span>
-  </td>
-
-  <td class="sha">
-      <span class="redact-strong" aria-label="redacted sha" role="img">2484011</span>
-  </td>
-</tr><tr class="anon">
-    <td class="when">2026-06-02</td>
-
-  <td class="repo">
-      <span class="redact-strong" aria-label="redacted repo" role="img">service-toolkit</span>
-  </td>
-
-  <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">trim buffer in writer</span>
-  </td>
-
-  <td class="sha">
-      <span class="redact-strong" aria-label="redacted sha" role="img">0b8f88d</span>
-  </td>
-</tr><tr class="anon">
-    <td class="when">2026-06-02</td>
-
-  <td class="repo">
-      <span class="redact-strong" aria-label="redacted repo" role="img">builder</span>
-  </td>
-
-  <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">fix the cleaner shim</span>
-  </td>
-
-  <td class="sha">
-      <span class="redact-strong" aria-label="redacted sha" role="img">183e7fe</span>
-  </td>
-</tr><tr class="anon">
-    <td class="when">2026-06-02</td>
-
-  <td class="repo">
-      <span class="redact-strong" aria-label="redacted repo" role="img">verbose-model-reader</span>
-  </td>
-
-  <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">throttle adapter for session</span>
-  </td>
-
-  <td class="sha">
-      <span class="redact-strong" aria-label="redacted sha" role="img">2f6a3be</span>
-  </td>
 </tr>        </tbody>
       </table>
 
@@ -3449,7 +3708,7 @@ Co-Authored-By: Claude Opus 4.8 &lt;noreply@anthropic.com&gt;
     <a href="https://github.com/curtyo18" target="_blank" rel="noopener noreferrer">github</a> · <a href="mailto:curtyo18@gmail.com">email</a>
   </div>
   <div class="stats" style="align-items:center">
-    <span><b>2,103</b> commits</span>
+    <span><b>2,127</b> commits</span>
     <span><b>78</b> repos</span>
     <span><b>17</b> years</span>
   </div>
