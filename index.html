@@ -16,7 +16,7 @@
     <small>curt — a public log of private and public work</small>
   </h1>
   <div class="meta">
-    <span><b>2,129</b> commits indexed</span>
+    <span><b>2,135</b> commits indexed</span>
     <span><b>78</b> repos · <b>17</b> years</span>
   </div>
 </div><div class="gr-section-title">
@@ -31,8 +31,8 @@
       </div>
       <div class="blurb"></div>
       <div class="foot">
-        <span>48 commits</span>
-        <span>last touched 2026-07-16</span>
+        <span>54 commits</span>
+        <span>last touched 2026-07-18</span>
       </div>
     </a>
     <a class="card card-link" href="https://github.com/curtyo18/agent-config" target="_blank" rel="noopener noreferrer">
@@ -71,7 +71,7 @@
 </div>
       <div class="gr-section-title" style="margin-top:36px">
         <span>All commits · newest first</span>
-        <span class="right">showing 1–200 of 2129</span>
+        <span class="right">showing 1–200 of 2135</span>
       </div>
 
       <table class="gr-table">
@@ -84,10 +84,140 @@
             <tr class="gr-month-row">
               <td colspan="4">
                 July 2026
-                <span>72 commits · 70 public</span>
+                <span>78 commits · 76 public</span>
               </td>
             </tr>
 <tr class="">
+    <td class="when">2026-07-18 23:43</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/header-handler" target="_blank" rel="noopener noreferrer">header-handler</a>
+  </td>
+
+  <td class="msg">
+      style: widen profiles sidebar to 250px and wrap names to two lines (#22)
+
+Sidebar column widened from 172px to 250px. Profile name switches from
+single-line ellipsis to a two-line clamp; profile row aligns to the top so
+the status dot stays with the first text line when the name wraps.
+
+
+Claude-Session: https://claude.ai/code/session_01UecvTZ6vAefC38GBSpzi53
+
+Co-authored-by: Claude Opus 4.8 &lt;noreply@anthropic.com&gt;
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/header-handler/commit/48db8ada197ac9d3fd7253629cb9fc9bb3d0fe31" target="_blank" rel="noopener noreferrer">48db8ad</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-07-18 23:12</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/header-handler" target="_blank" rel="noopener noreferrer">header-handler</a>
+  </td>
+
+  <td class="msg">
+      docs: warn that CI-skip tokens in commit messages suppress auto-release
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/header-handler/commit/ed0fc1703f7a5a2054271db5db297018e9058278" target="_blank" rel="noopener noreferrer">ed0fc17</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-07-18 23:09</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/header-handler" target="_blank" rel="noopener noreferrer">header-handler</a>
+  </td>
+
+  <td class="msg">
+      ci: auto-release on every merge to main (#21)
+
+Add auto-release.yml: on every push to main, bump the patch version, build,
+tag v&lt;version&gt;, and publish a GitHub release. Releasing is now a CI guarantee,
+not a manual step an agent could skip. Loop-guarded via [skip ci] on the bump
+commit (and GITHUB_TOKEN pushes don&#39;t trigger workflows); runs serialized by a
+concurrency group. release.yml stays as the manual path for minor/major bumps
+and re-cuts. Document the new flow in RELEASING.md.
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/header-handler/commit/ce73e01ba839d4b501172ab4aa4a9fd43e6a08e8" target="_blank" rel="noopener noreferrer">ce73e01</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-07-18 16:49</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/header-handler" target="_blank" rel="noopener noreferrer">header-handler</a>
+  </td>
+
+  <td class="msg">
+      Release v1.3.0
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/header-handler/commit/c12d23b6a3dee902cb090229231ab10d0453eaa4" target="_blank" rel="noopener noreferrer">c12d23b</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-07-18 16:46</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/header-handler" target="_blank" rel="noopener noreferrer">header-handler</a>
+  </td>
+
+  <td class="msg">
+      fix: converter regex too large for Chrome&#39;s RE2 engine (#20)
+
+ModHeader writes full-match regexes (&#34;.*X.*&#34; for a contains filter). DNR&#39;s
+regexFilter is a partial match, so the bounding .* are redundant — and a
+leading .* on each alternative of an OR-joined matcher blows past RE2&#39;s
+per-regex memory budget, which Chrome rejects as &#34;too large for Chrome&#39;s
+regex engine&#34;. Strip the redundant leading/trailing .* per filter and join
+with non-capturing groups; match semantics are unchanged (verified). Rebuild
+the committed converter page.
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/header-handler/commit/a05a9e426c1d7d16b16668e5f846cdc31c223e58" target="_blank" rel="noopener noreferrer">a05a9e4</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-07-18 16:46</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/header-handler" target="_blank" rel="noopener noreferrer">header-handler</a>
+  </td>
+
+  <td class="msg">
+      feat: chunked sync storage — raise the 8 KB config ceiling to ~84 KB (#19)
+
+* feat: chunk-planning codec for oversized configs
+
+* refactor: measure config bytes against the total sync budget
+
+* feat: chunk-aware config store with debounced multi-item writes
+
+* feat: budget the options near-quota UI against the total sync limit
+
+* test: retarget options save-failure test to the chunked budget
+
+* fix: harden chunked store — bound manifest n, serialize writes, refresh comments
+
+* fix: crash-safe chunk write ordering and torn-read watch guard
+
+Reorder the chunked write to chunks -&gt; manifest -&gt; GC so a crash never
+leaves a manifest referencing deleted chunks (shrink case). Guard the
+cross-device watcher against a torn read (manifest synced before its
+chunks) delivering a false empty that a later edit could persist over the
+good config. Document the accepted in-place-overwrite growth-crash residual.
+
+* test: cover the single-item-to-chunked upgrade/migration path
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/header-handler/commit/d2fd58fc8faf092d35c6bc9f12a8200009ec55ad" target="_blank" rel="noopener noreferrer">d2fd58f</a>
+  </td>
+</tr><tr class="">
     <td class="when">2026-07-16 22:45</td>
 
   <td class="repo">
@@ -1463,7 +1593,7 @@ Co-Authored-By: Claude Opus 4.8 &lt;noreply@anthropic.com&gt;
 </tr>            <tr class="gr-month-row">
               <td colspan="4">
                 June 2026
-                <span>128 commits · 89 public</span>
+                <span>122 commits · 85 public</span>
               </td>
             </tr>
 <tr class="">
@@ -3596,110 +3726,6 @@ Co-Authored-By: Claude Opus 4.8 &lt;noreply@anthropic.com&gt;
   <td class="sha">
       <span class="redact" aria-label="redacted sha" role="img">b4e3932</span>
   </td>
-</tr><tr class="">
-    <td class="when">2026-06-06 13:54</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/agent-config" target="_blank" rel="noopener noreferrer">agent-config</a>
-  </td>
-
-  <td class="msg">
-      docs(chrome-extension): scaffold a tag-triggered release workflow by default
-
-Manual `gh release create` is where the built extension artifact gets forgotten,
-leaving the release with only GitHub&#39;s auto source archives. Tell the skill to
-add a `v*`-tag-triggered workflow that builds, zips, and publishes with the zip
-attached, plus a tag==package.json version guard and (for hand-rolled builds) a
-built-manifest version check.
-
-Co-Authored-By: Claude Opus 4.8 &lt;noreply@anthropic.com&gt;
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/agent-config/commit/61727a8af990d9c2aaa0ba64f53ab84698ad22dc" target="_blank" rel="noopener noreferrer">61727a8</a>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-06-06 14:53</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/network-data-viewer" target="_blank" rel="noopener noreferrer">network-data-viewer</a>
-  </td>
-
-  <td class="msg">
-      ci(release): publish GitHub release with extension zip on tag push
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/network-data-viewer/commit/cebfcb8984a245b0ffee90fb28c964b5872d0941" target="_blank" rel="noopener noreferrer">cebfcb8</a>
-  </td>
-</tr><tr class="named">
-    <td class="when">2026-06-06 13:53</td>
-
-  <td class="repo">
-      network-data-viewer-archive
-  </td>
-
-  <td class="msg">
-      <span class="redact" aria-label="redacted message" role="img">inline filter (late)</span>
-  </td>
-
-  <td class="sha">
-      <span class="redact" aria-label="redacted sha" role="img">bd58a1d</span>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-06-06 13:48</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/agent-config" target="_blank" rel="noopener noreferrer">agent-config</a>
-  </td>
-
-  <td class="msg">
-      docs(chrome-extension,release): single-source manifest version + catch stale build artifacts
-
-A crxjs/vite extension shipped a stale version: package.json was bumped but the
-hardcoded version literal in the manifest config (hence the gitignored built
-manifest) wasn&#39;t, so the reloaded unpacked extension showed the old version.
-
-- chrome-extension.md: single-source the version from package.json (WXT stamps it;
-  hand-rolled/crxjs configs must read it at build time, never duplicate a literal);
-  reload the .output/ build artifact and never hand-edit the generated manifest.
-- release.md: the dry-run build step now verifies the built artifact&#39;s embedded
-  version matches the bumped source version — a forgotten rebuild can&#39;t ship stale.
-
-Co-Authored-By: Claude Opus 4.8 &lt;noreply@anthropic.com&gt;
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/agent-config/commit/96f90d8a97971b0677a3a674ed91476ce18af642" target="_blank" rel="noopener noreferrer">96f90d8</a>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-06-06 14:39</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/network-data-viewer" target="_blank" rel="noopener noreferrer">network-data-viewer</a>
-  </td>
-
-  <td class="msg">
-      chore(build): single-source manifest version from package.json + stale-dist guard
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/network-data-viewer/commit/ebac5a631ec8d5d93fd0ad26954e665d4a337903" target="_blank" rel="noopener noreferrer">ebac5a6</a>
-  </td>
-</tr><tr class="named">
-    <td class="when">2026-06-06 13:39</td>
-
-  <td class="repo">
-      network-data-viewer-archive
-  </td>
-
-  <td class="msg">
-      <span class="redact" aria-label="redacted message" role="img">feat: simplify service for registry</span>
-  </td>
-
-  <td class="sha">
-      <span class="redact" aria-label="redacted sha" role="img">dfc7281</span>
-  </td>
 </tr>        </tbody>
       </table>
 
@@ -3724,7 +3750,7 @@ Co-Authored-By: Claude Opus 4.8 &lt;noreply@anthropic.com&gt;
     <a href="https://github.com/curtyo18" target="_blank" rel="noopener noreferrer">github</a> · <a href="mailto:curtyo18@gmail.com">email</a>
   </div>
   <div class="stats" style="align-items:center">
-    <span><b>2,129</b> commits</span>
+    <span><b>2,135</b> commits</span>
     <span><b>78</b> repos</span>
     <span><b>17</b> years</span>
   </div>

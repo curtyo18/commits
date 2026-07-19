@@ -16,13 +16,13 @@
     <small>curt — a public log of private and public work</small>
   </h1>
   <div class="meta">
-    <span><b>2,129</b> commits indexed</span>
+    <span><b>2,135</b> commits indexed</span>
     <span><b>78</b> repos · <b>17</b> years</span>
   </div>
 </div>
       <div class="gr-section-title" style="margin-top:36px">
         <span>All commits · newest first</span>
-        <span class="right">showing 1001–1200 of 2129</span>
+        <span class="right">showing 1001–1200 of 2135</span>
       </div>
 
       <table class="gr-table">
@@ -35,10 +35,138 @@
             <tr class="gr-month-row">
               <td colspan="4">
                 May 2026
-                <span>43 commits · 18 public</span>
+                <span>49 commits · 24 public</span>
               </td>
             </tr>
-<tr class="anon">
+<tr class="">
+    <td class="when">2026-05-06 19:55</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/ClipCutter" target="_blank" rel="noopener noreferrer">ClipCutter</a>
+  </td>
+
+  <td class="msg">
+      fix(ui): make clip filenames clickable on Export Clips. Closes #5
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/ClipCutter/commit/6abc32ee3e640f4c45ed45823c3be67dc87b59dc" target="_blank" rel="noopener noreferrer">6abc32e</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-05-06 19:55</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/ClipCutter" target="_blank" rel="noopener noreferrer">ClipCutter</a>
+  </td>
+
+  <td class="msg">
+      refactor(ui): extract openPreviewModal helper
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/ClipCutter/commit/b6e590aebfd1a2248235dff6a24844a4e7c7b096" target="_blank" rel="noopener noreferrer">b6e590a</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-05-06 19:54</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/ClipCutter" target="_blank" rel="noopener noreferrer">ClipCutter</a>
+  </td>
+
+  <td class="msg">
+      fix(models): serialize clip_count on CompilationMetadata. Closes #6
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/ClipCutter/commit/609936862b97891893b009b48dc0f6d334816cba" target="_blank" rel="noopener noreferrer">6099368</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-05-06 19:53</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/ClipCutter" target="_blank" rel="noopener noreferrer">ClipCutter</a>
+  </td>
+
+  <td class="msg">
+      fix(routes): register compile router before review so /video/compilation works
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/ClipCutter/commit/ce58e45dc2348b7fa23e7420b0607271e331e552" target="_blank" rel="noopener noreferrer">ce58e45</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-05-06 12:28</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/ClipCutter" target="_blank" rel="noopener noreferrer">ClipCutter</a>
+  </td>
+
+  <td class="msg">
+      fix(ui): pause playing videos on tab switch
+
+Switching from Review (or from a preview modal opened on Export)
+left the underlying &lt;video&gt; playing in the background. switchTab
+now pauses every &lt;video&gt; in the document at the start of the
+handler, so audio stops as soon as the user navigates away.
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/ClipCutter/commit/02890ea9513417fc561a0b38eecd5fa80af0eeb1" target="_blank" rel="noopener noreferrer">02890ea</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-05-05 22:33</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/ClipCutter" target="_blank" rel="noopener noreferrer">ClipCutter</a>
+  </td>
+
+  <td class="msg">
+      feat: Phase 5 - polish, legacy cleanup, browser-test repair
+
+Cleanup
+- Drop unused window._cc handlers (thresholdChangedHandler,
+  onSegmentInput, updateTrimIndicator, renderExportView - none of
+  these are called from generated HTML after the per-tab refactors)
+  and un-export them or delete entirely. Cuts 4 dead exports.
+- Remove the legacy #overlay element from index.html. Phase 4
+  retired the showOverlay/hideOverlay helpers so the fixed-position
+  overlay is no longer used.
+- Fix the void-cast warning in compile.ts by typing apiDelete
+  generically: deleteCompilationSources now returns
+  Promise&lt;{deleted_count: number}&gt;. Combined with the unused-import
+  cleanup above, tsc --noEmit is now clean (0 warnings, down from 4).
+
+Legacy CSS retirement
+- Move the still-referenced bits (body reset, .view show/hide,
+  .empty-state) into cc.css and delete legacy.css entirely.
+  Bundle size: 41 kB -&gt; 27 kB CSS (~34% smaller).
+- The vite html-proxy quirk that forced legacy.css extraction in
+  Phase 1 doesn&#39;t recur because cc.css is the only stylesheet
+  imported from main.ts now.
+
+Browser test repair (5 failing -&gt; 99/99 passing)
+- Update tests/test_ui_browser.py selectors:
+  .btn-keep/skip/discard -&gt; .cc-action-keep/skip/discard
+- &#34;Review Complete&#34; check is case-insensitive (Direction B
+  uppercases via CSS text-transform; the underlying text is mixed
+  case so .lower() handles both).
+- &#34;volume spike&#34; / &#34;Confidence&#34; assertion in test_review_shows_clip
+  switched to &#34;volume&#34; + &#34;confidence&#34; matching the new region
+  labels and lowercase rendering.
+- Process-done detection in test_process_review_export waits for
+  &#34;[done]&#34; instead of &#34;Done!&#34; to match the new log-tag rendering.
+- TestExportTabBrowser keep call uses keep_and_wait so the async
+  worker has time to land the file before the UI reads it.
+- New _wait_for_path / _wait_for_keep_with_custom_name helpers
+  poll for filesystem and metadata side-effects after async keeps.
+
+Co-Authored-By: Claude Opus 4.7 (1M context) &lt;noreply@anthropic.com&gt;
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/ClipCutter/commit/6c728021c7f88b389f59773a4c59a023be2586a2" target="_blank" rel="noopener noreferrer">6c72802</a>
+  </td>
+</tr><tr class="anon">
     <td class="when">2026-05-05</td>
 
   <td class="repo">
@@ -866,7 +994,7 @@ findEmptyDirs gains an `unbounded` option that maps to cap=null.
 </tr>            <tr class="gr-month-row">
               <td colspan="4">
                 April 2026
-                <span>157 commits · 143 public</span>
+                <span>151 commits · 137 public</span>
               </td>
             </tr>
 <tr class="">
@@ -3791,90 +3919,6 @@ both typecheck and test run green.
   <td class="sha">
       <a class="sha-link" href="https://github.com/curtyo18/payments-service/commit/47e5adc57a16b60e76e00c7180bdd7465db5daab" target="_blank" rel="noopener noreferrer">47e5adc</a>
   </td>
-</tr><tr class="">
-    <td class="when">2026-04-25 16:50</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/FileOrganizer" target="_blank" rel="noopener noreferrer">FileOrganizer</a>
-  </td>
-
-  <td class="msg">
-      chore(ci): add github actions ci workflow
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/FileOrganizer/commit/dc55f76397b042155c5a8e7c03c5606a9faaa0eb" target="_blank" rel="noopener noreferrer">dc55f76</a>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-04-25 16:48</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/payments-service" target="_blank" rel="noopener noreferrer">payments-service</a>
-  </td>
-
-  <td class="msg">
-      fix: jest ESM mode requires --experimental-vm-modules; inline integration config
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/payments-service/commit/468c53719718219d0e72a6255e22391224cda931" target="_blank" rel="noopener noreferrer">468c537</a>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-04-25 16:46</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/payments-service" target="_blank" rel="noopener noreferrer">payments-service</a>
-  </td>
-
-  <td class="msg">
-      ci: continue-on-error per step so all failures surface in one run
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/payments-service/commit/31090e74185a8b32a5ab0ab4991623c9895f79e2" target="_blank" rel="noopener noreferrer">31090e7</a>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-04-25 16:44</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/payments-service" target="_blank" rel="noopener noreferrer">payments-service</a>
-  </td>
-
-  <td class="msg">
-      ci: remove npm cache (no package-lock.json committed yet)
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/payments-service/commit/be9c96c03f20fca53423720ccfa54c6916ccae32" target="_blank" rel="noopener noreferrer">be9c96c</a>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-04-25 16:42</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/payments-service" target="_blank" rel="noopener noreferrer">payments-service</a>
-  </td>
-
-  <td class="msg">
-      ci: add GitHub Actions workflow for typecheck and unit tests
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/payments-service/commit/d94cade3ddbc0f85c76701dbe2b6038ddce1b8b1" target="_blank" rel="noopener noreferrer">d94cade</a>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-04-25 16:41</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/FileOrganizer" target="_blank" rel="noopener noreferrer">FileOrganizer</a>
-  </td>
-
-  <td class="msg">
-      chore(repo): partial M0-T03 root package.json (BLOCKED on npm registry)
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/FileOrganizer/commit/3c44cdbc4280a50d1f807d2515a5fd253d2b7642" target="_blank" rel="noopener noreferrer">3c44cdb</a>
-  </td>
 </tr>        </tbody>
       </table>
 
@@ -3903,7 +3947,7 @@ both typecheck and test run green.
     <a href="https://github.com/curtyo18" target="_blank" rel="noopener noreferrer">github</a> · <a href="mailto:curtyo18@gmail.com">email</a>
   </div>
   <div class="stats" style="align-items:center">
-    <span><b>2,129</b> commits</span>
+    <span><b>2,135</b> commits</span>
     <span><b>78</b> repos</span>
     <span><b>17</b> years</span>
   </div>
