@@ -16,7 +16,7 @@
     <small>curt — a public log of private and public work</small>
   </h1>
   <div class="meta">
-    <span><b>2,136</b> commits indexed</span>
+    <span><b>2,156</b> commits indexed</span>
     <span><b>78</b> repos · <b>17</b> years</span>
   </div>
 </div><div class="gr-section-title">
@@ -24,6 +24,17 @@
 </div>
 
 <div class="gr-featured">
+    <a class="card card-link" href="https://github.com/curtyo18/tampermonkey-scripts" target="_blank" rel="noopener noreferrer">
+      <div class="top">
+        <div class="name">tampermonkey-scripts</div>
+        <div class="lang"></div>
+      </div>
+      <div class="blurb"></div>
+      <div class="foot">
+        <span>66 commits</span>
+        <span>last touched 2026-07-20</span>
+      </div>
+    </a>
     <a class="card card-link" href="https://github.com/curtyo18/header-handler" target="_blank" rel="noopener noreferrer">
       <div class="top">
         <div class="name">header-handler</div>
@@ -46,17 +57,6 @@
         <span>last touched 2026-07-12</span>
       </div>
     </a>
-    <a class="card card-link" href="https://github.com/curtyo18/tampermonkey-scripts" target="_blank" rel="noopener noreferrer">
-      <div class="top">
-        <div class="name">tampermonkey-scripts</div>
-        <div class="lang"></div>
-      </div>
-      <div class="blurb"></div>
-      <div class="foot">
-        <span>46 commits</span>
-        <span>last touched 2026-07-03</span>
-      </div>
-    </a>
     <a class="card card-link" href="https://github.com/curtyo18/html-utils" target="_blank" rel="noopener noreferrer">
       <div class="top">
         <div class="name">html-utils</div>
@@ -71,7 +71,7 @@
 </div>
       <div class="gr-section-title" style="margin-top:36px">
         <span>All commits · newest first</span>
-        <span class="right">showing 1–200 of 2136</span>
+        <span class="right">showing 1–200 of 2156</span>
       </div>
 
       <table class="gr-table">
@@ -84,10 +84,620 @@
             <tr class="gr-month-row">
               <td colspan="4">
                 July 2026
-                <span>79 commits · 76 public</span>
+                <span>99 commits · 96 public</span>
               </td>
             </tr>
-<tr class="anon">
+<tr class="">
+    <td class="when">2026-07-20 22:09</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/tampermonkey-scripts" target="_blank" rel="noopener noreferrer">tampermonkey-scripts</a>
+  </td>
+
+  <td class="msg">
+      ci: fix share-string evasion, document the scan&#39;s real limits
+
+Review findings on the gitleaks job.
+
+The `\b` anchor in the share-string rule was a false negative, not a
+safety margin: `AL1U?:` is already distinctive, and requiring a word
+boundary let `share_AL1:&lt;body&gt;` through untouched. Verified before and
+after — the prefixed form now fires, the bare form still does.
+
+The full-history comment claimed the job &#34;only ever fails on what a diff
+adds&#34;, which is wrong in the one case that matters. A hit anywhere in
+history fails every branch, and deleting the secret later does not clear
+it because the blob stays reachable. That behaviour is deliberate and
+matches the repo&#39;s git-workflow standard, but nobody should meet it for
+the first time on a red merge queue, so the comment now states it and
+points at --baseline-path / .gitleaksignore as the deferral hatch.
+
+Also: `detect` is deprecated in 8.30.1 in favour of `git`, so use the
+supported form now rather than discovering it at v9; --retry-all-errors
+so curl retries connection failures, not just HTTP statuses; and the
+commit count says 64, which is what the scan actually reports.
+
+Documented rather than fixed: the *stored* form of the same credentials.
+Review proposed a rule keyed on &#34;password&#34;/&#34;username&#34;/&#34;updatedAt&#34;, but
+that is not the shape — per src/types.ts a credential is `value` on a
+`fill` step, with no key naming it and nothing distinguishing a filled
+password from a filled username. A rule keyed on the real shape
+(pagePattern + value) hits the fixtures in auto-login/test/ — runner.test.ts
+alone has `value: &#39;hunter2&#39;` — so it would need an allowlist over that
+directory, which would blind the scan to a real share string committed
+into a fixture. That is one of the leak paths issue #7 named, so the gap
+is now written down in .gitleaks.toml instead of papered over.
+
+Co-Authored-By: Claude Opus 4.8 &lt;noreply@anthropic.com&gt;
+Claude-Session: https://claude.ai/code/session_01WSt6ZYkUkUyDc28cHgwhDj
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/tampermonkey-scripts/commit/005ac9d09eb2e32273b50de50b6e472cd65c0079" target="_blank" rel="noopener noreferrer">005ac9d</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-07-20 22:00</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/tampermonkey-scripts" target="_blank" rel="noopener noreferrer">tampermonkey-scripts</a>
+  </td>
+
+  <td class="msg">
+      ci: gate diffs on a gitleaks scan with an Auto Login share-string rule
+
+This repo is public and nothing checked content before now — the pre-commit
+hook only bumps @version in staged *.user.js.
+
+Auto Login sharpens the generic risk. Per docs/adr/0003 credentials are stored
+and shared in recoverable plaintext, and an export is `AL1:` +
+base64url(deflate-raw(JSON)) — an encoding, not encryption. Pasted into a
+fixture, README, or issue body that is a full credential dump that reads as
+ordinary text, and no generic rule fires on it. Hence the custom rule, written
+against the actual encoder in auto-login/src/share.ts rather than a guess: it
+covers the `AL1U:` uncompressed fallback too, and its length floor keeps it off
+the `SHARE_PREFIX` constants in source and in the built bundle.
+
+Verified to fire rather than merely to pass — a planted share string of each
+form, a non-example AKIA key, and a GitHub PAT all produce findings and a
+non-zero exit, in both working-tree and git-history mode. The current tree and
+all 62 commits of history are clean, so no allowlist was needed and the check
+does not arrive red.
+
+Scans full history rather than a base..head range. History being clean makes
+that affordable (~1s) and it removes the failure mode that matters most here:
+a mis-computed range scans nothing and still exits 0, which is a check that
+cannot fail. In practice it only ever trips on what a diff adds.
+
+gitleaks is installed as a version-pinned, SHA256-verified release binary
+rather than a marketplace action — one less third-party action in the supply
+chain and nothing extra to keep pinned.
+
+Refs #7
+
+Co-Authored-By: Claude Opus 4.8 &lt;noreply@anthropic.com&gt;
+Claude-Session: https://claude.ai/code/session_01WSt6ZYkUkUyDc28cHgwhDj
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/tampermonkey-scripts/commit/243f3667d87a31799222b657f05f83bf304d132f" target="_blank" rel="noopener noreferrer">243f366</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-07-20 22:00</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/tampermonkey-scripts" target="_blank" rel="noopener noreferrer">tampermonkey-scripts</a>
+  </td>
+
+  <td class="msg">
+      ci: pin actions to commit SHAs and add Dependabot
+
+`actions/checkout@v4` and `actions/setup-node@v4` tracked mutable tags. A tag
+can be repointed by whoever controls the upstream repo, so a compromised action
+would have executed in our runner. Both are now full commit SHAs with the
+version in a trailing comment.
+
+Both `v4` floating tags currently resolve to v4.4.0, so these pins are a no-op
+against what was already running — this changes the trust model, not the build:
+
+  actions/checkout   11d5960a326750d5838078e36cf38b85af677262  v4.4.0
+  actions/setup-node 49933ea5288caeca8642d1e84afbd3f7d6820020  v4.4.0
+
+Dependabot lands in the same commit because it is what makes pinning an
+improvement rather than a regression. An unpinned tag at least drifts forward;
+a pin with nothing bumping it just ages silently until you are a year behind
+and no longer noticing. Grouped so the actions arrive as one PR.
+
+Not added here: the npm ecosystem for the three project directories. They carry
+devDependencies only, but esbuild is among them and it produces the committed
+*.user.js that CI requires to be byte-identical to source — so every esbuild
+bump PR would arrive red on the drift check and need a manual rebuild commit to
+go green. That is a review routine worth adopting deliberately rather than
+switching on as a side effect of this issue.
+
+Refs #6
+
+Co-Authored-By: Claude Opus 4.8 &lt;noreply@anthropic.com&gt;
+Claude-Session: https://claude.ai/code/session_01WSt6ZYkUkUyDc28cHgwhDj
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/tampermonkey-scripts/commit/404bf8a7ec6d55687c9fa63479712474fce2f108" target="_blank" rel="noopener noreferrer">404bf8a</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-07-20 21:44</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/tampermonkey-scripts" target="_blank" rel="noopener noreferrer">tampermonkey-scripts</a>
+  </td>
+
+  <td class="msg">
+      ci: close drift-check blind spot, exempt master from cancellation
+
+Review of the initial workflow surfaced a false negative in the check that
+is the whole point of this change.
+
+git diff only compares tracked files, so a build output that was renamed
+in build.mjs or never committed is invisible to it: the old bundle is
+untouched, the new one is untracked, and CI goes green while @downloadURL
+keeps serving the stale file. Verified by dropping an untracked
+*.user.js into a project — the old check exited 0.
+
+Gate on git status --porcelain instead, which reports untracked and
+modified alike, and does so without staging anything. Verified it catches
+both drift modes, stays clean at baseline, and stays scoped to its own
+project rather than tripping on a sibling.
+
+Also from review:
+- cancel-in-progress no longer applies to master, where cancelling would
+  leave a merged commit with no CI result.
+- timeout-minutes: 10, so a hung vitest run cannot hold a runner for the
+  6-hour default.
+- Error message says &#39;npm ci &amp;&amp; npm run build&#39; — a contributor whose local
+  esbuild floated off the lockfile has already run the build, so the old
+  wording sent them hunting.
+
+Co-Authored-By: Claude Opus 4.8 &lt;noreply@anthropic.com&gt;
+Claude-Session: https://claude.ai/code/session_01WSt6ZYkUkUyDc28cHgwhDj
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/tampermonkey-scripts/commit/ac39863a9629c87465d6e808ecb70a8112bd2eb0" target="_blank" rel="noopener noreferrer">ac39863</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-07-20 21:39</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/tampermonkey-scripts" target="_blank" rel="noopener noreferrer">tampermonkey-scripts</a>
+  </td>
+
+  <td class="msg">
+      ci: typecheck, tests, and bundle-drift check for built userscripts
+
+No workflows existed, so typecheck and test only ever ran locally and a
+broken commit could reach master unnoticed.
+
+Adds .github/workflows/ci.yml, matrixed over the three projects that build
+a userscript from src/*.ts. Each job runs npm ci, typecheck, test, then
+rebuilds and requires the committed *.user.js to be byte-identical to the
+build output.
+
+That last check is the one with user impact: @downloadURL serves the
+committed bundle straight off master, so a stale bundle ships broken code
+to anyone who auto-updates.
+
+Includes gitlab/gitlab-code-search alongside auto-login and
+jira/jira-ticket-extractor. It has the same shape and the same committed
+bundle exposure, so omitting it would leave the drift risk half-covered.
+
+All three projects pass typecheck, tests, and the drift check as of this
+commit, so CI lands green.
+
+Closes #3
+
+Co-Authored-By: Claude Opus 4.8 &lt;noreply@anthropic.com&gt;
+Claude-Session: https://claude.ai/code/session_01WSt6ZYkUkUyDc28cHgwhDj
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/tampermonkey-scripts/commit/5def302115345cdd06069b77f309c862be390539" target="_blank" rel="noopener noreferrer">5def302</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-07-20 13:05</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/tampermonkey-scripts" target="_blank" rel="noopener noreferrer">tampermonkey-scripts</a>
+  </td>
+
+  <td class="msg">
+      fix(auto-login): run on SPA routes without acting on the wrong page
+
+The script computed its matching accounts once at document-end and the
+dormant path returned outright, so a client-side route change never
+re-evaluated anything and the script stayed inert for the rest of the
+document&#39;s life. Reported live: no trigger UI on an SPA route reached by
+client-side navigation. Separately, steps resolved their element with a
+bare querySelector, so even a correctly matched account failed instantly
+against a form the framework had not rendered yet.
+
+Re-evaluate on navigation, and let the first step of a page block wait.
+
+Matching moves into decideForPage(), a pure function returning a tagged
+union, leaving main.ts to apply the decision. The branches were
+previously welded to location/document/ui/storage inside the entry IIFE
+where no test could reach them.
+
+Per-navigation evaluation makes several once-per-load assumptions unsafe,
+so:
+
+- Cancellation is threaded through runSteps rather than wrapped around
+  it. waitForElement observes the whole subtree, so the next route&#39;s
+  render is itself the mutation that wakes it; without a staleness check
+  at each action a wait started on the login page resolves against a
+  same-named field on the page after it and types credentials into it.
+  The generation is bumped in the navigation listener, not in the sync,
+  which is queued behind the very run it must cancel.
+- Only a real document load resets the lockout counter. Doing it per
+  route treated every intermediate hop as &#34;the login must have worked&#34;,
+  handing a failing auto-submit an unlimited budget.
+- Repeat runs are keyed on the matched steps rather than the raw href, so
+  a query-string or hash rewrite is not mistaken for a new page.
+- Syncs serialise; the history patch carries a sentinel so a second
+  injection cannot stack wrappers.
+
+Dormancy is preserved: patching history is function wrapping, and a page
+matching nothing still mounts no UI and starts no observers.
+
+Co-Authored-By: Claude Opus 4.8 &lt;noreply@anthropic.com&gt;
+Claude-Session: https://claude.ai/code/session_01WSt6ZYkUkUyDc28cHgwhDj
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/tampermonkey-scripts/commit/046835bf4f7ec32e276dd8d20c4c28c85dc928ce" target="_blank" rel="noopener noreferrer">046835b</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-07-20 11:57</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/tampermonkey-scripts" target="_blank" rel="noopener noreferrer">tampermonkey-scripts</a>
+  </td>
+
+  <td class="msg">
+      fix(auto-login): final review findings
+
+- @noframes: without it an attacker who knows a dev login URL can
+  iframe it and have the script auto-submit credentials into it on
+  their timing, and the dormant-path storage read multiplied by every
+  subframe on ad-heavy pages. Recorded in ADR 0001.
+- Lockout guard extracted to isAutoRunBlocked/seedAttempts and tested.
+  The seed previously ignored the freshness window the block applied,
+  so an expired guard re-armed itself immediately from a stale count.
+- renderPanel stacked backdrops when opened twice; renderImportPreview
+  could never settle if clear() removed the backdrop holding its only
+  resolvers, silently dropping the import.
+- A throwing GM_setValue became an unhandled rejection with no toast;
+  save() now reports it like every other unwritten case.
+- Removed the recording-session machinery: four of its five exports
+  were unreachable and nothing ever wrote store.recording. appendStep,
+  the one live export, moves to steps.ts.
+- main.ts imports SelectorCandidate instead of re-declaring it
+  structurally; README no longer overstates the GM isolation.
+
+Co-Authored-By: Claude Opus 4.8 &lt;noreply@anthropic.com&gt;
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/tampermonkey-scripts/commit/80e075896eb17f3a96c90a8de652df542d03a7d2" target="_blank" rel="noopener noreferrer">80e0758</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-07-20 11:49</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/tampermonkey-scripts" target="_blank" rel="noopener noreferrer">tampermonkey-scripts</a>
+  </td>
+
+  <td class="msg">
+      docs(auto-login): README with install, usage, and safety scope
+
+Co-Authored-By: Claude Opus 4.8 &lt;noreply@anthropic.com&gt;
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/tampermonkey-scripts/commit/2faf86dae4d3a12e3f31797d20e7da3b54f86386" target="_blank" rel="noopener noreferrer">2faf86d</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-07-20 11:49</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/tampermonkey-scripts" target="_blank" rel="noopener noreferrer">tampermonkey-scripts</a>
+  </td>
+
+  <td class="msg">
+      feat(auto-login): panel, trigger button, and entry point
+
+Shadow-DOM host so arbitrary page CSS cannot deform the UI and the
+script&#39;s own CSS cannot leak into the page. The panel manages
+accounts, records steps via the picker, and carries the read-only
+banner with its discard action.
+
+main.ts stays dormant on any page no account matches: one storage read
+and no DOM work at all. Leaving an account&#39;s pages is the only
+reliable signal a login finished, so that is where the lockout counter
+resets. An explicit click of the trigger clears the counter — the
+guard exists to stop an automatic loop, not to refuse a human.
+
+Co-Authored-By: Claude Opus 4.8 &lt;noreply@anthropic.com&gt;
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/tampermonkey-scripts/commit/f3a56f9ebdc1e9cefa3a832d608c0db9d2036501" target="_blank" rel="noopener noreferrer">f3a56f9</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-07-20 11:46</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/tampermonkey-scripts" target="_blank" rel="noopener noreferrer">tampermonkey-scripts</a>
+  </td>
+
+  <td class="msg">
+      feat(auto-login): recording session lifecycle
+
+Co-Authored-By: Claude Opus 4.8 &lt;noreply@anthropic.com&gt;
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/tampermonkey-scripts/commit/f807d8963620aebc0a166785799cf2b4d04c44d0" target="_blank" rel="noopener noreferrer">f807d89</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-07-20 11:45</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/tampermonkey-scripts" target="_blank" rel="noopener noreferrer">tampermonkey-scripts</a>
+  </td>
+
+  <td class="msg">
+      feat(auto-login): element picker overlay with capture-phase click
+
+Adds pickElement(host), which puts the page into element-picking mode:
+a fixed highlight overlay tracks the hovered element, and a
+capture-phase click listener resolves with the picked element and its
+ranked selector candidates from generateCandidates. The click is
+preventDefault&#39;d and stopPropagation&#39;d so picking a submit button or
+link does not trigger a real submit/navigation. Escape resolves null.
+Clicks inside the host panel are ignored so the panel stays usable
+while picking.
+
+Co-Authored-By: Claude Opus 4.8 &lt;noreply@anthropic.com&gt;
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/tampermonkey-scripts/commit/96a9d2391678bb4c98a9086f2c3885d0ea48442d" target="_blank" rel="noopener noreferrer">96a9d23</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-07-20 11:43</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/tampermonkey-scripts" target="_blank" rel="noopener noreferrer">tampermonkey-scripts</a>
+  </td>
+
+  <td class="msg">
+      feat(auto-login): compressed share strings and import merge plan
+
+Encodes the whole config set as one pasteable AL1: line, with an
+uncompressed AL1U: fallback. Decoding validates every incoming account
+with isAccount before returning: a share string comes from someone
+else&#39;s install and is the only genuinely untrusted input in the
+product.
+
+Compression streams are built by hand rather than via
+Blob.stream(). jsdom exposes CompressionStream but ships a Blob
+without .stream(), so the Blob route selects the compression path and
+then fails on its own dependency.
+
+Co-Authored-By: Claude Opus 4.8 &lt;noreply@anthropic.com&gt;
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/tampermonkey-scripts/commit/53816c2f93c76a97d98c3e794dad8df461a20c64" target="_blank" rel="noopener noreferrer">53816c2</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-07-20 11:39</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/tampermonkey-scripts" target="_blank" rel="noopener noreferrer">tampermonkey-scripts</a>
+  </td>
+
+  <td class="msg">
+      docs(auto-login): record the page-scoped step decision
+
+ADR 0004 supersedes the navigation-spanning-run section of the design
+doc. The run cursor could not distinguish a successful login from a
+retry, since both are just &#34;the page navigated&#34;; deriving position by
+matching the URL removes the ambiguity rather than working around it.
+
+Co-Authored-By: Claude Opus 4.8 &lt;noreply@anthropic.com&gt;
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/tampermonkey-scripts/commit/08bbec914e6a5eef55c4607a286c633b2d3d6768" target="_blank" rel="noopener noreferrer">08bbec9</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-07-20 11:38</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/tampermonkey-scripts" target="_blank" rel="noopener noreferrer">tampermonkey-scripts</a>
+  </td>
+
+  <td class="msg">
+      feat(auto-login): page-scoped step runner
+
+Steps carry the URL pattern of the page they were recorded on, and a
+run executes the first contiguous block matching the current URL.
+Multi-page flows fall out of matching rather than out of a persisted
+step cursor.
+
+The cursor design it replaces could not distinguish a successful login
+from a retry, because both are just &#34;the page navigated&#34;. It resumed
+at the submit step, so a retry clicked submit against an empty form;
+it treated a non-navigating failure as completion, which cleared the
+cursor and reset the attempt counter — so the lockout guard gave no
+protection in exactly the case it existed for; and on a broad pattern
+it showed a red error after every successful login.
+
+Matching makes all three vanish: the post-login page matches no block
+so nothing runs, and re-landing on the login page matches that block
+again, refilling before submit fires.
+
+Also from review: selectors are hand-editable, so querySelector can
+throw SyntaxError — every step body is now guarded, where previously
+the rejection escaped an un-awaited caller leaving no toast and a
+torn-down UI. Clicks are duck-typed (an icon-only submit often
+resolves to an inner &lt;svg&gt;). The value setter is read off the
+element&#39;s own prototype so a foreign-document element works. Fills no
+longer blur: identity-first flows advance on username blur, tearing
+the form down before the password step, and blur also double-fired
+change.
+
+Co-Authored-By: Claude Opus 4.8 &lt;noreply@anthropic.com&gt;
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/tampermonkey-scripts/commit/e55841d38239be6ea2f7fad8f7b06be1f0256764" target="_blank" rel="noopener noreferrer">e55841d</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-07-20 11:19</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/tampermonkey-scripts" target="_blank" rel="noopener noreferrer">tampermonkey-scripts</a>
+  </td>
+
+  <td class="msg">
+      feat(auto-login): ranked selector candidate generation
+
+Proposes selectors for a picked element ranked by expected stability,
+each measured against the document.
+
+Every candidate records whether it resolves back to the element the
+user actually clicked. Uniqueness alone is not enough: a duplicated
+id matches exactly one element and can still be the wrong one, which
+would type a password into a different field on every future run.
+Candidates that uniquely resolve to the picked element are floated
+above the category ranking.
+
+Invalid CSS is measured and discarded rather than thrown — an
+aria-label containing a newline previously took down every candidate,
+leaving the picker&#39;s promise unsettled and the flow dead with no error.
+
+Adds a test setup file with the canonical CSS.escape algorithm, which
+jsdom 24 does not implement. Polyfilling the test environment keeps
+src/ on the real platform API.
+
+Co-Authored-By: Claude Opus 4.8 &lt;noreply@anthropic.com&gt;
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/tampermonkey-scripts/commit/28b31c9abf335af4ad47ffb872d4a85b1becb504" target="_blank" rel="noopener noreferrer">28b31c9</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-07-20 11:09</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/tampermonkey-scripts" target="_blank" rel="noopener noreferrer">tampermonkey-scripts</a>
+  </td>
+
+  <td class="msg">
+      feat(auto-login): store parsing, schema gate, and GM storage adapter
+
+Parse rejects any non-object root, a missing or non-numeric
+schemaVersion, and a non-array accounts field as corrupt rather than
+as an empty config — treating those as empty let the next write
+silently replace a store we had merely failed to understand. Steps,
+run cursors and recording sessions are structurally validated too; a
+bad cursor is dropped rather than locking the whole store.
+
+save() now reports whether it wrote, and reset() gives the panel an
+escape hatch from an otherwise inescapable read-only state.
+
+Co-Authored-By: Claude Opus 4.8 &lt;noreply@anthropic.com&gt;
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/tampermonkey-scripts/commit/926ec693ce2ab0fc1b77e5db3e1fd2fe9b4d715b" target="_blank" rel="noopener noreferrer">926ec69</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-07-20 10:55</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/tampermonkey-scripts" target="_blank" rel="noopener noreferrer">tampermonkey-scripts</a>
+  </td>
+
+  <td class="msg">
+      feat(auto-login): URL pattern matching with glob and regex forms
+
+Adds compilePattern/matchesPattern supporting glob patterns (with *
+and ? wildcards, anchored, metacharacter-escaped) and a /body/flags
+regex escape hatch. Malformed regex patterns return null/false
+instead of throwing, so callers can flag invalid config.
+
+Co-Authored-By: Claude Opus 4.8 &lt;noreply@anthropic.com&gt;
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/tampermonkey-scripts/commit/e0d62ae43d14f599caebe6af064fda890a44820e" target="_blank" rel="noopener noreferrer">e0d62ae</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-07-20 10:49</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/tampermonkey-scripts" target="_blank" rel="noopener noreferrer">tampermonkey-scripts</a>
+  </td>
+
+  <td class="msg">
+      feat(auto-login): shared types and tuning constants
+
+Co-Authored-By: Claude Opus 4.8 &lt;noreply@anthropic.com&gt;
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/tampermonkey-scripts/commit/4b10899bf7f4f91831574208f8054eadb6e9e9f0" target="_blank" rel="noopener noreferrer">4b10899</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-07-20 10:45</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/tampermonkey-scripts" target="_blank" rel="noopener noreferrer">tampermonkey-scripts</a>
+  </td>
+
+  <td class="msg">
+      chore(auto-login): scaffold TS build and test setup
+
+Co-Authored-By: Claude Opus 4.8 &lt;noreply@anthropic.com&gt;
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/tampermonkey-scripts/commit/f8a3db5ff3993bc53f31bb7c2b2946e2a84bbb09" target="_blank" rel="noopener noreferrer">f8a3db5</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-07-20 10:41</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/tampermonkey-scripts" target="_blank" rel="noopener noreferrer">tampermonkey-scripts</a>
+  </td>
+
+  <td class="msg">
+      docs: add repo glossary and Auto Login decision records
+
+CONTEXT.md seeds a repo-root glossary; the three ADRs record the
+load-bearing Auto Login decisions: injecting on every page with a
+runtime storage gate, confining GM_* to an async platform-neutral
+storage adapter, and storing/sharing credentials in plaintext.
+
+Co-Authored-By: Claude Opus 4.8 &lt;noreply@anthropic.com&gt;
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/tampermonkey-scripts/commit/7e0a48e0ab6440f1a0071020b945115de3a34d07" target="_blank" rel="noopener noreferrer">7e0a48e</a>
+  </td>
+</tr><tr class="anon">
     <td class="when">2026-07-19</td>
 
   <td class="repo">
@@ -1607,7 +2217,7 @@ Co-Authored-By: Claude Opus 4.8 &lt;noreply@anthropic.com&gt;
 </tr>            <tr class="gr-month-row">
               <td colspan="4">
                 June 2026
-                <span>121 commits · 85 public</span>
+                <span>101 commits · 70 public</span>
               </td>
             </tr>
 <tr class="">
@@ -3372,360 +3982,6 @@ Co-Authored-By: Claude Opus 4.8 &lt;noreply@anthropic.com&gt;
   <td class="sha">
       <span class="redact-strong" aria-label="redacted sha" role="img">3215829</span>
   </td>
-</tr><tr class="">
-    <td class="when">2026-06-07 18:05</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/StopYappingBro" target="_blank" rel="noopener noreferrer">StopYappingBro</a>
-  </td>
-
-  <td class="msg">
-      1.2.3
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/StopYappingBro/commit/d42e1683f89cb93d5c97ddba88e86b771a8765dc" target="_blank" rel="noopener noreferrer">d42e168</a>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-06-07 18:04</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/StopYappingBro" target="_blank" rel="noopener noreferrer">StopYappingBro</a>
-  </td>
-
-  <td class="msg">
-      fix: re-inject the YouTube widget reliably across SPA navigations
-
-The migration replaced the original setInterval re-injection with WXT&#39;s
-ui.autoMount(), whose MutationObserver only reacts to the action-bar element
-appearing or disappearing — not to YouTube rebuilding the bar&#39;s children in
-place, which wipes the widget while leaving the container. So the buttons
-intermittently failed to re-appear after navigating between videos.
-
-Restore the resilient model: build the widget once via createShadowRootUi, then
-re-assert its placement in the first VISIBLE, non-empty
-#top-level-buttons-computed on a 500ms interval (mirroring the original
-tryInjectWidget). This also restores the visible/non-empty bar selection that
-WXT&#39;s string anchor (querySelector first-match) had dropped.
-
-Co-Authored-By: Claude Opus 4.8 &lt;noreply@anthropic.com&gt;
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/StopYappingBro/commit/cb6391f7dca703a888072be27d27b984f1d7eeb0" target="_blank" rel="noopener noreferrer">cb6391f</a>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-06-07 17:16</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/StopYappingBro" target="_blank" rel="noopener noreferrer">StopYappingBro</a>
-  </td>
-
-  <td class="msg">
-      1.2.2
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/StopYappingBro/commit/5caeca0923a632c1a57069309652f6a8e15ed205" target="_blank" rel="noopener noreferrer">5caeca0</a>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-06-07 17:15</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/StopYappingBro" target="_blank" rel="noopener noreferrer">StopYappingBro</a>
-  </td>
-
-  <td class="msg">
-      fix: keep transcript widget buttons readable in YouTube light mode
-
-The widget buttons hardcoded dark-theme colours (white text on a faint white
-film), so they were nearly invisible when the user has YouTube in light mode.
-Drive the button palette through CSS custom properties that default to the dark
-theme and flip to dark-on-light via :host-context(html:not([dark])), keyed off
-YouTube&#39;s own theme attribute (not prefers-color-scheme). Dark stays the default
-so the rule degrades to today&#39;s behaviour if :host-context ever stops matching.
-Pre-existing bug, not introduced by the WXT migration.
-
-Co-Authored-By: Claude Opus 4.8 &lt;noreply@anthropic.com&gt;
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/StopYappingBro/commit/70009be20de233cfd02c78c518c44d5f95263fba" target="_blank" rel="noopener noreferrer">70009be</a>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-06-07 17:07</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/agent-sandbox" target="_blank" rel="noopener noreferrer">agent-sandbox</a>
-  </td>
-
-  <td class="msg">
-      fix(squid): supervise the proxy so it self-heals after a crash
-
-squid 5.7 (bookworm) sporadically aborts (FATAL: check failed: waiting(),
-HappyConnOpener.cc:225); nothing restarted it, so every proxied request failed
-with ConnectionRefused until a manual restart. Replace the entrypoint&#39;s bare
-`exec sleep infinity` with a PID-1 supervision loop that polls 127.0.0.1:3128
-and respawns squid with capped backoff. Split the access-log-&gt;audit tailer into
-its own once-only spawn so restarts don&#39;t double audit lines.
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/agent-sandbox/commit/7ce51f338e1cebd493ac4c16667cad42a73329e7" target="_blank" rel="noopener noreferrer">7ce51f3</a>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-06-07 16:24</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/StopYappingBro" target="_blank" rel="noopener noreferrer">StopYappingBro</a>
-  </td>
-
-  <td class="msg">
-      1.2.1
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/StopYappingBro/commit/ac9fc1213056f9aa9277b01eae315e79a7eeb8bf" target="_blank" rel="noopener noreferrer">ac9fc12</a>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-06-07 16:22</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/StopYappingBro" target="_blank" rel="noopener noreferrer">StopYappingBro</a>
-  </td>
-
-  <td class="msg">
-      chore: migrate to WXT
-
-Replace vite-plugin-web-extension with WXT (Strategy C: adopt WXT structure +
-generated manifest + createShadowRootUi + wxt zip; keep internal chrome.* calls
-and the typed storage wrappers).
-
-- Page-world intercept.ts re-homed as a world:&#39;MAIN&#39; content script, deleting the
-  web_accessible_resources + chrome.runtime.getURL &lt;script&gt; injection.
-- YouTube widget mounts via createShadowRootUi + autoMount (replaces the manual
-  attachShadow + setInterval). widget.css adds `html,body{display:contents}` to
-  collapse WXT&#39;s shadow &lt;html&gt;&lt;body&gt; wrapper so the buttons stay a direct :host
-  flex row (and pick up no UA &lt;body&gt; margin).
-- Entrypoints under src/entrypoints/; manifest generated; version auto-stamped.
-- Packaging via wxt zip; release.yml simplified; CI/release on Node 22, actions
-  @v6, explicit `npx wxt prepare` after install (.npmrc sets ignore-scripts).
-
-No behavior change.
-
-Co-Authored-By: Claude Opus 4.8 &lt;noreply@anthropic.com&gt;
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/StopYappingBro/commit/d7edc94f0122e2f75e054ef71c11406abf0e60fb" target="_blank" rel="noopener noreferrer">d7edc94</a>
-  </td>
-</tr><tr class="anon">
-    <td class="when">2026-06-07</td>
-
-  <td class="repo">
-      <span class="redact-strong" aria-label="redacted repo" role="img">indexer-session</span>
-  </td>
-
-  <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">wip: stub</span>
-  </td>
-
-  <td class="sha">
-      <span class="redact-strong" aria-label="redacted sha" role="img">79dd0d3</span>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-06-07 14:17</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/GitLabJobStarter" target="_blank" rel="noopener noreferrer">GitLabJobStarter</a>
-  </td>
-
-  <td class="msg">
-      1.10.1
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/GitLabJobStarter/commit/00e0df79829dee04462c98597767315668f45b69" target="_blank" rel="noopener noreferrer">00e0df7</a>
-  </td>
-</tr><tr class="anon">
-    <td class="when">2026-06-07</td>
-
-  <td class="repo">
-      <span class="redact-strong" aria-label="redacted repo" role="img">indexer-toolkit</span>
-  </td>
-
-  <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">docs: tweak supervisor in encoder</span>
-  </td>
-
-  <td class="sha">
-      <span class="redact-strong" aria-label="redacted sha" role="img">4e0a0a7</span>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-06-07 13:37</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/GitLabJobStarter" target="_blank" rel="noopener noreferrer">GitLabJobStarter</a>
-  </td>
-
-  <td class="msg">
-      chore: migrate to WXT
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/GitLabJobStarter/commit/0efb49f348bf1a5fc5d71997825f8294bb892f49" target="_blank" rel="noopener noreferrer">0efb49f</a>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-06-07 12:27</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/agent-config" target="_blank" rel="noopener noreferrer">agent-config</a>
-  </td>
-
-  <td class="msg">
-      chore: allowlist wxt.dev and drop dead @wxt-dev/module-preact ref
-
-Add .wxt.dev to the squid network allowlist (for WXT docs research), and remove the
-non-existent @wxt-dev/module-preact reference from the chrome-extension command —
-only react/vue/svelte/solid have official WXT modules; Preact uses tsconfig
-jsxImportSource or @preact/preset-vite via the vite() hook.
-
-Co-Authored-By: Claude Opus 4.8 &lt;noreply@anthropic.com&gt;
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/agent-config/commit/92a3c8a049f404b31cf3a90ff7c73c8c66927350" target="_blank" rel="noopener noreferrer">92a3c8a</a>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-06-07 09:47</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/StopYappingBro" target="_blank" rel="noopener noreferrer">StopYappingBro</a>
-  </td>
-
-  <td class="msg">
-      fix: persist pending prompt in chrome.storage.session
-
-The background service worker held the pending prompt in a module-level
-variable. Under MV3 the worker can be torn down between opening the ChatGPT
-tab and the tab requesting the prompt, dropping it and silently breaking
-Summarize. Stash it in chrome.storage.session (survives a worker restart)
-and re-read it on getPrompt.
-
-Closes #2
-
-Co-Authored-By: Claude Opus 4.8 &lt;noreply@anthropic.com&gt;
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/StopYappingBro/commit/d4457ffbd5a92390e53fe6ff76bb5e754ace6671" target="_blank" rel="noopener noreferrer">d4457ff</a>
-  </td>
-</tr><tr class="anon">
-    <td class="when">2026-06-07</td>
-
-  <td class="repo">
-      <span class="redact-strong" aria-label="redacted repo" role="img">writer-toolkit</span>
-  </td>
-
-  <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">fix: bump task so helper can guard view</span>
-  </td>
-
-  <td class="sha">
-      <span class="redact-strong" aria-label="redacted sha" role="img">40b69b3</span>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-06-07 10:46</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/GitLabJobStarter" target="_blank" rel="noopener noreferrer">GitLabJobStarter</a>
-  </td>
-
-  <td class="msg">
-      chore: single-source manifest version + add release workflow
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/GitLabJobStarter/commit/64c9d4c86a9efb792967ae573c1505e9568bd36e" target="_blank" rel="noopener noreferrer">64c9d4c</a>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-06-07 09:46</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/StopYappingBro" target="_blank" rel="noopener noreferrer">StopYappingBro</a>
-  </td>
-
-  <td class="msg">
-      chore: single-source manifest version + add release workflow
-
-Read the version from package.json at build time (vite.config.ts) rather
-than hardcoding it in manifest.json, so `npm version` is the only place it
-is bumped. Add a stale-build guard to the packager (aborts if dist/ is out
-of date) and a release.yml that builds, zips, and publishes the GitHub
-release with the extension attached on a v* tag push.
-
-Co-Authored-By: Claude Opus 4.8 &lt;noreply@anthropic.com&gt;
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/StopYappingBro/commit/08dd2181b2a59cad218568cd3a311f1e390c5552" target="_blank" rel="noopener noreferrer">08dd218</a>
-  </td>
-</tr><tr class="named">
-    <td class="when">2026-06-06 16:47</td>
-
-  <td class="repo">
-      tampermonkey-scripts-private
-  </td>
-
-  <td class="msg">
-      <span class="redact" aria-label="redacted message" role="img">harden shim so decoder can improve shim</span>
-  </td>
-
-  <td class="sha">
-      <span class="redact" aria-label="redacted sha" role="img">07fbdb7</span>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-06-06 15:00</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/network-data-viewer" target="_blank" rel="noopener noreferrer">network-data-viewer</a>
-  </td>
-
-  <td class="msg">
-      ci: bump GitHub Actions off the deprecated Node 20 runtime
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/network-data-viewer/commit/dadb19d2950ca0697a97cee5386094f13695b994" target="_blank" rel="noopener noreferrer">dadb19d</a>
-  </td>
-</tr><tr class="named">
-    <td class="when">2026-06-06 14:00</td>
-
-  <td class="repo">
-      network-data-viewer-archive
-  </td>
-
-  <td class="msg">
-      <span class="redact" aria-label="redacted message" role="img">guard cleaner facade in util</span>
-  </td>
-
-  <td class="sha">
-      <span class="redact" aria-label="redacted sha" role="img">b7c319e</span>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-06-06 14:57</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/network-data-viewer" target="_blank" rel="noopener noreferrer">network-data-viewer</a>
-  </td>
-
-  <td class="msg">
-      chore(release): bump to v0.5.3
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/network-data-viewer/commit/67540f41f7fd5eeacc4c450b8024a5747ed42f24" target="_blank" rel="noopener noreferrer">67540f4</a>
-  </td>
 </tr>        </tbody>
       </table>
 
@@ -3750,7 +4006,7 @@ Co-Authored-By: Claude Opus 4.8 &lt;noreply@anthropic.com&gt;
     <a href="https://github.com/curtyo18" target="_blank" rel="noopener noreferrer">github</a> · <a href="mailto:curtyo18@gmail.com">email</a>
   </div>
   <div class="stats" style="align-items:center">
-    <span><b>2,136</b> commits</span>
+    <span><b>2,156</b> commits</span>
     <span><b>78</b> repos</span>
     <span><b>17</b> years</span>
   </div>
