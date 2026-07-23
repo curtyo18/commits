@@ -16,7 +16,7 @@
     <small>curt — a public log of private and public work</small>
   </h1>
   <div class="meta">
-    <span><b>2,157</b> commits indexed</span>
+    <span><b>2,166</b> commits indexed</span>
     <span><b>78</b> repos · <b>17</b> years</span>
   </div>
 </div><div class="gr-section-title">
@@ -31,8 +31,8 @@
       </div>
       <div class="blurb"></div>
       <div class="foot">
-        <span>55 commits</span>
-        <span>last touched 2026-07-21</span>
+        <span>64 commits</span>
+        <span>last touched 2026-07-22</span>
       </div>
     </a>
     <a class="card card-link" href="https://github.com/curtyo18/tampermonkey-scripts" target="_blank" rel="noopener noreferrer">
@@ -71,7 +71,7 @@
 </div>
       <div class="gr-section-title" style="margin-top:36px">
         <span>All commits · newest first</span>
-        <span class="right">showing 1–200 of 2157</span>
+        <span class="right">showing 1–200 of 2166</span>
       </div>
 
       <table class="gr-table">
@@ -84,10 +84,270 @@
             <tr class="gr-month-row">
               <td colspan="4">
                 July 2026
-                <span>100 commits · 97 public</span>
+                <span>109 commits · 106 public</span>
               </td>
             </tr>
 <tr class="">
+    <td class="when">2026-07-22 23:30</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/header-handler" target="_blank" rel="noopener noreferrer">header-handler</a>
+  </td>
+
+  <td class="msg">
+      feat(convert): native file picker opens in the dump folder, .mhdump
+
+Use the File System Access API (showOpenFilePicker) on Chromium so the
+native picker opens straight to where the command wrote the dump —
+Desktop on macOS (startIn: &#39;desktop&#39;), Downloads on Windows
+(startIn: &#39;downloads&#39;) — with the dump type preselected. No path to
+copy/paste there; Firefox/Safari fall back to the hidden &lt;input&gt; plus
+the copy-able path in step 2.
+
+- Rename the dump to .mhdump (raw LevelDB bytes, so .txt was a misnomer);
+  a unique extension lets the picker&#39;s type filter isolate it. &#34;All
+  files&#34; stays available as an escape hatch (excludeAcceptAllOption off).
+- Move the Windows dump from %TEMP% to Downloads, resolved airtight via
+  the Shell.Application known-folder (falls back to %USERPROFILE%\Downloads)
+  so the written path matches where startIn opens. Downloads isn&#39;t
+  OneDrive-redirected by default, keeping the Desktop-sync problem avoided.
+- Update step 2 copy for the new flow and drop the stale &#34;find the folder
+  by hand&#34; reference from the empty-result error (that section is gone).
+
+Co-Authored-By: Claude Opus 4.8 &lt;noreply@anthropic.com&gt;
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/header-handler/commit/e46f9609c19e9ca409a60941c7b1dadb5122c04a" target="_blank" rel="noopener noreferrer">e46f960</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-07-22 23:14</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/header-handler" target="_blank" rel="noopener noreferrer">header-handler</a>
+  </td>
+
+  <td class="msg">
+      docs(convert): make &#34;Select the dump file&#34; the primary action
+
+Invert the drop zone: promote the file-select button to a primary
+(.btn) call-to-action and demote &#34;or drop modheader-dump.txt here&#34; to
+the subnote. Remove the now-unused .drop-main CSS.
+
+Co-Authored-By: Claude Opus 4.8 &lt;noreply@anthropic.com&gt;
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/header-handler/commit/12d44eb3dd5d50caf8b55c96f630b5fa4e379e30" target="_blank" rel="noopener noreferrer">12d44eb</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-07-22 23:07</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/header-handler" target="_blank" rel="noopener noreferrer">header-handler</a>
+  </td>
+
+  <td class="msg">
+      docs(convert): remove &#34;find the folder by hand&#34; manual path
+
+Drop the &lt;details&gt; manual-recovery section and its steps (User Data path,
+extension-id search, drag Extension Settings folder). Remove the now-dead
+#path element wiring and USER_DATA_PATH const in main.ts and the unused
+.manual CSS. Folder drag-and-drop onto the drop zone still works.
+
+Co-Authored-By: Claude Opus 4.8 &lt;noreply@anthropic.com&gt;
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/header-handler/commit/359e4d16bfe34662989a3caf04ab2504629620d1" target="_blank" rel="noopener noreferrer">359e4d1</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-07-22 23:03</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/header-handler" target="_blank" rel="noopener noreferrer">header-handler</a>
+  </td>
+
+  <td class="msg">
+      docs(convert): condense step 1 copy, trim drop-zone options
+
+Fold a short &#34;only reads ModHeader&#39;s config files (the extension never
+runs)&#34; reassurance into the step 1 instruction; drop the iCloud subnote,
+the auth-tokens/keep-local subnote, the Chrome/Edge/Brave variant list,
+and the built-in-tools line.
+
+Also remove the &#34;.json export … drop it here too&#34; note and the &#34;storage
+folder&#34; pick button (plus its now-unused folder input and JS wiring).
+Folder drag-and-drop still works via the drop zone.
+
+Co-Authored-By: Claude Opus 4.8 &lt;noreply@anthropic.com&gt;
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/header-handler/commit/8e2d82cc3752b443d0f03bc4bf05f6cd284a4adc" target="_blank" rel="noopener noreferrer">8e2d82c</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-07-22 22:52</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/header-handler" target="_blank" rel="noopener noreferrer">header-handler</a>
+  </td>
+
+  <td class="msg">
+      feat(convert): full-page scan spinner, trim copy
+
+Replace the subtle inline scan status text with a dimmed full-page
+overlay + spinner so the processing state is unmistakable; drive it via
+showScanning/hideScanning across start, progress, done and error paths
+(role=&#34;status&#34;/aria-live, honors prefers-reduced-motion).
+
+Remove the &#34;Saved 0 bytes?&#34; subnote (redundant with the empty-result
+error message). The security note stays as the note under step 1.
+
+Co-Authored-By: Claude Opus 4.8 &lt;noreply@anthropic.com&gt;
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/header-handler/commit/d2c8c25f050479eb0d01f6eac82549decbdc5881" target="_blank" rel="noopener noreferrer">d2c8c25</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-07-22 20:28</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/header-handler" target="_blank" rel="noopener noreferrer">header-handler</a>
+  </td>
+
+  <td class="msg">
+      feat(convert): recover profiles from Snappy-compressed LevelDB blocks
+
+The scanner only read plaintext JSON from the dump, so profiles that
+survive solely inside Snappy-compressed LevelDB blocks (where Chrome
+routinely lands ModHeader&#39;s chrome.storage.sync backups after
+compaction) were invisible and silently dropped from conversion.
+
+Add a zero-dependency Snappy raw-block decoder (snappy.ts) plus a
+bounded locator that finds and decompresses those regions, and a
+scanBytes() entry point that merges the plaintext view with any
+snapshot recovered from compressed blocks through the existing
+pickNewer ranking. The worker now reads each file as raw bytes and
+runs scanBytes instead of file.text() + bestSnapshot.
+
+The locator walks the whole buffer with an O(1) prefilter (plausible
+length varint + literal first tag), only attempting a decode on the
+rare pass, and advances by the exact compressed bytes consumed so
+adjacently-packed backups aren&#39;t skipped.
+
+Commands users run are unchanged; decompression is entirely
+client-side, so recovery stays a drag-and-drop with nothing to install.
+
+Co-Authored-By: Claude Opus 4.8 &lt;noreply@anthropic.com&gt;
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/header-handler/commit/dffb088a9cff259864da4fc80e0165cf74ab6a19" target="_blank" rel="noopener noreferrer">dffb088</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-07-22 10:01</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/header-handler" target="_blank" rel="noopener noreferrer">header-handler</a>
+  </td>
+
+  <td class="msg">
+      fix(convert): dump Windows stores byte-exact, not as UTF-8 text
+
+The Windows recovery command read each LevelDB store with
+[IO.File]::ReadAllText and wrote it via Set-Content -Encoding UTF8.
+LevelDB files are binary (Snappy-compressed blocks, varint framing)
+with the profile JSON stored as raw bytes; decoding them as text
+replaces every non-UTF-8 byte with U+FFFD, irreversibly shredding the
+payloads. A real dump showed 115k U+FFFD chars and lost header values
+(e.g. USER-AGENT&#39;s value collapsed to replacement chars) before the
+scanner ever ran.
+
+Stream the stores byte-for-byte instead (ReadAllBytes -&gt; FileStream),
+matching the byte-exact macOS `cat` path. The browser still decodes the
+dropped file as UTF-8, but the ASCII JSON payloads now survive intact.
+
+Also gitignore modheader-dump.txt so colleague dumps can&#39;t be committed.
+
+Co-Authored-By: Claude Opus 4.8 &lt;noreply@anthropic.com&gt;
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/header-handler/commit/0933afe5cec68658404726aa1c6678c93c6b8798" target="_blank" rel="noopener noreferrer">0933afe</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-07-22 08:51</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/header-handler" target="_blank" rel="noopener noreferrer">header-handler</a>
+  </td>
+
+  <td class="msg">
+      refactor(convert): make disk recovery the single flow
+
+Remove the separate &#34;already have an export?&#34; option and reshape the
+page around one confident recovery path. The dump scanner already
+recognises a clean ModHeader .json export (it finds the profiles array
+the same way), so the export case is folded into the single dropzone
+rather than kept as a competing section — no capability is lost.
+
+- Drop the Option B section: its .json dropzone, the paste textarea, and
+  the Convert button, plus the now-dead convertText/loadJsonFile wiring
+  and the extractProfiles import in main.ts.
+- Retitle to &#34;Recover your ModHeader profiles&#34;; the lead section follows
+  the banner with no divider.
+- Widen the dump box to also accept .json and note exports are read the
+  same way.
+- Repoint the two error messages that referenced Option B at the manual
+  folder method / a reload.
+
+Co-Authored-By: Claude Opus 4.8 &lt;noreply@anthropic.com&gt;
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/header-handler/commit/5689b48e18f5f220bfec8c0bf09bac776c9bd992" target="_blank" rel="noopener noreferrer">5689b48</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-07-22 08:28</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/header-handler" target="_blank" rel="noopener noreferrer">header-handler</a>
+  </td>
+
+  <td class="msg">
+      fix(convert): recover current profiles, not autosave history
+
+ModHeader saves the whole profiles array on every edit, and Chrome&#39;s
+LevelDB retains each write (plus up to 50 timestamped chrome.storage.sync
+cloud backups). The scanner was treating every snapshot as a distinct
+profile, so an import produced dozens of same-named duplicates that then
+collapsed to one on import. Rework recovery around ModHeader&#39;s actual
+storage format.
+
+- Scan for full profiles-array snapshots, tag each with the epoch-ms
+  timestamp ModHeader writes before it, and return only the newest — the
+  user&#39;s current state — instead of the union of edit history.
+- Scope the dump commands to */Extension Settings/&lt;id&gt; (Local holds the
+  live `profiles` key; Sync/Managed hold copies) and skip the IndexedDB
+  folder, which is the pulled build&#39;s header-collector cache, not
+  profiles. Keeps the dump small and focused.
+- Move disk recovery to Option A (primary) and the existing-export path
+  to Option B, since most users never exported before the store pull.
+- Copy commands with a trailing newline so a paste runs the final line.
+- Collapse the repeated per-profile &#34;no URL filter&#34; warning into one
+  summary line.
+- Run scanning in a Web Worker; pick the newest snapshot globally across
+  all dumped files.
+
+Co-Authored-By: Claude Opus 4.8 &lt;noreply@anthropic.com&gt;
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/header-handler/commit/8d46297eb85242821f22f8314355b30bcfdadb73" target="_blank" rel="noopener noreferrer">8d46297</a>
+  </td>
+</tr><tr class="">
     <td class="when">2026-07-21 23:15</td>
 
   <td class="repo">
@@ -2249,7 +2509,7 @@ Co-Authored-By: Claude Opus 4.8 &lt;noreply@anthropic.com&gt;
 </tr>            <tr class="gr-month-row">
               <td colspan="4">
                 June 2026
-                <span>100 commits · 70 public</span>
+                <span>91 commits · 65 public</span>
               </td>
             </tr>
 <tr class="">
@@ -3866,140 +4126,6 @@ Co-Authored-By: Claude Opus 4.8 &lt;noreply@anthropic.com&gt;
   <td class="sha">
       <span class="redact-strong" aria-label="redacted sha" role="img">92611dd</span>
   </td>
-</tr><tr class="">
-    <td class="when">2026-06-08 17:31</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/GitLabJobStarter" target="_blank" rel="noopener noreferrer">GitLabJobStarter</a>
-  </td>
-
-  <td class="msg">
-      ci(release): also publish a repo-named folder-wrapped zip
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/GitLabJobStarter/commit/6c3f20274c5d50e3f796966c44e57814565bf228" target="_blank" rel="noopener noreferrer">6c3f202</a>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-06-08 16:31</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/StopYappingBro" target="_blank" rel="noopener noreferrer">StopYappingBro</a>
-  </td>
-
-  <td class="msg">
-      ci(release): also publish a repo-named folder-wrapped zip
-
-After `wxt zip` (the flat Web Store archive), fold .output/chrome-mv3 into a
-folder named after the repo and zip that, so users can download, extract, and
-&#39;Load unpacked&#39; the resulting &lt;repo&gt;/ directory. The release now uploads both
-artifacts. WXT can&#39;t nest its zip output in a subfolder, so this is a post-build
-step. Inert until the next v* tag.
-
-Co-Authored-By: Claude Opus 4.8 &lt;noreply@anthropic.com&gt;
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/StopYappingBro/commit/cd6e7ad43bd8b3ddf82047330739b21e7d12c2f5" target="_blank" rel="noopener noreferrer">cd6e7ad</a>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-06-08 17:31</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/network-data-viewer" target="_blank" rel="noopener noreferrer">network-data-viewer</a>
-  </td>
-
-  <td class="msg">
-      ci(release): also publish a repo-named folder-wrapped zip
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/network-data-viewer/commit/bd559c555b96a4283f8e11da405bde93613e3a81" target="_blank" rel="noopener noreferrer">bd559c5</a>
-  </td>
-</tr><tr class="named">
-    <td class="when">2026-06-08 16:31</td>
-
-  <td class="repo">
-      network-data-viewer-archive
-  </td>
-
-  <td class="msg">
-      <span class="redact" aria-label="redacted message" role="img">test: migrate task</span>
-  </td>
-
-  <td class="sha">
-      <span class="redact" aria-label="redacted sha" role="img">29906fd</span>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-06-08 10:40</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/network-data-viewer" target="_blank" rel="noopener noreferrer">network-data-viewer</a>
-  </td>
-
-  <td class="msg">
-      0.5.4
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/network-data-viewer/commit/7111dcdfa1fb7063f2789011e3d8277b71c7a5fe" target="_blank" rel="noopener noreferrer">7111dcd</a>
-  </td>
-</tr><tr class="named">
-    <td class="when">2026-06-08 09:40</td>
-
-  <td class="repo">
-      network-data-viewer-archive
-  </td>
-
-  <td class="msg">
-      <span class="redact" aria-label="redacted message" role="img">tighten watcher so task can trim worker</span>
-  </td>
-
-  <td class="sha">
-      <span class="redact" aria-label="redacted sha" role="img">ba2f3d5</span>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-06-08 10:40</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/network-data-viewer" target="_blank" rel="noopener noreferrer">network-data-viewer</a>
-  </td>
-
-  <td class="msg">
-      chore: migrate to WXT (#56)
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/network-data-viewer/commit/77d0a7c8e7843fc7e41ddd2adaece69c92993543" target="_blank" rel="noopener noreferrer">77d0a7c</a>
-  </td>
-</tr><tr class="named">
-    <td class="when">2026-06-08 09:40</td>
-
-  <td class="repo">
-      network-data-viewer-archive
-  </td>
-
-  <td class="msg">
-      <span class="redact" aria-label="redacted message" role="img">chore: trim builder</span>
-  </td>
-
-  <td class="sha">
-      <span class="redact" aria-label="redacted sha" role="img">da00721</span>
-  </td>
-</tr><tr class="anon">
-    <td class="when">2026-06-08</td>
-
-  <td class="repo">
-      <span class="redact-strong" aria-label="redacted repo" role="img">incorrect-runner</span>
-  </td>
-
-  <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">refactor supervisor and remove runner</span>
-  </td>
-
-  <td class="sha">
-      <span class="redact-strong" aria-label="redacted sha" role="img">e3c709e</span>
-  </td>
 </tr>        </tbody>
       </table>
 
@@ -4024,7 +4150,7 @@ Co-Authored-By: Claude Opus 4.8 &lt;noreply@anthropic.com&gt;
     <a href="https://github.com/curtyo18" target="_blank" rel="noopener noreferrer">github</a> · <a href="mailto:curtyo18@gmail.com">email</a>
   </div>
   <div class="stats" style="align-items:center">
-    <span><b>2,157</b> commits</span>
+    <span><b>2,166</b> commits</span>
     <span><b>78</b> repos</span>
     <span><b>17</b> years</span>
   </div>
