@@ -16,7 +16,7 @@
     <small>curt — a public log of private and public work</small>
   </h1>
   <div class="meta">
-    <span><b>2,214</b> commits indexed</span>
+    <span><b>2,280</b> commits indexed</span>
     <span><b>79</b> repos · <b>17</b> years</span>
   </div>
 </div><div class="gr-section-title">
@@ -24,17 +24,6 @@
 </div>
 
 <div class="gr-featured">
-    <a class="card card-link" href="https://github.com/curtyo18/header-handler" target="_blank" rel="noopener noreferrer">
-      <div class="top">
-        <div class="name">header-handler</div>
-        <div class="lang"></div>
-      </div>
-      <div class="blurb"></div>
-      <div class="foot">
-        <span>77 commits</span>
-        <span>last touched 2026-07-25</span>
-      </div>
-    </a>
     <a class="card card-link" href="https://github.com/curtyo18/peer-poker" target="_blank" rel="noopener noreferrer">
       <div class="top">
         <div class="name">peer-poker</div>
@@ -42,8 +31,30 @@
       </div>
       <div class="blurb"></div>
       <div class="foot">
-        <span>35 commits</span>
-        <span>last touched 2026-07-24</span>
+        <span>99 commits</span>
+        <span>last touched 2026-07-26</span>
+      </div>
+    </a>
+    <a class="card card-link" href="https://github.com/curtyo18/agent-config" target="_blank" rel="noopener noreferrer">
+      <div class="top">
+        <div class="name">agent-config</div>
+        <div class="lang"></div>
+      </div>
+      <div class="blurb"></div>
+      <div class="foot">
+        <span>42 commits</span>
+        <span>last touched 2026-07-26</span>
+      </div>
+    </a>
+    <a class="card card-link" href="https://github.com/curtyo18/header-handler" target="_blank" rel="noopener noreferrer">
+      <div class="top">
+        <div class="name">header-handler</div>
+        <div class="lang"></div>
+      </div>
+      <div class="blurb"></div>
+      <div class="foot">
+        <span>78 commits</span>
+        <span>last touched 2026-07-26</span>
       </div>
     </a>
     <a class="card card-link" href="https://github.com/curtyo18/tampermonkey-scripts" target="_blank" rel="noopener noreferrer">
@@ -57,21 +68,10 @@
         <span>last touched 2026-07-20</span>
       </div>
     </a>
-    <a class="card card-link" href="https://github.com/curtyo18/agent-config" target="_blank" rel="noopener noreferrer">
-      <div class="top">
-        <div class="name">agent-config</div>
-        <div class="lang"></div>
-      </div>
-      <div class="blurb"></div>
-      <div class="foot">
-        <span>41 commits</span>
-        <span>last touched 2026-07-12</span>
-      </div>
-    </a>
 </div>
       <div class="gr-section-title" style="margin-top:36px">
         <span>All commits · newest first</span>
-        <span class="right">showing 1–200 of 2214</span>
+        <span class="right">showing 1–200 of 2280</span>
       </div>
 
       <table class="gr-table">
@@ -84,10 +84,1164 @@
             <tr class="gr-month-row">
               <td colspan="4">
                 July 2026
-                <span>157 commits · 154 public</span>
+                <span>200 commits · 199 public</span>
               </td>
             </tr>
 <tr class="">
+    <td class="when">2026-07-26 23:15</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/peer-poker" target="_blank" rel="noopener noreferrer">peer-poker</a>
+  </td>
+
+  <td class="msg">
+      fix: address review notes on seedDecks resync
+
+Copy built-ins into the returned array instead of splicing in the live
+BUILTIN_DECKS references, so a future in-place mutation of a seeded
+deck can&#39;t corrupt the shared built-in objects for the whole session.
+Also strengthen the new regression test to assert exactly one entry
+survives under the built-in&#39;s id, matching the sibling test&#39;s pattern.
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/peer-poker/commit/ab050925e65eb016565fc783aeaed933bcba612e" target="_blank" rel="noopener noreferrer">ab05092</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-07-26 23:11</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/peer-poker" target="_blank" rel="noopener noreferrer">peer-poker</a>
+  </td>
+
+  <td class="msg">
+      fix(decks): resync stale built-in decks on load
+
+seedDecks only filled in built-ins a user was missing entirely, so a
+built-in already saved under its id — e.g. everyone&#39;s cached Fibonacci
+deck — never picked up changes to its definition. Adding 0 and 1/2 to
+Fibonacci therefore never reached anyone who had used the app before.
+Built-ins are read-only, so a saved copy is never a user edit; resync
+it to the current definition on every load instead of trusting the cache.
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/peer-poker/commit/cbe61d2b29c06e17b424c679a6d7ba5297f8125a" target="_blank" rel="noopener noreferrer">cbe61d2</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-07-26 23:07</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/agent-config" target="_blank" rel="noopener noreferrer">agent-config</a>
+  </td>
+
+  <td class="msg">
+      docs: require conventional commits, forbid AI attribution trailers
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/agent-config/commit/96b8fa0964593f7e3cb96b1e70241f2565196cc9" target="_blank" rel="noopener noreferrer">96b8fa0</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-07-26 23:04</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/peer-poker" target="_blank" rel="noopener noreferrer">peer-poker</a>
+  </td>
+
+  <td class="msg">
+      docs(readme): add landing page screenshot
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/peer-poker/commit/701677c0df5e978fea69d46b9103e219b989dbb1" target="_blank" rel="noopener noreferrer">701677c</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-07-26 23:03</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/peer-poker" target="_blank" rel="noopener noreferrer">peer-poker</a>
+  </td>
+
+  <td class="msg">
+      fix: address code review findings on font/deck/autofill PR
+
+- Fix a stale main.tsx comment left over from the Playfair removal that
+  misattributed which font renders app copy vs room codes.
+- Drop the Playfair Display credit from README.md and its license block
+  from OFL.txt, since the font is no longer bundled.
+- Point --font-display at --font-sans instead of duplicating the literal
+  font stack.
+- Document the two new localStorage keys (and the pre-existing
+  poker.roomCode, which the table was already missing) in docs/design.md.
+- Note in persistence.ts that the last-room-name/join-code keys
+  deliberately outlive a cleared session.
+- Add round-trip tests for the four new persistence exports.
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/peer-poker/commit/6e4b92d620527e389066801ef77a3357883937b0" target="_blank" rel="noopener noreferrer">6e4b92d</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-07-26 22:54</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/peer-poker" target="_blank" rel="noopener noreferrer">peer-poker</a>
+  </td>
+
+  <td class="msg">
+      feat(landing): remember last room name and join code
+
+The host&#39;s &#34;room name&#34; field and the join screen&#39;s &#34;room code&#34; field
+both reset on every visit, forcing repeat retyping for the common case
+of rejoining the same recurring room. Persist and prefill both.
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/peer-poker/commit/3868e13bbd15c7335f41388a247d1eb0ff14dfd5" target="_blank" rel="noopener noreferrer">3868e13</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-07-26 22:54</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/peer-poker" target="_blank" rel="noopener noreferrer">peer-poker</a>
+  </td>
+
+  <td class="msg">
+      style(theme): replace Playfair Display with Public Sans for display font
+
+Playfair Display read poorly across headings and card faces. Point
+--font-display at the Public Sans stack already used for body text
+and drop the now-unused @fontsource/playfair-display dependency.
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/peer-poker/commit/e380b9a8e199601e9a2b1045797ff27384f8fb7a" target="_blank" rel="noopener noreferrer">e380b9a</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-07-26 22:54</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/peer-poker" target="_blank" rel="noopener noreferrer">peer-poker</a>
+  </td>
+
+  <td class="msg">
+      fix(ui): stop printing the card value twice
+
+PlayingCard rendered the value once as a small corner index and again
+centred, so every face-up card showed its number twice. Drop the
+corner label and the now-unused showCorner prop.
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/peer-poker/commit/b2cf40c3ae70a2180e51f5f0875d5df1df569c10" target="_blank" rel="noopener noreferrer">b2cf40c</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-07-26 22:54</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/peer-poker" target="_blank" rel="noopener noreferrer">peer-poker</a>
+  </td>
+
+  <td class="msg">
+      fix(decks): add 0 and half-point cards to fibonacci sequence
+
+The built-in Fibonacci deck was missing 0 and 1/2, both standard
+planning-poker cards.
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/peer-poker/commit/c678d536c4fd869ed2f2997782ddaa560104da66" target="_blank" rel="noopener noreferrer">c678d53</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-07-26 20:16</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/peer-poker" target="_blank" rel="noopener noreferrer">peer-poker</a>
+  </td>
+
+  <td class="msg">
+      docs(workflow): drop the required AI trailers
+
+We use plain conventional commits; no Co-Authored-By/Claude-Session
+trailers going forward.
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/peer-poker/commit/b1425f757ced6edb3a59afc29c112b84924ae30b" target="_blank" rel="noopener noreferrer">b1425f7</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-07-26 20:11</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/peer-poker" target="_blank" rel="noopener noreferrer">peer-poker</a>
+  </td>
+
+  <td class="msg">
+      fix(ui): wrap long room codes on the resume screen too
+
+Reviewer caught that ResumeScreen has the identical room-code heading
+as JoinScreen but didn&#39;t get the break-all fix -- roomLabel traces
+back to the same user-typed room name, so the same overflow was
+reachable there.
+
+Co-Authored-By: Claude Sonnet 5 &lt;noreply@anthropic.com&gt;
+Claude-Session: N/A
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/peer-poker/commit/76a16d21083ebaa0b25a5744de2bc605ee71ce11" target="_blank" rel="noopener noreferrer">76a16d2</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-07-26 20:06</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/peer-poker" target="_blank" rel="noopener noreferrer">peer-poker</a>
+  </td>
+
+  <td class="msg">
+      fix(ui): wrap long room codes and clear resume state on end session
+
+JoinScreen&#39;s room-code heading had no wrap control, so a hashed room
+code (32 hex chars from roomIdFromCode) overflowed the invite card on
+narrow screens.
+
+Separately, handleLeave cleared the saved room code but not the saved
+session on &#34;End session&#34; / going home while hosting. A room ended
+this way left a permanently-resumable session behind with no readable
+code, so the landing page&#39;s resume banner fell back to showing the
+raw hashed peer id instead of the room&#39;s name -- confusing since that
+id was never meant to be user-facing. Ending a session now clears both,
+matching the existing Discard behavior; accidental tab-close/crash
+recovery (which never calls handleLeave) is unaffected.
+
+Co-Authored-By: Claude Sonnet 5 &lt;noreply@anthropic.com&gt;
+Claude-Session: N/A
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/peer-poker/commit/23a8149943ec55589f676e60ef98698d65e1b701" target="_blank" rel="noopener noreferrer">23a8149</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-07-26 12:49</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/peer-poker" target="_blank" rel="noopener noreferrer">peer-poker</a>
+  </td>
+
+  <td class="msg">
+      fix(ui): center modal dialogs and drop the duplicate trigger
+
+Tailwind v4&#39;s Preflight resets margin to 0 on every element, which
+clobbered the browser&#39;s native `dialog:modal { margin: auto }` rule
+that centers a showModal() dialog. With margin forced to 0 and the
+UA&#39;s inset:0 left in place, a modal dialog rendered pinned to the
+top-left instead of centered, regardless of where its trigger button
+sat. Both native &lt;dialog&gt; elements in the app hit this — the &#34;How
+does this work?&#34; privacy explainer and the deck manager — so both get
+the same m-auto fix.
+
+Also removes the second &#34;How does this work?&#34; trigger that duplicated
+the one already in AppHeader — Landing rendered both, so the landing
+page had one at the header&#39;s top-right and a redundant copy under the
+join-code form.
+
+Co-Authored-By: Claude Sonnet 5 &lt;noreply@anthropic.com&gt;
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/peer-poker/commit/eaead09351c6d8cf7b93c530b09557990ab1190f" target="_blank" rel="noopener noreferrer">eaead09</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-07-26 11:17</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/peer-poker" target="_blank" rel="noopener noreferrer">peer-poker</a>
+  </td>
+
+  <td class="msg">
+      fix(entry): remove the landing-banner flash that raced the resume decision
+
+Review of the resume-screen fix flagged a real async race: the landing
+page&#39;s resume banner and the URL-driven entry decision were populated by
+two separate mount effects, so a device with a saved session briefly
+showed the full landing page with its own resume banner before the
+async room-id hash resolved and swapped in the dedicated ResumeScreen.
+Whenever a URL room is present, decideEntry always ends up leaving
+&#39;landing&#39; once resolved, so that flash could never be the right final
+state — skip populating the banner&#39;s state in that case and let the
+entry-decision effect own it exclusively.
+
+Also drops a line of ResumeScreen copy that pre-explained the Discard
+button redundantly with its own label, matching JoinScreen&#39;s terser body
+text.
+
+Co-Authored-By: Claude Sonnet 5 &lt;noreply@anthropic.com&gt;
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/peer-poker/commit/30225f533ad3248a6baca4f7e8777f05616a06f6" target="_blank" rel="noopener noreferrer">30225f5</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-07-26 10:02</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/peer-poker" target="_blank" rel="noopener noreferrer">peer-poker</a>
+  </td>
+
+  <td class="msg">
+      fix(entry): give a returning host&#39;s own room link a dedicated resume screen
+
+Following your own ?room= link routed to `decideEntry`&#39;s &#39;resume&#39; branch,
+but nothing ever switched `mode` away from &#39;landing&#39; for it — only the
+&#39;join&#39; branch did. So a returning host landed on the full landing page
+with the resume offer buried in a banner, reading as blocked next to the
+anonymous join flow&#39;s focused &#34;you&#39;re about to...&#34; confirmation for the
+same link.
+
+`resume` now gets its own mode and a ResumeScreen mirroring JoinScreen&#39;s
+layout, still requiring the one deliberate click ADR-0004 calls for —
+this fixes where that offer is shown, not whether it auto-proceeds.
+
+Co-Authored-By: Claude Sonnet 5 &lt;noreply@anthropic.com&gt;
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/peer-poker/commit/9b8c26ea661a802e3b5da3e022e0e58f751ac3fb" target="_blank" rel="noopener noreferrer">9b8c26e</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-07-26 09:44</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/peer-poker" target="_blank" rel="noopener noreferrer">peer-poker</a>
+  </td>
+
+  <td class="msg">
+      docs: write down how we work on this repo
+
+The flow, the commit convention and the three verify commands were carried
+between sessions in a handover file, which meant they were only ever as reliable
+as whoever wrote the last one. A rules-of-hooks error and a misread lint exit
+code both reached master while that was the arrangement.
+
+Co-Authored-By: Claude Opus 5 &lt;noreply@anthropic.com&gt;
+Claude-Session: https://claude.ai/code/session_011yPbWYjkWfzsspKUjg5m9W
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/peer-poker/commit/6b19337ce8f4f4fae027acf1b9fe76a8c7cf6496" target="_blank" rel="noopener noreferrer">6b19337</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-07-26 09:10</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/peer-poker" target="_blank" rel="noopener noreferrer">peer-poker</a>
+  </td>
+
+  <td class="msg">
+      feat(voting): let the host nudge the players who still owe a card
+
+A round can sit waiting on two people while nobody knows it is waiting. The
+host&#39;s table bar now offers a single bulk nudge, labelled with the live count of
+seated voters who have not played — observers and anyone already in are excluded,
+and the pill is absent entirely once there is nobody left to wait for.
+
+This is the first host to guest message that is not a state broadcast. It carries
+no recipient list: the host sends it to the whole room and each client decides
+whether it applies to itself. That is the robust reading as well as the simplest
+one, because the host&#39;s picture of who has voted can be a broadcast behind while
+a client always knows whether it has voted.
+
+There is no toast system here and this did not warrant adding one, so the
+recipient&#39;s prompt is transient state in the stage with role=&#34;status&#34;, announced
+rather than only animated, and it clears the moment they play a card. The
+confirmation banner on the host&#39;s side is also the cooldown — the button is
+refused while it is up, so there is nothing separate to debounce and no way to
+spam-buzz the room.
+
+Deliberately not included: per-participant nudges, and any nudge affordance on
+the reveal screen, the console, or for guests and observers.
+
+Co-Authored-By: Claude Opus 5 &lt;noreply@anthropic.com&gt;
+Claude-Session: https://claude.ai/code/session_011yPbWYjkWfzsspKUjg5m9W
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/peer-poker/commit/db2f5c4b51e905be3fdb8f8d9696cdf2fafa6eb8" target="_blank" rel="noopener noreferrer">db2f5c4</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-07-26 09:04</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/peer-poker" target="_blank" rel="noopener noreferrer">peer-poker</a>
+  </td>
+
+  <td class="msg">
+      feat(decks): ship a T-shirt sizes built-in, and seed built-ins one at a time
+
+Seeding checked for Fibonacci and returned early when it found it. That is fine
+while Fibonacci is the only built-in and wrong the moment there is a second one:
+everyone who has used the app before has Fibonacci saved, so they would never
+have been given the new deck at all. Each built-in is now checked on its own and
+only the missing ones are added, which leaves the user&#39;s own decks where they
+were and stays stable when run over its own output.
+
+The read-only rule in the deck manager was a hardcoded comparison against the
+Fibonacci id. It now asks whether the deck is a built-in, so a third one does not
+quietly become editable.
+
+T-shirt sizes have no numeric votes, so the reveal has no low and no high to
+report — the range line and both range tiles already guard on that, and there are
+now tests standing on a real T-shirt round rather than an assumption that they do.
+
+Co-Authored-By: Claude Opus 5 &lt;noreply@anthropic.com&gt;
+Claude-Session: https://claude.ai/code/session_011yPbWYjkWfzsspKUjg5m9W
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/peer-poker/commit/201a45c7f7d80a2036330f403d07440abb872641" target="_blank" rel="noopener noreferrer">201a45c</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-07-26 09:01</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/peer-poker" target="_blank" rel="noopener noreferrer">peer-poker</a>
+  </td>
+
+  <td class="msg">
+      fix(net): tell the host when the signalling broker is gone, and stop hammering it
+
+A host who lost the broker had no way to find out. The header&#39;s connection
+indicator was hardcoded true for hosts, so the room kept showing a green dot and
+its code with the peer disconnected entirely; every peer error that was not
+&#39;unavailable-id&#39; was logged to the console and otherwise swallowed. The only
+evidence anything was wrong was a repeating warning in devtools.
+
+It was also making the problem worse. The &#39;disconnected&#39; handler called
+reconnect() immediately, with no backoff and no cap, so a broker that kept
+refusing produced an unbounded tight loop against a shared free service — a
+plausible cause of continued refusal rather than only a symptom of it.
+
+Resume was the same wiring gone further wrong: handleResume attached neither an
+error nor a disconnected handler, so a peer that never opened left its ready
+promise pending forever. Nothing at all happened on screen — no spinner, no
+error — which is why the button looked dead. It was.
+
+The peer lifecycle now lives in one place instead of two drifting copies. It
+backs off 1s, 2s, 4s, 8s, 16s, 30s, gives up after six attempts, cancels on
+leave and unmount, and resets once the broker takes us back. Fatal errors are
+told apart from transient ones, and a room that has already opened is never torn
+down by one: the people in it are on direct data channels and are still playing.
+That distinction drives the copy too — a lost broker costs reachability, not the
+round in progress, so the notice says existing players are fine and nobody new
+can join.
+
+Resume gets a pending state, and &#39;unavailable-id&#39; on resume gets an honest
+answer rather than a hang: wait and retry, or take a new room code, keeping the
+agenda and the votes but invalidating the link people already hold. The second
+option says so on the button.
+
+Co-Authored-By: Claude Opus 5 &lt;noreply@anthropic.com&gt;
+Claude-Session: https://claude.ai/code/session_011yPbWYjkWfzsspKUjg5m9W
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/peer-poker/commit/18123e0c31baaabfae9c5e5c218b847dad220b8b" target="_blank" rel="noopener noreferrer">18123e0</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-07-26 08:23</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/peer-poker" target="_blank" rel="noopener noreferrer">peer-poker</a>
+  </td>
+
+  <td class="msg">
+      fix(ui): move the reveal&#39;s dead-room branch below its hooks
+
+The first thing the new workflow did was fail, on a rules-of-hooks error in
+code that had already merged. The dead-room early return sat above
+RevealStage&#39;s useState, so on a render where a guest is kicked the hook is
+skipped entirely.
+
+It does not crash today — React&#39;s too-few-hooks check compares against the
+hooks it did render, and a render that produces none never trips it — so this
+is fragility rather than a live fault: it breaks the moment any hook is added
+above the guard, or the guard moves. The lint rule is the thing that catches
+it, which is the argument for having lint run somewhere other than a laptop.
+
+The added test covers the transition itself, since a kick arrives as a prop
+change on a mounted stage rather than a fresh render, and every other kick
+test renders the terminal state from scratch. It is not a regression test for
+the hook ordering, and says so — it passes against the broken version too.
+
+Worth recording why this reached master: the local check was
+`npm run lint | grep -c warning`, which counts matching lines and discards the
+exit code. The error line does not contain the word &#34;warning&#34;, so a failing
+lint reported as three warnings and looked clean.
+
+Co-Authored-By: Claude Opus 5 &lt;noreply@anthropic.com&gt;
+Claude-Session: https://claude.ai/code/session_011yPbWYjkWfzsspKUjg5m9W
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/peer-poker/commit/8fb867f02c44ea39d3da9c62e820fdc6c3d261dc" target="_blank" rel="noopener noreferrer">8fb867f</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-07-26 08:18</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/peer-poker" target="_blank" rel="noopener noreferrer">peer-poker</a>
+  </td>
+
+  <td class="msg">
+      ci: run lint, tests and build on pull requests
+
+deploy.yml is the only workflow, and it runs `npm run build` on a push to
+master — so nothing on a runner has ever executed the test suite or the
+linter. A branch could go green locally, merge, and deploy with failing tests
+nobody looked at.
+
+This runs all three on every pull request into master, and on anything that
+lands on master directly, so the guard cannot be skipped by pushing straight
+to the branch it protects.
+
+Node 22 matches deploy.yml rather than tracking the newest release: the point
+is to verify the runtime that actually ships. Build is left last of the three
+because it doubles as the typecheck, and a type error is more useful read
+after a failing test than instead of one.
+
+Co-Authored-By: Claude Opus 5 &lt;noreply@anthropic.com&gt;
+Claude-Session: https://claude.ai/code/session_011yPbWYjkWfzsspKUjg5m9W
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/peer-poker/commit/7a747ae9424c2e0c617635bf91bbeabba80bafff" target="_blank" rel="noopener noreferrer">7a747ae</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-07-26 07:55</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/peer-poker" target="_blank" rel="noopener noreferrer">peer-poker</a>
+  </td>
+
+  <td class="msg">
+      fix(ui): hand a removed guest a dead room, not a live-looking one
+
+A whole-branch review caught what the per-task rounds structurally could not.
+
+The kick path closes the guest&#39;s connection *before* the host broadcasts the
+roster without them, so a removed guest keeps a state that still seats them.
+Every stage was therefore rendering the full round — card hand, &#34;your card&#39;s
+in&#34;, the roster — with the removal notice tucked underneath, and every control
+in it wired to a connection that had already gone. The stages hand over to a
+DeadRoom screen instead.
+
+The two tests that were supposed to cover this asserted against a fixture
+built by removing the viewer from their own participants list, which is
+precisely what a kick never does. They passed while the bug shipped. They now
+assert what actually has to be true: the round is gone, not merely overlaid.
+
+RoomView gets its first tests. It is the structural centrepiece of the
+refresh — every stage was covered in isolation and the thing choosing between
+them was not, including its fallback when activeItemId points at an item that
+no longer exists.
+
+An observer can now take a seat from the reveal. This branch deliberately
+keeps votes open until the estimate is accepted, and that screen tells voters
+they can still play, so the observer was the only person on it being told no
+with no way to say yes.
+
+The rest is cross-screen consistency the five screens only reveal side by
+side: the agenda&#39;s gold edge drew a second ring just outside Panel&#39;s own
+border; the &#34;Table&#34; kicker was gold on one screen and muted on the next; the
+observe toggle was a filled button in the lobby and a ghost pill one screen
+later; the room code was the only identifier not uppercased on the join
+screen; played cards gained avatars at reveal that they lacked while voting;
+and the host row carried two green dots meaning two different things.
+
+Also drops four animation declarations nothing referenced, a Tailwind colour
+registration whose utilities were never used, and design.md&#39;s claim that
+hostActions reorders items — reordering is a closure in Agenda.
+
+Co-Authored-By: Claude Opus 5 &lt;noreply@anthropic.com&gt;
+Claude-Session: https://claude.ai/code/session_011yPbWYjkWfzsspKUjg5m9W
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/peer-poker/commit/cbf9a884a03c13d0ebb7daab8f7a81b83e833239" target="_blank" rel="noopener noreferrer">cbf9a88</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-07-26 07:52</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/header-handler" target="_blank" rel="noopener noreferrer">header-handler</a>
+  </td>
+
+  <td class="msg">
+      Refresh brand icon and Chrome Web Store listing images
+
+New store screenshots (hero, rules, live log, share, local-dev) plus
+small and marquee promo tiles replace the old 3-shot set. Extension
+icon updated to the dark-tile blue &#34;H&#34; mark everywhere except the
+Chrome toolbar button, which stays pinned to the previous render via
+an explicit action.default_icon override — only the icons shown in
+chrome://extensions, the install dialog, and the right-click menu
+change. Popup and options headers now render the real glyph in place
+of the old 3-bar placeholder.
+
+Co-Authored-By: Claude Sonnet 5 &lt;noreply@anthropic.com&gt;
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/header-handler/commit/7b7dbfb40d3fa646a172867bd367312994a7d749" target="_blank" rel="noopener noreferrer">7b7dbfb</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-07-26 01:24</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/peer-poker" target="_blank" rel="noopener noreferrer">peer-poker</a>
+  </td>
+
+  <td class="msg">
+      docs: record the UI refresh in design.md and SMOKE.md
+
+design.md&#39;s component tree still described the pre-refresh app — HostView,
+ParticipantView, RevealPanel and ParticipantList, none of which exist now. It
+now lists the three stages and the router that picks between them, and states
+the two rules that were learned the hard way: host is the sole writer, and any
+stage a guest can be looking at must render ConnState, because a kick leaves
+the last state sitting in place.
+
+The voting-round walkthrough said votes lock at reveal. They no longer do —
+the cut-off is the accepted estimate. Also records the derived-light-theme
+rule and where fonts come from, since both are constraints on anyone adding a
+token or a typeface later.
+
+SMOKE.md&#39;s pass is rewritten around the redesigned flow: the join screen&#39;s
+confirming click, reference links opening from the guest&#39;s screen, an edit
+that must not drop a link, focus surviving a removal, everyone&#39;s cards being
+visible at the reveal, a late vote still counting, and — the two that would
+otherwise strand someone — a kicked guest and a departing host both being
+told. The old &#34;Quick vote&#34; step is gone with the feature. The light theme is
+now a second full pass rather than a checkbox.
+
+Co-Authored-By: Claude Opus 5 &lt;noreply@anthropic.com&gt;
+Claude-Session: https://claude.ai/code/session_011yPbWYjkWfzsspKUjg5m9W
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/peer-poker/commit/4b432f9c37d294ba018d945675da8d1248c8a840" target="_blank" rel="noopener noreferrer">4b432f9</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-07-26 01:22</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/peer-poker" target="_blank" rel="noopener noreferrer">peer-poker</a>
+  </td>
+
+  <td class="msg">
+      fix(ui): light-theme contrast pass across the redesigned screens
+
+Measured rather than eyeballed — every foreground token against every surface
+it is actually drawn on, in both themes, plus the composite pairings where
+text sits on a tinted panel rather than on a flat one. index.css already
+demanded this (&#34;verify, don&#39;t assume&#34;); the audit script lives in the
+scratchpad, not the repo, since it reads the token blocks directly.
+
+Three real failures, all now above 4.5:1.
+
+The status dot was the worst of them, at 1.50:1 — a bright mint green left
+over from the pre-redesign palette, when every surface was dark. On cream it
+was a &#34;live&#34; indicator nobody could see, and it appears on the header chip,
+the console&#39;s live badge and every player row. It now tracks `ready` in light
+mode, which is what it means to a reader anyway.
+
+The &#34;voted&#34; pill&#39;s tick measured 4.43:1 because it is drawn on top of its own
+bg-ready/10 tint, which lifts the backdrop out from under it — the kind of
+thing that only shows up if you measure the composite rather than the surface
+underneath.
+
+Dark-mode placeholders were at 3.85:1. They carry the field&#39;s meaning on the
+agenda&#39;s add row, so they are content and take the text floor.
+
+--color-outlier sits at 4.49:1 on dark surface and stays there, with a comment
+saying why: it is only ever a histogram bar fill, never text, so the 3:1
+non-text floor is the one that applies.
+
+Co-Authored-By: Claude Opus 5 &lt;noreply@anthropic.com&gt;
+Claude-Session: https://claude.ai/code/session_011yPbWYjkWfzsspKUjg5m9W
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/peer-poker/commit/98e165e19741d12fc1ad9f473b8c26c29a4b5505" target="_blank" rel="noopener noreferrer">98e165e</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-07-26 01:18</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/peer-poker" target="_blank" rel="noopener noreferrer">peer-poker</a>
+  </td>
+
+  <td class="msg">
+      refactor(ui): restyle retained panels to the redesign tokens
+
+Controls move onto the input surface and the stronger border, the two modals
+pick up the gold edge the redesign gives its focal cards, and room codes are
+mono and gold wherever they appear — the header chip and the &#34;nobody&#39;s
+hosting X&#34; message included, since a code is something people read out and
+type rather than prose.
+
+ResultsExport&#39;s header becomes the kicker bar the design uses: the label,
+&#34;Show results&#34;, and End session pushed to the far end, rather than a heading
+with an action hung off it.
+
+No handler changed.
+
+ParticipantList is deleted rather than restyled. It was carried this far on
+the assumption it still had a home, but TableCard replaced it in the room and
+the last thing rendering it went with ParticipantView — it has had no call
+site since. TableCard does strictly more: connection dots, observer badges,
+and the kick menu. SectionHeading goes with it, its last two consumers having
+moved to Kicker.
+
+ConnState&#39;s &#34;start this room myself&#34; affordance was already wired to the
+existing onHostRoom prop, so nothing was needed there.
+
+Co-Authored-By: Claude Opus 5 &lt;noreply@anthropic.com&gt;
+Claude-Session: https://claude.ai/code/session_011yPbWYjkWfzsspKUjg5m9W
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/peer-poker/commit/a96bd7333cc8f2a1269d9750598e8ace7be05417" target="_blank" rel="noopener noreferrer">a96bd73</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-07-26 01:15</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/peer-poker" target="_blank" rel="noopener noreferrer">peer-poker</a>
+  </td>
+
+  <td class="msg">
+      feat(ui): single-column reveal with histogram and verdict
+
+The last stage, and with it the end of the old view pair: HostView and
+ParticipantView are gone, RevealPanel with them, and RoomView is finally an
+honest router — three states, three real stages, no delegation.
+
+The reveal reads top to bottom as one argument: who&#39;s in, what everyone
+played, the shape of the spread, and then the call. The histogram draws a bar
+per deck value rather than per voted value, so a table clustered on 5 looks
+clustered rather than looking like two bars side by side.
+
+Three things this settles.
+
+outlierValue&#39;s equidistant tie now goes to the higher card. It used to fall
+out of vote-object key order, so which bar turned rust depended on the order
+votes happened to arrive in — deterministic across peers, but arbitrary. An
+over-estimate is the one worth discussing.
+
+The middle stat tile is MOST PICKED, not MODE. Mode is stats jargon, and the
+word the UI already uses for choosing a card is &#34;pick&#34;. On a tie it shows
+every tied value — &#34;5 or 8&#34; — because the verdict panel directly above
+already commits to a single number, so the tile can afford to be honest that
+the table split two ways.
+
+A card played after the reveal now counts. The screen hands everyone the deck
+back and tells them they can still change their mind, but the reducer was
+throwing those votes away — the guard was on the cards being face-up rather
+than on the estimate being settled. Seeing the table is exactly when someone
+changes their mind. The gate is now the accepted estimate.
+
+Also from review: the histogram paints the mode gold even when that value is
+also the outlier, since rust on a bar half the table chose tells the room to
+distrust their own answer; and revealing an empty table no longer offers to
+accept the first card of the deck, which nobody played.
+
+Co-Authored-By: Claude Opus 5 &lt;noreply@anthropic.com&gt;
+Claude-Session: https://claude.ai/code/session_011yPbWYjkWfzsspKUjg5m9W
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/peer-poker/commit/9291947694088a3c3e6effb416f9a1c587a34aeb" target="_blank" rel="noopener noreferrer">9291947</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-07-26 00:51</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/peer-poker" target="_blank" rel="noopener noreferrer">peer-poker</a>
+  </td>
+
+  <td class="msg">
+      feat(ui): compact voting stage with a top pill bar
+
+Voting used to be assembled from whatever HostView and ParticipantView
+happened to render around RevealPanel: a full agenda, an invite panel, a
+participant list and a card table all competing on one screen while the only
+question on the table was &#34;what number are you playing?&#34;. VotingStage is a
+single 760px column that answers that and nothing else — who has voted, what
+we&#39;re estimating, your hand, and the one control that ends the round.
+
+The item&#39;s title carries its reference link here too, via the same
+LinkedTitle the agenda uses.
+
+RoomView&#39;s voting branch now routes here; the revealed branch still delegates
+to the old pair, which go in the next task.
+
+CardHand is retuned rather than rebuilt. Its rotation is now derived from the
+deck length, so the arc spans -30° to +30° whether the deck has five cards or
+fifteen — the old fixed 5.5° per card fanned a long deck into a circle.
+
+Three things came out of review.
+
+A viewer with no seat is now a state of its own rather than being folded in
+with observers. A host who chose not to play has no participant record, and so
+did a guest who had just been kicked — both were being told &#34;waiting for the
+host to reveal&#34;, which reads as absurd to a host and as a lie to someone who
+has already been removed.
+
+A seated player who has dropped off is marked as such in the pill row. The
+host&#39;s only cue was &#34;1 player still deciding&#34;, which never resolved, and the
+roster that would have shown the disconnect is a screen away.
+
+Leaving a room you are hosting now ends it. handleLeave tore the peer down
+without telling anyone, and guestConn only learns a session is over from an
+explicit message — so every guest sat in a room whose host had already closed
+the tab. That is fixed at the root in App.tsx rather than by putting an End
+session button on this stage, which the design deliberately does not have.
+
+Both lists carry an explicit role=&#34;list&#34;: WebKit drops list semantics when
+list-style is none, taking the labels that tell the roster and the played
+cards apart with them.
+
+Co-Authored-By: Claude Opus 5 &lt;noreply@anthropic.com&gt;
+Claude-Session: https://claude.ai/code/session_011yPbWYjkWfzsspKUjg5m9W
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/peer-poker/commit/11310d36ea304b24dd641a9f2691a733825e8e92" target="_blank" rel="noopener noreferrer">11310d3</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-07-26 00:15</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/peer-poker" target="_blank" rel="noopener noreferrer">peer-poker</a>
+  </td>
+
+  <td class="msg">
+      feat(ui): agenda with reference links and an overflow menu
+
+The agenda was a flat list with four ghost buttons on every row, which meant
+the secondary actions shouted as loudly as &#34;vote on this&#34; — the one thing a
+host actually comes here to do. Ordering and removal move behind a per-item
+overflow menu; Vote is now the only prominent control on a row.
+
+Adding an item takes an optional reference URL alongside the title. When one
+is set the title itself becomes the link, per ADR-0003 — no chip, no ticket
+lookup, no provider detection. LinkedTitle owns that one rendering rule and is
+deliberately shared with the voting and reveal stages so the three screens
+cannot disagree about what a linked item looks like. Beneath each title a
+mono preview line shows host + path + query, which is what tells two links
+into the same endpoint apart.
+
+Editing an item passes both fields through editItem even when only the title
+changed. editItem replaces rather than patches, so a forgotten argument would
+silently erase the link.
+
+&#34;Quick vote&#34; is gone, cut by decision.
+
+The prototype&#39;s drag handle is not shipped: reordering is menu-driven, and a
+grab affordance that cannot grab is a small lie to the user.
+
+Two things came out of review and reach slightly past the task. The overflow
+menu&#39;s machinery — one open at a time, click-outside and Escape to dismiss,
+and a focus catcher for when the action unmounts its own trigger — had been
+copied from TableCard and had already drifted, losing the focus restore on
+three of its four actions. It is extracted to useRowMenu and TableCard now
+uses it too, so the two menus in the host console read as one system. The
+dismissal check is also scoped to the open menu rather than the whole panel;
+scoped to the panel, a menu tall enough to overlap the row beneath it
+swallowed clicks there without ever closing.
+
+Pending items no longer render dimmed. That signal is absent from the design
+source, which shows every title at full weight, and the row border plus the
+status dot still carry active-vs-pending.
+
+Co-Authored-By: Claude Opus 5 &lt;noreply@anthropic.com&gt;
+Claude-Session: https://claude.ai/code/session_011yPbWYjkWfzsspKUjg5m9W
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/peer-poker/commit/f1c42d9a0e5aa800d79720d35fcb760c717c48fe" target="_blank" rel="noopener noreferrer">f1c42d9</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-07-25 23:38</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/peer-poker" target="_blank" rel="noopener noreferrer">peer-poker</a>
+  </td>
+
+  <td class="msg">
+      feat(ui): guided host console and guest lobby
+
+HostView and ParticipantView are replaced by a stage router: RoomView derives
+the stage from session state (console / voting / reveal) and fans out on role,
+so the two roles stop being two parallel screens that drift apart.
+
+Only the console stage exists so far. VotingStage and RevealStage are separate
+tasks, so those two branches delegate to the old views for now — each later
+task replaces one delegation and the last one deletes them. Every commit in
+between still runs.
+
+The console itself is guided rather than dense: a three-step checklist for a
+host who has just opened an empty room, a share bar with the QR collapsed
+until asked for, and a table whose kick lives behind a per-player menu instead
+of a button sitting next to every name. A guest gets the same room without the
+agenda — the backlog is not theirs to see before it reaches the table.
+
+Co-Authored-By: Claude Opus 5 &lt;noreply@anthropic.com&gt;
+Claude-Session: https://claude.ai/code/session_011yPbWYjkWfzsspKUjg5m9W
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/peer-poker/commit/5af9da98a086345451b5ad457ecea671053b59ac" target="_blank" rel="noopener noreferrer">5af9da9</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-07-25 23:22</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/peer-poker" target="_blank" rel="noopener noreferrer">peer-poker</a>
+  </td>
+
+  <td class="msg">
+      feat(ui): host-primary landing page
+
+Most people who open peerpoker.app want to start a session, so hosting becomes
+the single dominant card and joining shrinks to a quiet code strip — guests
+almost always arrive through an invite link, which now has its own screen. The
+join strip therefore takes a code and nothing else; the name and role are
+collected on the join screen where the room is already known.
+
+The resumable-session banner moves out of App and onto the landing page as an
+inset bar above the host card, which is where it is actually acted on.
+
+Adds --color-felt-caption: the hero caption sits on the always-dark felt and
+the handoff tints it green, where --color-felt-muted stays neutral grey.
+
+Co-Authored-By: Claude Opus 5 &lt;noreply@anthropic.com&gt;
+Claude-Session: https://claude.ai/code/session_011yPbWYjkWfzsspKUjg5m9W
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/peer-poker/commit/0cf4de3a3c7f6fe98e6c4aff0c2e6846f8dfe1df" target="_blank" rel="noopener noreferrer">0cf4de3</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-07-25 23:07</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/peer-poker" target="_blank" rel="noopener noreferrer">peer-poker</a>
+  </td>
+
+  <td class="msg">
+      feat(domain): always confirm before joining a room (ADR-0004)
+
+Entry collapses to &#39;landing&#39; | &#39;resume&#39; | &#39;join&#39;. The auto-join path is gone:
+a stored name only tells you what this device remembered, not who is sitting
+at it, so every ?room= link routes to the join screen for one confirming
+click. Whether that screen asks for a name or confirms a known one is
+presentation, so storedName stops being a domain input entirely.
+
+App gains the matching &#39;join&#39; mode. Backing out of it has its own handler
+rather than reusing handleLeave, which clears the saved room code — correct
+when leaving a live room, but on an invite link it would destroy the link a
+resumable host session still needs.
+
+Co-Authored-By: Claude Opus 5 &lt;noreply@anthropic.com&gt;
+Claude-Session: https://claude.ai/code/session_011yPbWYjkWfzsspKUjg5m9W
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/peer-poker/commit/574eab4588ddfe6f1d856d6f14075d0fe61b833d" target="_blank" rel="noopener noreferrer">574eab4</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-07-25 23:07</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/peer-poker" target="_blank" rel="noopener noreferrer">peer-poker</a>
+  </td>
+
+  <td class="msg">
+      feat(ui): dedicated invite/join screen
+
+An invite link now opens an unmissable &#34;you&#39;re about to join FROG-42&#34; moment
+instead of the full landing page. A device that remembers a name confirms it;
+a first-time guest just types one. Either way there is one deliberate click —
+a remembered name is a guess about who is holding the laptop, not a fact
+(ADR-0004).
+
+The screen is not wired up yet; App.tsx routes to it in the next commit.
+
+Adds @testing-library/user-event, which the interaction tests need and which
+four later screen test files will use too.
+
+Co-Authored-By: Claude Opus 5 &lt;noreply@anthropic.com&gt;
+Claude-Session: https://claude.ai/code/session_011yPbWYjkWfzsspKUjg5m9W
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/peer-poker/commit/bc0e1cb84040938d6c00f6c0292f4243ae612c63" target="_blank" rel="noopener noreferrer">bc0e1cb</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-07-25 22:49</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/peer-poker" target="_blank" rel="noopener noreferrer">peer-poker</a>
+  </td>
+
+  <td class="msg">
+      feat(domain): derive the suggested estimate and the reveal outlier
+
+`suggestedValue` is the number the table is nudged towards: the most-voted
+value, tie-broken downwards. The reveal&#39;s verdict panel and the host&#39;s Accept
+dropdown will both read it, so they can never disagree on screen.
+
+`outlierValue` gives &#34;outlier&#34; a definition the handoff leaves implicit: the
+numeric vote furthest from the suggested value, and only once the table is
+genuinely split — more than one deck step apart. A tight table has no outlier
+and no histogram bar turns rust.
+
+Co-Authored-By: Claude Opus 5 &lt;noreply@anthropic.com&gt;
+Claude-Session: https://claude.ai/code/session_011yPbWYjkWfzsspKUjg5m9W
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/peer-poker/commit/bda8bd8b48b71168c9268f29589eb397b817c268" target="_blank" rel="noopener noreferrer">bda8bd8</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-07-25 22:33</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/peer-poker" target="_blank" rel="noopener noreferrer">peer-poker</a>
+  </td>
+
+  <td class="msg">
+      docs: fold review findings back into the implementation plan
+
+Three corrections found while executing Phase 1 and 2:
+
+- Task 3.6 must delete RevealPanel&#39;s local StatTile; the primitive layer now
+  exports one and two components of that name would collide.
+- Task 3.4&#39;s edit form must pass the current url even when only the title
+  changed — editItem replaces both fields rather than patching one.
+- Tasks 2.4 and 3.1 have to be implemented together. Collapsing the Entry
+  union breaks App.tsx, and the &#39;join&#39; mode that fixes it does not exist
+  until 3.1, so there is no shim that both compiles and behaves honestly.
+
+Co-Authored-By: Claude Opus 5 &lt;noreply@anthropic.com&gt;
+Claude-Session: https://claude.ai/code/session_011yPbWYjkWfzsspKUjg5m9W
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/peer-poker/commit/b800a5187a8423e11b2ce5447f0e9a68de4b9cc9" target="_blank" rel="noopener noreferrer">b800a51</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-07-25 22:33</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/peer-poker" target="_blank" rel="noopener noreferrer">peer-poker</a>
+  </td>
+
+  <td class="msg">
+      feat(domain): edit and skip agenda items, and carry a reference url
+
+Co-Authored-By: Claude Opus 5 &lt;noreply@anthropic.com&gt;
+Claude-Session: https://claude.ai/code/session_011yPbWYjkWfzsspKUjg5m9W
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/peer-poker/commit/2d59675049941d4fc70276570273abe944450cf0" target="_blank" rel="noopener noreferrer">2d59675</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-07-25 22:22</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/peer-poker" target="_blank" rel="noopener noreferrer">peer-poker</a>
+  </td>
+
+  <td class="msg">
+      feat(domain): add an optional reference url to agenda items
+
+Co-Authored-By: Claude Opus 5 &lt;noreply@anthropic.com&gt;
+Claude-Session: https://claude.ai/code/session_011yPbWYjkWfzsspKUjg5m9W
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/peer-poker/commit/565d8429bab7692b0f13025049c8c53b79d606c3" target="_blank" rel="noopener noreferrer">565d842</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-07-25 22:17</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/peer-poker" target="_blank" rel="noopener noreferrer">peer-poker</a>
+  </td>
+
+  <td class="msg">
+      feat(ui): retune primitives to the redesign tokens
+
+New avatar fills, retuned button variants and class constants, and the
+Mono / StatTile / PlayerPill atoms the redesigned screens compose.
+
+inputClass drops placeholder:text-muted/70 on purpose: the global
+::placeholder rule now owns that colour and the class override defeated it.
+
+Avatar takes size and dimmed props rather than exposing a style escape
+hatch. Callers wanted a 22px chip and a faded one; both are shapes the
+component owns, and an open style spread let a caller clobber the self-
+identity gold, which is the one invariant it exists to hold.
+
+The voted pill&#39;s fill is bg-ready/10 — color-mix resolves that per theme on
+its own. Only the border alpha genuinely has to differ (a light-mode green
+needs more of it to register on cream), so only the border is a token.
+
+danger gains a resting border. It was previously identical to secondary
+except for text colour, which is thin for a destructive affordance.
+
+Co-Authored-By: Claude Opus 5 &lt;noreply@anthropic.com&gt;
+Claude-Session: https://claude.ai/code/session_011yPbWYjkWfzsspKUjg5m9W
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/peer-poker/commit/3cbb708db570f4a823c6247c48766a4768634aac" target="_blank" rel="noopener noreferrer">3cbb708</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-07-25 22:02</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/peer-poker" target="_blank" rel="noopener noreferrer">peer-poker</a>
+  </td>
+
+  <td class="msg">
+      feat(ui): retoken to the redesign palette, keeping the light theme derived
+
+Dark takes the handoff&#39;s values verbatim. Light is derived, since this repo
+deliberately keeps a theme toggle the dark-only handoff does not cover, and
+the derivation rule is written into the file so future tokens follow it.
+
+The light values are measured, not asserted: the first cut claimed &gt;=4.5:1
+and four tokens missed it — accent-btn at 3.24, muted-2 at 3.66, placeholder
+at 3.48, ready at 4.29. All now clear 4.5, and light border-strong went to
+0.55 alpha so an input&#39;s only boundary reaches the 3:1 non-text minimum.
+
+card-edge survives in both blocks: it has no handoff backing but PlayingCard
+still draws from it, and this commit does not touch components.
+
+Co-Authored-By: Claude Opus 5 &lt;noreply@anthropic.com&gt;
+Claude-Session: https://claude.ai/code/session_011yPbWYjkWfzsspKUjg5m9W
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/peer-poker/commit/89298fdbf96b6a20a2466821cc22a40a12fe8f23" target="_blank" rel="noopener noreferrer">89298fd</a>
+  </td>
+</tr><tr class="">
     <td class="when">2026-07-25 21:53</td>
 
   <td class="repo">
@@ -136,6 +1290,62 @@ Co-Authored-By: Claude Sonnet 5 &lt;noreply@anthropic.com&gt;
 
   <td class="sha">
       <a class="sha-link" href="https://github.com/curtyo18/header-handler/commit/00d5cc2a3baf607840f5c61bb77c1f1bc89d1c20" target="_blank" rel="noopener noreferrer">00d5cc2</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-07-25 21:48</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/peer-poker" target="_blank" rel="noopener noreferrer">peer-poker</a>
+  </td>
+
+  <td class="msg">
+      feat(ui): self-host Playfair Display, Public Sans and Space Mono
+
+ADR-0001&#39;s no-third-party-contact posture rules out a runtime request to
+fonts.googleapis.com, so the redesign&#39;s typography ships as bundled WOFF2
+via Fontsource instead.
+
+Display and mono take the latin subsets only — they render app copy,
+headings and room codes. Public Sans keeps every subset deliberately: it
+renders participant names and agenda titles, which people type in their own
+script, and a narrowed subset would silently fall back to the system sans.
+
+The fonts are OFL-1.1 and the site redistributes them, so the licence is
+served alongside at /OFL.txt and credited in the README.
+
+Co-Authored-By: Claude Opus 5 &lt;noreply@anthropic.com&gt;
+Claude-Session: https://claude.ai/code/session_011yPbWYjkWfzsspKUjg5m9W
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/peer-poker/commit/937dd1da5473b6abdc2f425bfde8075017f69fab" target="_blank" rel="noopener noreferrer">937dd1d</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-07-25 21:39</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/peer-poker" target="_blank" rel="noopener noreferrer">peer-poker</a>
+  </td>
+
+  <td class="msg">
+      docs: spec, plan and ADRs for the UI refresh
+
+Records the 2026-07-25 design handoff and how it was reconciled with the
+decisions this repo had already written down: fonts self-hosted rather than
+pulled from Google (index.css names that a hard constraint), the light theme
+kept (design.md documents it as a deliberate deviation), reference links
+reduced to a plain optional URL, and auto-join removed.
+
+ADR-0003 and ADR-0004 cover the two decisions that are hard to reverse and
+contradict the shipped handoff document, so a future reader does not &#34;fix&#34;
+them back.
+
+Co-Authored-By: Claude Opus 5 &lt;noreply@anthropic.com&gt;
+Claude-Session: https://claude.ai/code/session_011yPbWYjkWfzsspKUjg5m9W
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/peer-poker/commit/eb1834df43b2c7be64e3238c06fea0797a502113" target="_blank" rel="noopener noreferrer">eb1834d</a>
   </td>
 </tr><tr class="">
     <td class="when">2026-07-25 17:17</td>
@@ -250,6 +1460,30 @@ Co-Authored-By: Claude Sonnet 5 &lt;noreply@anthropic.com&gt;
       <a class="sha-link" href="https://github.com/curtyo18/header-handler/commit/7c07675d230e16e9656bbfddb839541cb7ecf5f8" target="_blank" rel="noopener noreferrer">7c07675</a>
   </td>
 </tr><tr class="">
+    <td class="when">2026-07-25 16:42</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/peer-poker" target="_blank" rel="noopener noreferrer">peer-poker</a>
+  </td>
+
+  <td class="msg">
+      docs: make the privacy panel honest about the matchmaking server
+
+The panel told users the one third party was Google&#39;s STUN server. The
+signalling broker is a third party too, and it sees more — the room id
+and both addresses — so the claim understated who is involved on a page
+whose whole job is being trusted about exactly that.
+
+Reframed around what people actually care about rather than naming
+protocols: servers introduce you and then step out, and no name, card or
+ticket text ever reaches one. The root README already described it this
+way; the in-app copy now agrees.
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/peer-poker/commit/64240922e2a597e9a6540bf487b55c594c064fda" target="_blank" rel="noopener noreferrer">6424092</a>
+  </td>
+</tr><tr class="">
     <td class="when">2026-07-25 16:41</td>
 
   <td class="repo">
@@ -282,6 +1516,567 @@ Co-Authored-By: Claude Sonnet 5 &lt;noreply@anthropic.com&gt;
 
   <td class="sha">
       <a class="sha-link" href="https://github.com/curtyo18/header-handler/commit/cb01fb0595162ae5e4bab96db9bd4df1ad633a6e" target="_blank" rel="noopener noreferrer">cb01fb0</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-07-25 14:16</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/peer-poker" target="_blank" rel="noopener noreferrer">peer-poker</a>
+  </td>
+
+  <td class="msg">
+      fix: dial the host only once the joining peer is open
+
+Joining never worked: the guest&#39;s offer was created the moment the peer
+was constructed, and PeerJS drops signalling sent in the window between
+the socket being handed its id and its websocket finishing connecting.
+Socket.send queues only while the id is still unknown, then bails on
+`if (!this._wsOpen()) return` — so the offer was neither queued, sent,
+nor reported. The host never learned a guest existed, and the join died
+of the timeout with no error on either side.
+
+Connecting after &#39;open&#39; fixes it, confirmed end to end against the real
+broker: a guest joins, plays a card, and the host reveals the round.
+
+Verified with a controlled experiment before changing anything —
+dialling before &#39;open&#39; failed 2/2, after &#39;open&#39; succeeded 2/2 — because
+reading the queueing code alone suggested, wrongly, that early dialling
+was safe.
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/peer-poker/commit/08fb895a4229bfeb9cde0fe89596a1da448c4ea2" target="_blank" rel="noopener noreferrer">08fb895</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-07-25 13:37</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/peer-poker" target="_blank" rel="noopener noreferrer">peer-poker</a>
+  </td>
+
+  <td class="msg">
+      diag: log whether the joining peer reaches the broker
+
+A peer with no broker connection queues its offer instead of failing, so
+a join can hang to the timeout without a single error on either side.
+Log the registration so that state is visible.
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/peer-poker/commit/1b732df971d7681caeeefa372dddc67fcc7b56ab" target="_blank" rel="noopener noreferrer">1b732df</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-07-25 13:25</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/peer-poker" target="_blank" rel="noopener noreferrer">peer-poker</a>
+  </td>
+
+  <td class="msg">
+      diag: log the room id both sides use
+
+A join that times out at &#39;have-local-offer&#39; means the host never
+answered, which is either a mismatched room id or a host that failed to
+respond. Logging the id each side derives from the room code tells the
+two apart.
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/peer-poker/commit/5cdb497ad247239f0efa34d0d367b7f5070c7d74" target="_blank" rel="noopener noreferrer">5cdb497</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-07-25 13:21</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/peer-poker" target="_blank" rel="noopener noreferrer">peer-poker</a>
+  </td>
+
+  <td class="msg">
+      diag: log ICE state when a join times out
+
+A join that times out with no error means signalling found the host but
+the two browsers never established a path. Log the ICE connection state
+and the gathered candidate types at that moment, so the failure can be
+told apart from an application-level silence.
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/peer-poker/commit/0d7b53b3e1c420f2aea4cff3a609e9860ebf5a75" target="_blank" rel="noopener noreferrer">0d7b53b</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-07-25 13:13</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/peer-poker" target="_blank" rel="noopener noreferrer">peer-poker</a>
+  </td>
+
+  <td class="msg">
+      fix: tell join failures apart instead of blaming the network
+
+A failed join reported &#34;this network may be blocking peer-to-peer
+connections&#34; whether the broker had rejected it, the room was missing,
+or nothing had answered at all — so the one message covered unrelated
+causes and named the least likely of them. The connect timeout now has
+its own state pointing at the host rather than the joiner&#39;s network, and
+both paths log the PeerJS error type, which was previously discarded and
+is the only thing that says why a join actually failed.
+
+Hosts now log peer errors too, and reconnect when they lose the broker:
+a disconnected host keeps its existing connections, so the room looks
+healthy while nobody new can reach it.
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/peer-poker/commit/f3bf5e0debcedc1ae04642c36596ef87be3a02f3" target="_blank" rel="noopener noreferrer">f3bf5e0</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-07-25 12:34</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/peer-poker" target="_blank" rel="noopener noreferrer">peer-poker</a>
+  </td>
+
+  <td class="msg">
+      fix: keep a resumable session safe when its own link is reopened
+
+Whether a link points at your own room was decided by comparing it to
+the saved room code — but leaving a room clears that code while keeping
+the session, precisely so the session stays resumable. So reopening your
+own link after leaving auto-joined a room nobody was hosting, and
+accepting the &#34;start this room myself&#34; offer then hosted a fresh empty
+session straight over the resumable one, which was never offered.
+
+Identity now comes from the saved session&#39;s room id, extracted into
+domain/entry.ts as a pure decision with a table of cases, since this is
+the kind of logic that is hard to see wrong in a component. Resuming
+also prefers the code from the link over the room id: an id is a one-way
+hash of a code, so an invite link built from one is unjoinable.
+
+Also from review: joining as an observer and then hosting the room no
+longer silently makes you a voting host; a superseded join attempt&#39;s
+error can no longer resurrect a cleared terminal state; ConnState&#39;s
+`mode` prop went unused when HostView stopped rendering it; and the
+distribution bars carry one label each rather than a bare &#34;votes for&#34;.
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/peer-poker/commit/5b6c9f3e011e560bf1ad622fc796121199acbfe2" target="_blank" rel="noopener noreferrer">5b6c9f3</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-07-25 12:23</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/peer-poker" target="_blank" rel="noopener noreferrer">peer-poker</a>
+  </td>
+
+  <td class="msg">
+      feat: make room links work from the address bar
+
+Hosting or joining a room now puts ?room=&lt;code&gt; in the URL, so copying
+the address bar shares the room exactly like the invite link does.
+
+Opening such a link goes straight into the room when a name is already
+saved on the device; without one the join form asks for a name first and
+remembers it. A host reloading their own link still gets the resume
+prompt rather than trying to join the room they were hosting.
+
+Joining a room nobody is hosting used to report &#34;this network may be
+blocking peer-to-peer connections&#34;, sending people to debug a firewall
+when the room had simply ended or the code was mistyped. PeerJS reports
+that case as &#39;peer-unavailable&#39;, so it is now told apart from a real
+connection failure and offers to start the room instead.
+
+Also fixes ?room= never actually reaching the join field: it was set in
+an effect, one render after Landing had already seeded its input.
+
+Removes the design handoff docs, which the implementation has replaced.
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/peer-poker/commit/cbec1ff4e1d060a3fd71ba1590cc9a5a6e8c217d" target="_blank" rel="noopener noreferrer">cbec1ff</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-07-25 12:14</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/peer-poker" target="_blank" rel="noopener noreferrer">peer-poker</a>
+  </td>
+
+  <td class="msg">
+      docs: license the project and prepare the docs to go public
+
+Adds an MIT LICENSE — without one the default is all rights reserved, so
+nobody could fork or contribute to a public repo.
+
+The README and DEPLOY notes still described the repo as private and
+pending publication; they now read as a shipped project and the root
+README gains the local-run instructions it was missing. The app README
+was still the untouched Vite scaffold template, so it now describes the
+actual source layout.
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/peer-poker/commit/63f5f102d8102625e9deb5029f23c9321368710f" target="_blank" rel="noopener noreferrer">63f5f10</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-07-25 11:58</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/peer-poker" target="_blank" rel="noopener noreferrer">peer-poker</a>
+  </td>
+
+  <td class="msg">
+      fix: restore the vote distribution and correct reveal-panel copy
+
+The redesign dropped the per-value distribution that the old panel
+rendered as a bar list; both the brief and the handoff call for it, so
+it comes back as the specced histogram — a bar per deck value, mode in
+gold, count above and value below.
+
+Alongside it, four defects found reviewing the same panel:
+
+- A voter who had not played yet was told &#34;You played a card&#34;. The
+  caption now distinguishes voted from not-yet-voted.
+- The mode stat tile was gated on `stats.min`, which is null for any
+  non-numeric deck, so T-shirt-size rounds showed no summary at all
+  despite having a perfectly good mode.
+- The reveal header printed the item title twice, once in the kicker
+  and again in the heading.
+- Revealed voter names used `text-muted`, which is dark grey-green on
+  the dark felt in light theme (1.4:1); they use the felt token now.
+
+Seat backs conveyed voted/not-voted only through the card art, so each
+seat gains screen-reader text. Drops the always-null host `ConnState`
+render from HostView.
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/peer-poker/commit/0492ac400d3e7473dd8e74117af4ff78b2fda4b3" target="_blank" rel="noopener noreferrer">0492ac4</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-07-25 11:58</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/peer-poker" target="_blank" rel="noopener noreferrer">peer-poker</a>
+  </td>
+
+  <td class="msg">
+      fix: make felt-borne accents and avatars readable in light theme
+
+The felt play surface stays dark in both themes, but `--color-accent`
+flips to a dark brown in light mode, so every kicker, counter and
+primary button drawn on the felt fell to ~1.4:1 contrast. Two causes,
+both fixed:
+
+- The light theme was overriding the felt greens with lighter ones.
+  The handoff is explicit that the felt does not change with theme, so
+  the felt tokens move to the shared block and light mode inherits them.
+- Elements on the felt still resolved the themed accent. `Felt` now
+  re-points the accent pair at always-gold felt variants for its
+  subtree, so `text-accent` and primary buttons read correctly in both.
+
+Also: the self avatar drew cream initials on gold (1.7:1) — it now uses
+the accent ink; the &#34;Your pick&#34; caption used gold on a cream card face
+(1.7:1) — it now uses a deeper gold that holds on cream in both themes.
+Connection state was conveyed by dot colour alone; added screen-reader
+text in the header chip and roster.
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/peer-poker/commit/81b4ecf2426c5c2ee55f0c5f896dd3f3d1678c60" target="_blank" rel="noopener noreferrer">81b4ecf</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-07-25 11:40</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/peer-poker" target="_blank" rel="noopener noreferrer">peer-poker</a>
+  </td>
+
+  <td class="msg">
+      fix: prevent fanned card hand from overflowing on mobile
+
+The fan&#39;s per-card translateX offsets are fixed pixels wide enough to
+exceed a phone viewport, causing horizontal page scroll. Scale the arc
+down below the sm breakpoint instead of recomputing offsets per size.
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/peer-poker/commit/49da494fe9a6cc0635cda8aea7875d5981603a84" target="_blank" rel="noopener noreferrer">49da494</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-07-25 11:17</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/peer-poker" target="_blank" rel="noopener noreferrer">peer-poker</a>
+  </td>
+
+  <td class="msg">
+      redesign: compose HostView and ParticipantView on the new system
+
+Host console: room-code invite card with QR, agenda/roster rail, felt
+RevealPanel + host&#39;s own card hand, results/export. Participant view:
+roster strip with a real observer/voter toggle (wires the existing but
+previously-unused changeRole intent), felt RevealPanel, and the card
+hand when seated. ResultsExport restyled to match.
+
+Fixes found via a temporary local render harness (mock session states,
+removed before commit — PeerJS&#39;s signaling broker isn&#39;t reachable from
+this sandbox so the real P2P flow couldn&#39;t be exercised end-to-end):
+- CardHand&#39;s fanned cards drooped below their felt panel&#39;s bottom edge
+  since absolutely-positioned children don&#39;t count toward a box&#39;s
+  layout height; now reserved with padding.
+- Agenda&#39;s add-item row overflowed its 300px rail.
+- ConnState always showed &#34;Connecting…&#34; for guests, even once
+  connected, after the ConnState redesign — regression fix.
+- RevealPanel&#39;s &#34;you played X&#34; caption always read the host&#39;s vote
+  and showed for observers; it never received myPeerId.
+- The observer-toggle button&#39;s label read as a status (&#34;Observing&#34;)
+  instead of the action it performs, backwards from its condition.
+
+Co-Authored-By: Claude Sonnet 5 &lt;noreply@anthropic.com&gt;
+Claude-Session: https://claude.ai/code/session_011yPbWYjkWfzsspKUjg5m9W
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/peer-poker/commit/c5a058fd7eaf1b4fa99e2cf75e8e247eaa1bce28" target="_blank" rel="noopener noreferrer">c5a058f</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-07-25 11:06</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/peer-poker" target="_blank" rel="noopener noreferrer">peer-poker</a>
+  </td>
+
+  <td class="msg">
+      redesign: reveal moment, agenda, and roster
+
+RevealPanel now lives on its own felt table with two derived phases
+(voting: face-down seats + cards-in counter; revealed: flipped cards,
+mode-highlighted, a gold consensus banner with confetti or a muted
+disagreement banner, low/mode/high stats) instead of the old plain bar
+list. Agenda gets status dots (done/current/todo) and gold accepted-
+estimate values; the roster gets colored initials avatars, a
+connection dot, and ready/thinking badges during a live round.
+
+Co-Authored-By: Claude Sonnet 5 &lt;noreply@anthropic.com&gt;
+Claude-Session: https://claude.ai/code/session_011yPbWYjkWfzsspKUjg5m9W
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/peer-poker/commit/928372ad49f626d044d6767f672357cc5e3a460b" target="_blank" rel="noopener noreferrer">928372a</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-07-25 08:56</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/peer-poker" target="_blank" rel="noopener noreferrer">peer-poker</a>
+  </td>
+
+  <td class="msg">
+      redesign: fanned card hand as the hero voting interaction
+
+The hand renders as a physical fan of cards curving from a pivot at
+the bottom center; the picked card grows, lifts, and gains a gold ring
+and &#34;your pick&#34; caption, matching the handoff&#39;s core interaction.
+Hover/focus lifts an unpicked card slightly, mirroring the reference&#39;s
+per-card hover behavior via React state instead of its prototype-only
+per-element inline hover styling.
+
+Co-Authored-By: Claude Sonnet 5 &lt;noreply@anthropic.com&gt;
+Claude-Session: https://claude.ai/code/session_011yPbWYjkWfzsspKUjg5m9W
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/peer-poker/commit/1ac213a2bf7f6cdbc00ea630f4355a3b4ad49248" target="_blank" rel="noopener noreferrer">1ac213a</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-07-25 08:54</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/peer-poker" target="_blank" rel="noopener noreferrer">peer-poker</a>
+  </td>
+
+  <td class="msg">
+      redesign: deck manager as a card-preview grid
+
+Each deck now previews its actual card faces via PlayingCard, with a
+Built-in badge for Fibonacci and a dashed &#34;build a custom deck&#34; tile
+housing the add form. Also adds a themed danger-text token for inline
+validation errors (the alert banner tokens are tuned for a colored
+banner, not body text).
+
+Co-Authored-By: Claude Sonnet 5 &lt;noreply@anthropic.com&gt;
+Claude-Session: https://claude.ai/code/session_011yPbWYjkWfzsspKUjg5m9W
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/peer-poker/commit/255ba84c8f88686b66461fa117045a5e4bc87a45" target="_blank" rel="noopener noreferrer">255ba84</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-07-25 08:52</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/peer-poker" target="_blank" rel="noopener noreferrer">peer-poker</a>
+  </td>
+
+  <td class="msg">
+      redesign: landing page hero, host and join forms
+
+Two-column hero (kicker/headline/CTA copy against a felt panel with a
+fanned card hero), plus restyled host/join forms and resume/name-taken
+banners on the new token set.
+
+Co-Authored-By: Claude Sonnet 5 &lt;noreply@anthropic.com&gt;
+Claude-Session: https://claude.ai/code/session_011yPbWYjkWfzsspKUjg5m9W
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/peer-poker/commit/d7763ed0ea4fd2af8fe334b57bc510619fe029d8" target="_blank" rel="noopener noreferrer">d7763ed</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-07-25 08:45</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/peer-poker" target="_blank" rel="noopener noreferrer">peer-poker</a>
+  </td>
+
+  <td class="msg">
+      redesign: global chrome — header, theme toggle, privacy panel, conn states
+
+Sticky toolbar with a gold wordmark and a live room chip, restyled
+theme toggle, a five-question privacy explainer matching the handoff&#39;s
+copy, and calmer connection-state messaging (neutral for kicked/ended,
+a clear-but-not-alarming banner for unreachable).
+
+Co-Authored-By: Claude Sonnet 5 &lt;noreply@anthropic.com&gt;
+Claude-Session: https://claude.ai/code/session_011yPbWYjkWfzsspKUjg5m9W
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/peer-poker/commit/25161c9c4b90416609f56277d9830934104f4d3f" target="_blank" rel="noopener noreferrer">25161c9</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-07-25 08:42</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/peer-poker" target="_blank" rel="noopener noreferrer">peer-poker</a>
+  </td>
+
+  <td class="msg">
+      design: add felt-table design tokens and shared UI primitives
+
+Introduce the design handoff&#39;s palette (felt green table, gold accent,
+cream card faces) as CSS custom properties under the existing
+data-theme mechanism, plus shared Button/Panel/Felt/Badge/Avatar/
+PlayingCard primitives that the screen redesigns will build on.
+
+Google Fonts (DM Serif Display/DM Sans) are swapped for a self-hosted
+serif/sans system stack — the app&#39;s no-CDN-fonts constraint blocks
+vendoring the originals, and the handoff explicitly allows substituting
+house-equivalent fonts.
+
+Co-Authored-By: Claude Sonnet 5 &lt;noreply@anthropic.com&gt;
+Claude-Session: https://claude.ai/code/session_011yPbWYjkWfzsspKUjg5m9W
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/peer-poker/commit/0e88d568ac92c5da790d1f366cedf6f989bd9985" target="_blank" rel="noopener noreferrer">0e88d56</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-07-25 08:29</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/peer-poker" target="_blank" rel="noopener noreferrer">peer-poker</a>
+  </td>
+
+  <td class="msg">
+      fix: show friendly room code (not hash) in resume banner
+
+Co-Authored-By: Claude Opus 4.8 &lt;noreply@anthropic.com&gt;
+Claude-Session: https://claude.ai/code/session_01BFL8ZgZk9gtnUeP1wxHrKR
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/peer-poker/commit/981c7b6bf5c4f50c469f0d0c4d1cd5c7988f54af" target="_blank" rel="noopener noreferrer">981c7b6</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-07-25 08:27</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/peer-poker" target="_blank" rel="noopener noreferrer">peer-poker</a>
+  </td>
+
+  <td class="msg">
+      feat: wire memorable room names through host/join/resume flows
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/peer-poker/commit/80164587fd7f93a5c642164c74a2fe7b043cb4ec" target="_blank" rel="noopener noreferrer">8016458</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-07-25 08:27</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/peer-poker" target="_blank" rel="noopener noreferrer">peer-poker</a>
+  </td>
+
+  <td class="msg">
+      feat: room name input on landing
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/peer-poker/commit/edb637e904faa44a4f7a4cd4f77477e7ceea9153" target="_blank" rel="noopener noreferrer">edb637e</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-07-25 08:25</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/peer-poker" target="_blank" rel="noopener noreferrer">peer-poker</a>
+  </td>
+
+  <td class="msg">
+      feat: room code persistence and desired-id host peer
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/peer-poker/commit/666bfcbf353df8439806c80f27ec169fe70dd0ef" target="_blank" rel="noopener noreferrer">666bfcb</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-07-25 08:25</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/peer-poker" target="_blank" rel="noopener noreferrer">peer-poker</a>
+  </td>
+
+  <td class="msg">
+      feat: deterministic namespaced room id derivation
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/peer-poker/commit/3d6eacd7efb57ef80db8b9b95a53cd647efe0d7f" target="_blank" rel="noopener noreferrer">3d6eacd</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-07-25 08:15</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/peer-poker" target="_blank" rel="noopener noreferrer">peer-poker</a>
+  </td>
+
+  <td class="msg">
+      fix: enforce STUN-only ICE, drop PeerJS default TURN relays
+
+PeerJS 1.5.5 defaults include shared TURN servers (turn.peerjs.com), which
+would relay encrypted session traffic through a third party when direct P2P
+fails — contradicting the no-server privacy guarantee (ADR 0001). Override
+iceServers to Google STUN only so nothing is ever relayed; unreachable peers
+now fail loudly instead of silently relaying.
+
+Co-Authored-By: Claude Opus 4.8 &lt;noreply@anthropic.com&gt;
+Claude-Session: https://claude.ai/code/session_01BFL8ZgZk9gtnUeP1wxHrKR
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/peer-poker/commit/c698c5b4b3f9c4e96ff846c8490958831a64992b" target="_blank" rel="noopener noreferrer">c698c5b</a>
   </td>
 </tr><tr class="">
     <td class="when">2026-07-24 14:35</td>
@@ -2808,1094 +4603,6 @@ Claude-Session: https://claude.ai/code/session_016KfbANbjoA9K3w8AChXyJm
   <td class="sha">
       <a class="sha-link" href="https://github.com/curtyo18/header-handler/commit/1186f89212106fef3aabac2636016caadb20d717" target="_blank" rel="noopener noreferrer">1186f89</a>
   </td>
-</tr><tr class="">
-    <td class="when">2026-07-11 20:17</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/header-handler" target="_blank" rel="noopener noreferrer">header-handler</a>
-  </td>
-
-  <td class="msg">
-      Scaffold Header Handler: core logic + background worker
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/header-handler/commit/d4bfefcc00caacef6a0cf51cb7adac724522fda1" target="_blank" rel="noopener noreferrer">d4bfefc</a>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-07-03 22:32</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/tampermonkey-scripts" target="_blank" rel="noopener noreferrer">tampermonkey-scripts</a>
-  </td>
-
-  <td class="msg">
-      fix(jira-extractor): harden ADF tables, block quotes/panels, DOM fallback
-
-- renderTable: escape pipes in cells and synthesize a header when the
-  first row isn&#39;t tableHeader, so literal | and header-less tables no
-  longer corrupt the Markdown grid
-- blockquote/panel: render children as blocks so multi-paragraph content
-  keeps its breaks instead of running together
-- main.ts: guard the DOM fallback so a throw there can&#39;t escape as an
-  unobserved rejection that silently no-ops the button
-- tests: cover nested lists, table pipe-escaping/header synthesis,
-  block quote/panel breaks, and the fromApi heading-split AC path
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/tampermonkey-scripts/commit/d9a43931e9dac67480c78bd29f7b09ba5333326a" target="_blank" rel="noopener noreferrer">d9a4393</a>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-07-03 22:32</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/tampermonkey-scripts" target="_blank" rel="noopener noreferrer">tampermonkey-scripts</a>
-  </td>
-
-  <td class="msg">
-      fix(jira-extractor): detect custom-domain Cloud via #jira-frontend
-
-The application-name=JIRA meta branch was dead (it re-checked
-.atlassian.net, already returned above) and ambiguous (Server carries
-that meta too). Use the Cloud-only SPA root instead so custom-domain
-Cloud gets the v3 endpoint, not v2.
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/tampermonkey-scripts/commit/1a79122e8bd3c1f1de09f12161e95cb57ab43014" target="_blank" rel="noopener noreferrer">1a79122</a>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-07-03 22:32</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/tampermonkey-scripts" target="_blank" rel="noopener noreferrer">tampermonkey-scripts</a>
-  </td>
-
-  <td class="msg">
-      feat(jira-extractor): v0.1.0 — build + docs
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/tampermonkey-scripts/commit/c6a3594a7f9cdd7a6346fa05e4e4a5452e0a5011" target="_blank" rel="noopener noreferrer">c6a3594</a>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-07-03 22:32</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/tampermonkey-scripts" target="_blank" rel="noopener noreferrer">tampermonkey-scripts</a>
-  </td>
-
-  <td class="msg">
-      feat(jira-extractor): orchestration + SPA navigation
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/tampermonkey-scripts/commit/3762dcb0c77afa98f9cc4e08405c4c606bbc2332" target="_blank" rel="noopener noreferrer">3762dcb</a>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-07-03 22:32</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/tampermonkey-scripts" target="_blank" rel="noopener noreferrer">tampermonkey-scripts</a>
-  </td>
-
-  <td class="msg">
-      feat(jira-extractor): trigger button + review panel UI
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/tampermonkey-scripts/commit/d8794bcf64382937ea46e0eceb36a397bd9e1237" target="_blank" rel="noopener noreferrer">d8794bc</a>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-07-03 22:32</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/tampermonkey-scripts" target="_blank" rel="noopener noreferrer">tampermonkey-scripts</a>
-  </td>
-
-  <td class="msg">
-      feat(jira-extractor): DOM scrape fallback
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/tampermonkey-scripts/commit/4e34e70d0150dd8d90443b7827866afa17323240" target="_blank" rel="noopener noreferrer">4e34e70</a>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-07-03 22:32</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/tampermonkey-scripts" target="_blank" rel="noopener noreferrer">tampermonkey-scripts</a>
-  </td>
-
-  <td class="msg">
-      feat(jira-extractor): LLM-ready Markdown formatter
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/tampermonkey-scripts/commit/ee7222fd572bde97497461352fbdc62e85b11553" target="_blank" rel="noopener noreferrer">ee7222f</a>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-07-03 22:32</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/tampermonkey-scripts" target="_blank" rel="noopener noreferrer">tampermonkey-scripts</a>
-  </td>
-
-  <td class="msg">
-      feat(jira-extractor): normalize API issue + AC split
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/tampermonkey-scripts/commit/ab06bf2e56516b97ede2e533fe745735d76a93f5" target="_blank" rel="noopener noreferrer">ab06bf2</a>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-07-03 22:32</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/tampermonkey-scripts" target="_blank" rel="noopener noreferrer">tampermonkey-scripts</a>
-  </td>
-
-  <td class="msg">
-      feat(jira-extractor): REST fetch + AC field discovery
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/tampermonkey-scripts/commit/72c73bc1503ece8e860eba9dcdc0083a51be23b8" target="_blank" rel="noopener noreferrer">72c73bc</a>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-07-03 22:32</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/tampermonkey-scripts" target="_blank" rel="noopener noreferrer">tampermonkey-scripts</a>
-  </td>
-
-  <td class="msg">
-      feat(jira-extractor): ADF to Markdown converter
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/tampermonkey-scripts/commit/cb25e020a8a23ca04fdea3ec43842735d9595836" target="_blank" rel="noopener noreferrer">cb25e02</a>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-07-03 22:32</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/tampermonkey-scripts" target="_blank" rel="noopener noreferrer">tampermonkey-scripts</a>
-  </td>
-
-  <td class="msg">
-      feat(jira-extractor): detect Jira flavor + issue key
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/tampermonkey-scripts/commit/4d7586aacc1ad7fc66ee252b43d804be86b1c58f" target="_blank" rel="noopener noreferrer">4d7586a</a>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-07-03 22:32</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/tampermonkey-scripts" target="_blank" rel="noopener noreferrer">tampermonkey-scripts</a>
-  </td>
-
-  <td class="msg">
-      feat(jira-extractor): core types
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/tampermonkey-scripts/commit/ddc521988db43516692a19f46f93174da8b705ac" target="_blank" rel="noopener noreferrer">ddc5219</a>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-07-03 22:32</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/tampermonkey-scripts" target="_blank" rel="noopener noreferrer">tampermonkey-scripts</a>
-  </td>
-
-  <td class="msg">
-      chore(jira-extractor): scaffold (build, ts, vitest)
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/tampermonkey-scripts/commit/e43b622acafa9ff0155004c06028c8746fa645c8" target="_blank" rel="noopener noreferrer">e43b622</a>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-07-03 22:32</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/tampermonkey-scripts" target="_blank" rel="noopener noreferrer">tampermonkey-scripts</a>
-  </td>
-
-  <td class="msg">
-      chore(keepalive): tune defaults — event dispatch 10s→30s, fetch ping 2min→5min
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/tampermonkey-scripts/commit/7684583092d59ba4b5cebf189a9d4d73b2b0bbcd" target="_blank" rel="noopener noreferrer">7684583</a>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-07-03 22:32</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/tampermonkey-scripts" target="_blank" rel="noopener noreferrer">tampermonkey-scripts</a>
-  </td>
-
-  <td class="msg">
-      feat(keepalive): typed events, HEAD ping, visibility patch, add scroll, drop visibilitychange
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/tampermonkey-scripts/commit/c2ece955770b0a83f77947dd5837cf6d326f749c" target="_blank" rel="noopener noreferrer">c2ece95</a>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-07-02 18:37</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/html-utils" target="_blank" rel="noopener noreferrer">html-utils</a>
-  </td>
-
-  <td class="msg">
-      feat(render): copy/save rendered output as a PNG image
-
-Add &#34;copy img&#34; (clipboard PNG via ClipboardItem) and &#34;png&#34; (download)
-buttons to the markdown and html tools, rendered at 2x for retina quality.
-
-- html2canvas@1.4.1 is pinned and lazy-loaded only on first capture, so
-  normal page loads pull nothing extra.
-- markdown captures the same-origin rendered pane directly.
-- html captures in a throwaway same-origin, scripts-disabled iframe (never
-  the live preview) so export is safe regardless of the run-scripts toggle;
-  the image reflects the static HTML.
-- Promise-valued ClipboardItem so the write begins within the user gesture
-  (Safari/WebKit). toBlob + object URL on save, rejecting an oversized
-  canvas instead of writing a 0-byte file.
-
-Co-Authored-By: Claude Opus 4.8 &lt;noreply@anthropic.com&gt;
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/html-utils/commit/54ad33834e65f25708d71c9260ea924d5aa698fe" target="_blank" rel="noopener noreferrer">54ad338</a>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-07-02 18:22</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/html-utils" target="_blank" rel="noopener noreferrer">html-utils</a>
-  </td>
-
-  <td class="msg">
-      feat(render): add html-to-pdf converter
-
-New render/html-to-pdf tool: paste raw HTML, see a live preview in a
-same-origin sandboxed iframe (scripts disabled), and export a PDF via the
-browser&#39;s native print pipeline (contentWindow.print()).
-
-Printing the preview document directly means the author&#39;s own stylesheets
-drive the output — vector/selectable text, faithful CSS, no rasterization and
-no app-chrome bleed, and zero external dependencies. Paper size (A4/Letter/
-Legal/A3/A5) and orientation are applied via an injected @page rule; the
-filename seeds the document title for the Save-as-PDF default.
-
-Includes the render-group draggable divider and localStorage persistence.
-
-Co-Authored-By: Claude Opus 4.8 &lt;noreply@anthropic.com&gt;
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/html-utils/commit/4d1e81f7e2891e810b0b5d1edd25c6b187866530" target="_blank" rel="noopener noreferrer">4d1e81f</a>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-07-02 18:13</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/html-utils" target="_blank" rel="noopener noreferrer">html-utils</a>
-  </td>
-
-  <td class="msg">
-      feat(render): add markdown + html viewer tools with shareable links
-
-Two discrete client-side tools under a new `render` group:
-
-- render/markdown — live-rendered markdown (marked + DOMPurify sanitize)
-- render/html — raw HTML in a sandboxed iframe (scripts off by default,
-  opt-in toggle; never allow-same-origin)
-
-Both support:
-- Share link: content packed into the querystring, trying Brotli /
-  deflate-raw / stored and keeping the smallest (1-char codec flag).
-  Brotli (brotli-wasm) is lazy-loaded from a CDN only on share/open.
-- Draggable pane divider; the split ratio rides along in the link
-  (&amp;s=&lt;pct&gt;) so viewers open at the same proportion.
-- localStorage draft persistence.
-
-Adds `render` to GROUP_ORDER in build-manifest.mjs.
-
-Co-Authored-By: Claude Opus 4.8 &lt;noreply@anthropic.com&gt;
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/html-utils/commit/74e9ffd2c0e942a3b1e67bcac10bd18908336d5e" target="_blank" rel="noopener noreferrer">74e9ffd</a>
-  </td>
-</tr><tr class="anon">
-    <td class="when">2026-07-01</td>
-
-  <td class="repo">
-      <span class="redact-strong" aria-label="redacted repo" role="img">session</span>
-  </td>
-
-  <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">wip: inline facade in router</span>
-  </td>
-
-  <td class="sha">
-      <span class="redact-strong" aria-label="redacted sha" role="img">ea9aaf6</span>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-07-01 16:59</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/blog" target="_blank" rel="noopener noreferrer">blog</a>
-  </td>
-
-  <td class="msg">
-      Remove self-referential chrome (no-tracking chip, html-utils footer)
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/blog/commit/47b7216716654d3abcb3928923114d54b997ea9b" target="_blank" rel="noopener noreferrer">47b7216</a>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-07-01 14:25</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/blog" target="_blank" rel="noopener noreferrer">blog</a>
-  </td>
-
-  <td class="msg">
-      Initial blog: home, shared chrome, whitepaper post
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/blog/commit/931041d5050c0f5d07173de78d25cc13e1951508" target="_blank" rel="noopener noreferrer">931041d</a>
-  </td>
-</tr><tr class="anon">
-    <td class="when">2026-07-01</td>
-
-  <td class="repo">
-      <span class="redact-strong" aria-label="redacted repo" role="img">validator</span>
-  </td>
-
-  <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">rework mailer and rename config</span>
-  </td>
-
-  <td class="sha">
-      <span class="redact-strong" aria-label="redacted sha" role="img">fd11c90</span>
-  </td>
-</tr>            <tr class="gr-month-row">
-              <td colspan="4">
-                June 2026
-                <span>43 commits · 29 public</span>
-              </td>
-            </tr>
-<tr class="">
-    <td class="when">2026-06-28 13:19</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/agent-config" target="_blank" rel="noopener noreferrer">agent-config</a>
-  </td>
-
-  <td class="msg">
-      docs: add concision directive to top of CLAUDE.md
-
-Co-Authored-By: Claude Opus 4.8 &lt;noreply@anthropic.com&gt;
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/agent-config/commit/84172877f34025449057226f8388f3651f1f7012" target="_blank" rel="noopener noreferrer">8417287</a>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-06-22 16:28</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/agent-config" target="_blank" rel="noopener noreferrer">agent-config</a>
-  </td>
-
-  <td class="msg">
-      docs(ui-prefs): mark TanStack Start as RC, note Base UI vs Radix block trade-off, compress sources
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/agent-config/commit/273fa14f7ef8e0ea80cbf9cd2035df8e6314eda8" target="_blank" rel="noopener noreferrer">273fa14</a>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-06-17 21:53</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/network-data-viewer" target="_blank" rel="noopener noreferrer">network-data-viewer</a>
-  </td>
-
-  <td class="msg">
-      chore: release v1.0.0
-
-Stable public-launch milestone (no code change since v0.6.1).
-
-- Bump version 0.6.1 -&gt; 1.0.0
-- Store listing: new pre-packaged-analysers opening line; replace the vague
-  &#34;linked below&#34; with the real source URL
-- Reviewer-facing accuracy: single-purpose description and the &lt;all_urls&gt;
-  permission justification now list the image-pixel-beacon transport added in
-  v0.6.1 (the public four-transport description is left as-is by choice)
-
-Co-Authored-By: Claude Opus 4.8 &lt;noreply@anthropic.com&gt;
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/network-data-viewer/commit/0511bf7edebafcc4d4c094d1552d38421b74a125" target="_blank" rel="noopener noreferrer">0511bf7</a>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-06-17 20:03</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/network-data-viewer" target="_blank" rel="noopener noreferrer">network-data-viewer</a>
-  </td>
-
-  <td class="msg">
-      chore: release v0.6.1
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/network-data-viewer/commit/7d7cff882a783f24f3d857477ed13e18bb9f684c" target="_blank" rel="noopener noreferrer">7d7cff8</a>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-06-17 19:49</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/network-data-viewer" target="_blank" rel="noopener noreferrer">network-data-viewer</a>
-  </td>
-
-  <td class="msg">
-      refactor(capture): address adversarial review of image hook
-
-- Extract the image-src hook into src/content/patch-image.ts so the safety
-  invariants are unit-testable (never throw into the page, always run the native
-  setter, preserve the getter, forward the raw value for TrustedURL survival).
-- Add lossless URL dedup (capped Set): suppresses the dominant volume source —
-  lazy-load swaps, re-renders, and carousels re-setting identical srcs — without
-  dropping any distinct beacon (real pixel URLs differ per fire). Avoids a lossy
-  content heuristic that could silently miss real beacons.
-- Skip empty/whitespace src resets, which otherwise resolve to the document URL
-  and emit the page&#39;s own URL on every clear.
-- Unit tests (patch-image.test.ts) cover emit, getter readback, dedup, relative
-  resolution, data:/blob:/empty skips, hostile-toString no-throw, and raw-value
-  forwarding.
-
-Co-Authored-By: Claude Opus 4.8 &lt;noreply@anthropic.com&gt;
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/network-data-viewer/commit/a3c7c65091dcabf8c65ee5c912386fad3f11e0d9" target="_blank" rel="noopener noreferrer">a3c7c65</a>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-06-17 19:42</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/network-data-viewer" target="_blank" rel="noopener noreferrer">network-data-viewer</a>
-  </td>
-
-  <td class="msg">
-      feat: capture image-beacon (tracking pixel) requests
-
-Meta&#39;s fbevents.js, Google Ads conversion pixels, Pinterest and others fire GET
-beacons by assigning to an Image&#39;s `src`, which bypasses the fetch/XHR/
-sendBeacon/WebSocket patches — so e.g. the Meta Pixel PageView never appeared in
-the panel (confirmed via the request&#39;s &#34;Initiator: Image / fbevents.js&#34; stack).
-
-Hook the HTMLImageElement.prototype `src` setter (the lean transport fbevents
-uses) and emit a capture event with source &#34;image&#34;, method GET, no body. Only
-http(s) URLs are emitted (skips data:/blob:/empty resets); the original getter
-is preserved and the native setter still runs, so image loading is unchanged.
-Analyser URL patterns filter the noise — ordinary &lt;img&gt; content matches nothing.
-
-- CaptureSource / CapturedEventSchema gain &#34;image&#34;
-- e2e: fixture #fire-image + a capture-and-render case (full suite stays green)
-
-Co-Authored-By: Claude Opus 4.8 &lt;noreply@anthropic.com&gt;
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/network-data-viewer/commit/16a677a247c8faf76dda8f1abe6c52075eb80c41" target="_blank" rel="noopener noreferrer">16a677a</a>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-06-17 17:43</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/network-data-viewer" target="_blank" rel="noopener noreferrer">network-data-viewer</a>
-  </td>
-
-  <td class="msg">
-      docs: list the Meta analyser in README and store listing
-
-README said three bundled analysers; there are now four. Add Meta to the
-default-analyser list and to the store listing&#39;s example beacons.
-
-Co-Authored-By: Claude Opus 4.8 &lt;noreply@anthropic.com&gt;
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/network-data-viewer/commit/77f7580dc99413baceddd3d040c3f3dc23f015c3" target="_blank" rel="noopener noreferrer">77f7580</a>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-06-17 17:40</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/network-data-viewer" target="_blank" rel="noopener noreferrer">network-data-viewer</a>
-  </td>
-
-  <td class="msg">
-      chore: release v0.6.0
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/network-data-viewer/commit/1d9e9ebb321cab5bcde1af8bfbd9e5f3214fc648" target="_blank" rel="noopener noreferrer">1d9e9eb</a>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-06-17 17:28</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/network-data-viewer" target="_blank" rel="noopener noreferrer">network-data-viewer</a>
-  </td>
-
-  <td class="msg">
-      fix(meta): address adversarial review — regex drift, field clobbering
-
-- Align the seed urlPattern CAPI branch with the sandbox&#39;s CAPI detector and
-  anchor the detector at the scheme: allows a trailing slash on /events (no
-  longer dropped at the gate) and prevents an unencoded graph.facebook.com URL
-  in a /tr param value from diverting the pixel beacon into the JSON branch.
-- Write analyser-controlled labels (transport, eventIndex) and the top-level
-  access_token last so a same-named wire field can&#39;t clobber them.
-- Split canonical top-level pixel params from cd[]/ud[] custom data so a custom
-  key (e.g. cd[id]) can&#39;t silently overwrite the real id/ev.
-- Surface non-object CAPI data[] items under `value` instead of emitting phantom
-  empty rows.
-- Add regression tests for each of the above.
-
-Co-Authored-By: Claude Opus 4.8 &lt;noreply@anthropic.com&gt;
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/network-data-viewer/commit/5a9af4350584e7479207f16307ddc866e04fed33" target="_blank" rel="noopener noreferrer">5a9af43</a>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-06-17 17:21</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/network-data-viewer" target="_blank" rel="noopener noreferrer">network-data-viewer</a>
-  </td>
-
-  <td class="msg">
-      feat: add Meta (Facebook) analyser for Pixel and direct CAPI traffic
-
-Adds a built-in &#34;Meta&#34; analyser seed (id ...0004, seedVersion 1) decoding two
-browser-visible Meta tracking shapes:
-
-- Meta Pixel `/tr` beacon — path-anchored + id=/ev= query guard so it also
-  catches first-party Conversions-API-gateway / sGTM proxies that re-front the
-  pixel under a customer domain; flattens cd[]/ud[] into inline fields.
-- Direct client-side Conversions API (graph.facebook.com/v&lt;n&gt;/&lt;id&gt;/events) —
-  fans out the JSON data[] batch, surfacing access_token verbatim (the tool is
-  local-only / no-network).
-
-Pure server-to-server CAPI is out of scope (never reaches the browser). Uses the
-existing SandboxInput/fanOut contracts; no dispatcher/schema/DSL changes.
-
-Co-Authored-By: Claude Opus 4.8 &lt;noreply@anthropic.com&gt;
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/network-data-viewer/commit/8ac9469dc1bbcd84ca12ed67254184a4c213c3ca" target="_blank" rel="noopener noreferrer">8ac9469</a>
-  </td>
-</tr><tr class="anon">
-    <td class="when">2026-06-16</td>
-
-  <td class="repo">
-      <span class="redact-strong" aria-label="redacted repo" role="img">tighter-ledger-channel</span>
-  </td>
-
-  <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">fix: simplify session for indexer</span>
-  </td>
-
-  <td class="sha">
-      <span class="redact-strong" aria-label="redacted sha" role="img">0084ec7</span>
-  </td>
-</tr><tr class="anon">
-    <td class="when">2026-06-16</td>
-
-  <td class="repo">
-      <span class="redact-strong" aria-label="redacted repo" role="img">missing-writer</span>
-  </td>
-
-  <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">update faster runner</span>
-  </td>
-
-  <td class="sha">
-      <span class="redact-strong" aria-label="redacted sha" role="img">fa27492</span>
-  </td>
-</tr><tr class="anon">
-    <td class="when">2026-06-15</td>
-
-  <td class="repo">
-      <span class="redact-strong" aria-label="redacted repo" role="img">stricter-cache</span>
-  </td>
-
-  <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">restructure redundant util in guard</span>
-  </td>
-
-  <td class="sha">
-      <span class="redact-strong" aria-label="redacted sha" role="img">4e37976</span>
-  </td>
-</tr><tr class="anon">
-    <td class="when">2026-06-15</td>
-
-  <td class="repo">
-      <span class="redact-strong" aria-label="redacted repo" role="img">controller-toolkit</span>
-  </td>
-
-  <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">refactor: loosen adapter in guard</span>
-  </td>
-
-  <td class="sha">
-      <span class="redact-strong" aria-label="redacted sha" role="img">7c897d2</span>
-  </td>
-</tr><tr class="anon">
-    <td class="when">2026-06-15</td>
-
-  <td class="repo">
-      <span class="redact-strong" aria-label="redacted repo" role="img">reader</span>
-  </td>
-
-  <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">optimize tighter decoder in encoder</span>
-  </td>
-
-  <td class="sha">
-      <span class="redact-strong" aria-label="redacted sha" role="img">ef7670c</span>
-  </td>
-</tr><tr class="anon">
-    <td class="when">2026-06-15</td>
-
-  <td class="repo">
-      <span class="redact-strong" aria-label="redacted repo" role="img">stricter-dispatcher-parser</span>
-  </td>
-
-  <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">fix: add spurious reader in validator</span>
-  </td>
-
-  <td class="sha">
-      <span class="redact-strong" aria-label="redacted sha" role="img">297fe35</span>
-  </td>
-</tr><tr class="anon">
-    <td class="when">2026-06-15</td>
-
-  <td class="repo">
-      <span class="redact-strong" aria-label="redacted repo" role="img">model</span>
-  </td>
-
-  <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">guard context in schema</span>
-  </td>
-
-  <td class="sha">
-      <span class="redact-strong" aria-label="redacted sha" role="img">86e56a9</span>
-  </td>
-</tr><tr class="anon">
-    <td class="when">2026-06-15</td>
-
-  <td class="repo">
-      <span class="redact-strong" aria-label="redacted repo" role="img">missing-builder</span>
-  </td>
-
-  <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">fix: polish worker</span>
-  </td>
-
-  <td class="sha">
-      <span class="redact-strong" aria-label="redacted sha" role="img">1e46126</span>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-06-15 11:13</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/agent-config" target="_blank" rel="noopener noreferrer">agent-config</a>
-  </td>
-
-  <td class="msg">
-      feat(context-collector): prompt for forward intent to steer keep-set
-
-Adds Step 0 establishing what the user is picking up next, then uses it as the relevance lens for the keep-set recommendation and the snapshot&#39;s Situation section.
-
-Co-Authored-By: Claude Opus 4.8 &lt;noreply@anthropic.com&gt;
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/agent-config/commit/ebfe14055ee81935a496d4cd106436b0be3ee9a5" target="_blank" rel="noopener noreferrer">ebfe140</a>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-06-15 11:13</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/agent-config" target="_blank" rel="noopener noreferrer">agent-config</a>
-  </td>
-
-  <td class="msg">
-      docs: generalize two-strike rule rationale beyond coordinate systems
-
-Co-Authored-By: Claude Opus 4.8 &lt;noreply@anthropic.com&gt;
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/agent-config/commit/7386d5dd5437aa4cab93c475a374950e4ea87a53" target="_blank" rel="noopener noreferrer">7386d5d</a>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-06-15 11:13</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/agent-config" target="_blank" rel="noopener noreferrer">agent-config</a>
-  </td>
-
-  <td class="msg">
-      docs: correct status line bold-red threshold to 120k in README
-
-Threshold moved from 100k to 120k in 9ffcdaa; README prose and table were left stale.
-
-Co-Authored-By: Claude Opus 4.8 &lt;noreply@anthropic.com&gt;
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/agent-config/commit/4410d7d92dc5b4ea3a250a8f4ad8668922957238" target="_blank" rel="noopener noreferrer">4410d7d</a>
-  </td>
-</tr><tr class="anon">
-    <td class="when">2026-06-13</td>
-
-  <td class="repo">
-      <span class="redact-strong" aria-label="redacted repo" role="img">producer</span>
-  </td>
-
-  <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">move parser so router can init guard</span>
-  </td>
-
-  <td class="sha">
-      <span class="redact-strong" aria-label="redacted sha" role="img">3fd0596</span>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-06-11 20:59</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/waypoint" target="_blank" rel="noopener noreferrer">waypoint</a>
-  </td>
-
-  <td class="msg">
-      feat: port cloudflare demo panel (cookie inspector, lottery bucket, shop) to Pages
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/waypoint/commit/bc29c68ba19e99c82b6fee2d318e6fb86c63b49e" target="_blank" rel="noopener noreferrer">bc29c68</a>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-06-11 20:50</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/waypoint" target="_blank" rel="noopener noreferrer">waypoint</a>
-  </td>
-
-  <td class="msg">
-      feat: drive the real waiting-room page from a live evaluate() in the demo
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/waypoint/commit/bc9aa7434e3e008ad69008b563e997d924255cf6" target="_blank" rel="noopener noreferrer">bc9aa74</a>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-06-11 20:27</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/waypoint" target="_blank" rel="noopener noreferrer">waypoint</a>
-  </td>
-
-  <td class="msg">
-      fix: shim digest() argless returns raw bytes (jitter NaN wait)
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/waypoint/commit/d521ff85e62372942b5bd039286b095f06b4b9ed" target="_blank" rel="noopener noreferrer">d521ff8</a>
-  </td>
-</tr><tr class="anon">
-    <td class="when">2026-06-11</td>
-
-  <td class="repo">
-      <span class="redact-strong" aria-label="redacted repo" role="img">view</span>
-  </td>
-
-  <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">tweak renderer for queue</span>
-  </td>
-
-  <td class="sha">
-      <span class="redact-strong" aria-label="redacted sha" role="img">c344052</span>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-06-11 20:10</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/waypass" target="_blank" rel="noopener noreferrer">waypass</a>
-  </td>
-
-  <td class="msg">
-      chore: add .gitattributes to enforce LF line endings
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/waypass/commit/7bd6d1ea87129d1352cd6cb0ac33c0bb2ece2c15" target="_blank" rel="noopener noreferrer">7bd6d1e</a>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-06-11 20:10</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/waypoint" target="_blank" rel="noopener noreferrer">waypoint</a>
-  </td>
-
-  <td class="msg">
-      chore: add .gitattributes to enforce LF line endings
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/waypoint/commit/571b9f19220c17e8285d1c5a8126a6a6637af8aa" target="_blank" rel="noopener noreferrer">571b9f1</a>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-06-11 19:52</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/waypoint" target="_blank" rel="noopener noreferrer">waypoint</a>
-  </td>
-
-  <td class="msg">
-      feat: add in-browser waiting-room playground + Pages deploy
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/waypoint/commit/805274497251e74e260c0377404a4500cf60c914" target="_blank" rel="noopener noreferrer">8052744</a>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-06-11 19:47</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/waypass" target="_blank" rel="noopener noreferrer">waypass</a>
-  </td>
-
-  <td class="msg">
-      feat: add in-browser proof-of-passage playground + Pages deploy
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/waypass/commit/99fb382b090e48f550d202e86b7595514d35fdea" target="_blank" rel="noopener noreferrer">99fb382</a>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-06-11 19:37</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/agent-config" target="_blank" rel="noopener noreferrer">agent-config</a>
-  </td>
-
-  <td class="msg">
-      feat(statusline): move ctx bold-red threshold from 100k to 120k
-
-Co-Authored-By: Claude Fable 5 &lt;noreply@anthropic.com&gt;
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/agent-config/commit/9ffcdaa74f80f8408db03ce070e2e508b5b0cf54" target="_blank" rel="noopener noreferrer">9ffcdaa</a>
-  </td>
-</tr><tr class="anon">
-    <td class="when">2026-06-11</td>
-
-  <td class="repo">
-      <span class="redact-strong" aria-label="redacted repo" role="img">missing-producer-decoder</span>
-  </td>
-
-  <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">tighten guard so store can restructure fallback</span>
-  </td>
-
-  <td class="sha">
-      <span class="redact-strong" aria-label="redacted sha" role="img">019b9f8</span>
-  </td>
-</tr><tr class="anon">
-    <td class="when">2026-06-11</td>
-
-  <td class="repo">
-      <span class="redact-strong" aria-label="redacted repo" role="img">reusable-wrapper-model</span>
-  </td>
-
-  <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">wip: inline fallback so writer can inline wrapper</span>
-  </td>
-
-  <td class="sha">
-      <span class="redact-strong" aria-label="redacted sha" role="img">e43cbbf</span>
-  </td>
-</tr><tr class="anon">
-    <td class="when">2026-06-11</td>
-
-  <td class="repo">
-      <span class="redact-strong" aria-label="redacted repo" role="img">tighter-context-stream</span>
-  </td>
-
-  <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">chore: rename wrapper</span>
-  </td>
-
-  <td class="sha">
-      <span class="redact-strong" aria-label="redacted sha" role="img">d91154d</span>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-06-11 13:42</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/payments-service" target="_blank" rel="noopener noreferrer">payments-service</a>
-  </td>
-
-  <td class="msg">
-      docs: record execution outcome on Pages-demo spec and plan
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/payments-service/commit/fbeb3eefb912c55ec0212b935057fbe1cd028a94" target="_blank" rel="noopener noreferrer">fbeb3ee</a>
-  </td>
-</tr><tr class="anon">
-    <td class="when">2026-06-11</td>
-
-  <td class="repo">
-      <span class="redact-strong" aria-label="redacted repo" role="img">client-runner</span>
-  </td>
-
-  <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">polish task so task can rebuild mailer</span>
-  </td>
-
-  <td class="sha">
-      <span class="redact-strong" aria-label="redacted sha" role="img">83a3be7</span>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-06-11 13:15</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/payments-service" target="_blank" rel="noopener noreferrer">payments-service</a>
-  </td>
-
-  <td class="msg">
-      style: prettier formatting pass (npm run format) — repo now passes format:check
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/payments-service/commit/5e585828cdd778a38552a1ae9d8cb5857cf2ec72" target="_blank" rel="noopener noreferrer">5e58582</a>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-06-11 13:13</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/payments-service" target="_blank" rel="noopener noreferrer">payments-service</a>
-  </td>
-
-  <td class="msg">
-      feat(pages): GitHub Pages deploy workflow and README live-demo section
-
-Co-Authored-By: Claude Fable 5 &lt;noreply@anthropic.com&gt;
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/payments-service/commit/35f9dc23741387c4be3e0e9f932d3922115e49dc" target="_blank" rel="noopener noreferrer">35f9dc2</a>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-06-11 13:08</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/payments-service" target="_blank" rel="noopener noreferrer">payments-service</a>
-  </td>
-
-  <td class="msg">
-      feat(web): esbuild bundle config, web typecheck config, and build scripts (repairs npm run build)
-
-Co-Authored-By: Claude Fable 5 &lt;noreply@anthropic.com&gt;
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/payments-service/commit/f9c3399a3194123a03f39af30a5d931baba818ee" target="_blank" rel="noopener noreferrer">f9c3399</a>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-06-11 13:03</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/payments-service" target="_blank" rel="noopener noreferrer">payments-service</a>
-  </td>
-
-  <td class="msg">
-      feat(web): demo page — forked console UI wired to the fake-fetch transport
-
-Co-Authored-By: Claude Fable 5 &lt;noreply@anthropic.com&gt;
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/payments-service/commit/2ceb4e6cb6c88700b7c18687493fd505a58206ad" target="_blank" rel="noopener noreferrer">2ceb4e6</a>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-06-11 12:54</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/payments-service" target="_blank" rel="noopener noreferrer">payments-service</a>
-  </td>
-
-  <td class="msg">
-      feat(web): demo composition root and fake-fetch router running the real service layer
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/payments-service/commit/59fbaac5e5ec19070d201aa224fed116d3aa07c4" target="_blank" rel="noopener noreferrer">59fbaac</a>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-06-11 12:43</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/payments-service" target="_blank" rel="noopener noreferrer">payments-service</a>
-  </td>
-
-  <td class="msg">
-      feat(web): in-memory repository implementations for the browser demo
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/payments-service/commit/3fc5d747e67954b2e023c2cbbf6b7bc5d5ebe047" target="_blank" rel="noopener noreferrer">3fc5d74</a>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-06-11 12:37</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/payments-service" target="_blank" rel="noopener noreferrer">payments-service</a>
-  </td>
-
-  <td class="msg">
-      feat(web): vendored node:crypto shim for the browser bundle, verified against node:crypto
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/payments-service/commit/e72fb8a8c02a9ac5f57668521c48175f2482992d" target="_blank" rel="noopener noreferrer">e72fb8a</a>
-  </td>
 </tr>        </tbody>
       </table>
 
@@ -3920,7 +4627,7 @@ Co-Authored-By: Claude Fable 5 &lt;noreply@anthropic.com&gt;
     <a href="https://github.com/curtyo18" target="_blank" rel="noopener noreferrer">github</a> · <a href="mailto:curtyo18@gmail.com">email</a>
   </div>
   <div class="stats" style="align-items:center">
-    <span><b>2,214</b> commits</span>
+    <span><b>2,280</b> commits</span>
     <span><b>79</b> repos</span>
     <span><b>17</b> years</span>
   </div>

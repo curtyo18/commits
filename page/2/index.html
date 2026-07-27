@@ -16,13 +16,13 @@
     <small>curt — a public log of private and public work</small>
   </h1>
   <div class="meta">
-    <span><b>2,214</b> commits indexed</span>
+    <span><b>2,280</b> commits indexed</span>
     <span><b>79</b> repos · <b>17</b> years</span>
   </div>
 </div>
       <div class="gr-section-title" style="margin-top:36px">
         <span>All commits · newest first</span>
-        <span class="right">showing 201–400 of 2214</span>
+        <span class="right">showing 201–400 of 2280</span>
       </div>
 
       <table class="gr-table">
@@ -34,11 +34,1099 @@
         <tbody>
             <tr class="gr-month-row">
               <td colspan="4">
-                June 2026
-                <span>154 commits · 99 public</span>
+                July 2026
+                <span>23 commits · 21 public</span>
               </td>
             </tr>
 <tr class="">
+    <td class="when">2026-07-11 20:17</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/header-handler" target="_blank" rel="noopener noreferrer">header-handler</a>
+  </td>
+
+  <td class="msg">
+      Scaffold Header Handler: core logic + background worker
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/header-handler/commit/d4bfefcc00caacef6a0cf51cb7adac724522fda1" target="_blank" rel="noopener noreferrer">d4bfefc</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-07-03 22:32</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/tampermonkey-scripts" target="_blank" rel="noopener noreferrer">tampermonkey-scripts</a>
+  </td>
+
+  <td class="msg">
+      fix(jira-extractor): harden ADF tables, block quotes/panels, DOM fallback
+
+- renderTable: escape pipes in cells and synthesize a header when the
+  first row isn&#39;t tableHeader, so literal | and header-less tables no
+  longer corrupt the Markdown grid
+- blockquote/panel: render children as blocks so multi-paragraph content
+  keeps its breaks instead of running together
+- main.ts: guard the DOM fallback so a throw there can&#39;t escape as an
+  unobserved rejection that silently no-ops the button
+- tests: cover nested lists, table pipe-escaping/header synthesis,
+  block quote/panel breaks, and the fromApi heading-split AC path
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/tampermonkey-scripts/commit/d9a43931e9dac67480c78bd29f7b09ba5333326a" target="_blank" rel="noopener noreferrer">d9a4393</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-07-03 22:32</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/tampermonkey-scripts" target="_blank" rel="noopener noreferrer">tampermonkey-scripts</a>
+  </td>
+
+  <td class="msg">
+      fix(jira-extractor): detect custom-domain Cloud via #jira-frontend
+
+The application-name=JIRA meta branch was dead (it re-checked
+.atlassian.net, already returned above) and ambiguous (Server carries
+that meta too). Use the Cloud-only SPA root instead so custom-domain
+Cloud gets the v3 endpoint, not v2.
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/tampermonkey-scripts/commit/1a79122e8bd3c1f1de09f12161e95cb57ab43014" target="_blank" rel="noopener noreferrer">1a79122</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-07-03 22:32</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/tampermonkey-scripts" target="_blank" rel="noopener noreferrer">tampermonkey-scripts</a>
+  </td>
+
+  <td class="msg">
+      feat(jira-extractor): v0.1.0 — build + docs
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/tampermonkey-scripts/commit/c6a3594a7f9cdd7a6346fa05e4e4a5452e0a5011" target="_blank" rel="noopener noreferrer">c6a3594</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-07-03 22:32</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/tampermonkey-scripts" target="_blank" rel="noopener noreferrer">tampermonkey-scripts</a>
+  </td>
+
+  <td class="msg">
+      feat(jira-extractor): orchestration + SPA navigation
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/tampermonkey-scripts/commit/3762dcb0c77afa98f9cc4e08405c4c606bbc2332" target="_blank" rel="noopener noreferrer">3762dcb</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-07-03 22:32</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/tampermonkey-scripts" target="_blank" rel="noopener noreferrer">tampermonkey-scripts</a>
+  </td>
+
+  <td class="msg">
+      feat(jira-extractor): trigger button + review panel UI
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/tampermonkey-scripts/commit/d8794bcf64382937ea46e0eceb36a397bd9e1237" target="_blank" rel="noopener noreferrer">d8794bc</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-07-03 22:32</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/tampermonkey-scripts" target="_blank" rel="noopener noreferrer">tampermonkey-scripts</a>
+  </td>
+
+  <td class="msg">
+      feat(jira-extractor): DOM scrape fallback
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/tampermonkey-scripts/commit/4e34e70d0150dd8d90443b7827866afa17323240" target="_blank" rel="noopener noreferrer">4e34e70</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-07-03 22:32</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/tampermonkey-scripts" target="_blank" rel="noopener noreferrer">tampermonkey-scripts</a>
+  </td>
+
+  <td class="msg">
+      feat(jira-extractor): LLM-ready Markdown formatter
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/tampermonkey-scripts/commit/ee7222fd572bde97497461352fbdc62e85b11553" target="_blank" rel="noopener noreferrer">ee7222f</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-07-03 22:32</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/tampermonkey-scripts" target="_blank" rel="noopener noreferrer">tampermonkey-scripts</a>
+  </td>
+
+  <td class="msg">
+      feat(jira-extractor): normalize API issue + AC split
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/tampermonkey-scripts/commit/ab06bf2e56516b97ede2e533fe745735d76a93f5" target="_blank" rel="noopener noreferrer">ab06bf2</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-07-03 22:32</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/tampermonkey-scripts" target="_blank" rel="noopener noreferrer">tampermonkey-scripts</a>
+  </td>
+
+  <td class="msg">
+      feat(jira-extractor): REST fetch + AC field discovery
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/tampermonkey-scripts/commit/72c73bc1503ece8e860eba9dcdc0083a51be23b8" target="_blank" rel="noopener noreferrer">72c73bc</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-07-03 22:32</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/tampermonkey-scripts" target="_blank" rel="noopener noreferrer">tampermonkey-scripts</a>
+  </td>
+
+  <td class="msg">
+      feat(jira-extractor): ADF to Markdown converter
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/tampermonkey-scripts/commit/cb25e020a8a23ca04fdea3ec43842735d9595836" target="_blank" rel="noopener noreferrer">cb25e02</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-07-03 22:32</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/tampermonkey-scripts" target="_blank" rel="noopener noreferrer">tampermonkey-scripts</a>
+  </td>
+
+  <td class="msg">
+      feat(jira-extractor): detect Jira flavor + issue key
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/tampermonkey-scripts/commit/4d7586aacc1ad7fc66ee252b43d804be86b1c58f" target="_blank" rel="noopener noreferrer">4d7586a</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-07-03 22:32</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/tampermonkey-scripts" target="_blank" rel="noopener noreferrer">tampermonkey-scripts</a>
+  </td>
+
+  <td class="msg">
+      feat(jira-extractor): core types
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/tampermonkey-scripts/commit/ddc521988db43516692a19f46f93174da8b705ac" target="_blank" rel="noopener noreferrer">ddc5219</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-07-03 22:32</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/tampermonkey-scripts" target="_blank" rel="noopener noreferrer">tampermonkey-scripts</a>
+  </td>
+
+  <td class="msg">
+      chore(jira-extractor): scaffold (build, ts, vitest)
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/tampermonkey-scripts/commit/e43b622acafa9ff0155004c06028c8746fa645c8" target="_blank" rel="noopener noreferrer">e43b622</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-07-03 22:32</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/tampermonkey-scripts" target="_blank" rel="noopener noreferrer">tampermonkey-scripts</a>
+  </td>
+
+  <td class="msg">
+      chore(keepalive): tune defaults — event dispatch 10s→30s, fetch ping 2min→5min
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/tampermonkey-scripts/commit/7684583092d59ba4b5cebf189a9d4d73b2b0bbcd" target="_blank" rel="noopener noreferrer">7684583</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-07-03 22:32</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/tampermonkey-scripts" target="_blank" rel="noopener noreferrer">tampermonkey-scripts</a>
+  </td>
+
+  <td class="msg">
+      feat(keepalive): typed events, HEAD ping, visibility patch, add scroll, drop visibilitychange
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/tampermonkey-scripts/commit/c2ece955770b0a83f77947dd5837cf6d326f749c" target="_blank" rel="noopener noreferrer">c2ece95</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-07-02 18:37</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/html-utils" target="_blank" rel="noopener noreferrer">html-utils</a>
+  </td>
+
+  <td class="msg">
+      feat(render): copy/save rendered output as a PNG image
+
+Add &#34;copy img&#34; (clipboard PNG via ClipboardItem) and &#34;png&#34; (download)
+buttons to the markdown and html tools, rendered at 2x for retina quality.
+
+- html2canvas@1.4.1 is pinned and lazy-loaded only on first capture, so
+  normal page loads pull nothing extra.
+- markdown captures the same-origin rendered pane directly.
+- html captures in a throwaway same-origin, scripts-disabled iframe (never
+  the live preview) so export is safe regardless of the run-scripts toggle;
+  the image reflects the static HTML.
+- Promise-valued ClipboardItem so the write begins within the user gesture
+  (Safari/WebKit). toBlob + object URL on save, rejecting an oversized
+  canvas instead of writing a 0-byte file.
+
+Co-Authored-By: Claude Opus 4.8 &lt;noreply@anthropic.com&gt;
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/html-utils/commit/54ad33834e65f25708d71c9260ea924d5aa698fe" target="_blank" rel="noopener noreferrer">54ad338</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-07-02 18:22</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/html-utils" target="_blank" rel="noopener noreferrer">html-utils</a>
+  </td>
+
+  <td class="msg">
+      feat(render): add html-to-pdf converter
+
+New render/html-to-pdf tool: paste raw HTML, see a live preview in a
+same-origin sandboxed iframe (scripts disabled), and export a PDF via the
+browser&#39;s native print pipeline (contentWindow.print()).
+
+Printing the preview document directly means the author&#39;s own stylesheets
+drive the output — vector/selectable text, faithful CSS, no rasterization and
+no app-chrome bleed, and zero external dependencies. Paper size (A4/Letter/
+Legal/A3/A5) and orientation are applied via an injected @page rule; the
+filename seeds the document title for the Save-as-PDF default.
+
+Includes the render-group draggable divider and localStorage persistence.
+
+Co-Authored-By: Claude Opus 4.8 &lt;noreply@anthropic.com&gt;
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/html-utils/commit/4d1e81f7e2891e810b0b5d1edd25c6b187866530" target="_blank" rel="noopener noreferrer">4d1e81f</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-07-02 18:13</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/html-utils" target="_blank" rel="noopener noreferrer">html-utils</a>
+  </td>
+
+  <td class="msg">
+      feat(render): add markdown + html viewer tools with shareable links
+
+Two discrete client-side tools under a new `render` group:
+
+- render/markdown — live-rendered markdown (marked + DOMPurify sanitize)
+- render/html — raw HTML in a sandboxed iframe (scripts off by default,
+  opt-in toggle; never allow-same-origin)
+
+Both support:
+- Share link: content packed into the querystring, trying Brotli /
+  deflate-raw / stored and keeping the smallest (1-char codec flag).
+  Brotli (brotli-wasm) is lazy-loaded from a CDN only on share/open.
+- Draggable pane divider; the split ratio rides along in the link
+  (&amp;s=&lt;pct&gt;) so viewers open at the same proportion.
+- localStorage draft persistence.
+
+Adds `render` to GROUP_ORDER in build-manifest.mjs.
+
+Co-Authored-By: Claude Opus 4.8 &lt;noreply@anthropic.com&gt;
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/html-utils/commit/74e9ffd2c0e942a3b1e67bcac10bd18908336d5e" target="_blank" rel="noopener noreferrer">74e9ffd</a>
+  </td>
+</tr><tr class="anon">
+    <td class="when">2026-07-01</td>
+
+  <td class="repo">
+      <span class="redact-strong" aria-label="redacted repo" role="img">session</span>
+  </td>
+
+  <td class="msg">
+      <span class="redact-strong" aria-label="redacted message" role="img">wip: inline facade in router</span>
+  </td>
+
+  <td class="sha">
+      <span class="redact-strong" aria-label="redacted sha" role="img">ea9aaf6</span>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-07-01 16:59</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/blog" target="_blank" rel="noopener noreferrer">blog</a>
+  </td>
+
+  <td class="msg">
+      Remove self-referential chrome (no-tracking chip, html-utils footer)
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/blog/commit/47b7216716654d3abcb3928923114d54b997ea9b" target="_blank" rel="noopener noreferrer">47b7216</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-07-01 14:25</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/blog" target="_blank" rel="noopener noreferrer">blog</a>
+  </td>
+
+  <td class="msg">
+      Initial blog: home, shared chrome, whitepaper post
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/blog/commit/931041d5050c0f5d07173de78d25cc13e1951508" target="_blank" rel="noopener noreferrer">931041d</a>
+  </td>
+</tr><tr class="anon">
+    <td class="when">2026-07-01</td>
+
+  <td class="repo">
+      <span class="redact-strong" aria-label="redacted repo" role="img">validator</span>
+  </td>
+
+  <td class="msg">
+      <span class="redact-strong" aria-label="redacted message" role="img">rework mailer and rename config</span>
+  </td>
+
+  <td class="sha">
+      <span class="redact-strong" aria-label="redacted sha" role="img">fd11c90</span>
+  </td>
+</tr>            <tr class="gr-month-row">
+              <td colspan="4">
+                June 2026
+                <span>177 commits · 113 public</span>
+              </td>
+            </tr>
+<tr class="">
+    <td class="when">2026-06-28 13:19</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/agent-config" target="_blank" rel="noopener noreferrer">agent-config</a>
+  </td>
+
+  <td class="msg">
+      docs: add concision directive to top of CLAUDE.md
+
+Co-Authored-By: Claude Opus 4.8 &lt;noreply@anthropic.com&gt;
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/agent-config/commit/84172877f34025449057226f8388f3651f1f7012" target="_blank" rel="noopener noreferrer">8417287</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-06-22 16:28</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/agent-config" target="_blank" rel="noopener noreferrer">agent-config</a>
+  </td>
+
+  <td class="msg">
+      docs(ui-prefs): mark TanStack Start as RC, note Base UI vs Radix block trade-off, compress sources
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/agent-config/commit/273fa14f7ef8e0ea80cbf9cd2035df8e6314eda8" target="_blank" rel="noopener noreferrer">273fa14</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-06-17 21:53</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/network-data-viewer" target="_blank" rel="noopener noreferrer">network-data-viewer</a>
+  </td>
+
+  <td class="msg">
+      chore: release v1.0.0
+
+Stable public-launch milestone (no code change since v0.6.1).
+
+- Bump version 0.6.1 -&gt; 1.0.0
+- Store listing: new pre-packaged-analysers opening line; replace the vague
+  &#34;linked below&#34; with the real source URL
+- Reviewer-facing accuracy: single-purpose description and the &lt;all_urls&gt;
+  permission justification now list the image-pixel-beacon transport added in
+  v0.6.1 (the public four-transport description is left as-is by choice)
+
+Co-Authored-By: Claude Opus 4.8 &lt;noreply@anthropic.com&gt;
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/network-data-viewer/commit/0511bf7edebafcc4d4c094d1552d38421b74a125" target="_blank" rel="noopener noreferrer">0511bf7</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-06-17 20:03</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/network-data-viewer" target="_blank" rel="noopener noreferrer">network-data-viewer</a>
+  </td>
+
+  <td class="msg">
+      chore: release v0.6.1
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/network-data-viewer/commit/7d7cff882a783f24f3d857477ed13e18bb9f684c" target="_blank" rel="noopener noreferrer">7d7cff8</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-06-17 19:49</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/network-data-viewer" target="_blank" rel="noopener noreferrer">network-data-viewer</a>
+  </td>
+
+  <td class="msg">
+      refactor(capture): address adversarial review of image hook
+
+- Extract the image-src hook into src/content/patch-image.ts so the safety
+  invariants are unit-testable (never throw into the page, always run the native
+  setter, preserve the getter, forward the raw value for TrustedURL survival).
+- Add lossless URL dedup (capped Set): suppresses the dominant volume source —
+  lazy-load swaps, re-renders, and carousels re-setting identical srcs — without
+  dropping any distinct beacon (real pixel URLs differ per fire). Avoids a lossy
+  content heuristic that could silently miss real beacons.
+- Skip empty/whitespace src resets, which otherwise resolve to the document URL
+  and emit the page&#39;s own URL on every clear.
+- Unit tests (patch-image.test.ts) cover emit, getter readback, dedup, relative
+  resolution, data:/blob:/empty skips, hostile-toString no-throw, and raw-value
+  forwarding.
+
+Co-Authored-By: Claude Opus 4.8 &lt;noreply@anthropic.com&gt;
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/network-data-viewer/commit/a3c7c65091dcabf8c65ee5c912386fad3f11e0d9" target="_blank" rel="noopener noreferrer">a3c7c65</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-06-17 19:42</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/network-data-viewer" target="_blank" rel="noopener noreferrer">network-data-viewer</a>
+  </td>
+
+  <td class="msg">
+      feat: capture image-beacon (tracking pixel) requests
+
+Meta&#39;s fbevents.js, Google Ads conversion pixels, Pinterest and others fire GET
+beacons by assigning to an Image&#39;s `src`, which bypasses the fetch/XHR/
+sendBeacon/WebSocket patches — so e.g. the Meta Pixel PageView never appeared in
+the panel (confirmed via the request&#39;s &#34;Initiator: Image / fbevents.js&#34; stack).
+
+Hook the HTMLImageElement.prototype `src` setter (the lean transport fbevents
+uses) and emit a capture event with source &#34;image&#34;, method GET, no body. Only
+http(s) URLs are emitted (skips data:/blob:/empty resets); the original getter
+is preserved and the native setter still runs, so image loading is unchanged.
+Analyser URL patterns filter the noise — ordinary &lt;img&gt; content matches nothing.
+
+- CaptureSource / CapturedEventSchema gain &#34;image&#34;
+- e2e: fixture #fire-image + a capture-and-render case (full suite stays green)
+
+Co-Authored-By: Claude Opus 4.8 &lt;noreply@anthropic.com&gt;
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/network-data-viewer/commit/16a677a247c8faf76dda8f1abe6c52075eb80c41" target="_blank" rel="noopener noreferrer">16a677a</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-06-17 17:43</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/network-data-viewer" target="_blank" rel="noopener noreferrer">network-data-viewer</a>
+  </td>
+
+  <td class="msg">
+      docs: list the Meta analyser in README and store listing
+
+README said three bundled analysers; there are now four. Add Meta to the
+default-analyser list and to the store listing&#39;s example beacons.
+
+Co-Authored-By: Claude Opus 4.8 &lt;noreply@anthropic.com&gt;
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/network-data-viewer/commit/77f7580dc99413baceddd3d040c3f3dc23f015c3" target="_blank" rel="noopener noreferrer">77f7580</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-06-17 17:40</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/network-data-viewer" target="_blank" rel="noopener noreferrer">network-data-viewer</a>
+  </td>
+
+  <td class="msg">
+      chore: release v0.6.0
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/network-data-viewer/commit/1d9e9ebb321cab5bcde1af8bfbd9e5f3214fc648" target="_blank" rel="noopener noreferrer">1d9e9eb</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-06-17 17:28</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/network-data-viewer" target="_blank" rel="noopener noreferrer">network-data-viewer</a>
+  </td>
+
+  <td class="msg">
+      fix(meta): address adversarial review — regex drift, field clobbering
+
+- Align the seed urlPattern CAPI branch with the sandbox&#39;s CAPI detector and
+  anchor the detector at the scheme: allows a trailing slash on /events (no
+  longer dropped at the gate) and prevents an unencoded graph.facebook.com URL
+  in a /tr param value from diverting the pixel beacon into the JSON branch.
+- Write analyser-controlled labels (transport, eventIndex) and the top-level
+  access_token last so a same-named wire field can&#39;t clobber them.
+- Split canonical top-level pixel params from cd[]/ud[] custom data so a custom
+  key (e.g. cd[id]) can&#39;t silently overwrite the real id/ev.
+- Surface non-object CAPI data[] items under `value` instead of emitting phantom
+  empty rows.
+- Add regression tests for each of the above.
+
+Co-Authored-By: Claude Opus 4.8 &lt;noreply@anthropic.com&gt;
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/network-data-viewer/commit/5a9af4350584e7479207f16307ddc866e04fed33" target="_blank" rel="noopener noreferrer">5a9af43</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-06-17 17:21</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/network-data-viewer" target="_blank" rel="noopener noreferrer">network-data-viewer</a>
+  </td>
+
+  <td class="msg">
+      feat: add Meta (Facebook) analyser for Pixel and direct CAPI traffic
+
+Adds a built-in &#34;Meta&#34; analyser seed (id ...0004, seedVersion 1) decoding two
+browser-visible Meta tracking shapes:
+
+- Meta Pixel `/tr` beacon — path-anchored + id=/ev= query guard so it also
+  catches first-party Conversions-API-gateway / sGTM proxies that re-front the
+  pixel under a customer domain; flattens cd[]/ud[] into inline fields.
+- Direct client-side Conversions API (graph.facebook.com/v&lt;n&gt;/&lt;id&gt;/events) —
+  fans out the JSON data[] batch, surfacing access_token verbatim (the tool is
+  local-only / no-network).
+
+Pure server-to-server CAPI is out of scope (never reaches the browser). Uses the
+existing SandboxInput/fanOut contracts; no dispatcher/schema/DSL changes.
+
+Co-Authored-By: Claude Opus 4.8 &lt;noreply@anthropic.com&gt;
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/network-data-viewer/commit/8ac9469dc1bbcd84ca12ed67254184a4c213c3ca" target="_blank" rel="noopener noreferrer">8ac9469</a>
+  </td>
+</tr><tr class="anon">
+    <td class="when">2026-06-16</td>
+
+  <td class="repo">
+      <span class="redact-strong" aria-label="redacted repo" role="img">tighter-ledger-channel</span>
+  </td>
+
+  <td class="msg">
+      <span class="redact-strong" aria-label="redacted message" role="img">fix: simplify session for indexer</span>
+  </td>
+
+  <td class="sha">
+      <span class="redact-strong" aria-label="redacted sha" role="img">0084ec7</span>
+  </td>
+</tr><tr class="anon">
+    <td class="when">2026-06-16</td>
+
+  <td class="repo">
+      <span class="redact-strong" aria-label="redacted repo" role="img">missing-writer</span>
+  </td>
+
+  <td class="msg">
+      <span class="redact-strong" aria-label="redacted message" role="img">update faster runner</span>
+  </td>
+
+  <td class="sha">
+      <span class="redact-strong" aria-label="redacted sha" role="img">fa27492</span>
+  </td>
+</tr><tr class="anon">
+    <td class="when">2026-06-15</td>
+
+  <td class="repo">
+      <span class="redact-strong" aria-label="redacted repo" role="img">stricter-cache</span>
+  </td>
+
+  <td class="msg">
+      <span class="redact-strong" aria-label="redacted message" role="img">restructure redundant util in guard</span>
+  </td>
+
+  <td class="sha">
+      <span class="redact-strong" aria-label="redacted sha" role="img">4e37976</span>
+  </td>
+</tr><tr class="anon">
+    <td class="when">2026-06-15</td>
+
+  <td class="repo">
+      <span class="redact-strong" aria-label="redacted repo" role="img">controller-toolkit</span>
+  </td>
+
+  <td class="msg">
+      <span class="redact-strong" aria-label="redacted message" role="img">refactor: loosen adapter in guard</span>
+  </td>
+
+  <td class="sha">
+      <span class="redact-strong" aria-label="redacted sha" role="img">7c897d2</span>
+  </td>
+</tr><tr class="anon">
+    <td class="when">2026-06-15</td>
+
+  <td class="repo">
+      <span class="redact-strong" aria-label="redacted repo" role="img">reader</span>
+  </td>
+
+  <td class="msg">
+      <span class="redact-strong" aria-label="redacted message" role="img">optimize tighter decoder in encoder</span>
+  </td>
+
+  <td class="sha">
+      <span class="redact-strong" aria-label="redacted sha" role="img">ef7670c</span>
+  </td>
+</tr><tr class="anon">
+    <td class="when">2026-06-15</td>
+
+  <td class="repo">
+      <span class="redact-strong" aria-label="redacted repo" role="img">stricter-dispatcher-parser</span>
+  </td>
+
+  <td class="msg">
+      <span class="redact-strong" aria-label="redacted message" role="img">fix: add spurious reader in validator</span>
+  </td>
+
+  <td class="sha">
+      <span class="redact-strong" aria-label="redacted sha" role="img">297fe35</span>
+  </td>
+</tr><tr class="anon">
+    <td class="when">2026-06-15</td>
+
+  <td class="repo">
+      <span class="redact-strong" aria-label="redacted repo" role="img">model</span>
+  </td>
+
+  <td class="msg">
+      <span class="redact-strong" aria-label="redacted message" role="img">guard context in schema</span>
+  </td>
+
+  <td class="sha">
+      <span class="redact-strong" aria-label="redacted sha" role="img">86e56a9</span>
+  </td>
+</tr><tr class="anon">
+    <td class="when">2026-06-15</td>
+
+  <td class="repo">
+      <span class="redact-strong" aria-label="redacted repo" role="img">missing-builder</span>
+  </td>
+
+  <td class="msg">
+      <span class="redact-strong" aria-label="redacted message" role="img">fix: polish worker</span>
+  </td>
+
+  <td class="sha">
+      <span class="redact-strong" aria-label="redacted sha" role="img">1e46126</span>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-06-15 11:13</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/agent-config" target="_blank" rel="noopener noreferrer">agent-config</a>
+  </td>
+
+  <td class="msg">
+      feat(context-collector): prompt for forward intent to steer keep-set
+
+Adds Step 0 establishing what the user is picking up next, then uses it as the relevance lens for the keep-set recommendation and the snapshot&#39;s Situation section.
+
+Co-Authored-By: Claude Opus 4.8 &lt;noreply@anthropic.com&gt;
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/agent-config/commit/ebfe14055ee81935a496d4cd106436b0be3ee9a5" target="_blank" rel="noopener noreferrer">ebfe140</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-06-15 11:13</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/agent-config" target="_blank" rel="noopener noreferrer">agent-config</a>
+  </td>
+
+  <td class="msg">
+      docs: generalize two-strike rule rationale beyond coordinate systems
+
+Co-Authored-By: Claude Opus 4.8 &lt;noreply@anthropic.com&gt;
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/agent-config/commit/7386d5dd5437aa4cab93c475a374950e4ea87a53" target="_blank" rel="noopener noreferrer">7386d5d</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-06-15 11:13</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/agent-config" target="_blank" rel="noopener noreferrer">agent-config</a>
+  </td>
+
+  <td class="msg">
+      docs: correct status line bold-red threshold to 120k in README
+
+Threshold moved from 100k to 120k in 9ffcdaa; README prose and table were left stale.
+
+Co-Authored-By: Claude Opus 4.8 &lt;noreply@anthropic.com&gt;
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/agent-config/commit/4410d7d92dc5b4ea3a250a8f4ad8668922957238" target="_blank" rel="noopener noreferrer">4410d7d</a>
+  </td>
+</tr><tr class="anon">
+    <td class="when">2026-06-13</td>
+
+  <td class="repo">
+      <span class="redact-strong" aria-label="redacted repo" role="img">producer</span>
+  </td>
+
+  <td class="msg">
+      <span class="redact-strong" aria-label="redacted message" role="img">move parser so router can init guard</span>
+  </td>
+
+  <td class="sha">
+      <span class="redact-strong" aria-label="redacted sha" role="img">3fd0596</span>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-06-11 20:59</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/waypoint" target="_blank" rel="noopener noreferrer">waypoint</a>
+  </td>
+
+  <td class="msg">
+      feat: port cloudflare demo panel (cookie inspector, lottery bucket, shop) to Pages
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/waypoint/commit/bc29c68ba19e99c82b6fee2d318e6fb86c63b49e" target="_blank" rel="noopener noreferrer">bc29c68</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-06-11 20:50</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/waypoint" target="_blank" rel="noopener noreferrer">waypoint</a>
+  </td>
+
+  <td class="msg">
+      feat: drive the real waiting-room page from a live evaluate() in the demo
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/waypoint/commit/bc9aa7434e3e008ad69008b563e997d924255cf6" target="_blank" rel="noopener noreferrer">bc9aa74</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-06-11 20:27</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/waypoint" target="_blank" rel="noopener noreferrer">waypoint</a>
+  </td>
+
+  <td class="msg">
+      fix: shim digest() argless returns raw bytes (jitter NaN wait)
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/waypoint/commit/d521ff85e62372942b5bd039286b095f06b4b9ed" target="_blank" rel="noopener noreferrer">d521ff8</a>
+  </td>
+</tr><tr class="anon">
+    <td class="when">2026-06-11</td>
+
+  <td class="repo">
+      <span class="redact-strong" aria-label="redacted repo" role="img">view</span>
+  </td>
+
+  <td class="msg">
+      <span class="redact-strong" aria-label="redacted message" role="img">tweak renderer for queue</span>
+  </td>
+
+  <td class="sha">
+      <span class="redact-strong" aria-label="redacted sha" role="img">c344052</span>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-06-11 20:10</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/waypass" target="_blank" rel="noopener noreferrer">waypass</a>
+  </td>
+
+  <td class="msg">
+      chore: add .gitattributes to enforce LF line endings
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/waypass/commit/7bd6d1ea87129d1352cd6cb0ac33c0bb2ece2c15" target="_blank" rel="noopener noreferrer">7bd6d1e</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-06-11 20:10</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/waypoint" target="_blank" rel="noopener noreferrer">waypoint</a>
+  </td>
+
+  <td class="msg">
+      chore: add .gitattributes to enforce LF line endings
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/waypoint/commit/571b9f19220c17e8285d1c5a8126a6a6637af8aa" target="_blank" rel="noopener noreferrer">571b9f1</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-06-11 19:52</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/waypoint" target="_blank" rel="noopener noreferrer">waypoint</a>
+  </td>
+
+  <td class="msg">
+      feat: add in-browser waiting-room playground + Pages deploy
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/waypoint/commit/805274497251e74e260c0377404a4500cf60c914" target="_blank" rel="noopener noreferrer">8052744</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-06-11 19:47</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/waypass" target="_blank" rel="noopener noreferrer">waypass</a>
+  </td>
+
+  <td class="msg">
+      feat: add in-browser proof-of-passage playground + Pages deploy
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/waypass/commit/99fb382b090e48f550d202e86b7595514d35fdea" target="_blank" rel="noopener noreferrer">99fb382</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-06-11 19:37</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/agent-config" target="_blank" rel="noopener noreferrer">agent-config</a>
+  </td>
+
+  <td class="msg">
+      feat(statusline): move ctx bold-red threshold from 100k to 120k
+
+Co-Authored-By: Claude Fable 5 &lt;noreply@anthropic.com&gt;
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/agent-config/commit/9ffcdaa74f80f8408db03ce070e2e508b5b0cf54" target="_blank" rel="noopener noreferrer">9ffcdaa</a>
+  </td>
+</tr><tr class="anon">
+    <td class="when">2026-06-11</td>
+
+  <td class="repo">
+      <span class="redact-strong" aria-label="redacted repo" role="img">missing-producer-decoder</span>
+  </td>
+
+  <td class="msg">
+      <span class="redact-strong" aria-label="redacted message" role="img">tighten guard so store can restructure fallback</span>
+  </td>
+
+  <td class="sha">
+      <span class="redact-strong" aria-label="redacted sha" role="img">019b9f8</span>
+  </td>
+</tr><tr class="anon">
+    <td class="when">2026-06-11</td>
+
+  <td class="repo">
+      <span class="redact-strong" aria-label="redacted repo" role="img">reusable-wrapper-model</span>
+  </td>
+
+  <td class="msg">
+      <span class="redact-strong" aria-label="redacted message" role="img">wip: inline fallback so writer can inline wrapper</span>
+  </td>
+
+  <td class="sha">
+      <span class="redact-strong" aria-label="redacted sha" role="img">e43cbbf</span>
+  </td>
+</tr><tr class="anon">
+    <td class="when">2026-06-11</td>
+
+  <td class="repo">
+      <span class="redact-strong" aria-label="redacted repo" role="img">tighter-context-stream</span>
+  </td>
+
+  <td class="msg">
+      <span class="redact-strong" aria-label="redacted message" role="img">chore: rename wrapper</span>
+  </td>
+
+  <td class="sha">
+      <span class="redact-strong" aria-label="redacted sha" role="img">d91154d</span>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-06-11 13:42</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/payments-service" target="_blank" rel="noopener noreferrer">payments-service</a>
+  </td>
+
+  <td class="msg">
+      docs: record execution outcome on Pages-demo spec and plan
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/payments-service/commit/fbeb3eefb912c55ec0212b935057fbe1cd028a94" target="_blank" rel="noopener noreferrer">fbeb3ee</a>
+  </td>
+</tr><tr class="anon">
+    <td class="when">2026-06-11</td>
+
+  <td class="repo">
+      <span class="redact-strong" aria-label="redacted repo" role="img">client-runner</span>
+  </td>
+
+  <td class="msg">
+      <span class="redact-strong" aria-label="redacted message" role="img">polish task so task can rebuild mailer</span>
+  </td>
+
+  <td class="sha">
+      <span class="redact-strong" aria-label="redacted sha" role="img">83a3be7</span>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-06-11 13:15</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/payments-service" target="_blank" rel="noopener noreferrer">payments-service</a>
+  </td>
+
+  <td class="msg">
+      style: prettier formatting pass (npm run format) — repo now passes format:check
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/payments-service/commit/5e585828cdd778a38552a1ae9d8cb5857cf2ec72" target="_blank" rel="noopener noreferrer">5e58582</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-06-11 13:13</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/payments-service" target="_blank" rel="noopener noreferrer">payments-service</a>
+  </td>
+
+  <td class="msg">
+      feat(pages): GitHub Pages deploy workflow and README live-demo section
+
+Co-Authored-By: Claude Fable 5 &lt;noreply@anthropic.com&gt;
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/payments-service/commit/35f9dc23741387c4be3e0e9f932d3922115e49dc" target="_blank" rel="noopener noreferrer">35f9dc2</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-06-11 13:08</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/payments-service" target="_blank" rel="noopener noreferrer">payments-service</a>
+  </td>
+
+  <td class="msg">
+      feat(web): esbuild bundle config, web typecheck config, and build scripts (repairs npm run build)
+
+Co-Authored-By: Claude Fable 5 &lt;noreply@anthropic.com&gt;
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/payments-service/commit/f9c3399a3194123a03f39af30a5d931baba818ee" target="_blank" rel="noopener noreferrer">f9c3399</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-06-11 13:03</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/payments-service" target="_blank" rel="noopener noreferrer">payments-service</a>
+  </td>
+
+  <td class="msg">
+      feat(web): demo page — forked console UI wired to the fake-fetch transport
+
+Co-Authored-By: Claude Fable 5 &lt;noreply@anthropic.com&gt;
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/payments-service/commit/2ceb4e6cb6c88700b7c18687493fd505a58206ad" target="_blank" rel="noopener noreferrer">2ceb4e6</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-06-11 12:54</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/payments-service" target="_blank" rel="noopener noreferrer">payments-service</a>
+  </td>
+
+  <td class="msg">
+      feat(web): demo composition root and fake-fetch router running the real service layer
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/payments-service/commit/59fbaac5e5ec19070d201aa224fed116d3aa07c4" target="_blank" rel="noopener noreferrer">59fbaac</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-06-11 12:43</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/payments-service" target="_blank" rel="noopener noreferrer">payments-service</a>
+  </td>
+
+  <td class="msg">
+      feat(web): in-memory repository implementations for the browser demo
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/payments-service/commit/3fc5d747e67954b2e023c2cbbf6b7bc5d5ebe047" target="_blank" rel="noopener noreferrer">3fc5d74</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-06-11 12:37</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/payments-service" target="_blank" rel="noopener noreferrer">payments-service</a>
+  </td>
+
+  <td class="msg">
+      feat(web): vendored node:crypto shim for the browser bundle, verified against node:crypto
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/payments-service/commit/e72fb8a8c02a9ac5f57668521c48175f2482992d" target="_blank" rel="noopener noreferrer">e72fb8a</a>
+  </td>
+</tr><tr class="">
     <td class="when">2026-06-11 12:37</td>
 
   <td class="repo">
@@ -2299,1154 +3387,6 @@ installer and the binary&#39;s install step.
   <td class="sha">
       <a class="sha-link" href="https://github.com/curtyo18/agent-sandbox/commit/30a256e4a11b0dd12d1cd3de06aad87ebbe47002" target="_blank" rel="noopener noreferrer">30a256e</a>
   </td>
-</tr><tr class="">
-    <td class="when">2026-06-01 13:28</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/agent-sandbox" target="_blank" rel="noopener noreferrer">agent-sandbox</a>
-  </td>
-
-  <td class="msg">
-      test(image): add native-claude smoke test + journal entry
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/agent-sandbox/commit/aa777a2a698bc28aa228183ef42008dca42c720d" target="_blank" rel="noopener noreferrer">aa777a2</a>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-06-01 13:28</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/agent-sandbox" target="_blank" rel="noopener noreferrer">agent-sandbox</a>
-  </td>
-
-  <td class="msg">
-      feat(image): install Claude via native installer instead of npm-global
-
-Root-owned /usr/local npm global dir made auto-update fail for the claude user
-(claude doctor warning). Install the native standalone binary into the
-claude-owned ~/.local after USER claude, prepend ~/.local/bin to PATH, and drop
-the npm install -g. Safety wrappers in /usr/local/bin stay root-owned.
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/agent-sandbox/commit/a9dc8a73a9437bec2baadcaaeae9a5f529c854f9" target="_blank" rel="noopener noreferrer">a9dc8a7</a>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-06-01 13:28</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/agent-config" target="_blank" rel="noopener noreferrer">agent-config</a>
-  </td>
-
-  <td class="msg">
-      fix(allowlist): widen claude.ai to .claude.ai for native installer host
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/agent-config/commit/22b99fb93a4a806a8da281e52e1f3156b65db812" target="_blank" rel="noopener noreferrer">22b99fb</a>
-  </td>
-</tr><tr class="anon">
-    <td class="when">2026-06-01</td>
-
-  <td class="repo">
-      <span class="redact-strong" aria-label="redacted repo" role="img">store-bootstrapper</span>
-  </td>
-
-  <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">add flaky task for the stricter dispatcher</span>
-  </td>
-
-  <td class="sha">
-      <span class="redact-strong" aria-label="redacted sha" role="img">8e24229</span>
-  </td>
-</tr><tr class="anon">
-    <td class="when">2026-06-01</td>
-
-  <td class="repo">
-      <span class="redact-strong" aria-label="redacted repo" role="img">buffer-toolkit</span>
-  </td>
-
-  <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">wip: rebuild reader, tweak scheduler</span>
-  </td>
-
-  <td class="sha">
-      <span class="redact-strong" aria-label="redacted sha" role="img">91db2ab</span>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-06-01 12:32</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/agent-config" target="_blank" rel="noopener noreferrer">agent-config</a>
-  </td>
-
-  <td class="msg">
-      Harden /context-collect: real timestamp, clip fallback, abort path
-
-Review follow-ups on the command prompt:
-- Timestamp is now captured from the shell (date +%Y%m%d-%H%M%S) and the
-  same value is reused for both the filename and the Captured field, so
-  the agent can&#39;t fabricate a time or let the two drift.
-- Step 4 guards the clip call with command -v and falls back to the
-  printed path, so the command works where the clip bridge isn&#39;t present
-  (forks / other machines).
-- Step 2 gains an explicit abort/keep-nothing branch that writes no file.
-
-Co-Authored-By: Claude Opus 4.8 (1M context) &lt;noreply@anthropic.com&gt;
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/agent-config/commit/0f7350d21b3a16d426754a6a005b64edc468efce" target="_blank" rel="noopener noreferrer">0f7350d</a>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-06-01 12:26</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/agent-config" target="_blank" rel="noopener noreferrer">agent-config</a>
-  </td>
-
-  <td class="msg">
-      Add /context-collect command for selective context compaction
-
-A spin on garbage collection: an interactive alternative to /compact.
-Scans the live context, buckets it (decisions, files, tasks, code,
-constraints, facts, commands, errors), recommends a keep-set, and lets
-the user accept or override. Writes a curated hybrid snapshot (narrative
-preamble + structured buckets, with a self-bootstrapping header and an
-honesty note) to /tmp/context-collector/&lt;timestamp&gt;-&lt;slug&gt;.md for
-resuming in a fresh session. Offers to copy the path via the clip bridge.
-
-Temp-file only; does not evict tokens from the current session.
-
-Co-Authored-By: Claude Opus 4.8 (1M context) &lt;noreply@anthropic.com&gt;
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/agent-config/commit/2b3bcfa2ffdcb41e9bc43033f37228b0f7862235" target="_blank" rel="noopener noreferrer">2b3bcfa</a>
-  </td>
-</tr><tr class="anon">
-    <td class="when">2026-06-01</td>
-
-  <td class="repo">
-      <span class="redact-strong" aria-label="redacted repo" role="img">consumer-toolkit</span>
-  </td>
-
-  <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">expose obsolete controller for the obsolete guard</span>
-  </td>
-
-  <td class="sha">
-      <span class="redact-strong" aria-label="redacted sha" role="img">f782c3c</span>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-06-01 09:42</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/agent-config" target="_blank" rel="noopener noreferrer">agent-config</a>
-  </td>
-
-  <td class="msg">
-      docs(readme): add status-line screenshot
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/agent-config/commit/28017b0bd4d59018a594b9c046d3b1210e3e62f4" target="_blank" rel="noopener noreferrer">28017b0</a>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-06-01 09:38</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/agent-sandbox" target="_blank" rel="noopener noreferrer">agent-sandbox</a>
-  </td>
-
-  <td class="msg">
-      fix(clip-watcher): do not crash under set -u when HOME is unset
-
-A systemd service has no $HOME, so `DIR=&#34;${CLAUDE_CLIPBOARD_DIR:-$HOME/...}&#34;` aborted under set -u (crash-loop) whenever the CLAUDE_CLIPBOARD_DIR drop-in was absent — e.g. before bootstrap writes it. Guard with ${HOME:-/root} so it degrades to a path instead of dying. The drop-in remains the real fix for pointing at the right dir.
-
-Verified: bash -n.
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/agent-sandbox/commit/08d47559990f10b7fec22f80da933acef7af05fa" target="_blank" rel="noopener noreferrer">08d4755</a>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-06-01 09:13</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/agent-sandbox" target="_blank" rel="noopener noreferrer">agent-sandbox</a>
-  </td>
-
-  <td class="msg">
-      feat(clip-watcher): paste images from the Windows clipboard, not just text
-
-paste only ever returned text because the watcher captured the clipboard with `Get-Clipboard -Raw`. The request handler now tries an image first: PowerShell Clipboard.GetImage() saved to a PNG (Windows path via `wslpath -w`, run -Sta), and paste returns that PNG container path so Claude can Read it. Falls back to the existing text capture when there is no image, wslpath is missing, or PowerShell errors — so text paste is unchanged and the image attempt cannot break it.
-
-Verified: bash -n on both scripts. The image path is host/Windows-only (PowerShell + a real clipboard image) and is pending a host test.
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/agent-sandbox/commit/69c3d2fe1bac792a78645c51e8841e366affdd75" target="_blank" rel="noopener noreferrer">69c3d2f</a>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-06-01 08:51</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/agent-config" target="_blank" rel="noopener noreferrer">agent-config</a>
-  </td>
-
-  <td class="msg">
-      docs(readme): document status-line fields + context-rot colour thresholds
-
-Explain each field (cwd, ctx:N% (Mk), 5hr, weekly), note that the context colour tracks absolute tokens rather than window percentage, and add a threshold table: red at 75k, bold red at &gt;=100k (context-rot territory). Verified against statusline.py color_for_ctx_tokens.
-
-Docs only.
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/agent-config/commit/10d924c9e8b344e6cfd93a1e53eecb9ad92449da" target="_blank" rel="noopener noreferrer">10d924c</a>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-06-01 08:37</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/agent-config" target="_blank" rel="noopener noreferrer">agent-config</a>
-  </td>
-
-  <td class="msg">
-      docs(readme): expand inventory, flag defaults, add status-line placeholder
-
-Add CLAUDE.md + settings.json to &#34;What&#39;s here&#34; (the two omitted behaviour-shaping files). Note in &#34;Using this&#34; that the permissive defaults (bypassPermissions / skipDangerousModePermissionPrompt) assume the agent-sandbox container — review settings.json before cloning standalone onto a host. Call out deep-code-review distinctly and trim the superpowers-migration section to lead with what is here. Add a Status line section with a screenshot placeholder (image to be dropped at docs/statusline.png).
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/agent-config/commit/c17335edc9a905558247610251489157a6b8798a" target="_blank" rel="noopener noreferrer">c17335e</a>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-06-01 08:23</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/agent-sandbox" target="_blank" rel="noopener noreferrer">agent-sandbox</a>
-  </td>
-
-  <td class="msg">
-      docs(readme): tighten flow — multi-host up top, unify container name
-
-Four flow fixes from a top-to-bottom read: (1) add an &#34;Any git host&#34; feature bullet so multi-host support shows in the opening list, not just the architecture prose; (2) the raw-docker &#34;Running without WSL&#34; example used claude-sandbox while everything else (and cbox) uses claude-box — unify on claude-box; (3) quick-start step 4 said &#34;separate from GitHub&#34; -&gt; &#34;separate from your git host&#34; for non-GitHub users; (4) trim the tokenless reassurance duplicated in How-it-boots and Running-without-WSL toward the canonical GitHub access section.
-
-Docs only.
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/agent-sandbox/commit/2ecccf4ff577f56d6edf50a8a6570e0ced1fa574" target="_blank" rel="noopener noreferrer">2ecccf4</a>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-06-01 08:13</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/agent-sandbox" target="_blank" rel="noopener noreferrer">agent-sandbox</a>
-  </td>
-
-  <td class="msg">
-      docs(readme): make multi-host support explicit in requirements + quick start
-
-Requirements and Quick start read GitHub-only, where a GitLab/Bitbucket user decides whether the tool is for them. Reframe the requirement as host-agnostic (any HTTPS host; GitHub via gh/PAT, others via a per-host credential) and note that --init now provisions credentials for any other host too, not just GitHub.
-
-Docs only.
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/agent-sandbox/commit/24474f4bf524e3b8f3131addfc9c135d9e4484ab" target="_blank" rel="noopener noreferrer">24474f4</a>
-  </td>
-</tr><tr class="anon">
-    <td class="when">2026-06-01</td>
-
-  <td class="repo">
-      <span class="redact-strong" aria-label="redacted repo" role="img">stricter-loader-reader</span>
-  </td>
-
-  <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">split client for model</span>
-  </td>
-
-  <td class="sha">
-      <span class="redact-strong" aria-label="redacted sha" role="img">a150d04</span>
-  </td>
-</tr><tr class="anon">
-    <td class="when">2026-06-01</td>
-
-  <td class="repo">
-      <span class="redact-strong" aria-label="redacted repo" role="img">parser-shim</span>
-  </td>
-
-  <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">merge writer, merge registry</span>
-  </td>
-
-  <td class="sha">
-      <span class="redact-strong" aria-label="redacted sha" role="img">1747670</span>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-06-01 00:22</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/agent-sandbox" target="_blank" rel="noopener noreferrer">agent-sandbox</a>
-  </td>
-
-  <td class="msg">
-      docs(readme): note --init now provisions non-GitHub credentials
-
-Docs only.
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/agent-sandbox/commit/710a3fc3e8c50ef80ea54d0a1c415014c1ab8c8b" target="_blank" rel="noopener noreferrer">710a3fc</a>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-06-01 00:18</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/agent-sandbox" target="_blank" rel="noopener noreferrer">agent-sandbox</a>
-  </td>
-
-  <td class="msg">
-      feat(agent-init): interactive multi-host credential prompts
-
-Add the interactive loop: pick GitLab/Bitbucket/Gitea/other, enter host + token
-(hidden via read -rs), and upsert a correctly-prefixed line. Warn when a host is
-not on the curated allowlist. Skipping (default [d]one) still lands at a working
-session; the step is independent of the GitHub choice.
-
-Verified: bash -n, the agent-init unit suite, and a manual interactive smoke.
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/agent-sandbox/commit/400849f42402fdb10a3fae39e5872576111fa895" target="_blank" rel="noopener noreferrer">400849f</a>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-06-01 00:09</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/agent-sandbox" target="_blank" rel="noopener noreferrer">agent-sandbox</a>
-  </td>
-
-  <td class="msg">
-      feat(agent-init): provision non-GitHub git credentials in --non-interactive
-
-Add cred_host/upsert_cred helpers and read AGENT_GIT_CREDENTIALS (newline-separated
-full credential lines) in --non-interactive, upserting one line per host into
-~/.agent-sandbox/git-credentials. bootstrap already provisions that file into the
-container, so no other changes are needed. Interactive prompts land in the next commit.
-
-Verified: tests/test-agent-init.sh (Cases 3-6: single/multi/upsert/skip) and bash -n.
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/agent-sandbox/commit/2f60541592b72f62284a2bfe6536ab3d66cac859" target="_blank" rel="noopener noreferrer">2f60541</a>
-  </td>
-</tr>            <tr class="gr-month-row">
-              <td colspan="4">
-                May 2026
-                <span>46 commits · 20 public</span>
-              </td>
-            </tr>
-<tr class="anon">
-    <td class="when">2026-05-31</td>
-
-  <td class="repo">
-      <span class="redact-strong" aria-label="redacted repo" role="img">faster-context-producer</span>
-  </td>
-
-  <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">refactor silent parser when decoder changes</span>
-  </td>
-
-  <td class="sha">
-      <span class="redact-strong" aria-label="redacted sha" role="img">cd2fc51</span>
-  </td>
-</tr><tr class="anon">
-    <td class="when">2026-05-31</td>
-
-  <td class="repo">
-      <span class="redact-strong" aria-label="redacted repo" role="img">broken-handler</span>
-  </td>
-
-  <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">docs: rework view for consumer</span>
-  </td>
-
-  <td class="sha">
-      <span class="redact-strong" aria-label="redacted sha" role="img">fe24eff</span>
-  </td>
-</tr><tr class="anon">
-    <td class="when">2026-05-31</td>
-
-  <td class="repo">
-      <span class="redact-strong" aria-label="redacted repo" role="img">minor-parser</span>
-  </td>
-
-  <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">minor cleanup</span>
-  </td>
-
-  <td class="sha">
-      <span class="redact-strong" aria-label="redacted sha" role="img">24b5a21</span>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-05-31 23:33</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/agent-sandbox" target="_blank" rel="noopener noreferrer">agent-sandbox</a>
-  </td>
-
-  <td class="msg">
-      docs(readme): mark GitHub optional, surface multi-host support
-
-Requirements: GitHub access is optional -- a tokenless container is a working session; gh/PAT only unlock private clones and push.
-
-Intro: call out GitHub-first-but-not-only (any HTTPS git host works for clone/commit/push) with a pointer to &#34;Using other git hosts&#34;, so non-GitHub users see it from the top.
-
-Using other git hosts: clarify that --init handles GitHub auth only; GitLab/Bitbucket/Gitea/self-hosted creds are added by hand in ~/.agent-sandbox/git-credentials.
-
-Docs only.
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/agent-sandbox/commit/b767d6f51acdeeb60d5bfcb260ddfd9350628a3f" target="_blank" rel="noopener noreferrer">b767d6f</a>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-05-31 23:29</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/agent-sandbox" target="_blank" rel="noopener noreferrer">agent-sandbox</a>
-  </td>
-
-  <td class="msg">
-      docs(readme): lead quick start with the guided --init path
-
-The quick start documented the manual `bash bootstrap.sh` flow as the numbered walkthrough and relegated --init to a one-line preamble, so the copy-paste path was the harder one. --init is the easiest entry: it detects the host gh login, offers use/skip(tokenless)/PAT, confirms git identity + projects dir, records the clone path, and writes ~/.agent-sandbox/.env before building. Make it the numbered path and demote hand-configuration to a short &#34;prefer to configure by hand?&#34; note, which also absorbs the now-redundant REPO_DIR/PROJECTS_HOST_PATH clone-location caveat.
-
-Docs only.
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/agent-sandbox/commit/0c4f44722085af3b812d9f159b5874d32b0289ae" target="_blank" rel="noopener noreferrer">0c4f447</a>
-  </td>
-</tr><tr class="anon">
-    <td class="when">2026-05-31</td>
-
-  <td class="repo">
-      <span class="redact-strong" aria-label="redacted repo" role="img">supervisor-reader</span>
-  </td>
-
-  <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">refactor: vendor redundant shim for the stale cache</span>
-  </td>
-
-  <td class="sha">
-      <span class="redact-strong" aria-label="redacted sha" role="img">358670c</span>
-  </td>
-</tr><tr class="anon">
-    <td class="when">2026-05-31</td>
-
-  <td class="repo">
-      <span class="redact-strong" aria-label="redacted repo" role="img">handler-schema</span>
-  </td>
-
-  <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">refactor: tidy unused ledger when queue changes</span>
-  </td>
-
-  <td class="sha">
-      <span class="redact-strong" aria-label="redacted sha" role="img">9e8dc27</span>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-05-31 23:11</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/agent-sandbox" target="_blank" rel="noopener noreferrer">agent-sandbox</a>
-  </td>
-
-  <td class="msg">
-      fix(clip-watcher): derive host clipboard dir from PROJECTS_HOST_PATH
-
-The watcher hardcoded DIR=/mnt/e/Projects/.claude-clipboard -- a personal host path in a live script. A public user who clones to ~/projects got a silently broken clipboard bridge, and the path exposed the maintainer host layout.
-
-Parameterize as ${CLAUDE_CLIPBOARD_DIR:-$HOME/projects/.claude-clipboard} and have bootstrap pin the real value via a systemd drop-in (Environment=CLAUDE_CLIPBOARD_DIR=$PROJECTS_HOST_PATH/.claude-clipboard), so the dir always tracks the /projects bind. clip/paste already use the container-side /projects/.claude-clipboard mount and are unchanged.
-
-Maintainer-preserving: launch.sh exports PROJECTS_HOST_PATH=/mnt/e/Projects, so the drop-in resolves to /mnt/e/Projects/.claude-clipboard, byte-identical to the old hardcoded value.
-
-Verified: bash -n on clip-watcher and bootstrap.sh; drop-in and DIR resolution checked for the systemd (env-set) and manual (fallback) paths.
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/agent-sandbox/commit/6a5831f4ccaf5f400a40340435dda2ecbf92f35c" target="_blank" rel="noopener noreferrer">6a5831f</a>
-  </td>
-</tr><tr class="anon">
-    <td class="when">2026-05-31</td>
-
-  <td class="repo">
-      <span class="redact-strong" aria-label="redacted repo" role="img">helper</span>
-  </td>
-
-  <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">test: extract faster handler</span>
-  </td>
-
-  <td class="sha">
-      <span class="redact-strong" aria-label="redacted sha" role="img">d8c4f72</span>
-  </td>
-</tr><tr class="anon">
-    <td class="when">2026-05-31</td>
-
-  <td class="repo">
-      <span class="redact-strong" aria-label="redacted repo" role="img">spurious-config-util</span>
-  </td>
-
-  <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">minor cleanup</span>
-  </td>
-
-  <td class="sha">
-      <span class="redact-strong" aria-label="redacted sha" role="img">be8a99a</span>
-  </td>
-</tr><tr class="anon">
-    <td class="when">2026-05-31</td>
-
-  <td class="repo">
-      <span class="redact-strong" aria-label="redacted repo" role="img">duplicate-manager-supervisor</span>
-  </td>
-
-  <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">rework service, simplify validator</span>
-  </td>
-
-  <td class="sha">
-      <span class="redact-strong" aria-label="redacted sha" role="img">cc50a3b</span>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-05-31 22:53</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/agent-sandbox" target="_blank" rel="noopener noreferrer">agent-sandbox</a>
-  </td>
-
-  <td class="msg">
-      README: align docs with the tokenless / .env / multi-host features
-
-- Network allowlist: name the always-on curated git hosts (github/gitlab/bitbucket, baked into
-  render-squid-conf) and defer the rest to agent-config&#39;s network-allowlist.conf, replacing a
-  stale 6-host list that omitted gitlab/bitbucket and contradicted &#34;Using other git hosts&#34;.
-- Configuration: lead with ~/.agent-sandbox/.env and drop the undefined &#34;launch.sh&#34; references
-  in favour of a generic wrapper note (also in dotenv.example).
-- Document --print-config / --dry-run and --init --non-interactive (CI).
-- Note that per-host git-credentials coexist with the GitHub gh login (separate helpers).
-
-Docs only.
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/agent-sandbox/commit/b0aa318dcc9fad5dd8a54cb66be6df54713b1180" target="_blank" rel="noopener noreferrer">b0aa318</a>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-05-31 22:34</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/agent-sandbox" target="_blank" rel="noopener noreferrer">agent-sandbox</a>
-  </td>
-
-  <td class="msg">
-      Make test-agent-config-sync host-hermetic via LAUNCHER_PROJECT
-
-The nopat &#34;trust seeded&#34; assertion keyed off an ambient /projects dir, which only
-exists inside the container, so the suite passed in-container but failed on a bare
-WSL host. agent-config-sync already seeds workspace trust for $LAUNCHER_PROJECT;
-point it at a test-owned temp dir so the case is self-contained. Production code
-unchanged.
-
-Verified: passes on the WSL host and inside claude-box (8/8).
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/agent-sandbox/commit/70450af1d1af92cac155c2af836f332b589c0d71" target="_blank" rel="noopener noreferrer">70450af</a>
-  </td>
-</tr><tr class="anon">
-    <td class="when">2026-05-31</td>
-
-  <td class="repo">
-      <span class="redact-strong" aria-label="redacted repo" role="img">router-adapter</span>
-  </td>
-
-  <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">fix dead view</span>
-  </td>
-
-  <td class="sha">
-      <span class="redact-strong" aria-label="redacted sha" role="img">2ef85ae</span>
-  </td>
-</tr><tr class="anon">
-    <td class="when">2026-05-31</td>
-
-  <td class="repo">
-      <span class="redact-strong" aria-label="redacted repo" role="img">encoder-dispatcher</span>
-  </td>
-
-  <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">fix typo in name</span>
-  </td>
-
-  <td class="sha">
-      <span class="redact-strong" aria-label="redacted sha" role="img">8ff4e91</span>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-05-31 15:36</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/agent-sandbox" target="_blank" rel="noopener noreferrer">agent-sandbox</a>
-  </td>
-
-  <td class="msg">
-      Support any HTTPS git host: per-host credentials + curated allowlist
-
-Tier 1, additive. GitHub keeps its gh credential helper unchanged; other hosts
-(GitLab/Bitbucket/Gitea/self-hosted) use git&#39;s native per-host store, fed by an optional
-~/.agent-sandbox/git-credentials file -- registered only when present, so a github-only
-setup is byte-identical to before. render-squid-conf ships a curated default allowlist
-(.github.com / .gitlab.com / .bitbucket.org) so the major hosts are reachable out of the
-box; self-hosted goes in network-allowlist.conf. The config-repo credential-in-URL scrub
-is generalized to any host.
-
-No provider CLI is installed, so a non-GitHub host is reachable only via git (which can&#39;t
-delete a repo or flip visibility) -- the guard-or-no-CLI safety boundary. glab/Tier 2 and
-a wrappers/git force-push guard are deferred.
-
-Docs: a per-provider credential table + &#34;Using other git hosts&#34; + an SSH-egress caveat.
-
-Verified: bash -n, a new stub-git test (store-iff-present + generalized scrub), the
-tokenless + guided-init suites as a regression guard, and a curated-allowlist render.
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/agent-sandbox/commit/79642fcc60dae1cd2d893f36700337fa91b61467" target="_blank" rel="noopener noreferrer">79642fc</a>
-  </td>
-</tr><tr class="anon">
-    <td class="when">2026-05-31</td>
-
-  <td class="repo">
-      <span class="redact-strong" aria-label="redacted repo" role="img">queue-toolkit</span>
-  </td>
-
-  <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">tidy obsolete task</span>
-  </td>
-
-  <td class="sha">
-      <span class="redact-strong" aria-label="redacted sha" role="img">f2fec7e</span>
-  </td>
-</tr><tr class="anon">
-    <td class="when">2026-05-31</td>
-
-  <td class="repo">
-      <span class="redact-strong" aria-label="redacted repo" role="img">fallback-toolkit</span>
-  </td>
-
-  <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">fix: rename dead model</span>
-  </td>
-
-  <td class="sha">
-      <span class="redact-strong" aria-label="redacted sha" role="img">d7eb3c9</span>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-05-31 14:34</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/agent-sandbox" target="_blank" rel="noopener noreferrer">agent-sandbox</a>
-  </td>
-
-  <td class="msg">
-      Add guided bootstrap --init wizard + ~/.agent-sandbox/.env config
-
-`bash bootstrap.sh --init` detects the host gh login, asks for git identity and a
-projects dir, writes ~/.agent-sandbox/.env, then builds (--init --non-interactive for
-CI). bootstrap.sh loads that .env with precedence exported env &gt; .env &gt; default, via a
-no-clobber, no-eval line parser -- so a personal launch.sh that exports vars always
-wins, and a .env can never override an export or run code. A --print-config flag
-resolves config and exits before docker (also the precedence test&#39;s hook).
-
-.env is config-only; the GitHub token keeps its github-pat / gh-auth-token /
-cbox-refresh-pat path. dotenv.example documents every knob; the wizard lives in a
-standalone scripts/agent-init so it&#39;s testable without a build.
-
-Verified: bash -n, a wizard unit test (non-interactive + pre-fill/override), an
-env-precedence test, and a maintainer-parity check (launch.sh-style exports beat .env).
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/agent-sandbox/commit/84f42b8816a0087f7ddd082e145eb9eef4be2673" target="_blank" rel="noopener noreferrer">84f42b8</a>
-  </td>
-</tr><tr class="anon">
-    <td class="when">2026-05-31</td>
-
-  <td class="repo">
-      <span class="redact-strong" aria-label="redacted repo" role="img">obsolete-registry</span>
-  </td>
-
-  <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">feat: drop task in mailer</span>
-  </td>
-
-  <td class="sha">
-      <span class="redact-strong" aria-label="redacted sha" role="img">3479a7c</span>
-  </td>
-</tr><tr class="anon">
-    <td class="when">2026-05-31</td>
-
-  <td class="repo">
-      <span class="redact-strong" aria-label="redacted repo" role="img">handler</span>
-  </td>
-
-  <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">merge dispatcher so runner can polish ledger</span>
-  </td>
-
-  <td class="sha">
-      <span class="redact-strong" aria-label="redacted sha" role="img">545be2f</span>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-05-31 13:55</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/agent-sandbox" target="_blank" rel="noopener noreferrer">agent-sandbox</a>
-  </td>
-
-  <td class="msg">
-      Make tokenless containers a working session; add cbox-refresh-pat
-
-Previously entrypoint.sh&#39;s sync_config returned early when no GitHub token was
-present, skipping the public config clone, git identity, the claude() wrapper,
-and trust-seeding -- and since the squid allowlist ships inside agent-config,
-that left a tokenless container unable to reach anthropic.com (network-dead).
-
-Extract the config sync and squid render into standalone idempotent scripts
-(agent-config-sync, render-squid-conf) sharing agent-lib.sh, so token-free steps
-always run and a token only gates gh auth, the private overlay, and
-authenticated push. entrypoint.sh becomes a thin orchestrator.
-
-Add cbox-refresh-pat to add a token to a running container -- re-running the
-same sync and reloading squid -- without a restart. Soften bootstrap&#39;s no-token
-message accordingly and update README + architecture docs.
-
-Verified: bash -n on all scripts, a stub-based unit test of the token boundary
-(tests/test-agent-config-sync.sh), and a live smoke that really clones the public
-config tokenless. A host-only docker boot test (tests/test-tokenless-boot.sh)
-covers the full cold boot where docker is available.
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/agent-sandbox/commit/a98e8d04b940e43225dddf3dba1faa038d7f9953" target="_blank" rel="noopener noreferrer">a98e8d0</a>
-  </td>
-</tr><tr class="anon">
-    <td class="when">2026-05-31</td>
-
-  <td class="repo">
-      <span class="redact-strong" aria-label="redacted repo" role="img">lingering-mailer</span>
-  </td>
-
-  <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">fix: guard stricter handler for the leaky util</span>
-  </td>
-
-  <td class="sha">
-      <span class="redact-strong" aria-label="redacted sha" role="img">f3f2264</span>
-  </td>
-</tr><tr class="anon">
-    <td class="when">2026-05-31</td>
-
-  <td class="repo">
-      <span class="redact-strong" aria-label="redacted repo" role="img">builder</span>
-  </td>
-
-  <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">chore: fix config</span>
-  </td>
-
-  <td class="sha">
-      <span class="redact-strong" aria-label="redacted sha" role="img">acc1ba6</span>
-  </td>
-</tr><tr class="anon">
-    <td class="when">2026-05-31</td>
-
-  <td class="repo">
-      <span class="redact-strong" aria-label="redacted repo" role="img">context-producer</span>
-  </td>
-
-  <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">merge ledger for validator</span>
-  </td>
-
-  <td class="sha">
-      <span class="redact-strong" aria-label="redacted sha" role="img">8acdc84</span>
-  </td>
-</tr><tr class="anon">
-    <td class="when">2026-05-31</td>
-
-  <td class="repo">
-      <span class="redact-strong" aria-label="redacted repo" role="img">unused-manager-buffer</span>
-  </td>
-
-  <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">tidy store and improve shim</span>
-  </td>
-
-  <td class="sha">
-      <span class="redact-strong" aria-label="redacted sha" role="img">8dd9525</span>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-05-31 11:13</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/agent-sandbox" target="_blank" rel="noopener noreferrer">agent-sandbox</a>
-  </td>
-
-  <td class="msg">
-      Launcher: immediate feedback on tap instead of a hanging button
-
-/wake used to block ~10-12s while polling for a definitive state, so the button
-just spun with no signal until it resolved. Now:
-
-- /wake spawns and returns immediately (302); confirmed ~7ms.
-- The page shows an instant pulsing &#34;⟳ starting…&#34; on tap, then polls a new
-  /status JSON endpoint every 1.5s, updating live to connected / stuck / exited
-  with the real pane output — and surfaces a failed wake inline (&#34;Try again&#34;).
-- No-JS fallback still works (plain link to /wake → redirect to status page).
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/agent-sandbox/commit/66df2a7c66a0a6825fa5b2d78f3d28df09287e0f" target="_blank" rel="noopener noreferrer">66df2a7</a>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-05-31 11:06</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/agent-sandbox" target="_blank" rel="noopener noreferrer">agent-sandbox</a>
-  </td>
-
-  <td class="msg">
-      Fix mobile launcher: seed /projects trust + report real session status
-
-Root cause: the launcher runs `claude --remote-control` in /projects, but the
-entrypoint only seeded folder-trust for /projects/* children, so claude blocked
-forever on the unattended &#34;trust this folder?&#34; prompt and never connected —
-while the UI reported &#34;running&#34; because the tmux session (all it checked) started.
-(--dangerously-skip-permissions does NOT bypass the trust dialog; only the
-hasTrustDialogAccepted seeding does.)
-
-- entrypoint.sh: also seed /projects (and LAUNCHER_PROJECT) as trusted.
-- session-launcher.py: inspect the session&#39;s pane and report the real state —
-  connected / starting / stuck / exited — with the actual output shown in the UI,
-  instead of &#34;running&#34; whenever tmux merely started. Also spawn with the bypass
-  flag, mirror the pane to a log (TTY-safe, no stdout pipe), and wait for a
-  definitive state before rendering the result.
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/agent-sandbox/commit/957eab1dff92a759a852fa36af94312207ca1ab9" target="_blank" rel="noopener noreferrer">957eab1</a>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-05-30 23:10</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/agent-sandbox" target="_blank" rel="noopener noreferrer">agent-sandbox</a>
-  </td>
-
-  <td class="msg">
-      Reframe GitHub-access docs around identity choice (you vs a dedicated agent); normalize token wording in verification.md
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/agent-sandbox/commit/b8b67a764824120697a5aadf50f6625a76f0eb17" target="_blank" rel="noopener noreferrer">b8b67a7</a>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-05-30 23:02</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/agent-sandbox" target="_blank" rel="noopener noreferrer">agent-sandbox</a>
-  </td>
-
-  <td class="msg">
-      Tighten the README quick start: lead with gh, dedupe the token block, distinguish GitHub vs Claude login
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/agent-sandbox/commit/3d5a2b957bd6d50d3d83b16c0a4ea754c0d105bb" target="_blank" rel="noopener noreferrer">3d5a2b9</a>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-05-30 22:58</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/agent-sandbox" target="_blank" rel="noopener noreferrer">agent-sandbox</a>
-  </td>
-
-  <td class="msg">
-      Auto-detect git identity from host git/gh; require it if unset
-
-- bootstrap.sh resolves GIT_USER_* from `git config --global`, then the
-  authenticated gh account (noreply email / display name), so consumers set
-  nothing. Explicit GIT_USER_* env still wins (private wrapper unaffected).
-- If neither yields a value, fail fast with guidance instead of silently
-  committing as the old you@example.com placeholder.
-- README: quick start no longer hardcodes identity; config table marks
-  GIT_USER_* as auto-detected.
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/agent-sandbox/commit/5fe6a36f7131cc512eea084d4ef0e241badc66e8" target="_blank" rel="noopener noreferrer">5fe6a36</a>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-05-30 22:22</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/agent-sandbox" target="_blank" rel="noopener noreferrer">agent-sandbox</a>
-  </td>
-
-  <td class="msg">
-      Auto-fill the GitHub token from host gh, and document it properly
-
-- bootstrap.sh: when no ~/.agent-sandbox/github-pat exists, reuse the host&#39;s
-  `gh auth token` (most setups never mint a separate PAT); clearer message
-  and accurate no-token consequences
-- README: new &#34;GitHub access&#34; section — the token is the agent&#39;s GitHub
-  identity for every git/gh op, not just config-clone; reframed Requirements
-  + Quick start; fixed the understated no-token note
-- architecture.md: note bootstrap auto-fills from gh, matching the design
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/agent-sandbox/commit/fbc2e1b702bdd55deabed1f6267d836842600ac6" target="_blank" rel="noopener noreferrer">fbc2e1b</a>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-05-30 21:48</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/agent-sandbox" target="_blank" rel="noopener noreferrer">agent-sandbox</a>
-  </td>
-
-  <td class="msg">
-      Convert the phone-access ASCII diagram to Mermaid
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/agent-sandbox/commit/b689aaa4cb50004ce941556af3e3abd1f6b50f2a" target="_blank" rel="noopener noreferrer">b689aaa</a>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-05-30 21:40</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/agent-sandbox" target="_blank" rel="noopener noreferrer">agent-sandbox</a>
-  </td>
-
-  <td class="msg">
-      Split the README architecture diagram into three focused ones
-
-The single combined diagram rendered crowded/zoomed-out on GitHub. Now:
-an overview at the top, a &#34;How it boots&#34; startup diagram, and an
-egress/allowlist diagram in the Network allowlist section.
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/agent-sandbox/commit/c71f8bdf7a28501e0a90daf93a002fa09c67fc8a" target="_blank" rel="noopener noreferrer">c71f8bd</a>
-  </td>
-</tr><tr class="anon">
-    <td class="when">2026-05-30</td>
-
-  <td class="repo">
-      <span class="redact-strong" aria-label="redacted repo" role="img">model</span>
-  </td>
-
-  <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">rebuild guard (broken)</span>
-  </td>
-
-  <td class="sha">
-      <span class="redact-strong" aria-label="redacted sha" role="img">77a6020</span>
-  </td>
-</tr><tr class="named">
-    <td class="when">2026-05-30 21:14</td>
-
-  <td class="repo">
-      agent-config-private
-  </td>
-
-  <td class="msg">
-      <span class="redact" aria-label="redacted message" role="img">fix: add dispatcher (obsolete)</span>
-  </td>
-
-  <td class="sha">
-      <span class="redact" aria-label="redacted sha" role="img">935a0af</span>
-  </td>
-</tr><tr class="anon">
-    <td class="when">2026-05-30</td>
-
-  <td class="repo">
-      <span class="redact-strong" aria-label="redacted repo" role="img">guard-scheduler</span>
-  </td>
-
-  <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">wip: loosen util for helper</span>
-  </td>
-
-  <td class="sha">
-      <span class="redact-strong" aria-label="redacted sha" role="img">0485ced</span>
-  </td>
-</tr><tr class="named">
-    <td class="when">2026-05-30 21:04</td>
-
-  <td class="repo">
-      agent-config-private
-  </td>
-
-  <td class="msg">
-      <span class="redact" aria-label="redacted message" role="img">deprecate producer, improve indexer</span>
-  </td>
-
-  <td class="sha">
-      <span class="redact" aria-label="redacted sha" role="img">a32e9a2</span>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-05-30 21:04</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/agent-sandbox" target="_blank" rel="noopener noreferrer">agent-sandbox</a>
-  </td>
-
-  <td class="msg">
-      Make agent-sandbox usable from a clean clone
-
-- README: boot diagram, bless bootstrap.sh as the one setup path, mark the
-  private overlay optional, add a full env-var config table, and correct the
-  raw docker-run fallback to show PAT provisioning
-- bootstrap.sh: neutral $HOME path defaults; forward CONTAINER_MODE,
-  RESEARCH_REPO and AGENT_CONFIG_REPO to the container; drop stale plan refs
-- bootstrap.ps1: neutral placeholder path
-- Dockerfile: symlink /etc/localtime so TZ=Europe/London actually applies
-- docs: de-stale architecture.md and journal.md lines
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/agent-sandbox/commit/130c2f716e6e5679b31b459f9d0a41058c26eae4" target="_blank" rel="noopener noreferrer">130c2f7</a>
-  </td>
-</tr><tr class="anon">
-    <td class="when">2026-05-30</td>
-
-  <td class="repo">
-      <span class="redact-strong" aria-label="redacted repo" role="img">guard</span>
-  </td>
-
-  <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">fix mailer, trim writer</span>
-  </td>
-
-  <td class="sha">
-      <span class="redact-strong" aria-label="redacted sha" role="img">53ef7c3</span>
-  </td>
-</tr><tr class="anon">
-    <td class="when">2026-05-30</td>
-
-  <td class="repo">
-      <span class="redact-strong" aria-label="redacted repo" role="img">leaky-controller</span>
-  </td>
-
-  <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">wip: stub</span>
-  </td>
-
-  <td class="sha">
-      <span class="redact-strong" aria-label="redacted sha" role="img">13b2112</span>
-  </td>
-</tr><tr class="anon">
-    <td class="when">2026-05-30</td>
-
-  <td class="repo">
-      <span class="redact-strong" aria-label="redacted repo" role="img">store-service</span>
-  </td>
-
-  <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">todo</span>
-  </td>
-
-  <td class="sha">
-      <span class="redact-strong" aria-label="redacted sha" role="img">8b9fd72</span>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-05-30 19:21</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/agent-config" target="_blank" rel="noopener noreferrer">agent-config</a>
-  </td>
-
-  <td class="msg">
-      feat: add deep-code-review command (layered multi-agent audit)
-
-Heavyweight review tier above /code-review: partition into domains, run parallel
-reviewers, then an independent cross-verification round, then adjudicate before
-any fix. Reuses code-review.md&#39;s standards + rubric by reference. code-review.md
-now cross-links up to it.
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/agent-config/commit/6a3d504f7b26b8b0dcccb58729d6ea50cc7d171b" target="_blank" rel="noopener noreferrer">6a3d504</a>
-  </td>
-</tr><tr class="anon">
-    <td class="when">2026-05-30</td>
-
-  <td class="repo">
-      <span class="redact-strong" aria-label="redacted repo" role="img">leaky-fallback</span>
-  </td>
-
-  <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">add builder in registry</span>
-  </td>
-
-  <td class="sha">
-      <span class="redact-strong" aria-label="redacted sha" role="img">14e388e</span>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-05-30 18:45</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/agent-config" target="_blank" rel="noopener noreferrer">agent-config</a>
-  </td>
-
-  <td class="msg">
-      feat: harden cloud-prime brief template + receive-mode audit
-
-Brief template now emits an Environment &amp; commands section (install/test/build/
-lint), a runnable test command + behavioural &#39;Done when&#39; per task, and a
-Do-not-modify file list; verification leads with the behavioural bar and notes
-the no-CI fallback. Receive-mode gains no-PR/fork fallbacks, scans commit
-messages (not just the PR body), marks the Anthropic pattern detect-only, and
-checks merge strategy before proposing commit-message rewrites.
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/agent-config/commit/968586e0825dff2a6e5756f3df8f886564a8bf3d" target="_blank" rel="noopener noreferrer">968586e</a>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-05-30 18:32</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/agent-config" target="_blank" rel="noopener noreferrer">agent-config</a>
-  </td>
-
-  <td class="msg">
-      docs: generalize remaining branch refs in cloud-prime
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/agent-config/commit/0c2429d48f600c10a4eb03b95e221d9826a2392e" target="_blank" rel="noopener noreferrer">0c2429d</a>
-  </td>
 </tr>        </tbody>
       </table>
 
@@ -3472,7 +3412,7 @@ checks merge strategy before proposing commit-message rewrites.
     <a href="https://github.com/curtyo18" target="_blank" rel="noopener noreferrer">github</a> · <a href="mailto:curtyo18@gmail.com">email</a>
   </div>
   <div class="stats" style="align-items:center">
-    <span><b>2,214</b> commits</span>
+    <span><b>2,280</b> commits</span>
     <span><b>79</b> repos</span>
     <span><b>17</b> years</span>
   </div>
