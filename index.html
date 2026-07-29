@@ -16,7 +16,7 @@
     <small>curt — a public log of private and public work</small>
   </h1>
   <div class="meta">
-    <span><b>2,282</b> commits indexed</span>
+    <span><b>2,295</b> commits indexed</span>
     <span><b>79</b> repos · <b>17</b> years</span>
   </div>
 </div><div class="gr-section-title">
@@ -31,8 +31,8 @@
       </div>
       <div class="blurb"></div>
       <div class="foot">
-        <span>101 commits</span>
-        <span>last touched 2026-07-27</span>
+        <span>113 commits</span>
+        <span>last touched 2026-07-28</span>
       </div>
     </a>
     <a class="card card-link" href="https://github.com/curtyo18/agent-config" target="_blank" rel="noopener noreferrer">
@@ -42,8 +42,8 @@
       </div>
       <div class="blurb"></div>
       <div class="foot">
-        <span>42 commits</span>
-        <span>last touched 2026-07-26</span>
+        <span>43 commits</span>
+        <span>last touched 2026-07-28</span>
       </div>
     </a>
     <a class="card card-link" href="https://github.com/curtyo18/header-handler" target="_blank" rel="noopener noreferrer">
@@ -71,7 +71,7 @@
 </div>
       <div class="gr-section-title" style="margin-top:36px">
         <span>All commits · newest first</span>
-        <span class="right">showing 1–200 of 2282</span>
+        <span class="right">showing 1–200 of 2295</span>
       </div>
 
       <table class="gr-table">
@@ -88,6 +88,238 @@
               </td>
             </tr>
 <tr class="">
+    <td class="when">2026-07-28 13:52</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/peer-poker" target="_blank" rel="noopener noreferrer">peer-poker</a>
+  </td>
+
+  <td class="msg">
+      fix(net): replace dead Open Relay Project TURN creds with own account
+
+Open Relay Project&#39;s shared free TURN credentials were rejecting every
+Allocate request with STUN error 400, so restrictive-NAT guests never
+got a relay candidate at all despite ADR 0005&#39;s fallback being wired
+up — confirmed via a webrtc-internals dump from an affected user. The
+colleague this previously &#34;fixed&#34; had actually connected via direct
+P2P and never exercised the TURN path, which is why the dead relay
+went unnoticed.
+
+Swaps in a dedicated Metered.ca TURN account so the fallback actually
+works, and amends ADR 0005 with what was found and why.
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/peer-poker/commit/95843cc6620976630fbefe91d5a6d6d61fb95f87" target="_blank" rel="noopener noreferrer">95843cc</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-07-28 13:13</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/peer-poker" target="_blank" rel="noopener noreferrer">peer-poker</a>
+  </td>
+
+  <td class="msg">
+      fix(reducer): reconcile rejoining participants by name
+
+Guest PeerJS ids are never persisted across tab reloads, so a closed-then-reopened
+tab arrives with a brand-new peerId. The join reducer deduped strictly by peerId,
+so it appended a second participant with the same name instead of recognizing the
+reconnect (colleague-reported: &#39;2 Vikas&#39; after a tab reopen).
+
+Reconcile by name against disconnected participants only, so a live connection can
+never be hijacked by a same-named join. On merge, also drop any vote left under the
+old peerId on the still-open active item, so a mid-round reconnect can&#39;t leave two
+votes (old + new peerId) for one physical person double-counted in the aggregates —
+already-accepted items are left untouched since their estimate no longer reads from
+votes.
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/peer-poker/commit/4373242cd6c00c95dcdc42dd854ca02557305a98" target="_blank" rel="noopener noreferrer">4373242</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-07-28 10:47</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/peer-poker" target="_blank" rel="noopener noreferrer">peer-poker</a>
+  </td>
+
+  <td class="msg">
+      docs(copy): hedge the connectivity banner instead of claiming a relay attempt
+
+The banner fires both after a genuine ICE hang (where a relay attempt
+did happen) and on early broker/socket errors before ICE ever starts
+negotiating (where it didn&#39;t) — &#34;we tried a relay too&#34; asserted an
+attempt that isn&#39;t always true. Hedges to cover both cases.
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/peer-poker/commit/1755440f77ce56e0f0d96b16951c05bf9dd7cd78" target="_blank" rel="noopener noreferrer">1755440</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-07-28 10:46</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/peer-poker" target="_blank" rel="noopener noreferrer">peer-poker</a>
+  </td>
+
+  <td class="msg">
+      fix(net): restore Google STUN alongside the TURN fallback
+
+The TURN commit dropped Google&#39;s STUN entry entirely instead of adding
+TURN alongside it, contradicting both ADR 0005 and the design spec
+(which explicitly call for keeping it — free, separate quota, cheaper
+than TURN when a direct path exists) and leaving the in-app privacy
+dialog&#39;s &#34;a second one (Google&#39;s)&#34; claim factually wrong. Also pins
+the STUN test to Google&#39;s specific URL so this can&#39;t silently drift
+again.
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/peer-poker/commit/cae7f0313218c8ec6038bae71a8dd22128f36610" target="_blank" rel="noopener noreferrer">cae7f03</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-07-28 10:41</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/peer-poker" target="_blank" rel="noopener noreferrer">peer-poker</a>
+  </td>
+
+  <td class="msg">
+      docs(adr): record the TURN fallback decision (ADR 0005) plus spec/plan
+
+Amends ADR 0001 (STUN-only) to note it&#39;s superseded in part by 0005,
+which records adding Open Relay Project&#39;s TURN as a best-effort
+connectivity fallback. Spec and implementation plan capture the design
+that produced the preceding commits on this branch.
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/peer-poker/commit/1e54bcc8b72e06c775c0abb77838c1e4f61a659d" target="_blank" rel="noopener noreferrer">1e54bcc</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-07-28 10:40</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/peer-poker" target="_blank" rel="noopener noreferrer">peer-poker</a>
+  </td>
+
+  <td class="msg">
+      docs(privacy): mention the TURN relay fallback in the how-it-works dialog
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/peer-poker/commit/a34fdf8d967bd25ab7a217442c6202a2bae03bc4" target="_blank" rel="noopener noreferrer">a34fdf8</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-07-28 10:34</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/peer-poker" target="_blank" rel="noopener noreferrer">peer-poker</a>
+  </td>
+
+  <td class="msg">
+      docs(readme): describe the TURN fallback instead of claiming none exists
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/peer-poker/commit/59709b230f5b9e478a422bde3a90de4ecf5afad4" target="_blank" rel="noopener noreferrer">59709b2</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-07-28 10:32</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/peer-poker" target="_blank" rel="noopener noreferrer">peer-poker</a>
+  </td>
+
+  <td class="msg">
+      docs(copy): stop claiming no relay server is used in the connectivity banner
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/peer-poker/commit/6a0f220b4fa25b1b170715801439bfa98fa1fff1" target="_blank" rel="noopener noreferrer">6a0f220</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-07-28 10:26</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/peer-poker" target="_blank" rel="noopener noreferrer">peer-poker</a>
+  </td>
+
+  <td class="msg">
+      fix(join): route a silent ICE hang to the connectivity banner, not &#39;no answer&#39;
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/peer-poker/commit/607f663ffaf6cd0c6691c27a62758375ea95338b" target="_blank" rel="noopener noreferrer">607f663</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-07-28 10:23</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/agent-config" target="_blank" rel="noopener noreferrer">agent-config</a>
+  </td>
+
+  <td class="msg">
+      fix(run-plan): invoke code-review skill after final review instead of ad-hoc reviewer
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/agent-config/commit/a0256e73282e256ed54e1aaed8cf19c220411497" target="_blank" rel="noopener noreferrer">a0256e7</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-07-28 10:19</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/peer-poker" target="_blank" rel="noopener noreferrer">peer-poker</a>
+  </td>
+
+  <td class="msg">
+      feat(net): add TURN relay fallback for restrictive-NAT guests
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/peer-poker/commit/af4bcd3cb07b99cf09df62989c9184f3ebd90099" target="_blank" rel="noopener noreferrer">af4bcd3</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-07-28 10:15</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/peer-poker" target="_blank" rel="noopener noreferrer">peer-poker</a>
+  </td>
+
+  <td class="msg">
+      chore(repo): remove design-handoff export and manual smoke-test doc
+
+design_handoff_peerpoker_redesign/ was a one-off design-tool export (HTML +
+screenshots) from the July 25 UI refresh handoff, not source the app needs.
+SMOKE.md was the only manual two-peer test procedure; removing it along
+with the handoff folder per a straightforward repo-hygiene request.
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/peer-poker/commit/bfe57ff73c7b070d3f8bc40a662b637c78accaaa" target="_blank" rel="noopener noreferrer">bfe57ff</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-07-28 10:14</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/peer-poker" target="_blank" rel="noopener noreferrer">peer-poker</a>
+  </td>
+
+  <td class="msg">
+      feat(footer): add repo link and issue-report footer
+
+Gives every screen a quiet &#34;open source, no tracking&#34; footer with a
+link to the repo and a direct path to file an issue, instead of
+neither being discoverable from the app itself.
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/peer-poker/commit/18ba5bfefe7b4243105ce8dd8b441b916ac23e24" target="_blank" rel="noopener noreferrer">18ba5bf</a>
+  </td>
+</tr><tr class="">
     <td class="when">2026-07-27 22:43</td>
 
   <td class="repo">
@@ -4433,188 +4665,6 @@ Claude-Session: https://claude.ai/code/session_016KfbANbjoA9K3w8AChXyJm
   <td class="sha">
       <a class="sha-link" href="https://github.com/curtyo18/header-handler/commit/a6a41ee3a9a55badd500d464a35ecc4753aaf0f3" target="_blank" rel="noopener noreferrer">a6a41ee</a>
   </td>
-</tr><tr class="">
-    <td class="when">2026-07-11 23:12</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/header-handler" target="_blank" rel="noopener noreferrer">header-handler</a>
-  </td>
-
-  <td class="msg">
-      Extend empty-matcher-value skip to domain mode (empty requestDomains is equally invalid to DNR)
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/header-handler/commit/f85fe030d53b36f6b484b1bf9e284b46bc7089bf" target="_blank" rel="noopener noreferrer">f85fe03</a>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-07-11 23:10</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/header-handler" target="_blank" rel="noopener noreferrer">header-handler</a>
-  </td>
-
-  <td class="msg">
-      Remove &#34;Session only · not persisted&#34; label from side panel (issue #1, item 3)
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/header-handler/commit/5f23974a9367fc0ce59ea214f3c46bd58f4ec362" target="_blank" rel="noopener noreferrer">5f23974</a>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-07-11 23:10</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/header-handler" target="_blank" rel="noopener noreferrer">header-handler</a>
-  </td>
-
-  <td class="msg">
-      Stop JSON value editor&#39;s resize handle overlapping its footer (issue #1, item 1)
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/header-handler/commit/9140c1ddbd65a60c406a7e80d5304136c491362c" target="_blank" rel="noopener noreferrer">9140c1d</a>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-07-11 23:10</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/header-handler" target="_blank" rel="noopener noreferrer">header-handler</a>
-  </td>
-
-  <td class="msg">
-      Fix live log false positives and stale DNR rules (issue #1, items 2/4)
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/header-handler/commit/5e6968f847c543fb34b14e704f687a85cc278128" target="_blank" rel="noopener noreferrer">5e6968f</a>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-07-11 22:25</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/header-handler" target="_blank" rel="noopener noreferrer">header-handler</a>
-  </td>
-
-  <td class="msg">
-      Fix options page opening embedded in chrome://extensions instead of a tab
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/header-handler/commit/41e84c096eb6812a28a5a3a9244567331902deab" target="_blank" rel="noopener noreferrer">41e84c0</a>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-07-11 21:17</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/header-handler" target="_blank" rel="noopener noreferrer">header-handler</a>
-  </td>
-
-  <td class="msg">
-      Fix release publish step: gh release create has no --clobber
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/header-handler/commit/6508aa4f17f99acf9adafd6e91e709ec708ab477" target="_blank" rel="noopener noreferrer">6508aa4</a>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-07-11 21:16</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/header-handler" target="_blank" rel="noopener noreferrer">header-handler</a>
-  </td>
-
-  <td class="msg">
-      Fix release CI: upgrade npm before npm ci
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/header-handler/commit/75fdd14480c0b82c9096254d6ea2d993eb0057a7" target="_blank" rel="noopener noreferrer">75fdd14</a>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-07-11 21:03</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/header-handler" target="_blank" rel="noopener noreferrer">header-handler</a>
-  </td>
-
-  <td class="msg">
-      Fix dead &#34;Open live log&#34; button
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/header-handler/commit/6df33a4a8e4d9ef895606492bb0a9136ca7f548e" target="_blank" rel="noopener noreferrer">6df33a4</a>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-07-11 21:01</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/header-handler" target="_blank" rel="noopener noreferrer">header-handler</a>
-  </td>
-
-  <td class="msg">
-      Add options page: editors, JSON values, import/export
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/header-handler/commit/d5ee03bd7244c8521fc14788c30a595a9af27890" target="_blank" rel="noopener noreferrer">d5ee03b</a>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-07-11 20:55</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/header-handler" target="_blank" rel="noopener noreferrer">header-handler</a>
-  </td>
-
-  <td class="msg">
-      Add side-panel live log
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/header-handler/commit/996541382b0ac65b9c24c6c26c82af272b6c2180" target="_blank" rel="noopener noreferrer">9965413</a>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-07-11 20:54</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/header-handler" target="_blank" rel="noopener noreferrer">header-handler</a>
-  </td>
-
-  <td class="msg">
-      Add popup: master switch and profile toggles
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/header-handler/commit/408acbd2e37a26187690f23aeae636e900a8377a" target="_blank" rel="noopener noreferrer">408acbd</a>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-07-11 20:52</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/header-handler" target="_blank" rel="noopener noreferrer">header-handler</a>
-  </td>
-
-  <td class="msg">
-      Add JSON-value helpers + fold design handoff into plan
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/header-handler/commit/e7b0dfca1d4d79cb42d49e85049d3fdb296e6b88" target="_blank" rel="noopener noreferrer">e7b0dfc</a>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-07-11 20:27</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/header-handler" target="_blank" rel="noopener noreferrer">header-handler</a>
-  </td>
-
-  <td class="msg">
-      Add tag-driven release workflow
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/header-handler/commit/0afef23021b29166981261cff7c3507ec4ec1620" target="_blank" rel="noopener noreferrer">0afef23</a>
-  </td>
 </tr>        </tbody>
       </table>
 
@@ -4639,7 +4689,7 @@ Claude-Session: https://claude.ai/code/session_016KfbANbjoA9K3w8AChXyJm
     <a href="https://github.com/curtyo18" target="_blank" rel="noopener noreferrer">github</a> · <a href="mailto:curtyo18@gmail.com">email</a>
   </div>
   <div class="stats" style="align-items:center">
-    <span><b>2,282</b> commits</span>
+    <span><b>2,295</b> commits</span>
     <span><b>79</b> repos</span>
     <span><b>17</b> years</span>
   </div>
