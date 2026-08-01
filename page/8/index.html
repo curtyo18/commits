@@ -6,6 +6,9 @@
   <base href="../../" />
   <title>commits — curt</title>
   <link rel="stylesheet" href="styles.css" />
+  <!-- Set before first paint so the "show more" chips never flash on rows that
+       don't actually overflow. expand.js does the measuring. -->
+  <script>document.documentElement.className += " has-js";</script>
 </head>
 <body>
   <div class="page page-full">
@@ -16,13 +19,13 @@
     <small>curt — a public log of private and public work</small>
   </h1>
   <div class="meta">
-    <span><b>2,295</b> commits indexed</span>
+    <span><b>2,296</b> commits indexed</span>
     <span><b>79</b> repos · <b>17</b> years</span>
   </div>
 </div>
       <div class="gr-section-title" style="margin-top:36px">
         <span>All commits · newest first</span>
-        <span class="right">showing 1401–1600 of 2295</span>
+        <span class="right">showing 1401–1600 of 2296</span>
       </div>
 
       <table class="gr-table">
@@ -35,10 +38,29 @@
             <tr class="gr-month-row">
               <td colspan="4">
                 April 2026
-                <span>200 commits · 114 public</span>
+                <span>200 commits · 113 public</span>
               </td>
             </tr>
 <tr class="named">
+    <td class="when">2026-04-25 17:31</td>
+
+  <td class="repo">
+      lua-csharp-pixel-ipc
+  </td>
+
+  <td class="msg">
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text redact" aria-label="redacted message" role="img">tidy bootstrapper, restructure filter</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
+  </td>
+
+  <td class="sha">
+      <span class="redact" aria-label="redacted sha" role="img">4f54766</span>
+  </td>
+</tr><tr class="named">
     <td class="when">2026-04-25 17:31</td>
 
   <td class="repo">
@@ -46,7 +68,12 @@
   </td>
 
   <td class="msg">
-      <span class="redact" aria-label="redacted message" role="img">wip: split encoder and cleanup schema</span>
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text redact" aria-label="redacted message" role="img">wip: split encoder and cleanup schema</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -60,7 +87,12 @@
   </td>
 
   <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">move store so controller can throttle decoder</span>
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text redact-strong" aria-label="redacted message" role="img">move store so controller can throttle decoder</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -74,7 +106,12 @@
   </td>
 
   <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">loosen builder, merge facade</span>
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text redact-strong" aria-label="redacted message" role="img">loosen builder, merge facade</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -88,7 +125,12 @@
   </td>
 
   <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">tweak helper</span>
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text redact-strong" aria-label="redacted message" role="img">tweak helper</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -102,7 +144,12 @@
   </td>
 
   <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">wrap context for ledger</span>
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text redact-strong" aria-label="redacted message" role="img">wrap context for ledger</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -116,7 +163,12 @@
   </td>
 
   <td class="msg">
-      <span class="redact" aria-label="redacted message" role="img">fix missing decoder when producer changes</span>
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text redact" aria-label="redacted message" role="img">fix missing decoder when producer changes</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -130,7 +182,12 @@
   </td>
 
   <td class="msg">
-      <span class="redact" aria-label="redacted message" role="img">loosen router (tighter)</span>
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text redact" aria-label="redacted message" role="img">loosen router (tighter)</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -144,7 +201,12 @@
   </td>
 
   <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">throttle minor parser in store</span>
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text redact-strong" aria-label="redacted message" role="img">throttle minor parser in store</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -158,7 +220,12 @@
   </td>
 
   <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">wip: restructure the stale guard</span>
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text redact-strong" aria-label="redacted message" role="img">wip: restructure the stale guard</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -172,7 +239,12 @@
   </td>
 
   <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">improve context so channel can wire util</span>
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text redact-strong" aria-label="redacted message" role="img">improve context so channel can wire util</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -186,7 +258,12 @@
   </td>
 
   <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">test: rework router</span>
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text redact-strong" aria-label="redacted message" role="img">test: rework router</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -200,7 +277,12 @@
   </td>
 
   <td class="msg">
-      <span class="redact" aria-label="redacted message" role="img">docs: init leaky filter in guard</span>
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text redact" aria-label="redacted message" role="img">docs: init leaky filter in guard</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -214,7 +296,12 @@
   </td>
 
   <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">fix: extract fallback and extract parser</span>
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text redact-strong" aria-label="redacted message" role="img">fix: extract fallback and extract parser</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -228,7 +315,12 @@
   </td>
 
   <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">vendor queue (spurious)</span>
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text redact-strong" aria-label="redacted message" role="img">vendor queue (spurious)</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -242,7 +334,12 @@
   </td>
 
   <td class="msg">
-      <span class="redact" aria-label="redacted message" role="img">update util</span>
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text redact" aria-label="redacted message" role="img">update util</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -256,7 +353,12 @@
   </td>
 
   <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">trim dispatcher for registry</span>
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text redact-strong" aria-label="redacted message" role="img">trim dispatcher for registry</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -270,7 +372,12 @@
   </td>
 
   <td class="msg">
-      <span class="redact" aria-label="redacted message" role="img">fix: restructure flaky helper</span>
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text redact" aria-label="redacted message" role="img">fix: restructure flaky helper</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -284,7 +391,12 @@
   </td>
 
   <td class="msg">
-      <span class="redact" aria-label="redacted message" role="img">init redundant registry</span>
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text redact" aria-label="redacted message" role="img">init redundant registry</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -298,7 +410,12 @@
   </td>
 
   <td class="msg">
-      <span class="redact" aria-label="redacted message" role="img">wip: cleanup queue so shim can fix store</span>
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text redact" aria-label="redacted message" role="img">wip: cleanup queue so shim can fix store</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -312,7 +429,12 @@
   </td>
 
   <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">remove validator for model</span>
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text redact-strong" aria-label="redacted message" role="img">remove validator for model</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -326,7 +448,12 @@
   </td>
 
   <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">test: init worker, restructure adapter</span>
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text redact-strong" aria-label="redacted message" role="img">test: init worker, restructure adapter</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -340,7 +467,12 @@
   </td>
 
   <td class="msg">
-      <span class="redact" aria-label="redacted message" role="img">test: refactor lenient validator</span>
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text redact" aria-label="redacted message" role="img">test: refactor lenient validator</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -354,7 +486,12 @@
   </td>
 
   <td class="msg">
-      <span class="redact" aria-label="redacted message" role="img">refactor: remove lingering session</span>
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text redact" aria-label="redacted message" role="img">refactor: remove lingering session</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -368,7 +505,12 @@
   </td>
 
   <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">chore: remove registry so reader can rebuild helper</span>
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text redact-strong" aria-label="redacted message" role="img">chore: remove registry so reader can rebuild helper</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -382,7 +524,12 @@
   </td>
 
   <td class="msg">
-      docs: add design spec and implementation plan
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">docs: add design spec and implementation plan</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -396,7 +543,12 @@
   </td>
 
   <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">bump controller and update helper</span>
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text redact-strong" aria-label="redacted message" role="img">bump controller and update helper</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -410,7 +562,12 @@
   </td>
 
   <td class="msg">
-      chore: gitignore scratch files and egg-info
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">chore: gitignore scratch files and egg-info</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -424,7 +581,12 @@
   </td>
 
   <td class="msg">
-      chore: prep for public release
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">chore: prep for public release</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -438,7 +600,12 @@
   </td>
 
   <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">noop</span>
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text redact-strong" aria-label="redacted message" role="img">noop</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -452,7 +619,12 @@
   </td>
 
   <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">feat: harden the silent controller</span>
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text redact-strong" aria-label="redacted message" role="img">feat: harden the silent controller</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -466,7 +638,12 @@
   </td>
 
   <td class="msg">
-      deploy: 8152f6901d2bcf338c6f8821120d8c29fa7fbef1
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">deploy: 8152f6901d2bcf338c6f8821120d8c29fa7fbef1</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -480,7 +657,12 @@
   </td>
 
   <td class="msg">
-      feat: base mode, tiers, and half_wall stacking (#28)
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">feat: base mode, tiers, and half_wall stacking (#28)</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -494,7 +676,12 @@
   </td>
 
   <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">minor cleanup</span>
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text redact-strong" aria-label="redacted message" role="img">minor cleanup</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -508,7 +695,12 @@
   </td>
 
   <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">docs: add stale handler in channel</span>
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text redact-strong" aria-label="redacted message" role="img">docs: add stale handler in channel</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -522,7 +714,12 @@
   </td>
 
   <td class="msg">
-      feat: enforce single running instance via named mutex (#1)
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">feat: enforce single running instance via named mutex (#1)</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -536,7 +733,12 @@
   </td>
 
   <td class="msg">
-      feat: enforce single running instance via named mutex
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">feat: enforce single running instance via named mutex</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -550,7 +752,12 @@
   </td>
 
   <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">wrap model, harden model</span>
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text redact-strong" aria-label="redacted message" role="img">wrap model, harden model</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -564,7 +771,12 @@
   </td>
 
   <td class="msg">
-      gitlab-deploy-bar: resolve branch name for MR-pipeline deploys (v1.15)
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">gitlab-deploy-bar: resolve branch name for MR-pipeline deploys (v1.15)</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -578,7 +790,12 @@
   </td>
 
   <td class="msg">
-      Revert &#34;Resolve MR source branch for MR-pipeline deploys&#34;
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">Revert &#34;Resolve MR source branch for MR-pipeline deploys&#34;</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -592,7 +809,12 @@
   </td>
 
   <td class="msg">
-      Resolve MR source branch for MR-pipeline deploys
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">Resolve MR source branch for MR-pipeline deploys</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -606,7 +828,12 @@
   </td>
 
   <td class="msg">
-      Add BattleMetrics Wipe Stats userscript
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">Add BattleMetrics Wipe Stats userscript</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -620,7 +847,12 @@
   </td>
 
   <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">simplify session, inline worker</span>
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text redact-strong" aria-label="redacted message" role="img">simplify session, inline worker</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -634,7 +866,12 @@
   </td>
 
   <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">test: init consumer for queue</span>
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text redact-strong" aria-label="redacted message" role="img">test: init consumer for queue</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -648,7 +885,12 @@
   </td>
 
   <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">merge watcher and simplify runner</span>
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text redact-strong" aria-label="redacted message" role="img">merge watcher and simplify runner</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -662,7 +904,12 @@
   </td>
 
   <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">move early renderer</span>
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text redact-strong" aria-label="redacted message" role="img">move early renderer</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -676,7 +923,12 @@
   </td>
 
   <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">init leaky guard in adapter</span>
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text redact-strong" aria-label="redacted message" role="img">init leaky guard in adapter</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -690,7 +942,12 @@
   </td>
 
   <td class="msg">
-      Add GitLab Deploy Bar userscript
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">Add GitLab Deploy Bar userscript</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -704,7 +961,12 @@
   </td>
 
   <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">refactor: guard silent model</span>
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text redact-strong" aria-label="redacted message" role="img">refactor: guard silent model</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -718,7 +980,12 @@
   </td>
 
   <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">wip: bump stricter channel in util</span>
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text redact-strong" aria-label="redacted message" role="img">wip: bump stricter channel in util</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -732,7 +999,12 @@
   </td>
 
   <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">feat: guard mailer in helper</span>
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text redact-strong" aria-label="redacted message" role="img">feat: guard mailer in helper</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -746,7 +1018,12 @@
   </td>
 
   <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">test: tidy guard in renderer</span>
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text redact-strong" aria-label="redacted message" role="img">test: tidy guard in renderer</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -760,7 +1037,12 @@
   </td>
 
   <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">chore: add bootstrapper in fallback</span>
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text redact-strong" aria-label="redacted message" role="img">chore: add bootstrapper in fallback</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -774,7 +1056,12 @@
   </td>
 
   <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">tmp</span>
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text redact-strong" aria-label="redacted message" role="img">tmp</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -788,7 +1075,12 @@
   </td>
 
   <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">wip: rework duplicate schema for the leaky indexer</span>
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text redact-strong" aria-label="redacted message" role="img">wip: rework duplicate schema for the leaky indexer</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -802,7 +1094,12 @@
   </td>
 
   <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">wip: rebuild the stricter shim</span>
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text redact-strong" aria-label="redacted message" role="img">wip: rebuild the stricter shim</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -816,7 +1113,12 @@
   </td>
 
   <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">extract tighter guard for the flaky loader</span>
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text redact-strong" aria-label="redacted message" role="img">extract tighter guard for the flaky loader</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -830,7 +1132,12 @@
   </td>
 
   <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">fix parser in reader</span>
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text redact-strong" aria-label="redacted message" role="img">fix parser in reader</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -844,7 +1151,12 @@
   </td>
 
   <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">chore: split reader and polish model</span>
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text redact-strong" aria-label="redacted message" role="img">chore: split reader and polish model</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -858,7 +1170,12 @@
   </td>
 
   <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">drop watcher for util</span>
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text redact-strong" aria-label="redacted message" role="img">drop watcher for util</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -872,7 +1189,12 @@
   </td>
 
   <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">fix: trim leaky loader for the verbose writer</span>
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text redact-strong" aria-label="redacted message" role="img">fix: trim leaky loader for the verbose writer</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -886,7 +1208,12 @@
   </td>
 
   <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">polish stream and expose client</span>
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text redact-strong" aria-label="redacted message" role="img">polish stream and expose client</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -900,7 +1227,12 @@
   </td>
 
   <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">minor cleanup</span>
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text redact-strong" aria-label="redacted message" role="img">minor cleanup</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -914,7 +1246,12 @@
   </td>
 
   <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">fix: bump pipeline and harden cache</span>
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text redact-strong" aria-label="redacted message" role="img">fix: bump pipeline and harden cache</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -928,7 +1265,12 @@
   </td>
 
   <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">wip: debounce manager, harden queue</span>
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text redact-strong" aria-label="redacted message" role="img">wip: debounce manager, harden queue</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -942,7 +1284,12 @@
   </td>
 
   <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">migrate service (minor)</span>
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text redact-strong" aria-label="redacted message" role="img">migrate service (minor)</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -956,7 +1303,12 @@
   </td>
 
   <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">refactor: wrap early reader</span>
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text redact-strong" aria-label="redacted message" role="img">refactor: wrap early reader</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -970,7 +1322,12 @@
   </td>
 
   <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">merge missing fallback for the silent supervisor</span>
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text redact-strong" aria-label="redacted message" role="img">merge missing fallback for the silent supervisor</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -984,7 +1341,12 @@
   </td>
 
   <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">fix: extract the tighter filter</span>
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text redact-strong" aria-label="redacted message" role="img">fix: extract the tighter filter</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -998,7 +1360,12 @@
   </td>
 
   <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">docs: bump lingering context when validator changes</span>
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text redact-strong" aria-label="redacted message" role="img">docs: bump lingering context when validator changes</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -1012,7 +1379,12 @@
   </td>
 
   <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">fix: merge stricter queue in loader</span>
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text redact-strong" aria-label="redacted message" role="img">fix: merge stricter queue in loader</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -1026,7 +1398,12 @@
   </td>
 
   <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">test: debounce early router</span>
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text redact-strong" aria-label="redacted message" role="img">test: debounce early router</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -1040,7 +1417,12 @@
   </td>
 
   <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">tighten the tighter stream</span>
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text redact-strong" aria-label="redacted message" role="img">tighten the tighter stream</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -1054,7 +1436,12 @@
   </td>
 
   <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">refactor: rename router for util</span>
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text redact-strong" aria-label="redacted message" role="img">refactor: rename router for util</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -1068,7 +1455,12 @@
   </td>
 
   <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">chore: add router for store</span>
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text redact-strong" aria-label="redacted message" role="img">chore: add router for store</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -1082,7 +1474,12 @@
   </td>
 
   <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">polish</span>
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text redact-strong" aria-label="redacted message" role="img">polish</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -1096,7 +1493,12 @@
   </td>
 
   <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">chore: optimize router</span>
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text redact-strong" aria-label="redacted message" role="img">chore: optimize router</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -1110,7 +1512,12 @@
   </td>
 
   <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">test: fix renderer, trim session</span>
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text redact-strong" aria-label="redacted message" role="img">test: fix renderer, trim session</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -1124,7 +1531,12 @@
   </td>
 
   <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">rework adapter in facade</span>
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text redact-strong" aria-label="redacted message" role="img">rework adapter in facade</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -1138,7 +1550,12 @@
   </td>
 
   <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">fix: migrate minor worker in util</span>
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text redact-strong" aria-label="redacted message" role="img">fix: migrate minor worker in util</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -1152,7 +1569,12 @@
   </td>
 
   <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">feat: rename the leaky task</span>
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text redact-strong" aria-label="redacted message" role="img">feat: rename the leaky task</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -1166,7 +1588,12 @@
   </td>
 
   <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">wip: extract obsolete config</span>
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text redact-strong" aria-label="redacted message" role="img">wip: extract obsolete config</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -1180,7 +1607,12 @@
   </td>
 
   <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">wip: tighten runner</span>
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text redact-strong" aria-label="redacted message" role="img">wip: tighten runner</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -1194,7 +1626,12 @@
   </td>
 
   <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">test: guard config (unused)</span>
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text redact-strong" aria-label="redacted message" role="img">test: guard config (unused)</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -1208,7 +1645,12 @@
   </td>
 
   <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">migrate worker for ledger</span>
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text redact-strong" aria-label="redacted message" role="img">migrate worker for ledger</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -1222,7 +1664,12 @@
   </td>
 
   <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">rework ledger in validator</span>
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text redact-strong" aria-label="redacted message" role="img">rework ledger in validator</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -1236,7 +1683,12 @@
   </td>
 
   <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">chore: tweak adapter (stale)</span>
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text redact-strong" aria-label="redacted message" role="img">chore: tweak adapter (stale)</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -1250,7 +1702,12 @@
   </td>
 
   <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">chore: inline the minor filter</span>
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text redact-strong" aria-label="redacted message" role="img">chore: inline the minor filter</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -1264,7 +1721,12 @@
   </td>
 
   <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">fix: optimize early session in fallback</span>
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text redact-strong" aria-label="redacted message" role="img">fix: optimize early session in fallback</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -1278,7 +1740,12 @@
   </td>
 
   <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">feat: deprecate manager (missing)</span>
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text redact-strong" aria-label="redacted message" role="img">feat: deprecate manager (missing)</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -1292,7 +1759,12 @@
   </td>
 
   <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">inline shim so controller can remove manager</span>
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text redact-strong" aria-label="redacted message" role="img">inline shim so controller can remove manager</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -1306,7 +1778,12 @@
   </td>
 
   <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">todo</span>
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text redact-strong" aria-label="redacted message" role="img">todo</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -1320,7 +1797,12 @@
   </td>
 
   <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">refactor: wire runner so renderer can merge config</span>
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text redact-strong" aria-label="redacted message" role="img">refactor: wire runner so renderer can merge config</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -1334,7 +1816,12 @@
   </td>
 
   <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">tighten mailer and deprecate session</span>
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text redact-strong" aria-label="redacted message" role="img">tighten mailer and deprecate session</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -1348,7 +1835,12 @@
   </td>
 
   <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">chore: inline watcher</span>
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text redact-strong" aria-label="redacted message" role="img">chore: inline watcher</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -1362,7 +1854,12 @@
   </td>
 
   <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">chore: optimize unused stream for the broken client</span>
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text redact-strong" aria-label="redacted message" role="img">chore: optimize unused stream for the broken client</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -1376,7 +1873,12 @@
   </td>
 
   <td class="msg">
-      deploy: f945fd7108c9d790d2d22a50ac64f949b7ba90b1
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">deploy: f945fd7108c9d790d2d22a50ac64f949b7ba90b1</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -1390,7 +1892,12 @@
   </td>
 
   <td class="msg">
-      fix: enable ghost snapping on top floor for low walls
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">fix: enable ghost snapping on top floor for low walls</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -1404,7 +1911,12 @@
   </td>
 
   <td class="msg">
-      deploy: 3797edbbfcdd5232122d383fa31581baca0f69e3
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">deploy: 3797edbbfcdd5232122d383fa31581baca0f69e3</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -1418,7 +1930,12 @@
   </td>
 
   <td class="msg">
-      feat: allow low walls on topmost floor
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">feat: allow low walls on topmost floor</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -1432,7 +1949,12 @@
   </td>
 
   <td class="msg">
-      deploy: 2b596a356284a8d8b8f47262a29f9b31fe48336f
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">deploy: 2b596a356284a8d8b8f47262a29f9b31fe48336f</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -1446,7 +1968,12 @@
   </td>
 
   <td class="msg">
-      feat: compress share URLs with deflate and compact encoding
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">feat: compress share URLs with deflate and compact encoding</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -1460,7 +1987,12 @@
   </td>
 
   <td class="msg">
-      deploy: d95f41d93849ef66e0afd5e711dd135fb575d66b
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">deploy: d95f41d93849ef66e0afd5e711dd135fb575d66b</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -1474,7 +2006,12 @@
   </td>
 
   <td class="msg">
-      fix: scale down UI for 100% browser zoom, remove land planner link
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">fix: scale down UI for 100% browser zoom, remove land planner link</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -1488,7 +2025,12 @@
   </td>
 
   <td class="msg">
-      deploy: d4eb19b8055d0e4415b9c74ec6adc51083a43e92
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">deploy: d4eb19b8055d0e4415b9c74ec6adc51083a43e92</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -1502,7 +2044,12 @@
   </td>
 
   <td class="msg">
-      chore: rename package to rust-naval-boat-builder, bump to v1.0.0
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">chore: rename package to rust-naval-boat-builder, bump to v1.0.0</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -1516,7 +2063,12 @@
   </td>
 
   <td class="msg">
-      deploy: 6278f7a4b0eb9fc8765ed5e0479237422095ae19
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">deploy: 6278f7a4b0eb9fc8765ed5e0479237422095ae19</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -1530,7 +2082,12 @@
   </td>
 
   <td class="msg">
-      chore: prepare repo for public — add LICENSE, README, merge test dirs, fix build
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">chore: prepare repo for public — add LICENSE, README, merge test dirs, fix build</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -1544,7 +2101,12 @@
   </td>
 
   <td class="msg">
-      feat(#26): expand stats widget with hp, mass, speed, raid cost (#27)
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">feat(#26): expand stats widget with hp, mass, speed, raid cost (#27)</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -1558,7 +2120,12 @@
   </td>
 
   <td class="msg">
-      feat: UI enhancements: larger toolbars, camera hints, model fixes
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">feat: UI enhancements: larger toolbars, camera hints, model fixes</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -1572,7 +2139,12 @@
   </td>
 
   <td class="msg">
-      feat(#21,#22): wall stacking, floor snapping, and wall variant models (#23)
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">feat(#21,#22): wall stacking, floor snapping, and wall variant models (#23)</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -1586,7 +2158,12 @@
   </td>
 
   <td class="msg">
-      deploy: e7b46bdab3cd382c1ae93b95063cfa4c56fef957
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">deploy: e7b46bdab3cd382c1ae93b95063cfa4c56fef957</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -1600,7 +2177,12 @@
   </td>
 
   <td class="msg">
-      fix: prevent placement on camera drag, render floor frames as cutouts (#20)
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">fix: prevent placement on camera drag, render floor frames as cutouts (#20)</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -1614,7 +2196,12 @@
   </td>
 
   <td class="msg">
-      deploy: 0316f99f79c893dca1d165df74a89f950a3feb9d
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">deploy: 0316f99f79c893dca1d165df74a89f950a3feb9d</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -1628,7 +2215,12 @@
   </td>
 
   <td class="msg">
-      feat(#16): improve styling — wood textures, naval blue buildable area, cost widget, hull height fix (#19)
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">feat(#16): improve styling — wood textures, naval blue buildable area, cost widget, hull height fix (#19)</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -1642,7 +2234,12 @@
   </td>
 
   <td class="msg">
-      deploy: 4f4aba5504d784a72e8b302c4be2f20a2aa04cc0
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">deploy: 4f4aba5504d784a72e8b302c4be2f20a2aa04cc0</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -1656,7 +2253,12 @@
   </td>
 
   <td class="msg">
-      feat(#13): snap squares to triangle edges + fix deploy (#14) (#15)
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">feat(#13): snap squares to triangle edges + fix deploy (#14) (#15)</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -1670,7 +2272,12 @@
   </td>
 
   <td class="msg">
-      feat(#11): hex-based triangle snapping system (#12)
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">feat(#11): hex-based triangle snapping system (#12)</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -1684,7 +2291,12 @@
   </td>
 
   <td class="msg">
-      deploy: 4074db4caedaf82aa85b84880764cde8481bb46c
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">deploy: 4074db4caedaf82aa85b84880764cde8481bb46c</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -1698,7 +2310,12 @@
   </td>
 
   <td class="msg">
-      fix: triangle pieces and stairs shapes (#9) (#10)
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">fix: triangle pieces and stairs shapes (#9) (#10)</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -1712,7 +2329,12 @@
   </td>
 
   <td class="msg">
-      deploy: 18ee73e72196eb62b0fd11b6c5a1b692e7a52018
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">deploy: 18ee73e72196eb62b0fd11b6c5a1b692e7a52018</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -1726,7 +2348,12 @@
   </td>
 
   <td class="msg">
-      feat: click to select piece, Delete key to remove (#7)
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">feat: click to select piece, Delete key to remove (#7)</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -1740,7 +2367,12 @@
   </td>
 
   <td class="msg">
-      deploy: 1dcab817bea149affbfb5fd662894efaba5ec133
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">deploy: 1dcab817bea149affbfb5fd662894efaba5ec133</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -1754,7 +2386,12 @@
   </td>
 
   <td class="msg">
-      deploy: 288bde31ab7acc32a0cd1a990405146985732539
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">deploy: 288bde31ab7acc32a0cd1a990405146985732539</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -1768,7 +2405,12 @@
   </td>
 
   <td class="msg">
-      feat: add Ctrl+Z undo and Ctrl+Y redo for piece operations (#6)
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">feat: add Ctrl+Z undo and Ctrl+Y redo for piece operations (#6)</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -1782,7 +2424,12 @@
   </td>
 
   <td class="msg">
-      fix: right-click to delete placed pieces (#5)
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">fix: right-click to delete placed pieces (#5)</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -1796,7 +2443,12 @@
   </td>
 
   <td class="msg">
-      deploy: 014577082ea34c2058898f0b16d70861028dc5d1
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">deploy: 014577082ea34c2058898f0b16d70861028dc5d1</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -1810,7 +2462,12 @@
   </td>
 
   <td class="msg">
-      feat: distinct window and doorway models with cutout shapes (#4)
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">feat: distinct window and doorway models with cutout shapes (#4)</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -1824,7 +2481,12 @@
   </td>
 
   <td class="msg">
-      deploy: 632d5a737077a83fb5faa2b5c955751f5de3ad0e
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">deploy: 632d5a737077a83fb5faa2b5c955751f5de3ad0e</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -1838,7 +2500,12 @@
   </td>
 
   <td class="msg">
-      feat: angle default camera to show 3D depth (#3)
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">feat: angle default camera to show 3D depth (#3)</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -1852,7 +2519,12 @@
   </td>
 
   <td class="msg">
-      deploy: 069929c9a62b754258bc2e08a0aca20d8fd9ce79
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">deploy: 069929c9a62b754258bc2e08a0aca20d8fd9ce79</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -1866,7 +2538,12 @@
   </td>
 
   <td class="msg">
-      style: brighten colour palette from dark browns to warm timber tones (#2)
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">style: brighten colour palette from dark browns to warm timber tones (#2)</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -1880,7 +2557,12 @@
   </td>
 
   <td class="msg">
-      deploy: 740f87a9222df0914fc8ad263e619742771b7cda
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">deploy: 740f87a9222df0914fc8ad263e619742771b7cda</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -1894,7 +2576,12 @@
   </td>
 
   <td class="msg">
-      feat: add edge placement for walls and stylized piece rendering
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">feat: add edge placement for walls and stylized piece rendering</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -1908,7 +2595,12 @@
   </td>
 
   <td class="msg">
-      fix: render single HitPlane at correct floor based on piece constraint and visibility
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">fix: render single HitPlane at correct floor based on piece constraint and visibility</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -1922,7 +2614,12 @@
   </td>
 
   <td class="msg">
-      feat: wire Share, Clear, Reset Camera, persistence, and Escape key in App
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">feat: wire Share, Clear, Reset Camera, persistence, and Escape key in App</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -1936,7 +2633,12 @@
   </td>
 
   <td class="msg">
-      feat: add ghost piece preview and click-to-place interaction
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">feat: add ghost piece preview and click-to-place interaction</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -1950,7 +2652,12 @@
   </td>
 
   <td class="msg">
-      feat: render placed pieces in 3D scene, delete on click in select mode
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">feat: render placed pieces in 3D scene, delete on click in select mode</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -1964,7 +2671,12 @@
   </td>
 
   <td class="msg">
-      feat: add R3F viewport with hull mesh, scene grid, and orbit controls
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">feat: add R3F viewport with hull mesh, scene grid, and orbit controls</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -1978,7 +2690,12 @@
   </td>
 
   <td class="msg">
-      feat: add CostBar component with live material totals
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">feat: add CostBar component with live material totals</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -1992,7 +2709,12 @@
   </td>
 
   <td class="msg">
-      feat: add Sidebar component with piece picker and floor toggles
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">feat: add Sidebar component with piece picker and floor toggles</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -2006,7 +2728,12 @@
   </td>
 
   <td class="msg">
-      feat: add TopBar component
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">feat: add TopBar component</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -2020,7 +2747,12 @@
   </td>
 
   <td class="msg">
-      feat: add app layout shell with global reset and flex layout
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">feat: add app layout shell with global reset and flex layout</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -2034,7 +2766,12 @@
   </td>
 
   <td class="msg">
-      feat: add usePersistence hook for localStorage and URL hash restore
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">feat: add usePersistence hook for localStorage and URL hash restore</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -2048,7 +2785,12 @@
   </td>
 
   <td class="msg">
-      feat: add Zustand store with piece placement and coordinate index
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">feat: add Zustand store with piece placement and coordinate index</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -2062,7 +2804,12 @@
   </td>
 
   <td class="msg">
-      feat: add serialization utility for URL hash encoding
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">feat: add serialization utility for URL hash encoding</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -2076,7 +2823,12 @@
   </td>
 
   <td class="msg">
-      feat: add costs utility
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">feat: add costs utility</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -2090,7 +2842,12 @@
   </td>
 
   <td class="msg">
-      feat: add coordinateKey and validation utilities
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">feat: add coordinateKey and validation utilities</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -2104,7 +2861,12 @@
   </td>
 
   <td class="msg">
-      feat: add pieces-config.json with all piece definitions and costs
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">feat: add pieces-config.json with all piece definitions and costs</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -2118,7 +2880,12 @@
   </td>
 
   <td class="msg">
-      feat: add shared TypeScript types
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">feat: add shared TypeScript types</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -2132,7 +2899,12 @@
   </td>
 
   <td class="msg">
-      ci: add GitHub Actions deploy to GitHub Pages
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">ci: add GitHub Actions deploy to GitHub Pages</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -2146,7 +2918,12 @@
   </td>
 
   <td class="msg">
-      chore: install deps, configure Vitest with jsdom
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">chore: install deps, configure Vitest with jsdom</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -2160,7 +2937,12 @@
   </td>
 
   <td class="msg">
-      chore: untrack docs and .claude, update gitignore
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">chore: untrack docs and .claude, update gitignore</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -2174,7 +2956,12 @@
   </td>
 
   <td class="msg">
-      chore: scaffold Vite + React + TypeScript project
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">chore: scaffold Vite + React + TypeScript project</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -2188,7 +2975,12 @@
   </td>
 
   <td class="msg">
-      chore: initial commit with gitignore
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">chore: initial commit with gitignore</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -2202,7 +2994,12 @@
   </td>
 
   <td class="msg">
-      fix: Export page button spacing (comp-toolbar / comp-footer)
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">fix: Export page button spacing (comp-toolbar / comp-footer)</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -2216,7 +3013,12 @@
   </td>
 
   <td class="msg">
-      fix: review segments stacking horizontally instead of per line
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">fix: review segments stacking horizontally instead of per line</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -2230,7 +3032,12 @@
   </td>
 
   <td class="msg">
-      Fix review segments stacking horizontally instead of per-line
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">Fix review segments stacking horizontally instead of per-line</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -2244,7 +3051,12 @@
   </td>
 
   <td class="msg">
-      Fix missing CSS for comp-toolbar and comp-footer on Export page
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">Fix missing CSS for comp-toolbar and comp-footer on Export page</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -2258,7 +3070,12 @@
   </td>
 
   <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">simplify wrapper for session</span>
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text redact-strong" aria-label="redacted message" role="img">simplify wrapper for session</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -2272,7 +3089,12 @@
   </td>
 
   <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">chore: debounce config, update shim</span>
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text redact-strong" aria-label="redacted message" role="img">chore: debounce config, update shim</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -2286,7 +3108,12 @@
   </td>
 
   <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">improve guard in fallback</span>
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text redact-strong" aria-label="redacted message" role="img">improve guard in fallback</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -2300,7 +3127,12 @@
   </td>
 
   <td class="msg">
-      docs: add README and screenshots
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">docs: add README and screenshots</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -2314,7 +3146,12 @@
   </td>
 
   <td class="msg">
-      chore: remove .claude from source control
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">chore: remove .claude from source control</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -2328,7 +3165,12 @@
   </td>
 
   <td class="msg">
-      chore: remove todo notes from source control
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">chore: remove todo notes from source control</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -2342,7 +3184,12 @@
   </td>
 
   <td class="msg">
-      docs: add README with screenshots and usage guide
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">docs: add README with screenshots and usage guide</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -2356,7 +3203,12 @@
   </td>
 
   <td class="msg">
-      feat: add trim quality selector (copy/precise/ultra) to review tab
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">feat: add trim quality selector (copy/precise/ultra) to review tab</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -2370,7 +3222,12 @@
   </td>
 
   <td class="msg">
-      feat: add storage summary bar, file sizes, delete-encoded, and source videos section to Export tab
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">feat: add storage summary bar, file sizes, delete-encoded, and source videos section to Export tab</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -2384,7 +3241,12 @@
   </td>
 
   <td class="msg">
-      feat: add multi-segment quality modes (copy/precise/ultra) to keep endpoint
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">feat: add multi-segment quality modes (copy/precise/ultra) to keep endpoint</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -2398,7 +3260,12 @@
   </td>
 
   <td class="msg">
-      fix: use -c copy for single-segment trim to avoid quality loss
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">fix: use -c copy for single-segment trim to avoid quality loss</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -2412,7 +3279,12 @@
   </td>
 
   <td class="msg">
-      feat: add DELETE /api/encoded endpoint and clear_clip_encoding
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">feat: add DELETE /api/encoded endpoint and clear_clip_encoding</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -2426,7 +3298,12 @@
   </td>
 
   <td class="msg">
-      feat: add size_mb and encoded_size_mb to /api/kept response
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">feat: add size_mb and encoded_size_mb to /api/kept response</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -2440,7 +3317,12 @@
   </td>
 
   <td class="msg">
-      fix: exclude json sidecars from storage summary count, improve test coverage
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">fix: exclude json sidecars from storage summary count, improve test coverage</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -2454,7 +3336,12 @@
   </td>
 
   <td class="msg">
-      feat: add GET /api/storage-summary endpoint
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">feat: add GET /api/storage-summary endpoint</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -2468,7 +3355,12 @@
   </td>
 
   <td class="msg">
-      chore: add .worktrees/ to .gitignore
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">chore: add .worktrees/ to .gitignore</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -2482,7 +3374,12 @@
   </td>
 
   <td class="msg">
-      docs: add export UX and trim quality implementation plan
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">docs: add export UX and trim quality implementation plan</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -2496,7 +3393,12 @@
   </td>
 
   <td class="msg">
-      docs: add export UX improvements and trim quality design spec
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">docs: add export UX improvements and trim quality design spec</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -2510,7 +3412,12 @@
   </td>
 
   <td class="msg">
-      fix: use data-stem pattern for folder button, prevent modal stacking
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">fix: use data-stem pattern for folder button, prevent modal stacking</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -2524,7 +3431,12 @@
   </td>
 
   <td class="msg">
-      feat: add folder explore button and clip preview modal to export page
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">feat: add folder explore button and clip preview modal to export page</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -2538,7 +3450,12 @@
   </td>
 
   <td class="msg">
-      fix: sort review clips by date processed (newest first) then confidence
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">fix: sort review clips by date processed (newest first) then confidence</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -2552,7 +3469,12 @@
   </td>
 
   <td class="msg">
-      fix: remove empty kept/{video_stem} folder after last clip deleted
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">fix: remove empty kept/{video_stem} folder after last clip deleted</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -2566,7 +3488,12 @@
   </td>
 
   <td class="msg">
-      test: fix import placement and mock patch target in TestOpenFolder
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">test: fix import placement and mock patch target in TestOpenFolder</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -2580,7 +3507,12 @@
   </td>
 
   <td class="msg">
-      feat: add GET /api/open-folder/kept/{video_stem} endpoint
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">feat: add GET /api/open-folder/kept/{video_stem} endpoint</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -2594,7 +3526,12 @@
   </td>
 
   <td class="msg">
-      fix: verify source_video path match before using metadata for status
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">fix: verify source_video path match before using metadata for status</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -2608,7 +3545,12 @@
   </td>
 
   <td class="msg">
-      fix: escape double-quotes in data-filename attr, clear stale error spans
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">fix: escape double-quotes in data-filename attr, clear stale error spans</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -2622,7 +3564,12 @@
   </td>
 
   <td class="msg">
-      feat: add folder scan panel with video list and stale candidates to process tab
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">feat: add folder scan panel with video list and stale candidates to process tab</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -2636,7 +3583,12 @@
   </td>
 
   <td class="msg">
-      feat: add scan button and folder scan panel to process tab HTML
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">feat: add scan button and folder scan panel to process tab HTML</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -2650,7 +3602,12 @@
   </td>
 
   <td class="msg">
-      feat: add FolderScanResult types and API helpers
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">feat: add FolderScanResult types and API helpers</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -2664,7 +3621,12 @@
   </td>
 
   <td class="msg">
-      feat: add POST /api/folder-scan/file/delete endpoint
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">feat: add POST /api/folder-scan/file/delete endpoint</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -2678,7 +3640,12 @@
   </td>
 
   <td class="msg">
-      fix: normalize size_mb precision to 1 decimal place, remove unused import
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">fix: normalize size_mb precision to 1 decimal place, remove unused import</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -2692,7 +3659,12 @@
   </td>
 
   <td class="msg">
-      feat: add GET /api/folder-scan endpoint
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">feat: add GET /api/folder-scan endpoint</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -2706,7 +3678,12 @@
   </td>
 
   <td class="msg">
-      docs: add process page enhancements implementation plan
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">docs: add process page enhancements implementation plan</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -2720,7 +3697,12 @@
   </td>
 
   <td class="msg">
-      docs: add process page enhancements design spec
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">docs: add process page enhancements design spec</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -2734,7 +3716,12 @@
   </td>
 
   <td class="msg">
-      test: add multi-segment keep API test
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">test: add multi-segment keep API test</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -2748,7 +3735,12 @@
   </td>
 
   <td class="msg">
-      fix: use _keep_clip helper and @staticmethod in TestCompilationSources
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">fix: use _keep_clip helper and @staticmethod in TestCompilationSources</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -2762,7 +3754,12 @@
   </td>
 
   <td class="msg">
-      test: add API tests for DELETE compilation sources endpoint
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">test: add API tests for DELETE compilation sources endpoint</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -2776,7 +3773,12 @@
   </td>
 
   <td class="msg">
-      fix: set event delegation guard only after container confirmed present
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">fix: set event delegation guard only after container confirmed present</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -2790,7 +3792,12 @@
   </td>
 
   <td class="msg">
-      refactor: replace inline onclick strings with event delegation in review.ts
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">refactor: replace inline onclick strings with event delegation in review.ts</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -2804,7 +3811,12 @@
   </td>
 
   <td class="msg">
-      docs: add implementation plan for event delegation and API test coverage
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">docs: add implementation plan for event delegation and API test coverage</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -2818,25 +3830,16 @@
   </td>
 
   <td class="msg">
-      docs: add design spec for event delegation and test coverage fixes
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">docs: add design spec for event delegation and test coverage fixes</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
       <a class="sha-link" href="https://github.com/curtyo18/ClipCutter/commit/2c47b0e1205196236cc0e86e3c91ed0c3afb8381" target="_blank" rel="noopener noreferrer">2c47b0e</a>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-04-07 21:38</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/ClipCutter" target="_blank" rel="noopener noreferrer">ClipCutter</a>
-  </td>
-
-  <td class="msg">
-      feat: show clip date and add delete button in Export tab
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/ClipCutter/commit/1d22ba83f60f7000c08b57d01b1239ab95e268fc" target="_blank" rel="noopener noreferrer">1d22ba8</a>
   </td>
 </tr>        </tbody>
       </table>
@@ -2866,11 +3869,12 @@
     <a href="https://github.com/curtyo18" target="_blank" rel="noopener noreferrer">github</a> · <a href="mailto:curtyo18@gmail.com">email</a>
   </div>
   <div class="stats" style="align-items:center">
-    <span><b>2,295</b> commits</span>
+    <span><b>2,296</b> commits</span>
     <span><b>79</b> repos</span>
     <span><b>17</b> years</span>
   </div>
 </footer>    </div>
   </div>
+  <script src="expand.js" defer></script>
 </body>
 </html>

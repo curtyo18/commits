@@ -756,6 +756,71 @@ a:hover { color: var(--accent); }
 }
 
 /* ============================================================
+   Commit message expanders
+   ------------------------------------------------------------
+   Long messages (multi-line bodies especially) used to blow out row height,
+   worst on mobile where one commit could fill the viewport. Each message now
+   sits in a <details> clamped to --msg-clamp lines with a "show more" chip.
+   Works with JS off (every row expandable); expand.js narrows the chip down to
+   rows whose text is genuinely cut off by adding .is-clamped.
+   ============================================================ */
+:root {
+  --msg-clamp: 3;
+}
+
+.msg-x > summary {
+  display: block;          /* kills the default disclosure triangle */
+  list-style: none;
+  cursor: pointer;
+}
+.msg-x > summary::-webkit-details-marker { display: none; }
+.msg-x > summary:focus-visible {
+  outline: 1px solid var(--accent);
+  outline-offset: 3px;
+}
+
+.msg-text {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: var(--msg-clamp);
+  overflow: hidden;
+  overflow-wrap: anywhere;
+}
+.msg-x[open] .msg-text {
+  display: block;
+  -webkit-line-clamp: unset;
+  white-space: pre-line;   /* expanded view honours the commit body's own line breaks */
+}
+
+/* The affordance. Small pill in accent so it reads as tappable next to the
+   browser's own clamp ellipsis. */
+.msg-toggle {
+  display: inline-block;
+  margin-top: 6px;
+  padding: 3px 9px;
+  font-size: 10.5px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--accent);
+  border: 1px solid var(--line-soft);
+  transition: color 0.12s, border-color 0.12s, background 0.12s;
+}
+.msg-toggle::after { content: "… show more"; }
+.msg-x[open] .msg-toggle::after { content: "show less"; }
+.msg-x > summary:hover .msg-toggle {
+  border-color: var(--accent);
+  background: var(--surface);
+}
+
+/* JS present: only offer the chip where the text is really cut off (or where
+   the row is already open, so it can be closed again). Everything else is
+   inert — no pointer, no chip. */
+.has-js .msg-toggle { display: none; }
+.has-js .msg-x.is-clamped .msg-toggle,
+.has-js .msg-x[open] .msg-toggle { display: inline-block; }
+.has-js .msg-x:not(.is-clamped):not([open]) > summary { cursor: default; }
+
+/* ============================================================
    Mobile — narrower viewports
    ============================================================ */
 @media (max-width: 720px) {
@@ -815,6 +880,16 @@ a:hover { color: var(--accent); }
     width: 34%;
     word-break: break-word;
   }
+
+  /* Expander chip: the message column is narrow here, so shorten the label
+     and tighten it rather than let it overflow the cell. */
+  .msg-toggle {
+    padding: 4px 7px;
+    font-size: 10px;
+    letter-spacing: 0.06em;
+  }
+  .msg-toggle::after { content: "… more"; }
+  .msg-x[open] .msg-toggle::after { content: "less"; }
 
   /* Pagination: smaller buttons that wrap cleanly. */
   .pager {

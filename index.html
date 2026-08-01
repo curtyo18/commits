@@ -6,6 +6,9 @@
   <base href="./" />
   <title>commits — curt</title>
   <link rel="stylesheet" href="styles.css" />
+  <!-- Set before first paint so the "show more" chips never flash on rows that
+       don't actually overflow. expand.js does the measuring. -->
+  <script>document.documentElement.className += " has-js";</script>
 </head>
 <body>
   <div class="page page-full">
@@ -16,7 +19,7 @@
     <small>curt — a public log of private and public work</small>
   </h1>
   <div class="meta">
-    <span><b>2,295</b> commits indexed</span>
+    <span><b>2,296</b> commits indexed</span>
     <span><b>79</b> repos · <b>17</b> years</span>
   </div>
 </div><div class="gr-section-title">
@@ -24,6 +27,17 @@
 </div>
 
 <div class="gr-featured">
+    <a class="card card-link" href="https://github.com/curtyo18/header-handler" target="_blank" rel="noopener noreferrer">
+      <div class="top">
+        <div class="name">header-handler</div>
+        <div class="lang"></div>
+      </div>
+      <div class="blurb"></div>
+      <div class="foot">
+        <span>79 commits</span>
+        <span>last touched 2026-08-01</span>
+      </div>
+    </a>
     <a class="card card-link" href="https://github.com/curtyo18/peer-poker" target="_blank" rel="noopener noreferrer">
       <div class="top">
         <div class="name">peer-poker</div>
@@ -46,17 +60,6 @@
         <span>last touched 2026-07-28</span>
       </div>
     </a>
-    <a class="card card-link" href="https://github.com/curtyo18/header-handler" target="_blank" rel="noopener noreferrer">
-      <div class="top">
-        <div class="name">header-handler</div>
-        <div class="lang"></div>
-      </div>
-      <div class="blurb"></div>
-      <div class="foot">
-        <span>78 commits</span>
-        <span>last touched 2026-07-26</span>
-      </div>
-    </a>
     <a class="card card-link" href="https://github.com/curtyo18/tampermonkey-scripts" target="_blank" rel="noopener noreferrer">
       <div class="top">
         <div class="name">tampermonkey-scripts</div>
@@ -71,7 +74,7 @@
 </div>
       <div class="gr-section-title" style="margin-top:36px">
         <span>All commits · newest first</span>
-        <span class="right">showing 1–200 of 2295</span>
+        <span class="right">showing 1–200 of 2296</span>
       </div>
 
       <table class="gr-table">
@@ -83,8 +86,36 @@
         <tbody>
             <tr class="gr-month-row">
               <td colspan="4">
+                August 2026
+                <span>1 commits · 1 public</span>
+              </td>
+            </tr>
+<tr class="">
+    <td class="when">2026-08-01 07:17</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/header-handler" target="_blank" rel="noopener noreferrer">header-handler</a>
+  </td>
+
+  <td class="msg">
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">fix(docs): repoint README screenshots to current store images (#36)
+
+The icon-refresh PR deleted the old 3-shot screenshot set without
+updating README&#39;s references, leaving three broken image links.</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/header-handler/commit/0f991e23b12a34e028b1b9f64c61fdb3dd63c374" target="_blank" rel="noopener noreferrer">0f991e2</a>
+  </td>
+</tr>            <tr class="gr-month-row">
+              <td colspan="4">
                 July 2026
-                <span>200 commits · 199 public</span>
+                <span>199 commits · 198 public</span>
               </td>
             </tr>
 <tr class="">
@@ -95,7 +126,9 @@
   </td>
 
   <td class="msg">
-      fix(net): replace dead Open Relay Project TURN creds with own account
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">fix(net): replace dead Open Relay Project TURN creds with own account
 
 Open Relay Project&#39;s shared free TURN credentials were rejecting every
 Allocate request with STUN error 400, so restrictive-NAT guests never
@@ -106,7 +139,10 @@ P2P and never exercised the TURN path, which is why the dead relay
 went unnoticed.
 
 Swaps in a dedicated Metered.ca TURN account so the fallback actually
-works, and amends ADR 0005 with what was found and why.
+works, and amends ADR 0005 with what was found and why.</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -120,7 +156,9 @@ works, and amends ADR 0005 with what was found and why.
   </td>
 
   <td class="msg">
-      fix(reducer): reconcile rejoining participants by name
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">fix(reducer): reconcile rejoining participants by name
 
 Guest PeerJS ids are never persisted across tab reloads, so a closed-then-reopened
 tab arrives with a brand-new peerId. The join reducer deduped strictly by peerId,
@@ -132,7 +170,10 @@ never be hijacked by a same-named join. On merge, also drop any vote left under 
 old peerId on the still-open active item, so a mid-round reconnect can&#39;t leave two
 votes (old + new peerId) for one physical person double-counted in the aggregates —
 already-accepted items are left untouched since their estimate no longer reads from
-votes.
+votes.</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -146,12 +187,17 @@ votes.
   </td>
 
   <td class="msg">
-      docs(copy): hedge the connectivity banner instead of claiming a relay attempt
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">docs(copy): hedge the connectivity banner instead of claiming a relay attempt
 
 The banner fires both after a genuine ICE hang (where a relay attempt
 did happen) and on early broker/socket errors before ICE ever starts
 negotiating (where it didn&#39;t) — &#34;we tried a relay too&#34; asserted an
-attempt that isn&#39;t always true. Hedges to cover both cases.
+attempt that isn&#39;t always true. Hedges to cover both cases.</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -165,7 +211,9 @@ attempt that isn&#39;t always true. Hedges to cover both cases.
   </td>
 
   <td class="msg">
-      fix(net): restore Google STUN alongside the TURN fallback
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">fix(net): restore Google STUN alongside the TURN fallback
 
 The TURN commit dropped Google&#39;s STUN entry entirely instead of adding
 TURN alongside it, contradicting both ADR 0005 and the design spec
@@ -173,7 +221,10 @@ TURN alongside it, contradicting both ADR 0005 and the design spec
 than TURN when a direct path exists) and leaving the in-app privacy
 dialog&#39;s &#34;a second one (Google&#39;s)&#34; claim factually wrong. Also pins
 the STUN test to Google&#39;s specific URL so this can&#39;t silently drift
-again.
+again.</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -187,12 +238,17 @@ again.
   </td>
 
   <td class="msg">
-      docs(adr): record the TURN fallback decision (ADR 0005) plus spec/plan
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">docs(adr): record the TURN fallback decision (ADR 0005) plus spec/plan
 
 Amends ADR 0001 (STUN-only) to note it&#39;s superseded in part by 0005,
 which records adding Open Relay Project&#39;s TURN as a best-effort
 connectivity fallback. Spec and implementation plan capture the design
-that produced the preceding commits on this branch.
+that produced the preceding commits on this branch.</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -206,7 +262,12 @@ that produced the preceding commits on this branch.
   </td>
 
   <td class="msg">
-      docs(privacy): mention the TURN relay fallback in the how-it-works dialog
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">docs(privacy): mention the TURN relay fallback in the how-it-works dialog</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -220,7 +281,12 @@ that produced the preceding commits on this branch.
   </td>
 
   <td class="msg">
-      docs(readme): describe the TURN fallback instead of claiming none exists
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">docs(readme): describe the TURN fallback instead of claiming none exists</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -234,7 +300,12 @@ that produced the preceding commits on this branch.
   </td>
 
   <td class="msg">
-      docs(copy): stop claiming no relay server is used in the connectivity banner
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">docs(copy): stop claiming no relay server is used in the connectivity banner</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -248,7 +319,12 @@ that produced the preceding commits on this branch.
   </td>
 
   <td class="msg">
-      fix(join): route a silent ICE hang to the connectivity banner, not &#39;no answer&#39;
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">fix(join): route a silent ICE hang to the connectivity banner, not &#39;no answer&#39;</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -262,7 +338,12 @@ that produced the preceding commits on this branch.
   </td>
 
   <td class="msg">
-      fix(run-plan): invoke code-review skill after final review instead of ad-hoc reviewer
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">fix(run-plan): invoke code-review skill after final review instead of ad-hoc reviewer</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -276,7 +357,12 @@ that produced the preceding commits on this branch.
   </td>
 
   <td class="msg">
-      feat(net): add TURN relay fallback for restrictive-NAT guests
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">feat(net): add TURN relay fallback for restrictive-NAT guests</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -290,12 +376,17 @@ that produced the preceding commits on this branch.
   </td>
 
   <td class="msg">
-      chore(repo): remove design-handoff export and manual smoke-test doc
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">chore(repo): remove design-handoff export and manual smoke-test doc
 
 design_handoff_peerpoker_redesign/ was a one-off design-tool export (HTML +
 screenshots) from the July 25 UI refresh handoff, not source the app needs.
 SMOKE.md was the only manual two-peer test procedure; removing it along
-with the handoff folder per a straightforward repo-hygiene request.
+with the handoff folder per a straightforward repo-hygiene request.</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -309,11 +400,16 @@ with the handoff folder per a straightforward repo-hygiene request.
   </td>
 
   <td class="msg">
-      feat(footer): add repo link and issue-report footer
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">feat(footer): add repo link and issue-report footer
 
 Gives every screen a quiet &#34;open source, no tracking&#34; footer with a
 link to the repo and a direct path to file an issue, instead of
-neither being discoverable from the app itself.
+neither being discoverable from the app itself.</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -327,13 +423,18 @@ neither being discoverable from the app itself.
   </td>
 
   <td class="msg">
-      fix(favicon): replace off-brand lightning bolt with the app&#39;s P mark
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">fix(favicon): replace off-brand lightning bolt with the app&#39;s P mark
 
 favicon.svg was a leftover scaffold graphic (purple/blue abstract
 shape) unrelated to the product. AppHeader.tsx&#39;s actual logo is a
 gold rounded square with a dark &#34;P&#34; (--color-accent / --color-accent-fg,
 dark theme). The favicon now matches it instead of showing a shape
-users don&#39;t recognize from the app.
+users don&#39;t recognize from the app.</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -347,13 +448,18 @@ users don&#39;t recognize from the app.
   </td>
 
   <td class="msg">
-      fix(favicon): strip display-p3 fill overrides breaking favicon render
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">fix(favicon): strip display-p3 fill overrides breaking favicon render
 
 Every fill in favicon.svg had a fill:color(display-p3 ...) declaration
 appended after the hex fallback. Renderers that don&#39;t support CSS
 Color 4 color() (including the browser&#39;s favicon rasterizer) fail the
 whole shape instead of falling back to the hex value, so the tab
-showed a blank icon and browsers substituted their generic default.
+showed a blank icon and browsers substituted their generic default.</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -367,13 +473,18 @@ showed a blank icon and browsers substituted their generic default.
   </td>
 
   <td class="msg">
-      fix: address review notes on seedDecks resync
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">fix: address review notes on seedDecks resync
 
 Copy built-ins into the returned array instead of splicing in the live
 BUILTIN_DECKS references, so a future in-place mutation of a seeded
 deck can&#39;t corrupt the shared built-in objects for the whole session.
 Also strengthen the new regression test to assert exactly one entry
-survives under the built-in&#39;s id, matching the sibling test&#39;s pattern.
+survives under the built-in&#39;s id, matching the sibling test&#39;s pattern.</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -387,14 +498,19 @@ survives under the built-in&#39;s id, matching the sibling test&#39;s pattern.
   </td>
 
   <td class="msg">
-      fix(decks): resync stale built-in decks on load
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">fix(decks): resync stale built-in decks on load
 
 seedDecks only filled in built-ins a user was missing entirely, so a
 built-in already saved under its id — e.g. everyone&#39;s cached Fibonacci
 deck — never picked up changes to its definition. Adding 0 and 1/2 to
 Fibonacci therefore never reached anyone who had used the app before.
 Built-ins are read-only, so a saved copy is never a user edit; resync
-it to the current definition on every load instead of trusting the cache.
+it to the current definition on every load instead of trusting the cache.</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -408,7 +524,12 @@ it to the current definition on every load instead of trusting the cache.
   </td>
 
   <td class="msg">
-      docs: require conventional commits, forbid AI attribution trailers
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">docs: require conventional commits, forbid AI attribution trailers</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -422,7 +543,12 @@ it to the current definition on every load instead of trusting the cache.
   </td>
 
   <td class="msg">
-      docs(readme): add landing page screenshot
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">docs(readme): add landing page screenshot</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -436,7 +562,9 @@ it to the current definition on every load instead of trusting the cache.
   </td>
 
   <td class="msg">
-      fix: address code review findings on font/deck/autofill PR
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">fix: address code review findings on font/deck/autofill PR
 
 - Fix a stale main.tsx comment left over from the Playfair removal that
   misattributed which font renders app copy vs room codes.
@@ -448,7 +576,10 @@ it to the current definition on every load instead of trusting the cache.
   poker.roomCode, which the table was already missing) in docs/design.md.
 - Note in persistence.ts that the last-room-name/join-code keys
   deliberately outlive a cleared session.
-- Add round-trip tests for the four new persistence exports.
+- Add round-trip tests for the four new persistence exports.</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -462,11 +593,16 @@ it to the current definition on every load instead of trusting the cache.
   </td>
 
   <td class="msg">
-      feat(landing): remember last room name and join code
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">feat(landing): remember last room name and join code
 
 The host&#39;s &#34;room name&#34; field and the join screen&#39;s &#34;room code&#34; field
 both reset on every visit, forcing repeat retyping for the common case
-of rejoining the same recurring room. Persist and prefill both.
+of rejoining the same recurring room. Persist and prefill both.</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -480,11 +616,16 @@ of rejoining the same recurring room. Persist and prefill both.
   </td>
 
   <td class="msg">
-      style(theme): replace Playfair Display with Public Sans for display font
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">style(theme): replace Playfair Display with Public Sans for display font
 
 Playfair Display read poorly across headings and card faces. Point
 --font-display at the Public Sans stack already used for body text
-and drop the now-unused @fontsource/playfair-display dependency.
+and drop the now-unused @fontsource/playfair-display dependency.</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -498,11 +639,16 @@ and drop the now-unused @fontsource/playfair-display dependency.
   </td>
 
   <td class="msg">
-      fix(ui): stop printing the card value twice
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">fix(ui): stop printing the card value twice
 
 PlayingCard rendered the value once as a small corner index and again
 centred, so every face-up card showed its number twice. Drop the
-corner label and the now-unused showCorner prop.
+corner label and the now-unused showCorner prop.</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -516,10 +662,15 @@ corner label and the now-unused showCorner prop.
   </td>
 
   <td class="msg">
-      fix(decks): add 0 and half-point cards to fibonacci sequence
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">fix(decks): add 0 and half-point cards to fibonacci sequence
 
 The built-in Fibonacci deck was missing 0 and 1/2, both standard
-planning-poker cards.
+planning-poker cards.</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -533,10 +684,15 @@ planning-poker cards.
   </td>
 
   <td class="msg">
-      docs(workflow): drop the required AI trailers
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">docs(workflow): drop the required AI trailers
 
 We use plain conventional commits; no Co-Authored-By/Claude-Session
-trailers going forward.
+trailers going forward.</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -550,7 +706,9 @@ trailers going forward.
   </td>
 
   <td class="msg">
-      fix(ui): wrap long room codes on the resume screen too
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">fix(ui): wrap long room codes on the resume screen too
 
 Reviewer caught that ResumeScreen has the identical room-code heading
 as JoinScreen but didn&#39;t get the break-all fix -- roomLabel traces
@@ -558,7 +716,10 @@ back to the same user-typed room name, so the same overflow was
 reachable there.
 
 Co-Authored-By: Claude Sonnet 5 &lt;noreply@anthropic.com&gt;
-Claude-Session: N/A
+Claude-Session: N/A</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -572,7 +733,9 @@ Claude-Session: N/A
   </td>
 
   <td class="msg">
-      fix(ui): wrap long room codes and clear resume state on end session
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">fix(ui): wrap long room codes and clear resume state on end session
 
 JoinScreen&#39;s room-code heading had no wrap control, so a hashed room
 code (32 hex chars from roomIdFromCode) overflowed the invite card on
@@ -588,7 +751,10 @@ matching the existing Discard behavior; accidental tab-close/crash
 recovery (which never calls handleLeave) is unaffected.
 
 Co-Authored-By: Claude Sonnet 5 &lt;noreply@anthropic.com&gt;
-Claude-Session: N/A
+Claude-Session: N/A</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -602,7 +768,9 @@ Claude-Session: N/A
   </td>
 
   <td class="msg">
-      fix(ui): center modal dialogs and drop the duplicate trigger
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">fix(ui): center modal dialogs and drop the duplicate trigger
 
 Tailwind v4&#39;s Preflight resets margin to 0 on every element, which
 clobbered the browser&#39;s native `dialog:modal { margin: auto }` rule
@@ -618,7 +786,10 @@ the one already in AppHeader — Landing rendered both, so the landing
 page had one at the header&#39;s top-right and a redundant copy under the
 join-code form.
 
-Co-Authored-By: Claude Sonnet 5 &lt;noreply@anthropic.com&gt;
+Co-Authored-By: Claude Sonnet 5 &lt;noreply@anthropic.com&gt;</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -632,7 +803,9 @@ Co-Authored-By: Claude Sonnet 5 &lt;noreply@anthropic.com&gt;
   </td>
 
   <td class="msg">
-      fix(entry): remove the landing-banner flash that raced the resume decision
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">fix(entry): remove the landing-banner flash that raced the resume decision
 
 Review of the resume-screen fix flagged a real async race: the landing
 page&#39;s resume banner and the URL-driven entry decision were populated by
@@ -648,7 +821,10 @@ Also drops a line of ResumeScreen copy that pre-explained the Discard
 button redundantly with its own label, matching JoinScreen&#39;s terser body
 text.
 
-Co-Authored-By: Claude Sonnet 5 &lt;noreply@anthropic.com&gt;
+Co-Authored-By: Claude Sonnet 5 &lt;noreply@anthropic.com&gt;</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -662,7 +838,9 @@ Co-Authored-By: Claude Sonnet 5 &lt;noreply@anthropic.com&gt;
   </td>
 
   <td class="msg">
-      fix(entry): give a returning host&#39;s own room link a dedicated resume screen
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">fix(entry): give a returning host&#39;s own room link a dedicated resume screen
 
 Following your own ?room= link routed to `decideEntry`&#39;s &#39;resume&#39; branch,
 but nothing ever switched `mode` away from &#39;landing&#39; for it — only the
@@ -675,7 +853,10 @@ same link.
 layout, still requiring the one deliberate click ADR-0004 calls for —
 this fixes where that offer is shown, not whether it auto-proceeds.
 
-Co-Authored-By: Claude Sonnet 5 &lt;noreply@anthropic.com&gt;
+Co-Authored-By: Claude Sonnet 5 &lt;noreply@anthropic.com&gt;</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -689,7 +870,9 @@ Co-Authored-By: Claude Sonnet 5 &lt;noreply@anthropic.com&gt;
   </td>
 
   <td class="msg">
-      docs: write down how we work on this repo
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">docs: write down how we work on this repo
 
 The flow, the commit convention and the three verify commands were carried
 between sessions in a handover file, which meant they were only ever as reliable
@@ -697,7 +880,10 @@ as whoever wrote the last one. A rules-of-hooks error and a misread lint exit
 code both reached master while that was the arrangement.
 
 Co-Authored-By: Claude Opus 5 &lt;noreply@anthropic.com&gt;
-Claude-Session: https://claude.ai/code/session_011yPbWYjkWfzsspKUjg5m9W
+Claude-Session: https://claude.ai/code/session_011yPbWYjkWfzsspKUjg5m9W</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -711,7 +897,9 @@ Claude-Session: https://claude.ai/code/session_011yPbWYjkWfzsspKUjg5m9W
   </td>
 
   <td class="msg">
-      feat(voting): let the host nudge the players who still owe a card
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">feat(voting): let the host nudge the players who still owe a card
 
 A round can sit waiting on two people while nobody knows it is waiting. The
 host&#39;s table bar now offers a single bulk nudge, labelled with the live count of
@@ -735,7 +923,10 @@ Deliberately not included: per-participant nudges, and any nudge affordance on
 the reveal screen, the console, or for guests and observers.
 
 Co-Authored-By: Claude Opus 5 &lt;noreply@anthropic.com&gt;
-Claude-Session: https://claude.ai/code/session_011yPbWYjkWfzsspKUjg5m9W
+Claude-Session: https://claude.ai/code/session_011yPbWYjkWfzsspKUjg5m9W</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -749,7 +940,9 @@ Claude-Session: https://claude.ai/code/session_011yPbWYjkWfzsspKUjg5m9W
   </td>
 
   <td class="msg">
-      feat(decks): ship a T-shirt sizes built-in, and seed built-ins one at a time
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">feat(decks): ship a T-shirt sizes built-in, and seed built-ins one at a time
 
 Seeding checked for Fibonacci and returned early when it found it. That is fine
 while Fibonacci is the only built-in and wrong the moment there is a second one:
@@ -767,7 +960,10 @@ report — the range line and both range tiles already guard on that, and there 
 now tests standing on a real T-shirt round rather than an assumption that they do.
 
 Co-Authored-By: Claude Opus 5 &lt;noreply@anthropic.com&gt;
-Claude-Session: https://claude.ai/code/session_011yPbWYjkWfzsspKUjg5m9W
+Claude-Session: https://claude.ai/code/session_011yPbWYjkWfzsspKUjg5m9W</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -781,7 +977,9 @@ Claude-Session: https://claude.ai/code/session_011yPbWYjkWfzsspKUjg5m9W
   </td>
 
   <td class="msg">
-      fix(net): tell the host when the signalling broker is gone, and stop hammering it
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">fix(net): tell the host when the signalling broker is gone, and stop hammering it
 
 A host who lost the broker had no way to find out. The header&#39;s connection
 indicator was hardcoded true for hosts, so the room kept showing a green dot and
@@ -814,7 +1012,10 @@ agenda and the votes but invalidating the link people already hold. The second
 option says so on the button.
 
 Co-Authored-By: Claude Opus 5 &lt;noreply@anthropic.com&gt;
-Claude-Session: https://claude.ai/code/session_011yPbWYjkWfzsspKUjg5m9W
+Claude-Session: https://claude.ai/code/session_011yPbWYjkWfzsspKUjg5m9W</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -828,7 +1029,9 @@ Claude-Session: https://claude.ai/code/session_011yPbWYjkWfzsspKUjg5m9W
   </td>
 
   <td class="msg">
-      fix(ui): move the reveal&#39;s dead-room branch below its hooks
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">fix(ui): move the reveal&#39;s dead-room branch below its hooks
 
 The first thing the new workflow did was fail, on a rules-of-hooks error in
 code that had already merged. The dead-room early return sat above
@@ -852,7 +1055,10 @@ exit code. The error line does not contain the word &#34;warning&#34;, so a fail
 lint reported as three warnings and looked clean.
 
 Co-Authored-By: Claude Opus 5 &lt;noreply@anthropic.com&gt;
-Claude-Session: https://claude.ai/code/session_011yPbWYjkWfzsspKUjg5m9W
+Claude-Session: https://claude.ai/code/session_011yPbWYjkWfzsspKUjg5m9W</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -866,7 +1072,9 @@ Claude-Session: https://claude.ai/code/session_011yPbWYjkWfzsspKUjg5m9W
   </td>
 
   <td class="msg">
-      ci: run lint, tests and build on pull requests
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">ci: run lint, tests and build on pull requests
 
 deploy.yml is the only workflow, and it runs `npm run build` on a push to
 master — so nothing on a runner has ever executed the test suite or the
@@ -883,7 +1091,10 @@ because it doubles as the typecheck, and a type error is more useful read
 after a failing test than instead of one.
 
 Co-Authored-By: Claude Opus 5 &lt;noreply@anthropic.com&gt;
-Claude-Session: https://claude.ai/code/session_011yPbWYjkWfzsspKUjg5m9W
+Claude-Session: https://claude.ai/code/session_011yPbWYjkWfzsspKUjg5m9W</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -897,7 +1108,9 @@ Claude-Session: https://claude.ai/code/session_011yPbWYjkWfzsspKUjg5m9W
   </td>
 
   <td class="msg">
-      fix(ui): hand a removed guest a dead room, not a live-looking one
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">fix(ui): hand a removed guest a dead room, not a live-looking one
 
 A whole-branch review caught what the per-task rounds structurally could not.
 
@@ -936,7 +1149,10 @@ registration whose utilities were never used, and design.md&#39;s claim that
 hostActions reorders items — reordering is a closure in Agenda.
 
 Co-Authored-By: Claude Opus 5 &lt;noreply@anthropic.com&gt;
-Claude-Session: https://claude.ai/code/session_011yPbWYjkWfzsspKUjg5m9W
+Claude-Session: https://claude.ai/code/session_011yPbWYjkWfzsspKUjg5m9W</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -950,7 +1166,9 @@ Claude-Session: https://claude.ai/code/session_011yPbWYjkWfzsspKUjg5m9W
   </td>
 
   <td class="msg">
-      Refresh brand icon and Chrome Web Store listing images
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">Refresh brand icon and Chrome Web Store listing images
 
 New store screenshots (hero, rules, live log, share, local-dev) plus
 small and marquee promo tiles replace the old 3-shot set. Extension
@@ -961,7 +1179,10 @@ chrome://extensions, the install dialog, and the right-click menu
 change. Popup and options headers now render the real glyph in place
 of the old 3-bar placeholder.
 
-Co-Authored-By: Claude Sonnet 5 &lt;noreply@anthropic.com&gt;
+Co-Authored-By: Claude Sonnet 5 &lt;noreply@anthropic.com&gt;</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -975,7 +1196,9 @@ Co-Authored-By: Claude Sonnet 5 &lt;noreply@anthropic.com&gt;
   </td>
 
   <td class="msg">
-      docs: record the UI refresh in design.md and SMOKE.md
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">docs: record the UI refresh in design.md and SMOKE.md
 
 design.md&#39;s component tree still described the pre-refresh app — HostView,
 ParticipantView, RevealPanel and ParticipantList, none of which exist now. It
@@ -998,7 +1221,10 @@ told. The old &#34;Quick vote&#34; step is gone with the feature. The light them
 now a second full pass rather than a checkbox.
 
 Co-Authored-By: Claude Opus 5 &lt;noreply@anthropic.com&gt;
-Claude-Session: https://claude.ai/code/session_011yPbWYjkWfzsspKUjg5m9W
+Claude-Session: https://claude.ai/code/session_011yPbWYjkWfzsspKUjg5m9W</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -1012,7 +1238,9 @@ Claude-Session: https://claude.ai/code/session_011yPbWYjkWfzsspKUjg5m9W
   </td>
 
   <td class="msg">
-      fix(ui): light-theme contrast pass across the redesigned screens
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">fix(ui): light-theme contrast pass across the redesigned screens
 
 Measured rather than eyeballed — every foreground token against every surface
 it is actually drawn on, in both themes, plus the composite pairings where
@@ -1041,7 +1269,10 @@ saying why: it is only ever a histogram bar fill, never text, so the 3:1
 non-text floor is the one that applies.
 
 Co-Authored-By: Claude Opus 5 &lt;noreply@anthropic.com&gt;
-Claude-Session: https://claude.ai/code/session_011yPbWYjkWfzsspKUjg5m9W
+Claude-Session: https://claude.ai/code/session_011yPbWYjkWfzsspKUjg5m9W</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -1055,7 +1286,9 @@ Claude-Session: https://claude.ai/code/session_011yPbWYjkWfzsspKUjg5m9W
   </td>
 
   <td class="msg">
-      refactor(ui): restyle retained panels to the redesign tokens
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">refactor(ui): restyle retained panels to the redesign tokens
 
 Controls move onto the input surface and the stronger border, the two modals
 pick up the gold edge the redesign gives its focal cards, and room codes are
@@ -1080,7 +1313,10 @@ ConnState&#39;s &#34;start this room myself&#34; affordance was already wired to
 existing onHostRoom prop, so nothing was needed there.
 
 Co-Authored-By: Claude Opus 5 &lt;noreply@anthropic.com&gt;
-Claude-Session: https://claude.ai/code/session_011yPbWYjkWfzsspKUjg5m9W
+Claude-Session: https://claude.ai/code/session_011yPbWYjkWfzsspKUjg5m9W</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -1094,7 +1330,9 @@ Claude-Session: https://claude.ai/code/session_011yPbWYjkWfzsspKUjg5m9W
   </td>
 
   <td class="msg">
-      feat(ui): single-column reveal with histogram and verdict
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">feat(ui): single-column reveal with histogram and verdict
 
 The last stage, and with it the end of the old view pair: HostView and
 ParticipantView are gone, RevealPanel with them, and RoomView is finally an
@@ -1130,7 +1368,10 @@ distrust their own answer; and revealing an empty table no longer offers to
 accept the first card of the deck, which nobody played.
 
 Co-Authored-By: Claude Opus 5 &lt;noreply@anthropic.com&gt;
-Claude-Session: https://claude.ai/code/session_011yPbWYjkWfzsspKUjg5m9W
+Claude-Session: https://claude.ai/code/session_011yPbWYjkWfzsspKUjg5m9W</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -1144,7 +1385,9 @@ Claude-Session: https://claude.ai/code/session_011yPbWYjkWfzsspKUjg5m9W
   </td>
 
   <td class="msg">
-      feat(ui): compact voting stage with a top pill bar
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">feat(ui): compact voting stage with a top pill bar
 
 Voting used to be assembled from whatever HostView and ParticipantView
 happened to render around RevealPanel: a full agenda, an invite panel, a
@@ -1186,7 +1429,10 @@ list-style is none, taking the labels that tell the roster and the played
 cards apart with them.
 
 Co-Authored-By: Claude Opus 5 &lt;noreply@anthropic.com&gt;
-Claude-Session: https://claude.ai/code/session_011yPbWYjkWfzsspKUjg5m9W
+Claude-Session: https://claude.ai/code/session_011yPbWYjkWfzsspKUjg5m9W</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -1200,7 +1446,9 @@ Claude-Session: https://claude.ai/code/session_011yPbWYjkWfzsspKUjg5m9W
   </td>
 
   <td class="msg">
-      feat(ui): agenda with reference links and an overflow menu
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">feat(ui): agenda with reference links and an overflow menu
 
 The agenda was a flat list with four ghost buttons on every row, which meant
 the secondary actions shouted as loudly as &#34;vote on this&#34; — the one thing a
@@ -1239,7 +1487,10 @@ source, which shows every title at full weight, and the row border plus the
 status dot still carry active-vs-pending.
 
 Co-Authored-By: Claude Opus 5 &lt;noreply@anthropic.com&gt;
-Claude-Session: https://claude.ai/code/session_011yPbWYjkWfzsspKUjg5m9W
+Claude-Session: https://claude.ai/code/session_011yPbWYjkWfzsspKUjg5m9W</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -1253,7 +1504,9 @@ Claude-Session: https://claude.ai/code/session_011yPbWYjkWfzsspKUjg5m9W
   </td>
 
   <td class="msg">
-      feat(ui): guided host console and guest lobby
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">feat(ui): guided host console and guest lobby
 
 HostView and ParticipantView are replaced by a stage router: RoomView derives
 the stage from session state (console / voting / reveal) and fans out on role,
@@ -1271,7 +1524,10 @@ of a button sitting next to every name. A guest gets the same room without the
 agenda — the backlog is not theirs to see before it reaches the table.
 
 Co-Authored-By: Claude Opus 5 &lt;noreply@anthropic.com&gt;
-Claude-Session: https://claude.ai/code/session_011yPbWYjkWfzsspKUjg5m9W
+Claude-Session: https://claude.ai/code/session_011yPbWYjkWfzsspKUjg5m9W</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -1285,7 +1541,9 @@ Claude-Session: https://claude.ai/code/session_011yPbWYjkWfzsspKUjg5m9W
   </td>
 
   <td class="msg">
-      feat(ui): host-primary landing page
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">feat(ui): host-primary landing page
 
 Most people who open peerpoker.app want to start a session, so hosting becomes
 the single dominant card and joining shrinks to a quiet code strip — guests
@@ -1300,7 +1558,10 @@ Adds --color-felt-caption: the hero caption sits on the always-dark felt and
 the handoff tints it green, where --color-felt-muted stays neutral grey.
 
 Co-Authored-By: Claude Opus 5 &lt;noreply@anthropic.com&gt;
-Claude-Session: https://claude.ai/code/session_011yPbWYjkWfzsspKUjg5m9W
+Claude-Session: https://claude.ai/code/session_011yPbWYjkWfzsspKUjg5m9W</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -1314,7 +1575,9 @@ Claude-Session: https://claude.ai/code/session_011yPbWYjkWfzsspKUjg5m9W
   </td>
 
   <td class="msg">
-      feat(domain): always confirm before joining a room (ADR-0004)
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">feat(domain): always confirm before joining a room (ADR-0004)
 
 Entry collapses to &#39;landing&#39; | &#39;resume&#39; | &#39;join&#39;. The auto-join path is gone:
 a stored name only tells you what this device remembered, not who is sitting
@@ -1328,7 +1591,10 @@ when leaving a live room, but on an invite link it would destroy the link a
 resumable host session still needs.
 
 Co-Authored-By: Claude Opus 5 &lt;noreply@anthropic.com&gt;
-Claude-Session: https://claude.ai/code/session_011yPbWYjkWfzsspKUjg5m9W
+Claude-Session: https://claude.ai/code/session_011yPbWYjkWfzsspKUjg5m9W</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -1342,7 +1608,9 @@ Claude-Session: https://claude.ai/code/session_011yPbWYjkWfzsspKUjg5m9W
   </td>
 
   <td class="msg">
-      feat(ui): dedicated invite/join screen
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">feat(ui): dedicated invite/join screen
 
 An invite link now opens an unmissable &#34;you&#39;re about to join FROG-42&#34; moment
 instead of the full landing page. A device that remembers a name confirms it;
@@ -1356,7 +1624,10 @@ Adds @testing-library/user-event, which the interaction tests need and which
 four later screen test files will use too.
 
 Co-Authored-By: Claude Opus 5 &lt;noreply@anthropic.com&gt;
-Claude-Session: https://claude.ai/code/session_011yPbWYjkWfzsspKUjg5m9W
+Claude-Session: https://claude.ai/code/session_011yPbWYjkWfzsspKUjg5m9W</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -1370,7 +1641,9 @@ Claude-Session: https://claude.ai/code/session_011yPbWYjkWfzsspKUjg5m9W
   </td>
 
   <td class="msg">
-      feat(domain): derive the suggested estimate and the reveal outlier
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">feat(domain): derive the suggested estimate and the reveal outlier
 
 `suggestedValue` is the number the table is nudged towards: the most-voted
 value, tie-broken downwards. The reveal&#39;s verdict panel and the host&#39;s Accept
@@ -1382,7 +1655,10 @@ genuinely split — more than one deck step apart. A tight table has no outlier
 and no histogram bar turns rust.
 
 Co-Authored-By: Claude Opus 5 &lt;noreply@anthropic.com&gt;
-Claude-Session: https://claude.ai/code/session_011yPbWYjkWfzsspKUjg5m9W
+Claude-Session: https://claude.ai/code/session_011yPbWYjkWfzsspKUjg5m9W</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -1396,7 +1672,9 @@ Claude-Session: https://claude.ai/code/session_011yPbWYjkWfzsspKUjg5m9W
   </td>
 
   <td class="msg">
-      docs: fold review findings back into the implementation plan
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">docs: fold review findings back into the implementation plan
 
 Three corrections found while executing Phase 1 and 2:
 
@@ -1409,7 +1687,10 @@ Three corrections found while executing Phase 1 and 2:
   until 3.1, so there is no shim that both compiles and behaves honestly.
 
 Co-Authored-By: Claude Opus 5 &lt;noreply@anthropic.com&gt;
-Claude-Session: https://claude.ai/code/session_011yPbWYjkWfzsspKUjg5m9W
+Claude-Session: https://claude.ai/code/session_011yPbWYjkWfzsspKUjg5m9W</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -1423,10 +1704,15 @@ Claude-Session: https://claude.ai/code/session_011yPbWYjkWfzsspKUjg5m9W
   </td>
 
   <td class="msg">
-      feat(domain): edit and skip agenda items, and carry a reference url
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">feat(domain): edit and skip agenda items, and carry a reference url
 
 Co-Authored-By: Claude Opus 5 &lt;noreply@anthropic.com&gt;
-Claude-Session: https://claude.ai/code/session_011yPbWYjkWfzsspKUjg5m9W
+Claude-Session: https://claude.ai/code/session_011yPbWYjkWfzsspKUjg5m9W</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -1440,10 +1726,15 @@ Claude-Session: https://claude.ai/code/session_011yPbWYjkWfzsspKUjg5m9W
   </td>
 
   <td class="msg">
-      feat(domain): add an optional reference url to agenda items
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">feat(domain): add an optional reference url to agenda items
 
 Co-Authored-By: Claude Opus 5 &lt;noreply@anthropic.com&gt;
-Claude-Session: https://claude.ai/code/session_011yPbWYjkWfzsspKUjg5m9W
+Claude-Session: https://claude.ai/code/session_011yPbWYjkWfzsspKUjg5m9W</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -1457,7 +1748,9 @@ Claude-Session: https://claude.ai/code/session_011yPbWYjkWfzsspKUjg5m9W
   </td>
 
   <td class="msg">
-      feat(ui): retune primitives to the redesign tokens
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">feat(ui): retune primitives to the redesign tokens
 
 New avatar fills, retuned button variants and class constants, and the
 Mono / StatTile / PlayerPill atoms the redesigned screens compose.
@@ -1478,7 +1771,10 @@ danger gains a resting border. It was previously identical to secondary
 except for text colour, which is thin for a destructive affordance.
 
 Co-Authored-By: Claude Opus 5 &lt;noreply@anthropic.com&gt;
-Claude-Session: https://claude.ai/code/session_011yPbWYjkWfzsspKUjg5m9W
+Claude-Session: https://claude.ai/code/session_011yPbWYjkWfzsspKUjg5m9W</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -1492,7 +1788,9 @@ Claude-Session: https://claude.ai/code/session_011yPbWYjkWfzsspKUjg5m9W
   </td>
 
   <td class="msg">
-      feat(ui): retoken to the redesign palette, keeping the light theme derived
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">feat(ui): retoken to the redesign palette, keeping the light theme derived
 
 Dark takes the handoff&#39;s values verbatim. Light is derived, since this repo
 deliberately keeps a theme toggle the dark-only handoff does not cover, and
@@ -1507,7 +1805,10 @@ card-edge survives in both blocks: it has no handoff backing but PlayingCard
 still draws from it, and this commit does not touch components.
 
 Co-Authored-By: Claude Opus 5 &lt;noreply@anthropic.com&gt;
-Claude-Session: https://claude.ai/code/session_011yPbWYjkWfzsspKUjg5m9W
+Claude-Session: https://claude.ai/code/session_011yPbWYjkWfzsspKUjg5m9W</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -1521,7 +1822,9 @@ Claude-Session: https://claude.ai/code/session_011yPbWYjkWfzsspKUjg5m9W
   </td>
 
   <td class="msg">
-      Correct spec/glossary claims about DNR append&#39;s separator and header support
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">Correct spec/glossary claims about DNR append&#39;s separator and header support
 
 The original spec assumed comma-join for every header and treated
 Cookie/Set-Cookie/Authorization as merely risky. Verified against Chrome&#39;s
@@ -1529,7 +1832,10 @@ own docs: append only works for a fixed 21-header allowlist at all
 (Authorization isn&#39;t on it), and the separator is header-appropriate, not
 always comma.
 
-Co-Authored-By: Claude Sonnet 5 &lt;noreply@anthropic.com&gt;
+Co-Authored-By: Claude Sonnet 5 &lt;noreply@anthropic.com&gt;</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -1543,7 +1849,12 @@ Co-Authored-By: Claude Sonnet 5 &lt;noreply@anthropic.com&gt;
   </td>
 
   <td class="msg">
-      Fall back to Set when ModHeader appendMode targets a header Chrome can&#39;t append to
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">Fall back to Set when ModHeader appendMode targets a header Chrome can&#39;t append to</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -1557,7 +1868,12 @@ Co-Authored-By: Claude Sonnet 5 &lt;noreply@anthropic.com&gt;
   </td>
 
   <td class="msg">
-      Validate append against Chrome&#39;s real header allowlist, fix inaccurate tooltip copy
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">Validate append against Chrome&#39;s real header allowlist, fix inaccurate tooltip copy</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -1571,7 +1887,9 @@ Co-Authored-By: Claude Sonnet 5 &lt;noreply@anthropic.com&gt;
   </td>
 
   <td class="msg">
-      feat(ui): self-host Playfair Display, Public Sans and Space Mono
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">feat(ui): self-host Playfair Display, Public Sans and Space Mono
 
 ADR-0001&#39;s no-third-party-contact posture rules out a runtime request to
 fonts.googleapis.com, so the redesign&#39;s typography ships as bundled WOFF2
@@ -1586,7 +1904,10 @@ The fonts are OFL-1.1 and the site redistributes them, so the licence is
 served alongside at /OFL.txt and credited in the README.
 
 Co-Authored-By: Claude Opus 5 &lt;noreply@anthropic.com&gt;
-Claude-Session: https://claude.ai/code/session_011yPbWYjkWfzsspKUjg5m9W
+Claude-Session: https://claude.ai/code/session_011yPbWYjkWfzsspKUjg5m9W</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -1600,7 +1921,9 @@ Claude-Session: https://claude.ai/code/session_011yPbWYjkWfzsspKUjg5m9W
   </td>
 
   <td class="msg">
-      docs: spec, plan and ADRs for the UI refresh
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">docs: spec, plan and ADRs for the UI refresh
 
 Records the 2026-07-25 design handoff and how it was reconciled with the
 decisions this repo had already written down: fonts self-hosted rather than
@@ -1613,7 +1936,10 @@ contradict the shipped handoff document, so a future reader does not &#34;fix&#3
 them back.
 
 Co-Authored-By: Claude Opus 5 &lt;noreply@anthropic.com&gt;
-Claude-Session: https://claude.ai/code/session_011yPbWYjkWfzsspKUjg5m9W
+Claude-Session: https://claude.ai/code/session_011yPbWYjkWfzsspKUjg5m9W</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -1627,7 +1953,12 @@ Claude-Session: https://claude.ai/code/session_011yPbWYjkWfzsspKUjg5m9W
   </td>
 
   <td class="msg">
-      Mock storage in sidepanel test to avoid unhandled rejections from eager defineItem()
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">Mock storage in sidepanel test to avoid unhandled rejections from eager defineItem()</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -1641,7 +1972,12 @@ Claude-Session: https://claude.ai/code/session_011yPbWYjkWfzsspKUjg5m9W
   </td>
 
   <td class="msg">
-      Fix Live log append-rule glyph/highlight bugs and help-icon row alignment
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">Fix Live log append-rule glyph/highlight bugs and help-icon row alignment</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -1655,7 +1991,12 @@ Claude-Session: https://claude.ai/code/session_011yPbWYjkWfzsspKUjg5m9W
   </td>
 
   <td class="msg">
-      Clarify stale comment and document the non-standard-combine header list
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">Clarify stale comment and document the non-standard-combine header list</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -1669,7 +2010,12 @@ Claude-Session: https://claude.ai/code/session_011yPbWYjkWfzsspKUjg5m9W
   </td>
 
   <td class="msg">
-      Map ModHeader appendMode to the append operation with a targeted combine-safety warning
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">Map ModHeader appendMode to the append operation with a targeted combine-safety warning</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -1683,7 +2029,12 @@ Claude-Session: https://claude.ai/code/session_011yPbWYjkWfzsspKUjg5m9W
   </td>
 
   <td class="msg">
-      Make the append help icon a focusable button for accessibility
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">Make the append help icon a focusable button for accessibility</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -1697,7 +2048,12 @@ Claude-Session: https://claude.ai/code/session_011yPbWYjkWfzsspKUjg5m9W
   </td>
 
   <td class="msg">
-      Add Append option to the header rule editor with a help tooltip
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">Add Append option to the header rule editor with a help tooltip</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -1711,7 +2067,12 @@ Claude-Session: https://claude.ai/code/session_011yPbWYjkWfzsspKUjg5m9W
   </td>
 
   <td class="msg">
-      Accept append rules in share-string validation
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">Accept append rules in share-string validation</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -1725,7 +2086,12 @@ Claude-Session: https://claude.ai/code/session_011yPbWYjkWfzsspKUjg5m9W
   </td>
 
   <td class="msg">
-      Compile append header rules to DNR&#39;s native append operation
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">Compile append header rules to DNR&#39;s native append operation</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -1739,7 +2105,9 @@ Claude-Session: https://claude.ai/code/session_011yPbWYjkWfzsspKUjg5m9W
   </td>
 
   <td class="msg">
-      docs: make the privacy panel honest about the matchmaking server
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">docs: make the privacy panel honest about the matchmaking server
 
 The panel told users the one third party was Google&#39;s STUN server. The
 signalling broker is a third party too, and it sees more — the room id
@@ -1749,7 +2117,10 @@ whose whole job is being trusted about exactly that.
 Reframed around what people actually care about rather than naming
 protocols: servers introduce you and then step out, and no name, card or
 ticket text ever reaches one. The root README already described it this
-way; the in-app copy now agrees.
+way; the in-app copy now agrees.</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -1763,7 +2134,12 @@ way; the in-app copy now agrees.
   </td>
 
   <td class="msg">
-      Add append to HeaderOp
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">Add append to HeaderOp</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -1777,13 +2153,18 @@ way; the in-app copy now agrees.
   </td>
 
   <td class="msg">
-      Add spec, ADR, and plan for append header operation
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">Add spec, ADR, and plan for append header operation
 
 Design doc, ADR-0007 (append as a third HeaderOp value rather than a
 checkbox modifier), implementation plan, and a CONTEXT.md glossary entry
 for the new Append operation.
 
-Co-Authored-By: Claude Sonnet 5 &lt;noreply@anthropic.com&gt;
+Co-Authored-By: Claude Sonnet 5 &lt;noreply@anthropic.com&gt;</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -1797,7 +2178,9 @@ Co-Authored-By: Claude Sonnet 5 &lt;noreply@anthropic.com&gt;
   </td>
 
   <td class="msg">
-      fix: dial the host only once the joining peer is open
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">fix: dial the host only once the joining peer is open
 
 Joining never worked: the guest&#39;s offer was created the moment the peer
 was constructed, and PeerJS drops signalling sent in the window between
@@ -1813,7 +2196,10 @@ broker: a guest joins, plays a card, and the host reveals the round.
 Verified with a controlled experiment before changing anything —
 dialling before &#39;open&#39; failed 2/2, after &#39;open&#39; succeeded 2/2 — because
 reading the queueing code alone suggested, wrongly, that early dialling
-was safe.
+was safe.</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -1827,11 +2213,16 @@ was safe.
   </td>
 
   <td class="msg">
-      diag: log whether the joining peer reaches the broker
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">diag: log whether the joining peer reaches the broker
 
 A peer with no broker connection queues its offer instead of failing, so
 a join can hang to the timeout without a single error on either side.
-Log the registration so that state is visible.
+Log the registration so that state is visible.</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -1845,12 +2236,17 @@ Log the registration so that state is visible.
   </td>
 
   <td class="msg">
-      diag: log the room id both sides use
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">diag: log the room id both sides use
 
 A join that times out at &#39;have-local-offer&#39; means the host never
 answered, which is either a mismatched room id or a host that failed to
 respond. Logging the id each side derives from the room code tells the
-two apart.
+two apart.</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -1864,12 +2260,17 @@ two apart.
   </td>
 
   <td class="msg">
-      diag: log ICE state when a join times out
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">diag: log ICE state when a join times out
 
 A join that times out with no error means signalling found the host but
 the two browsers never established a path. Log the ICE connection state
 and the gathered candidate types at that moment, so the failure can be
-told apart from an application-level silence.
+told apart from an application-level silence.</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -1883,7 +2284,9 @@ told apart from an application-level silence.
   </td>
 
   <td class="msg">
-      fix: tell join failures apart instead of blaming the network
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">fix: tell join failures apart instead of blaming the network
 
 A failed join reported &#34;this network may be blocking peer-to-peer
 connections&#34; whether the broker had rejected it, the room was missing,
@@ -1895,7 +2298,10 @@ is the only thing that says why a join actually failed.
 
 Hosts now log peer errors too, and reconnect when they lose the broker:
 a disconnected host keeps its existing connections, so the room looks
-healthy while nobody new can reach it.
+healthy while nobody new can reach it.</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -1909,7 +2315,9 @@ healthy while nobody new can reach it.
   </td>
 
   <td class="msg">
-      fix: keep a resumable session safe when its own link is reopened
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">fix: keep a resumable session safe when its own link is reopened
 
 Whether a link points at your own room was decided by comparing it to
 the saved room code — but leaving a room clears that code while keeping
@@ -1928,7 +2336,10 @@ Also from review: joining as an observer and then hosting the room no
 longer silently makes you a voting host; a superseded join attempt&#39;s
 error can no longer resurrect a cleared terminal state; ConnState&#39;s
 `mode` prop went unused when HostView stopped rendering it; and the
-distribution bars carry one label each rather than a bare &#34;votes for&#34;.
+distribution bars carry one label each rather than a bare &#34;votes for&#34;.</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -1942,7 +2353,9 @@ distribution bars carry one label each rather than a bare &#34;votes for&#34;.
   </td>
 
   <td class="msg">
-      feat: make room links work from the address bar
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">feat: make room links work from the address bar
 
 Hosting or joining a room now puts ?room=&lt;code&gt; in the URL, so copying
 the address bar shares the room exactly like the invite link does.
@@ -1961,7 +2374,10 @@ connection failure and offers to start the room instead.
 Also fixes ?room= never actually reaching the join field: it was set in
 an effect, one render after Landing had already seeded its input.
 
-Removes the design handoff docs, which the implementation has replaced.
+Removes the design handoff docs, which the implementation has replaced.</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -1975,7 +2391,9 @@ Removes the design handoff docs, which the implementation has replaced.
   </td>
 
   <td class="msg">
-      docs: license the project and prepare the docs to go public
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">docs: license the project and prepare the docs to go public
 
 Adds an MIT LICENSE — without one the default is all rights reserved, so
 nobody could fork or contribute to a public repo.
@@ -1984,7 +2402,10 @@ The README and DEPLOY notes still described the repo as private and
 pending publication; they now read as a shipped project and the root
 README gains the local-run instructions it was missing. The app README
 was still the untouched Vite scaffold template, so it now describes the
-actual source layout.
+actual source layout.</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -1998,7 +2419,9 @@ actual source layout.
   </td>
 
   <td class="msg">
-      fix: restore the vote distribution and correct reveal-panel copy
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">fix: restore the vote distribution and correct reveal-panel copy
 
 The redesign dropped the per-value distribution that the old panel
 rendered as a bar list; both the brief and the handoff call for it, so
@@ -2019,7 +2442,10 @@ Alongside it, four defects found reviewing the same panel:
 
 Seat backs conveyed voted/not-voted only through the card art, so each
 seat gains screen-reader text. Drops the always-null host `ConnState`
-render from HostView.
+render from HostView.</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -2033,7 +2459,9 @@ render from HostView.
   </td>
 
   <td class="msg">
-      fix: make felt-borne accents and avatars readable in light theme
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">fix: make felt-borne accents and avatars readable in light theme
 
 The felt play surface stays dark in both themes, but `--color-accent`
 flips to a dark brown in light mode, so every kicker, counter and
@@ -2051,7 +2479,10 @@ Also: the self avatar drew cream initials on gold (1.7:1) — it now uses
 the accent ink; the &#34;Your pick&#34; caption used gold on a cream card face
 (1.7:1) — it now uses a deeper gold that holds on cream in both themes.
 Connection state was conveyed by dot colour alone; added screen-reader
-text in the header chip and roster.
+text in the header chip and roster.</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -2065,11 +2496,16 @@ text in the header chip and roster.
   </td>
 
   <td class="msg">
-      fix: prevent fanned card hand from overflowing on mobile
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">fix: prevent fanned card hand from overflowing on mobile
 
 The fan&#39;s per-card translateX offsets are fixed pixels wide enough to
 exceed a phone viewport, causing horizontal page scroll. Scale the arc
-down below the sm breakpoint instead of recomputing offsets per size.
+down below the sm breakpoint instead of recomputing offsets per size.</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -2083,7 +2519,9 @@ down below the sm breakpoint instead of recomputing offsets per size.
   </td>
 
   <td class="msg">
-      redesign: compose HostView and ParticipantView on the new system
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">redesign: compose HostView and ParticipantView on the new system
 
 Host console: room-code invite card with QR, agenda/roster rail, felt
 RevealPanel + host&#39;s own card hand, results/export. Participant view:
@@ -2106,7 +2544,10 @@ this sandbox so the real P2P flow couldn&#39;t be exercised end-to-end):
   instead of the action it performs, backwards from its condition.
 
 Co-Authored-By: Claude Sonnet 5 &lt;noreply@anthropic.com&gt;
-Claude-Session: https://claude.ai/code/session_011yPbWYjkWfzsspKUjg5m9W
+Claude-Session: https://claude.ai/code/session_011yPbWYjkWfzsspKUjg5m9W</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -2120,7 +2561,9 @@ Claude-Session: https://claude.ai/code/session_011yPbWYjkWfzsspKUjg5m9W
   </td>
 
   <td class="msg">
-      redesign: reveal moment, agenda, and roster
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">redesign: reveal moment, agenda, and roster
 
 RevealPanel now lives on its own felt table with two derived phases
 (voting: face-down seats + cards-in counter; revealed: flipped cards,
@@ -2131,7 +2574,10 @@ estimate values; the roster gets colored initials avatars, a
 connection dot, and ready/thinking badges during a live round.
 
 Co-Authored-By: Claude Sonnet 5 &lt;noreply@anthropic.com&gt;
-Claude-Session: https://claude.ai/code/session_011yPbWYjkWfzsspKUjg5m9W
+Claude-Session: https://claude.ai/code/session_011yPbWYjkWfzsspKUjg5m9W</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -2145,7 +2591,9 @@ Claude-Session: https://claude.ai/code/session_011yPbWYjkWfzsspKUjg5m9W
   </td>
 
   <td class="msg">
-      redesign: fanned card hand as the hero voting interaction
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">redesign: fanned card hand as the hero voting interaction
 
 The hand renders as a physical fan of cards curving from a pivot at
 the bottom center; the picked card grows, lifts, and gains a gold ring
@@ -2155,7 +2603,10 @@ per-card hover behavior via React state instead of its prototype-only
 per-element inline hover styling.
 
 Co-Authored-By: Claude Sonnet 5 &lt;noreply@anthropic.com&gt;
-Claude-Session: https://claude.ai/code/session_011yPbWYjkWfzsspKUjg5m9W
+Claude-Session: https://claude.ai/code/session_011yPbWYjkWfzsspKUjg5m9W</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -2169,7 +2620,9 @@ Claude-Session: https://claude.ai/code/session_011yPbWYjkWfzsspKUjg5m9W
   </td>
 
   <td class="msg">
-      redesign: deck manager as a card-preview grid
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">redesign: deck manager as a card-preview grid
 
 Each deck now previews its actual card faces via PlayingCard, with a
 Built-in badge for Fibonacci and a dashed &#34;build a custom deck&#34; tile
@@ -2178,7 +2631,10 @@ validation errors (the alert banner tokens are tuned for a colored
 banner, not body text).
 
 Co-Authored-By: Claude Sonnet 5 &lt;noreply@anthropic.com&gt;
-Claude-Session: https://claude.ai/code/session_011yPbWYjkWfzsspKUjg5m9W
+Claude-Session: https://claude.ai/code/session_011yPbWYjkWfzsspKUjg5m9W</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -2192,14 +2648,19 @@ Claude-Session: https://claude.ai/code/session_011yPbWYjkWfzsspKUjg5m9W
   </td>
 
   <td class="msg">
-      redesign: landing page hero, host and join forms
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">redesign: landing page hero, host and join forms
 
 Two-column hero (kicker/headline/CTA copy against a felt panel with a
 fanned card hero), plus restyled host/join forms and resume/name-taken
 banners on the new token set.
 
 Co-Authored-By: Claude Sonnet 5 &lt;noreply@anthropic.com&gt;
-Claude-Session: https://claude.ai/code/session_011yPbWYjkWfzsspKUjg5m9W
+Claude-Session: https://claude.ai/code/session_011yPbWYjkWfzsspKUjg5m9W</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -2213,7 +2674,9 @@ Claude-Session: https://claude.ai/code/session_011yPbWYjkWfzsspKUjg5m9W
   </td>
 
   <td class="msg">
-      redesign: global chrome — header, theme toggle, privacy panel, conn states
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">redesign: global chrome — header, theme toggle, privacy panel, conn states
 
 Sticky toolbar with a gold wordmark and a live room chip, restyled
 theme toggle, a five-question privacy explainer matching the handoff&#39;s
@@ -2221,7 +2684,10 @@ copy, and calmer connection-state messaging (neutral for kicked/ended,
 a clear-but-not-alarming banner for unreachable).
 
 Co-Authored-By: Claude Sonnet 5 &lt;noreply@anthropic.com&gt;
-Claude-Session: https://claude.ai/code/session_011yPbWYjkWfzsspKUjg5m9W
+Claude-Session: https://claude.ai/code/session_011yPbWYjkWfzsspKUjg5m9W</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -2235,7 +2701,9 @@ Claude-Session: https://claude.ai/code/session_011yPbWYjkWfzsspKUjg5m9W
   </td>
 
   <td class="msg">
-      design: add felt-table design tokens and shared UI primitives
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">design: add felt-table design tokens and shared UI primitives
 
 Introduce the design handoff&#39;s palette (felt green table, gold accent,
 cream card faces) as CSS custom properties under the existing
@@ -2248,7 +2716,10 @@ vendoring the originals, and the handoff explicitly allows substituting
 house-equivalent fonts.
 
 Co-Authored-By: Claude Sonnet 5 &lt;noreply@anthropic.com&gt;
-Claude-Session: https://claude.ai/code/session_011yPbWYjkWfzsspKUjg5m9W
+Claude-Session: https://claude.ai/code/session_011yPbWYjkWfzsspKUjg5m9W</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -2262,10 +2733,15 @@ Claude-Session: https://claude.ai/code/session_011yPbWYjkWfzsspKUjg5m9W
   </td>
 
   <td class="msg">
-      fix: show friendly room code (not hash) in resume banner
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">fix: show friendly room code (not hash) in resume banner
 
 Co-Authored-By: Claude Opus 4.8 &lt;noreply@anthropic.com&gt;
-Claude-Session: https://claude.ai/code/session_01BFL8ZgZk9gtnUeP1wxHrKR
+Claude-Session: https://claude.ai/code/session_01BFL8ZgZk9gtnUeP1wxHrKR</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -2279,7 +2755,12 @@ Claude-Session: https://claude.ai/code/session_01BFL8ZgZk9gtnUeP1wxHrKR
   </td>
 
   <td class="msg">
-      feat: wire memorable room names through host/join/resume flows
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">feat: wire memorable room names through host/join/resume flows</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -2293,7 +2774,12 @@ Claude-Session: https://claude.ai/code/session_01BFL8ZgZk9gtnUeP1wxHrKR
   </td>
 
   <td class="msg">
-      feat: room name input on landing
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">feat: room name input on landing</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -2307,7 +2793,12 @@ Claude-Session: https://claude.ai/code/session_01BFL8ZgZk9gtnUeP1wxHrKR
   </td>
 
   <td class="msg">
-      feat: room code persistence and desired-id host peer
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">feat: room code persistence and desired-id host peer</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -2321,7 +2812,12 @@ Claude-Session: https://claude.ai/code/session_01BFL8ZgZk9gtnUeP1wxHrKR
   </td>
 
   <td class="msg">
-      feat: deterministic namespaced room id derivation
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">feat: deterministic namespaced room id derivation</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -2335,7 +2831,9 @@ Claude-Session: https://claude.ai/code/session_01BFL8ZgZk9gtnUeP1wxHrKR
   </td>
 
   <td class="msg">
-      fix: enforce STUN-only ICE, drop PeerJS default TURN relays
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">fix: enforce STUN-only ICE, drop PeerJS default TURN relays
 
 PeerJS 1.5.5 defaults include shared TURN servers (turn.peerjs.com), which
 would relay encrypted session traffic through a third party when direct P2P
@@ -2344,7 +2842,10 @@ iceServers to Google STUN only so nothing is ever relayed; unreachable peers
 now fail loudly instead of silently relaying.
 
 Co-Authored-By: Claude Opus 4.8 &lt;noreply@anthropic.com&gt;
-Claude-Session: https://claude.ai/code/session_01BFL8ZgZk9gtnUeP1wxHrKR
+Claude-Session: https://claude.ai/code/session_01BFL8ZgZk9gtnUeP1wxHrKR</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -2358,7 +2859,12 @@ Claude-Session: https://claude.ai/code/session_01BFL8ZgZk9gtnUeP1wxHrKR
   </td>
 
   <td class="msg">
-      chore: set browser tab title to PeerPoker
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">chore: set browser tab title to PeerPoker</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -2372,7 +2878,12 @@ Claude-Session: https://claude.ai/code/session_01BFL8ZgZk9gtnUeP1wxHrKR
   </td>
 
   <td class="msg">
-      fix: bind dev/preview server to 0.0.0.0 for container port-forward
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">fix: bind dev/preview server to 0.0.0.0 for container port-forward</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -2386,7 +2897,12 @@ Claude-Session: https://claude.ai/code/session_01BFL8ZgZk9gtnUeP1wxHrKR
   </td>
 
   <td class="msg">
-      chore: pin vite dev and preview port to 8000
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">chore: pin vite dev and preview port to 8000</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -2400,7 +2916,12 @@ Claude-Session: https://claude.ai/code/session_01BFL8ZgZk9gtnUeP1wxHrKR
   </td>
 
   <td class="msg">
-      test: cover store update/reset/no-op branches
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">test: cover store update/reset/no-op branches</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -2414,7 +2935,12 @@ Claude-Session: https://claude.ai/code/session_01BFL8ZgZk9gtnUeP1wxHrKR
   </td>
 
   <td class="msg">
-      ci: add github pages deploy workflow
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">ci: add github pages deploy workflow</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -2428,7 +2954,12 @@ Claude-Session: https://claude.ai/code/session_01BFL8ZgZk9gtnUeP1wxHrKR
   </td>
 
   <td class="msg">
-      docs: add manual P2P smoke-test checklist
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">docs: add manual P2P smoke-test checklist</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -2442,7 +2973,12 @@ Claude-Session: https://claude.ai/code/session_01BFL8ZgZk9gtnUeP1wxHrKR
   </td>
 
   <td class="msg">
-      feat: resume-or-discard prior host session on landing
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">feat: resume-or-discard prior host session on landing</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -2456,7 +2992,12 @@ Claude-Session: https://claude.ai/code/session_01BFL8ZgZk9gtnUeP1wxHrKR
   </td>
 
   <td class="msg">
-      feat: host session resume from localStorage
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">feat: host session resume from localStorage</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -2470,7 +3011,12 @@ Claude-Session: https://claude.ai/code/session_01BFL8ZgZk9gtnUeP1wxHrKR
   </td>
 
   <td class="msg">
-      feat: wire in-session HostView/ParticipantView into App
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">feat: wire in-session HostView/ParticipantView into App</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -2484,7 +3030,12 @@ Claude-Session: https://claude.ai/code/session_01BFL8ZgZk9gtnUeP1wxHrKR
   </td>
 
   <td class="msg">
-      feat: compose HostView and ParticipantView screens
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">feat: compose HostView and ParticipantView screens</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -2498,7 +3049,12 @@ Claude-Session: https://claude.ai/code/session_01BFL8ZgZk9gtnUeP1wxHrKR
   </td>
 
   <td class="msg">
-      feat: add ResultsExport results table and export flow
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">feat: add ResultsExport results table and export flow</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -2512,7 +3068,12 @@ Claude-Session: https://claude.ai/code/session_01BFL8ZgZk9gtnUeP1wxHrKR
   </td>
 
   <td class="msg">
-      feat: add ConnState connection status banner
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">feat: add ConnState connection status banner</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -2526,7 +3087,12 @@ Claude-Session: https://claude.ai/code/session_01BFL8ZgZk9gtnUeP1wxHrKR
   </td>
 
   <td class="msg">
-      feat: add ParticipantList roster component
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">feat: add ParticipantList roster component</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -2540,7 +3106,12 @@ Claude-Session: https://claude.ai/code/session_01BFL8ZgZk9gtnUeP1wxHrKR
   </td>
 
   <td class="msg">
-      feat: add RevealPanel with vote status and stats
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">feat: add RevealPanel with vote status and stats</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -2554,7 +3125,12 @@ Claude-Session: https://claude.ai/code/session_01BFL8ZgZk9gtnUeP1wxHrKR
   </td>
 
   <td class="msg">
-      feat: add host Agenda component
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">feat: add host Agenda component</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -2568,7 +3144,12 @@ Claude-Session: https://claude.ai/code/session_01BFL8ZgZk9gtnUeP1wxHrKR
   </td>
 
   <td class="msg">
-      feat: add CardHand component for voting
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">feat: add CardHand component for voting</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -2582,7 +3163,12 @@ Claude-Session: https://claude.ai/code/session_01BFL8ZgZk9gtnUeP1wxHrKR
   </td>
 
   <td class="msg">
-      feat: add kick/end to host conn and onStatus to guest conn
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">feat: add kick/end to host conn and onStatus to guest conn</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -2596,7 +3182,12 @@ Claude-Session: https://claude.ai/code/session_01BFL8ZgZk9gtnUeP1wxHrKR
   </td>
 
   <td class="msg">
-      feat: app routing and connection bootstrap
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">feat: app routing and connection bootstrap</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -2610,7 +3201,12 @@ Claude-Session: https://claude.ai/code/session_01BFL8ZgZk9gtnUeP1wxHrKR
   </td>
 
   <td class="msg">
-      feat: landing screen with host/join/manage-decks actions
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">feat: landing screen with host/join/manage-decks actions</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -2624,7 +3220,12 @@ Claude-Session: https://claude.ai/code/session_01BFL8ZgZk9gtnUeP1wxHrKR
   </td>
 
   <td class="msg">
-      feat: deck manager CRUD dialog
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">feat: deck manager CRUD dialog</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -2638,7 +3239,12 @@ Claude-Session: https://claude.ai/code/session_01BFL8ZgZk9gtnUeP1wxHrKR
   </td>
 
   <td class="msg">
-      feat: app header with theme toggle and privacy explainer
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">feat: app header with theme toggle and privacy explainer</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -2652,7 +3258,12 @@ Claude-Session: https://claude.ai/code/session_01BFL8ZgZk9gtnUeP1wxHrKR
   </td>
 
   <td class="msg">
-      feat: live connection handle registry
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">feat: live connection handle registry</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -2666,7 +3277,12 @@ Claude-Session: https://claude.ai/code/session_01BFL8ZgZk9gtnUeP1wxHrKR
   </td>
 
   <td class="msg">
-      feat: guest connection manager
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">feat: guest connection manager</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -2680,7 +3296,12 @@ Claude-Session: https://claude.ai/code/session_01BFL8ZgZk9gtnUeP1wxHrKR
   </td>
 
   <td class="msg">
-      feat: host connection manager
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">feat: host connection manager</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -2694,7 +3315,12 @@ Claude-Session: https://claude.ai/code/session_01BFL8ZgZk9gtnUeP1wxHrKR
   </td>
 
   <td class="msg">
-      feat: peerjs wrapper with id reclaim
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">feat: peerjs wrapper with id reclaim</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -2708,7 +3334,12 @@ Claude-Session: https://claude.ai/code/session_01BFL8ZgZk9gtnUeP1wxHrKR
   </td>
 
   <td class="msg">
-      feat: zustand session store
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">feat: zustand session store</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -2722,7 +3353,12 @@ Claude-Session: https://claude.ai/code/session_01BFL8ZgZk9gtnUeP1wxHrKR
   </td>
 
   <td class="msg">
-      feat: localStorage persistence
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">feat: localStorage persistence</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -2736,7 +3372,12 @@ Claude-Session: https://claude.ai/code/session_01BFL8ZgZk9gtnUeP1wxHrKR
   </td>
 
   <td class="msg">
-      feat: host facilitation actions
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">feat: host facilitation actions</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -2750,7 +3391,12 @@ Claude-Session: https://claude.ai/code/session_01BFL8ZgZk9gtnUeP1wxHrKR
   </td>
 
   <td class="msg">
-      feat: voting stats and host reducer
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">feat: voting stats and host reducer</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -2764,7 +3410,12 @@ Claude-Session: https://claude.ai/code/session_01BFL8ZgZk9gtnUeP1wxHrKR
   </td>
 
   <td class="msg">
-      feat: domain types and decks
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">feat: domain types and decks</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -2778,7 +3429,12 @@ Claude-Session: https://claude.ai/code/session_01BFL8ZgZk9gtnUeP1wxHrKR
   </td>
 
   <td class="msg">
-      feat: theme module with dark default and light toggle
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">feat: theme module with dark default and light toggle</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -2792,7 +3448,12 @@ Claude-Session: https://claude.ai/code/session_01BFL8ZgZk9gtnUeP1wxHrKR
   </td>
 
   <td class="msg">
-      docs: add deploy note
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">docs: add deploy note</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -2806,7 +3467,12 @@ Claude-Session: https://claude.ai/code/session_01BFL8ZgZk9gtnUeP1wxHrKR
   </td>
 
   <td class="msg">
-      chore: configure tailwind dark/light theme, vite base, vitest
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">chore: configure tailwind dark/light theme, vite base, vitest</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -2820,7 +3486,12 @@ Claude-Session: https://claude.ai/code/session_01BFL8ZgZk9gtnUeP1wxHrKR
   </td>
 
   <td class="msg">
-      chore: scaffold vite react-ts app
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">chore: scaffold vite react-ts app</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -2834,7 +3505,12 @@ Claude-Session: https://claude.ai/code/session_01BFL8ZgZk9gtnUeP1wxHrKR
   </td>
 
   <td class="msg">
-      Seed PeerPoker: design, plan, ADRs, README
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">Seed PeerPoker: design, plan, ADRs, README</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -2848,7 +3524,9 @@ Claude-Session: https://claude.ai/code/session_01BFL8ZgZk9gtnUeP1wxHrKR
   </td>
 
   <td class="msg">
-      feat(convert): native file picker opens in the dump folder, .mhdump
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">feat(convert): native file picker opens in the dump folder, .mhdump
 
 Use the File System Access API (showOpenFilePicker) on Chromium so the
 native picker opens straight to where the command wrote the dump —
@@ -2867,7 +3545,10 @@ the copy-able path in step 2.
 - Update step 2 copy for the new flow and drop the stale &#34;find the folder
   by hand&#34; reference from the empty-result error (that section is gone).
 
-Co-Authored-By: Claude Opus 4.8 &lt;noreply@anthropic.com&gt;
+Co-Authored-By: Claude Opus 4.8 &lt;noreply@anthropic.com&gt;</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -2881,13 +3562,18 @@ Co-Authored-By: Claude Opus 4.8 &lt;noreply@anthropic.com&gt;
   </td>
 
   <td class="msg">
-      docs(convert): make &#34;Select the dump file&#34; the primary action
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">docs(convert): make &#34;Select the dump file&#34; the primary action
 
 Invert the drop zone: promote the file-select button to a primary
 (.btn) call-to-action and demote &#34;or drop modheader-dump.txt here&#34; to
 the subnote. Remove the now-unused .drop-main CSS.
 
-Co-Authored-By: Claude Opus 4.8 &lt;noreply@anthropic.com&gt;
+Co-Authored-By: Claude Opus 4.8 &lt;noreply@anthropic.com&gt;</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -2901,14 +3587,19 @@ Co-Authored-By: Claude Opus 4.8 &lt;noreply@anthropic.com&gt;
   </td>
 
   <td class="msg">
-      docs(convert): remove &#34;find the folder by hand&#34; manual path
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">docs(convert): remove &#34;find the folder by hand&#34; manual path
 
 Drop the &lt;details&gt; manual-recovery section and its steps (User Data path,
 extension-id search, drag Extension Settings folder). Remove the now-dead
 #path element wiring and USER_DATA_PATH const in main.ts and the unused
 .manual CSS. Folder drag-and-drop onto the drop zone still works.
 
-Co-Authored-By: Claude Opus 4.8 &lt;noreply@anthropic.com&gt;
+Co-Authored-By: Claude Opus 4.8 &lt;noreply@anthropic.com&gt;</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -2922,7 +3613,9 @@ Co-Authored-By: Claude Opus 4.8 &lt;noreply@anthropic.com&gt;
   </td>
 
   <td class="msg">
-      docs(convert): condense step 1 copy, trim drop-zone options
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">docs(convert): condense step 1 copy, trim drop-zone options
 
 Fold a short &#34;only reads ModHeader&#39;s config files (the extension never
 runs)&#34; reassurance into the step 1 instruction; drop the iCloud subnote,
@@ -2933,7 +3626,10 @@ Also remove the &#34;.json export … drop it here too&#34; note and the &#34;st
 folder&#34; pick button (plus its now-unused folder input and JS wiring).
 Folder drag-and-drop still works via the drop zone.
 
-Co-Authored-By: Claude Opus 4.8 &lt;noreply@anthropic.com&gt;
+Co-Authored-By: Claude Opus 4.8 &lt;noreply@anthropic.com&gt;</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -2947,7 +3643,9 @@ Co-Authored-By: Claude Opus 4.8 &lt;noreply@anthropic.com&gt;
   </td>
 
   <td class="msg">
-      feat(convert): full-page scan spinner, trim copy
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">feat(convert): full-page scan spinner, trim copy
 
 Replace the subtle inline scan status text with a dimmed full-page
 overlay + spinner so the processing state is unmistakable; drive it via
@@ -2957,7 +3655,10 @@ showScanning/hideScanning across start, progress, done and error paths
 Remove the &#34;Saved 0 bytes?&#34; subnote (redundant with the empty-result
 error message). The security note stays as the note under step 1.
 
-Co-Authored-By: Claude Opus 4.8 &lt;noreply@anthropic.com&gt;
+Co-Authored-By: Claude Opus 4.8 &lt;noreply@anthropic.com&gt;</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -2971,7 +3672,9 @@ Co-Authored-By: Claude Opus 4.8 &lt;noreply@anthropic.com&gt;
   </td>
 
   <td class="msg">
-      feat(convert): recover profiles from Snappy-compressed LevelDB blocks
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">feat(convert): recover profiles from Snappy-compressed LevelDB blocks
 
 The scanner only read plaintext JSON from the dump, so profiles that
 survive solely inside Snappy-compressed LevelDB blocks (where Chrome
@@ -2993,7 +3696,10 @@ adjacently-packed backups aren&#39;t skipped.
 Commands users run are unchanged; decompression is entirely
 client-side, so recovery stays a drag-and-drop with nothing to install.
 
-Co-Authored-By: Claude Opus 4.8 &lt;noreply@anthropic.com&gt;
+Co-Authored-By: Claude Opus 4.8 &lt;noreply@anthropic.com&gt;</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -3007,7 +3713,9 @@ Co-Authored-By: Claude Opus 4.8 &lt;noreply@anthropic.com&gt;
   </td>
 
   <td class="msg">
-      fix(convert): dump Windows stores byte-exact, not as UTF-8 text
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">fix(convert): dump Windows stores byte-exact, not as UTF-8 text
 
 The Windows recovery command read each LevelDB store with
 [IO.File]::ReadAllText and wrote it via Set-Content -Encoding UTF8.
@@ -3024,7 +3732,10 @@ dropped file as UTF-8, but the ASCII JSON payloads now survive intact.
 
 Also gitignore modheader-dump.txt so colleague dumps can&#39;t be committed.
 
-Co-Authored-By: Claude Opus 4.8 &lt;noreply@anthropic.com&gt;
+Co-Authored-By: Claude Opus 4.8 &lt;noreply@anthropic.com&gt;</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -3038,7 +3749,9 @@ Co-Authored-By: Claude Opus 4.8 &lt;noreply@anthropic.com&gt;
   </td>
 
   <td class="msg">
-      refactor(convert): make disk recovery the single flow
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">refactor(convert): make disk recovery the single flow
 
 Remove the separate &#34;already have an export?&#34; option and reshape the
 page around one confident recovery path. The dump scanner already
@@ -3056,7 +3769,10 @@ rather than kept as a competing section — no capability is lost.
 - Repoint the two error messages that referenced Option B at the manual
   folder method / a reload.
 
-Co-Authored-By: Claude Opus 4.8 &lt;noreply@anthropic.com&gt;
+Co-Authored-By: Claude Opus 4.8 &lt;noreply@anthropic.com&gt;</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -3070,7 +3786,9 @@ Co-Authored-By: Claude Opus 4.8 &lt;noreply@anthropic.com&gt;
   </td>
 
   <td class="msg">
-      fix(convert): recover current profiles, not autosave history
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">fix(convert): recover current profiles, not autosave history
 
 ModHeader saves the whole profiles array on every edit, and Chrome&#39;s
 LevelDB retains each write (plus up to 50 timestamped chrome.storage.sync
@@ -3094,7 +3812,10 @@ storage format.
 - Run scanning in a Web Worker; pick the newest snapshot globally across
   all dumped files.
 
-Co-Authored-By: Claude Opus 4.8 &lt;noreply@anthropic.com&gt;
+Co-Authored-By: Claude Opus 4.8 &lt;noreply@anthropic.com&gt;</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -3108,7 +3829,9 @@ Co-Authored-By: Claude Opus 4.8 &lt;noreply@anthropic.com&gt;
   </td>
 
   <td class="msg">
-      feat(convert): recover ModHeader config after store removal
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">feat(convert): recover ModHeader config after store removal
 
 ModHeader was pulled from the Chrome/Edge stores as malware and is
 force-disabled, so its Export button no longer opens. Rework the
@@ -3126,7 +3849,10 @@ converter page around recovering profiles without ModHeader running.
   50+ MB dump parses in ~40ms without freezing the page.
 - OS-aware instructions (paths, modifier keys) with a manual toggle.
 
-Co-Authored-By: Claude Opus 4.8 &lt;noreply@anthropic.com&gt;
+Co-Authored-By: Claude Opus 4.8 &lt;noreply@anthropic.com&gt;</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -3140,7 +3866,9 @@ Co-Authored-By: Claude Opus 4.8 &lt;noreply@anthropic.com&gt;
   </td>
 
   <td class="msg">
-      ci: fix share-string evasion, document the scan&#39;s real limits
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">ci: fix share-string evasion, document the scan&#39;s real limits
 
 Review findings on the gitleaks job.
 
@@ -3174,7 +3902,10 @@ into a fixture. That is one of the leak paths issue #7 named, so the gap
 is now written down in .gitleaks.toml instead of papered over.
 
 Co-Authored-By: Claude Opus 4.8 &lt;noreply@anthropic.com&gt;
-Claude-Session: https://claude.ai/code/session_01WSt6ZYkUkUyDc28cHgwhDj
+Claude-Session: https://claude.ai/code/session_01WSt6ZYkUkUyDc28cHgwhDj</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -3188,7 +3919,9 @@ Claude-Session: https://claude.ai/code/session_01WSt6ZYkUkUyDc28cHgwhDj
   </td>
 
   <td class="msg">
-      ci: gate diffs on a gitleaks scan with an Auto Login share-string rule
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">ci: gate diffs on a gitleaks scan with an Auto Login share-string rule
 
 This repo is public and nothing checked content before now — the pre-commit
 hook only bumps @version in staged *.user.js.
@@ -3220,7 +3953,10 @@ chain and nothing extra to keep pinned.
 Refs #7
 
 Co-Authored-By: Claude Opus 4.8 &lt;noreply@anthropic.com&gt;
-Claude-Session: https://claude.ai/code/session_01WSt6ZYkUkUyDc28cHgwhDj
+Claude-Session: https://claude.ai/code/session_01WSt6ZYkUkUyDc28cHgwhDj</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -3234,7 +3970,9 @@ Claude-Session: https://claude.ai/code/session_01WSt6ZYkUkUyDc28cHgwhDj
   </td>
 
   <td class="msg">
-      ci: pin actions to commit SHAs and add Dependabot
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">ci: pin actions to commit SHAs and add Dependabot
 
 `actions/checkout@v4` and `actions/setup-node@v4` tracked mutable tags. A tag
 can be repointed by whoever controls the upstream repo, so a compromised action
@@ -3262,7 +4000,10 @@ switching on as a side effect of this issue.
 Refs #6
 
 Co-Authored-By: Claude Opus 4.8 &lt;noreply@anthropic.com&gt;
-Claude-Session: https://claude.ai/code/session_01WSt6ZYkUkUyDc28cHgwhDj
+Claude-Session: https://claude.ai/code/session_01WSt6ZYkUkUyDc28cHgwhDj</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -3276,7 +4017,9 @@ Claude-Session: https://claude.ai/code/session_01WSt6ZYkUkUyDc28cHgwhDj
   </td>
 
   <td class="msg">
-      ci: close drift-check blind spot, exempt master from cancellation
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">ci: close drift-check blind spot, exempt master from cancellation
 
 Review of the initial workflow surfaced a false negative in the check that
 is the whole point of this change.
@@ -3302,7 +4045,10 @@ Also from review:
   wording sent them hunting.
 
 Co-Authored-By: Claude Opus 4.8 &lt;noreply@anthropic.com&gt;
-Claude-Session: https://claude.ai/code/session_01WSt6ZYkUkUyDc28cHgwhDj
+Claude-Session: https://claude.ai/code/session_01WSt6ZYkUkUyDc28cHgwhDj</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -3316,7 +4062,9 @@ Claude-Session: https://claude.ai/code/session_01WSt6ZYkUkUyDc28cHgwhDj
   </td>
 
   <td class="msg">
-      ci: typecheck, tests, and bundle-drift check for built userscripts
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">ci: typecheck, tests, and bundle-drift check for built userscripts
 
 No workflows existed, so typecheck and test only ever ran locally and a
 broken commit could reach master unnoticed.
@@ -3340,7 +4088,10 @@ commit, so CI lands green.
 Closes #3
 
 Co-Authored-By: Claude Opus 4.8 &lt;noreply@anthropic.com&gt;
-Claude-Session: https://claude.ai/code/session_01WSt6ZYkUkUyDc28cHgwhDj
+Claude-Session: https://claude.ai/code/session_01WSt6ZYkUkUyDc28cHgwhDj</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -3354,7 +4105,9 @@ Claude-Session: https://claude.ai/code/session_01WSt6ZYkUkUyDc28cHgwhDj
   </td>
 
   <td class="msg">
-      fix(auto-login): run on SPA routes without acting on the wrong page
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">fix(auto-login): run on SPA routes without acting on the wrong page
 
 The script computed its matching accounts once at document-end and the
 dormant path returned outright, so a client-side route change never
@@ -3393,7 +4146,10 @@ Dormancy is preserved: patching history is function wrapping, and a page
 matching nothing still mounts no UI and starts no observers.
 
 Co-Authored-By: Claude Opus 4.8 &lt;noreply@anthropic.com&gt;
-Claude-Session: https://claude.ai/code/session_01WSt6ZYkUkUyDc28cHgwhDj
+Claude-Session: https://claude.ai/code/session_01WSt6ZYkUkUyDc28cHgwhDj</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -3407,7 +4163,9 @@ Claude-Session: https://claude.ai/code/session_01WSt6ZYkUkUyDc28cHgwhDj
   </td>
 
   <td class="msg">
-      fix(auto-login): final review findings
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">fix(auto-login): final review findings
 
 - @noframes: without it an attacker who knows a dev login URL can
   iframe it and have the script auto-submit credentials into it on
@@ -3427,7 +4185,10 @@ Claude-Session: https://claude.ai/code/session_01WSt6ZYkUkUyDc28cHgwhDj
 - main.ts imports SelectorCandidate instead of re-declaring it
   structurally; README no longer overstates the GM isolation.
 
-Co-Authored-By: Claude Opus 4.8 &lt;noreply@anthropic.com&gt;
+Co-Authored-By: Claude Opus 4.8 &lt;noreply@anthropic.com&gt;</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -3441,9 +4202,14 @@ Co-Authored-By: Claude Opus 4.8 &lt;noreply@anthropic.com&gt;
   </td>
 
   <td class="msg">
-      docs(auto-login): README with install, usage, and safety scope
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">docs(auto-login): README with install, usage, and safety scope
 
-Co-Authored-By: Claude Opus 4.8 &lt;noreply@anthropic.com&gt;
+Co-Authored-By: Claude Opus 4.8 &lt;noreply@anthropic.com&gt;</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -3457,7 +4223,9 @@ Co-Authored-By: Claude Opus 4.8 &lt;noreply@anthropic.com&gt;
   </td>
 
   <td class="msg">
-      feat(auto-login): panel, trigger button, and entry point
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">feat(auto-login): panel, trigger button, and entry point
 
 Shadow-DOM host so arbitrary page CSS cannot deform the UI and the
 script&#39;s own CSS cannot leak into the page. The panel manages
@@ -3470,7 +4238,10 @@ reliable signal a login finished, so that is where the lockout counter
 resets. An explicit click of the trigger clears the counter — the
 guard exists to stop an automatic loop, not to refuse a human.
 
-Co-Authored-By: Claude Opus 4.8 &lt;noreply@anthropic.com&gt;
+Co-Authored-By: Claude Opus 4.8 &lt;noreply@anthropic.com&gt;</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -3484,9 +4255,14 @@ Co-Authored-By: Claude Opus 4.8 &lt;noreply@anthropic.com&gt;
   </td>
 
   <td class="msg">
-      feat(auto-login): recording session lifecycle
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">feat(auto-login): recording session lifecycle
 
-Co-Authored-By: Claude Opus 4.8 &lt;noreply@anthropic.com&gt;
+Co-Authored-By: Claude Opus 4.8 &lt;noreply@anthropic.com&gt;</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -3500,7 +4276,9 @@ Co-Authored-By: Claude Opus 4.8 &lt;noreply@anthropic.com&gt;
   </td>
 
   <td class="msg">
-      feat(auto-login): element picker overlay with capture-phase click
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">feat(auto-login): element picker overlay with capture-phase click
 
 Adds pickElement(host), which puts the page into element-picking mode:
 a fixed highlight overlay tracks the hovered element, and a
@@ -3511,7 +4289,10 @@ link does not trigger a real submit/navigation. Escape resolves null.
 Clicks inside the host panel are ignored so the panel stays usable
 while picking.
 
-Co-Authored-By: Claude Opus 4.8 &lt;noreply@anthropic.com&gt;
+Co-Authored-By: Claude Opus 4.8 &lt;noreply@anthropic.com&gt;</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -3525,7 +4306,9 @@ Co-Authored-By: Claude Opus 4.8 &lt;noreply@anthropic.com&gt;
   </td>
 
   <td class="msg">
-      feat(auto-login): compressed share strings and import merge plan
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">feat(auto-login): compressed share strings and import merge plan
 
 Encodes the whole config set as one pasteable AL1: line, with an
 uncompressed AL1U: fallback. Decoding validates every incoming account
@@ -3538,7 +4321,10 @@ Blob.stream(). jsdom exposes CompressionStream but ships a Blob
 without .stream(), so the Blob route selects the compression path and
 then fails on its own dependency.
 
-Co-Authored-By: Claude Opus 4.8 &lt;noreply@anthropic.com&gt;
+Co-Authored-By: Claude Opus 4.8 &lt;noreply@anthropic.com&gt;</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -3552,14 +4338,19 @@ Co-Authored-By: Claude Opus 4.8 &lt;noreply@anthropic.com&gt;
   </td>
 
   <td class="msg">
-      docs(auto-login): record the page-scoped step decision
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">docs(auto-login): record the page-scoped step decision
 
 ADR 0004 supersedes the navigation-spanning-run section of the design
 doc. The run cursor could not distinguish a successful login from a
 retry, since both are just &#34;the page navigated&#34;; deriving position by
 matching the URL removes the ambiguity rather than working around it.
 
-Co-Authored-By: Claude Opus 4.8 &lt;noreply@anthropic.com&gt;
+Co-Authored-By: Claude Opus 4.8 &lt;noreply@anthropic.com&gt;</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -3573,7 +4364,9 @@ Co-Authored-By: Claude Opus 4.8 &lt;noreply@anthropic.com&gt;
   </td>
 
   <td class="msg">
-      feat(auto-login): page-scoped step runner
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">feat(auto-login): page-scoped step runner
 
 Steps carry the URL pattern of the page they were recorded on, and a
 run executes the first contiguous block matching the current URL.
@@ -3602,7 +4395,10 @@ longer blur: identity-first flows advance on username blur, tearing
 the form down before the password step, and blur also double-fired
 change.
 
-Co-Authored-By: Claude Opus 4.8 &lt;noreply@anthropic.com&gt;
+Co-Authored-By: Claude Opus 4.8 &lt;noreply@anthropic.com&gt;</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -3616,7 +4412,9 @@ Co-Authored-By: Claude Opus 4.8 &lt;noreply@anthropic.com&gt;
   </td>
 
   <td class="msg">
-      feat(auto-login): ranked selector candidate generation
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">feat(auto-login): ranked selector candidate generation
 
 Proposes selectors for a picked element ranked by expected stability,
 each measured against the document.
@@ -3636,7 +4434,10 @@ Adds a test setup file with the canonical CSS.escape algorithm, which
 jsdom 24 does not implement. Polyfilling the test environment keeps
 src/ on the real platform API.
 
-Co-Authored-By: Claude Opus 4.8 &lt;noreply@anthropic.com&gt;
+Co-Authored-By: Claude Opus 4.8 &lt;noreply@anthropic.com&gt;</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -3650,7 +4451,9 @@ Co-Authored-By: Claude Opus 4.8 &lt;noreply@anthropic.com&gt;
   </td>
 
   <td class="msg">
-      feat(auto-login): store parsing, schema gate, and GM storage adapter
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">feat(auto-login): store parsing, schema gate, and GM storage adapter
 
 Parse rejects any non-object root, a missing or non-numeric
 schemaVersion, and a non-array accounts field as corrupt rather than
@@ -3662,7 +4465,10 @@ bad cursor is dropped rather than locking the whole store.
 save() now reports whether it wrote, and reset() gives the panel an
 escape hatch from an otherwise inescapable read-only state.
 
-Co-Authored-By: Claude Opus 4.8 &lt;noreply@anthropic.com&gt;
+Co-Authored-By: Claude Opus 4.8 &lt;noreply@anthropic.com&gt;</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -3676,14 +4482,19 @@ Co-Authored-By: Claude Opus 4.8 &lt;noreply@anthropic.com&gt;
   </td>
 
   <td class="msg">
-      feat(auto-login): URL pattern matching with glob and regex forms
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">feat(auto-login): URL pattern matching with glob and regex forms
 
 Adds compilePattern/matchesPattern supporting glob patterns (with *
 and ? wildcards, anchored, metacharacter-escaped) and a /body/flags
 regex escape hatch. Malformed regex patterns return null/false
 instead of throwing, so callers can flag invalid config.
 
-Co-Authored-By: Claude Opus 4.8 &lt;noreply@anthropic.com&gt;
+Co-Authored-By: Claude Opus 4.8 &lt;noreply@anthropic.com&gt;</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -3697,9 +4508,14 @@ Co-Authored-By: Claude Opus 4.8 &lt;noreply@anthropic.com&gt;
   </td>
 
   <td class="msg">
-      feat(auto-login): shared types and tuning constants
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">feat(auto-login): shared types and tuning constants
 
-Co-Authored-By: Claude Opus 4.8 &lt;noreply@anthropic.com&gt;
+Co-Authored-By: Claude Opus 4.8 &lt;noreply@anthropic.com&gt;</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -3713,9 +4529,14 @@ Co-Authored-By: Claude Opus 4.8 &lt;noreply@anthropic.com&gt;
   </td>
 
   <td class="msg">
-      chore(auto-login): scaffold TS build and test setup
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">chore(auto-login): scaffold TS build and test setup
 
-Co-Authored-By: Claude Opus 4.8 &lt;noreply@anthropic.com&gt;
+Co-Authored-By: Claude Opus 4.8 &lt;noreply@anthropic.com&gt;</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -3729,14 +4550,19 @@ Co-Authored-By: Claude Opus 4.8 &lt;noreply@anthropic.com&gt;
   </td>
 
   <td class="msg">
-      docs: add repo glossary and Auto Login decision records
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">docs: add repo glossary and Auto Login decision records
 
 CONTEXT.md seeds a repo-root glossary; the three ADRs record the
 load-bearing Auto Login decisions: injecting on every page with a
 runtime storage gate, confining GM_* to an async platform-neutral
 storage adapter, and storing/sharing credentials in plaintext.
 
-Co-Authored-By: Claude Opus 4.8 &lt;noreply@anthropic.com&gt;
+Co-Authored-By: Claude Opus 4.8 &lt;noreply@anthropic.com&gt;</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -3750,7 +4576,12 @@ Co-Authored-By: Claude Opus 4.8 &lt;noreply@anthropic.com&gt;
   </td>
 
   <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">chore: update stricter store when schema changes</span>
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text redact-strong" aria-label="redacted message" role="img">chore: update stricter store when schema changes</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -3764,7 +4595,9 @@ Co-Authored-By: Claude Opus 4.8 &lt;noreply@anthropic.com&gt;
   </td>
 
   <td class="msg">
-      style: widen profiles sidebar to 250px and wrap names to two lines (#22)
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">style: widen profiles sidebar to 250px and wrap names to two lines (#22)
 
 Sidebar column widened from 172px to 250px. Profile name switches from
 single-line ellipsis to a two-line clamp; profile row aligns to the top so
@@ -3773,7 +4606,10 @@ the status dot stays with the first text line when the name wraps.
 
 Claude-Session: https://claude.ai/code/session_01UecvTZ6vAefC38GBSpzi53
 
-Co-authored-by: Claude Opus 4.8 &lt;noreply@anthropic.com&gt;
+Co-authored-by: Claude Opus 4.8 &lt;noreply@anthropic.com&gt;</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -3787,7 +4623,12 @@ Co-authored-by: Claude Opus 4.8 &lt;noreply@anthropic.com&gt;
   </td>
 
   <td class="msg">
-      docs: warn that CI-skip tokens in commit messages suppress auto-release
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">docs: warn that CI-skip tokens in commit messages suppress auto-release</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -3801,14 +4642,19 @@ Co-authored-by: Claude Opus 4.8 &lt;noreply@anthropic.com&gt;
   </td>
 
   <td class="msg">
-      ci: auto-release on every merge to main (#21)
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">ci: auto-release on every merge to main (#21)
 
 Add auto-release.yml: on every push to main, bump the patch version, build,
 tag v&lt;version&gt;, and publish a GitHub release. Releasing is now a CI guarantee,
 not a manual step an agent could skip. Loop-guarded via [skip ci] on the bump
 commit (and GITHUB_TOKEN pushes don&#39;t trigger workflows); runs serialized by a
 concurrency group. release.yml stays as the manual path for minor/major bumps
-and re-cuts. Document the new flow in RELEASING.md.
+and re-cuts. Document the new flow in RELEASING.md.</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -3822,7 +4668,12 @@ and re-cuts. Document the new flow in RELEASING.md.
   </td>
 
   <td class="msg">
-      Release v1.3.0
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">Release v1.3.0</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -3836,7 +4687,9 @@ and re-cuts. Document the new flow in RELEASING.md.
   </td>
 
   <td class="msg">
-      fix: converter regex too large for Chrome&#39;s RE2 engine (#20)
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">fix: converter regex too large for Chrome&#39;s RE2 engine (#20)
 
 ModHeader writes full-match regexes (&#34;.*X.*&#34; for a contains filter). DNR&#39;s
 regexFilter is a partial match, so the bounding .* are redundant — and a
@@ -3844,7 +4697,10 @@ leading .* on each alternative of an OR-joined matcher blows past RE2&#39;s
 per-regex memory budget, which Chrome rejects as &#34;too large for Chrome&#39;s
 regex engine&#34;. Strip the redundant leading/trailing .* per filter and join
 with non-capturing groups; match semantics are unchanged (verified). Rebuild
-the committed converter page.
+the committed converter page.</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -3858,7 +4714,9 @@ the committed converter page.
   </td>
 
   <td class="msg">
-      feat: chunked sync storage — raise the 8 KB config ceiling to ~84 KB (#19)
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">feat: chunked sync storage — raise the 8 KB config ceiling to ~84 KB (#19)
 
 * feat: chunk-planning codec for oversized configs
 
@@ -3880,7 +4738,10 @@ cross-device watcher against a torn read (manifest synced before its
 chunks) delivering a false empty that a later edit could persist over the
 good config. Document the accepted in-place-overwrite growth-crash residual.
 
-* test: cover the single-item-to-chunked upgrade/migration path
+* test: cover the single-item-to-chunked upgrade/migration path</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -3894,7 +4755,12 @@ good config. Document the accepted in-place-overwrite growth-crash residual.
   </td>
 
   <td class="msg">
-      docs: sync-chunking design spec, plan, ADRs 0005-0006 (#18)
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">docs: sync-chunking design spec, plan, ADRs 0005-0006 (#18)</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -3908,7 +4774,9 @@ good config. Document the accepted in-place-overwrite growth-crash residual.
   </td>
 
   <td class="msg">
-      ModHeader converter + store data-usage correction (#17)
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">ModHeader converter + store data-usage correction (#17)
 
 * docs: correct store data-usage to no-categories-declared (as approved)
 
@@ -3924,7 +4792,10 @@ good config. Document the accepted in-place-overwrite growth-crash residual.
 
 * ci: run tests and builds on pull requests
 
-* ci: run wxt prepare before tests so tsconfig extends resolve
+* ci: run wxt prepare before tests so tsconfig extends resolve</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -3938,7 +4809,12 @@ good config. Document the accepted in-place-overwrite growth-crash residual.
   </td>
 
   <td class="msg">
-      docs: CWS doc updates
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">docs: CWS doc updates</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -3952,7 +4828,9 @@ good config. Document the accepted in-place-overwrite growth-crash residual.
   </td>
 
   <td class="msg">
-      docs(chrome-extension): correct data-usage guidance per CWS User Data FAQ
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">docs(chrome-extension): correct data-usage guidance per CWS User Data FAQ
 
 The prior note implied &#34;transmits nothing off-device → can answer does not
 collect.&#34; Google&#39;s FAQ (Q3, Q14) is the opposite: locally-handled data must be
@@ -3961,7 +4839,10 @@ handle no user data at all, require declarations to match what the code reads
 (discrepancy = suspendable), and call for an explicit Limited Use disclosure.
 
 Co-Authored-By: Claude Opus 4.8 &lt;noreply@anthropic.com&gt;
-Claude-Session: https://claude.ai/code/session_016KfbANbjoA9K3w8AChXyJm
+Claude-Session: https://claude.ai/code/session_016KfbANbjoA9K3w8AChXyJm</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -3975,7 +4856,9 @@ Claude-Session: https://claude.ai/code/session_016KfbANbjoA9K3w8AChXyJm
   </td>
 
   <td class="msg">
-      docs: restructure store listing pack to match the CWS dashboard form (#15)
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">docs: restructure store listing pack to match the CWS dashboard form (#15)
 
 Reorder docs/store/listing.md into the dashboard&#39;s two tabs (Store listing,
 Privacy) field-by-field so submission is copy-paste. Adds the fields the form
@@ -3988,7 +4871,10 @@ the User-activity classification as decisions to confirm before submitting.
 
 Claude-Session: https://claude.ai/code/session_016KfbANbjoA9K3w8AChXyJm
 
-Co-authored-by: Claude Opus 4.8 &lt;noreply@anthropic.com&gt;
+Co-authored-by: Claude Opus 4.8 &lt;noreply@anthropic.com&gt;</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -4002,7 +4888,9 @@ Co-authored-by: Claude Opus 4.8 &lt;noreply@anthropic.com&gt;
   </td>
 
   <td class="msg">
-      docs(chrome-extension): add store-listing-pack template matching the CWS form
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">docs(chrome-extension): add store-listing-pack template matching the CWS form
 
 Document a docs/store/listing.md template ordered as the Chrome Web Store
 dashboard&#39;s two tabs (Store listing, Privacy), including the fields the form now
@@ -4011,7 +4899,10 @@ per-category answers plus three Limited-Use certifications. Flags the
 collect-vs-does-not-collect stance as a decision to surface, not bury.
 
 Co-Authored-By: Claude Opus 4.8 &lt;noreply@anthropic.com&gt;
-Claude-Session: https://claude.ai/code/session_016KfbANbjoA9K3w8AChXyJm
+Claude-Session: https://claude.ai/code/session_016KfbANbjoA9K3w8AChXyJm</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -4025,7 +4916,9 @@ Claude-Session: https://claude.ai/code/session_016KfbANbjoA9K3w8AChXyJm
   </td>
 
   <td class="msg">
-      docs: add UI screenshots to the README (#14)
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">docs: add UI screenshots to the README (#14)
 
 Embed the three store-listing screenshots (docs/store/screenshots/) in the
 README where each is relevant: the options page as a hero shot up top, the
@@ -4035,7 +4928,10 @@ the existing 1280×800 assets — no new files.
 
 Claude-Session: https://claude.ai/code/session_016KfbANbjoA9K3w8AChXyJm
 
-Co-authored-by: Claude Opus 4.8 &lt;noreply@anthropic.com&gt;
+Co-authored-by: Claude Opus 4.8 &lt;noreply@anthropic.com&gt;</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -4049,13 +4945,18 @@ Co-authored-by: Claude Opus 4.8 &lt;noreply@anthropic.com&gt;
   </td>
 
   <td class="msg">
-      Release v1.2.0
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">Release v1.2.0
 
 Compress the config at rest with LZString (#12/#13), raising the effective
 chrome.storage.sync per-item ceiling ~2–3× while keeping cross-device sync.
 
 Co-Authored-By: Claude Opus 4.8 &lt;noreply@anthropic.com&gt;
-Claude-Session: https://claude.ai/code/session_016KfbANbjoA9K3w8AChXyJm
+Claude-Session: https://claude.ai/code/session_016KfbANbjoA9K3w8AChXyJm</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -4069,7 +4970,9 @@ Claude-Session: https://claude.ai/code/session_016KfbANbjoA9K3w8AChXyJm
   </td>
 
   <td class="msg">
-      Compress config at rest to raise the effective sync-item ceiling (#12) (#13)
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">Compress config at rest to raise the effective sync-item ceiling (#12) (#13)
 
 The whole config is one chrome.storage.sync item capped at 8 KB
 (QUOTA_BYTES_PER_ITEM). The config JSON is highly repetitive, so compress
@@ -4093,7 +4996,10 @@ ceiling ~2–3× while keeping cross-device sync and adding no new dependency
 
 Claude-Session: https://claude.ai/code/session_016KfbANbjoA9K3w8AChXyJm
 
-Co-authored-by: Claude Opus 4.8 &lt;noreply@anthropic.com&gt;
+Co-authored-by: Claude Opus 4.8 &lt;noreply@anthropic.com&gt;</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -4107,7 +5013,9 @@ Co-authored-by: Claude Opus 4.8 &lt;noreply@anthropic.com&gt;
   </td>
 
   <td class="msg">
-      Release v1.1.0
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">Release v1.1.0
 
 Pre-publish fixes for issues #4–#10: DNR rule validation/normalization with
 a non-fatal batch and surfaced failures, honest storage-quota handling,
@@ -4115,7 +5023,10 @@ import share-string validation, gesture-safe live-log open, live-log/badge
 accuracy + accessibility, worker/perf cleanups, and corrected docs.
 
 Co-Authored-By: Claude Opus 4.8 &lt;noreply@anthropic.com&gt;
-Claude-Session: https://claude.ai/code/session_016KfbANbjoA9K3w8AChXyJm
+Claude-Session: https://claude.ai/code/session_016KfbANbjoA9K3w8AChXyJm</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -4129,7 +5040,9 @@ Claude-Session: https://claude.ai/code/session_016KfbANbjoA9K3w8AChXyJm
   </td>
 
   <td class="msg">
-      Add regression tests for save-failure and blocked-rule UI; drop dead helper
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">Add regression tests for save-failure and blocked-rule UI; drop dead helper
 
 Addresses the code-review findings on the pre-publish fixes:
 
@@ -4143,7 +5056,10 @@ Addresses the code-review findings on the pre-publish fixes:
   only by its own test — dead product code — so remove the export and test.
 
 Co-Authored-By: Claude Opus 4.8 &lt;noreply@anthropic.com&gt;
-Claude-Session: https://claude.ai/code/session_016KfbANbjoA9K3w8AChXyJm
+Claude-Session: https://claude.ai/code/session_016KfbANbjoA9K3w8AChXyJm</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -4157,7 +5073,9 @@ Claude-Session: https://claude.ai/code/session_016KfbANbjoA9K3w8AChXyJm
   </td>
 
   <td class="msg">
-      Correct pre-publish doc &amp; CWS listing claims (#9)
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">Correct pre-publish doc &amp; CWS listing claims (#9)
 
 - Regex &#34;can&#39;t drift&#34; claim was false: the log evaluates regex with JS
   RegExp while DNR compiles it to RE2. Softened everywhere it appeared —
@@ -4177,7 +5095,10 @@ The privacy-policy URL still needs GitHub Pages enabled and a browser check
 before submission — a user-side step, left flagged in listing.md.
 
 Co-Authored-By: Claude Opus 4.8 &lt;noreply@anthropic.com&gt;
-Claude-Session: https://claude.ai/code/session_016KfbANbjoA9K3w8AChXyJm
+Claude-Session: https://claude.ai/code/session_016KfbANbjoA9K3w8AChXyJm</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -4191,7 +5112,9 @@ Claude-Session: https://claude.ai/code/session_016KfbANbjoA9K3w8AChXyJm
   </td>
 
   <td class="msg">
-      Minor cleanups: worker config cache, stable diff, share offsets (#10)
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">Minor cleanups: worker config cache, stable diff, share offsets (#10)
 
 - background.ts: cache the config in the worker (getConfig + a watch that
   keeps it current) so the onSendHeaders hot path under &lt;all_urls&gt; no longer
@@ -4205,7 +5128,10 @@ Claude-Session: https://claude.ai/code/session_016KfbANbjoA9K3w8AChXyJm
   (it&#39;s a strict subset of the two startsWith checks).
 
 Co-Authored-By: Claude Opus 4.8 &lt;noreply@anthropic.com&gt;
-Claude-Session: https://claude.ai/code/session_016KfbANbjoA9K3w8AChXyJm
+Claude-Session: https://claude.ai/code/session_016KfbANbjoA9K3w8AChXyJm</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -4219,7 +5145,9 @@ Claude-Session: https://claude.ai/code/session_016KfbANbjoA9K3w8AChXyJm
   </td>
 
   <td class="msg">
-      Make &#34;Open live log&#34; gesture-safe and non-silent (#7)
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">Make &#34;Open live log&#34; gesture-safe and non-silent (#7)
 
 chrome.sidePanel.open() requires an active user gesture, but the handler
 awaited chrome.windows.getCurrent() first — the intervening await can trip
@@ -4237,7 +5165,10 @@ chrome-mv3, click 📋) to confirm the panel opens — cannot be verified
 statically. The defensive fallback lands regardless.
 
 Co-Authored-By: Claude Opus 4.8 &lt;noreply@anthropic.com&gt;
-Claude-Session: https://claude.ai/code/session_016KfbANbjoA9K3w8AChXyJm
+Claude-Session: https://claude.ai/code/session_016KfbANbjoA9K3w8AChXyJm</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -4251,7 +5182,9 @@ Claude-Session: https://claude.ai/code/session_016KfbANbjoA9K3w8AChXyJm
   </td>
 
   <td class="msg">
-      Live log &amp; badge: accuracy + accessibility (#8)
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">Live log &amp; badge: accuracy + accessibility (#8)
 
 - matches.ts: skip blank-name rules so the badge and live log agree with
   compileRules (which emits no DNR rule for them) — one source of truth.
@@ -4265,7 +5198,10 @@ Claude-Session: https://claude.ai/code/session_016KfbANbjoA9K3w8AChXyJm
 - popup: the icon-only live-log button gets an aria-label.
 
 Co-Authored-By: Claude Opus 4.8 &lt;noreply@anthropic.com&gt;
-Claude-Session: https://claude.ai/code/session_016KfbANbjoA9K3w8AChXyJm
+Claude-Session: https://claude.ai/code/session_016KfbANbjoA9K3w8AChXyJm</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -4279,7 +5215,9 @@ Claude-Session: https://claude.ai/code/session_016KfbANbjoA9K3w8AChXyJm
   </td>
 
   <td class="msg">
-      Surface storage-quota failures instead of a false &#34;Saved&#34; (#5)
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">Surface storage-quota failures instead of a false &#34;Saved&#34; (#5)
 
 The whole config is one chrome.storage.sync item, capped at 8 KB. Writes
 past it rejected, but update() called setValue fire-and-forget with no
@@ -4296,7 +5234,10 @@ the write — so an over-quota edit was silently lost while the UI affirmed
 - storage.ts: SYNC_ITEM_QUOTA_BYTES constant documents the real limit.
 
 Co-Authored-By: Claude Opus 4.8 &lt;noreply@anthropic.com&gt;
-Claude-Session: https://claude.ai/code/session_016KfbANbjoA9K3w8AChXyJm
+Claude-Session: https://claude.ai/code/session_016KfbANbjoA9K3w8AChXyJm</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -4310,7 +5251,9 @@ Claude-Session: https://claude.ai/code/session_016KfbANbjoA9K3w8AChXyJm
   </td>
 
   <td class="msg">
-      Validate/normalize DNR rules; make a bad rule non-fatal and visible (#4)
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">Validate/normalize DNR rules; make a bad rule non-fatal and visible (#4)
 
 updateDynamicRules is atomic, so one rule Chrome rejects dropped the
 entire batch and silently disabled header rewriting for every profile —
@@ -4332,7 +5275,10 @@ UI check green-lit, or a raw newline in a plain value.
   batch→per-rule fallback path.
 
 Co-Authored-By: Claude Opus 4.8 &lt;noreply@anthropic.com&gt;
-Claude-Session: https://claude.ai/code/session_016KfbANbjoA9K3w8AChXyJm
+Claude-Session: https://claude.ai/code/session_016KfbANbjoA9K3w8AChXyJm</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -4346,7 +5292,9 @@ Claude-Session: https://claude.ai/code/session_016KfbANbjoA9K3w8AChXyJm
   </td>
 
   <td class="msg">
-      Validate imported share strings; guard unknown matcher modes (#6)
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">Validate imported share strings; guard unknown matcher modes (#6)
 
 decodeShare JSON.parse&#39;d arbitrary input and cast it straight to Profile
 with no validation. Three reachable failure modes: an unknown matcher
@@ -4366,7 +5314,10 @@ two same-named profiles silently overwrote one.
   bundle list, and a duplicate-name bundle prompt.
 
 Co-Authored-By: Claude Opus 4.8 &lt;noreply@anthropic.com&gt;
-Claude-Session: https://claude.ai/code/session_016KfbANbjoA9K3w8AChXyJm
+Claude-Session: https://claude.ai/code/session_016KfbANbjoA9K3w8AChXyJm</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -4380,7 +5331,9 @@ Claude-Session: https://claude.ai/code/session_016KfbANbjoA9K3w8AChXyJm
   </td>
 
   <td class="msg">
-      Lead store listing with the simple/open-source/no-tracking framing
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">Lead store listing with the simple/open-source/no-tracking framing
 
 Rewrites the detailed-description opening to put the &#34;simple, open source,
 no tracking, no servers&#34; vibe first, and promotes shareable profiles to a
@@ -4388,7 +5341,10 @@ prominent &#34;shareable in one string&#34; line to emphasise ease of use. Trims
 now-duplicated lower share paragraph and network-claims bullet.
 
 Co-Authored-By: Claude Opus 4.8 &lt;noreply@anthropic.com&gt;
-Claude-Session: https://claude.ai/code/session_016KfbANbjoA9K3w8AChXyJm
+Claude-Session: https://claude.ai/code/session_016KfbANbjoA9K3w8AChXyJm</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -4402,7 +5358,9 @@ Claude-Session: https://claude.ai/code/session_016KfbANbjoA9K3w8AChXyJm
   </td>
 
   <td class="msg">
-      Add options footer with repo/issue links; add store screenshots; bump to 1.0.3
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">Add options footer with repo/issue links; add store screenshots; bump to 1.0.3
 
 Options page now shows a footer — &#34;Open source · no tracking · no servers&#34;
 tagline plus GitHub and &#34;Spot an issue?&#34; links (repo + new-issue page) — so
@@ -4413,7 +5371,10 @@ live-log) under docs/store/screenshots/, and makes the store listing
 checklist version-agnostic so it can&#39;t fall out of sync.
 
 Co-Authored-By: Claude Opus 4.8 &lt;noreply@anthropic.com&gt;
-Claude-Session: https://claude.ai/code/session_016KfbANbjoA9K3w8AChXyJm
+Claude-Session: https://claude.ai/code/session_016KfbANbjoA9K3w8AChXyJm</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -4427,13 +5388,18 @@ Claude-Session: https://claude.ai/code/session_016KfbANbjoA9K3w8AChXyJm
   </td>
 
   <td class="msg">
-      Bump checkout and setup-node actions to v5 (Node 24)
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">Bump checkout and setup-node actions to v5 (Node 24)
 
 Clears the CI deprecation warning that was forcing actions/checkout@v4 and
 actions/setup-node@v4 onto Node 24; v5 of both targets Node 24 natively.
 
 Co-Authored-By: Claude Opus 4.8 &lt;noreply@anthropic.com&gt;
-Claude-Session: https://claude.ai/code/session_016KfbANbjoA9K3w8AChXyJm
+Claude-Session: https://claude.ai/code/session_016KfbANbjoA9K3w8AChXyJm</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -4447,7 +5413,9 @@ Claude-Session: https://claude.ai/code/session_016KfbANbjoA9K3w8AChXyJm
   </td>
 
   <td class="msg">
-      Live-save the value field and show a save-status pill; bump to 1.0.2
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">Live-save the value field and show a save-status pill; bump to 1.0.2
 
 The header value/JSON field only committed on blur, so edits felt lost until
 you clicked away. Debounce a commit ~400ms after typing stops (still flushing
@@ -4459,7 +5427,10 @@ the single update() choke point plus the value field&#39;s onEditing signal, so
 every edit gives visible save confirmation without per-keystroke flicker.
 
 Co-Authored-By: Claude Opus 4.8 &lt;noreply@anthropic.com&gt;
-Claude-Session: https://claude.ai/code/session_016KfbANbjoA9K3w8AChXyJm
+Claude-Session: https://claude.ai/code/session_016KfbANbjoA9K3w8AChXyJm</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -4473,7 +5444,9 @@ Claude-Session: https://claude.ai/code/session_016KfbANbjoA9K3w8AChXyJm
   </td>
 
   <td class="msg">
-      Apply header rules to main_frame requests
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">Apply header rules to main_frame requests
 
 DNR excludes main_frame when a condition omits resourceTypes, so header
 rules silently skipped the top-level page navigation while still applying to
@@ -4482,7 +5455,10 @@ header but an AJAX call from the same page did. Enumerate every resource type
 so &#39;modify headers for this URL&#39; covers the document request too.
 
 Co-Authored-By: Claude Opus 4.8 &lt;noreply@anthropic.com&gt;
-Claude-Session: https://claude.ai/code/session_016KfbANbjoA9K3w8AChXyJm
+Claude-Session: https://claude.ai/code/session_016KfbANbjoA9K3w8AChXyJm</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -4496,7 +5472,9 @@ Claude-Session: https://claude.ai/code/session_016KfbANbjoA9K3w8AChXyJm
   </td>
 
   <td class="msg">
-      Fix focus loss when the value field flips into JSON mode
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">Fix focus loss when the value field flips into JSON mode
 
 Typing { switched ValueEditor from a plain textarea to the JSON editor&#39;s
 differently-nested textarea, so Preact unmounted the focused node and the
@@ -4504,7 +5482,10 @@ caret was lost mid-keystroke. Track the caret on the flip and restore focus
 to the newly-mounted textarea in a layout effect.
 
 Co-Authored-By: Claude Opus 4.8 &lt;noreply@anthropic.com&gt;
-Claude-Session: https://claude.ai/code/session_016KfbANbjoA9K3w8AChXyJm
+Claude-Session: https://claude.ai/code/session_016KfbANbjoA9K3w8AChXyJm</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -4518,14 +5499,19 @@ Claude-Session: https://claude.ai/code/session_016KfbANbjoA9K3w8AChXyJm
   </td>
 
   <td class="msg">
-      Document the tag-driven release process
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">Document the tag-driven release process
 
 Capture the release steps (bump package.json, commit, push a v* tag, CI
 publishes) plus the convention of delegating the mechanical ship step to a
 Sonnet subagent. Previously this only lived in release.yml.
 
 Co-Authored-By: Claude Opus 4.8 &lt;noreply@anthropic.com&gt;
-Claude-Session: https://claude.ai/code/session_016KfbANbjoA9K3w8AChXyJm
+Claude-Session: https://claude.ai/code/session_016KfbANbjoA9K3w8AChXyJm</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -4539,7 +5525,9 @@ Claude-Session: https://claude.ai/code/session_016KfbANbjoA9K3w8AChXyJm
   </td>
 
   <td class="msg">
-      Promote options entry to primary popup action; bump to 1.0.1
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">Promote options entry to primary popup action; bump to 1.0.1
 
 Make &#39;Manage profiles &amp; rules&#39; the full-width accent action in the popup
 footer and demote the live-log control to the icon slot the gear used to
@@ -4547,7 +5535,10 @@ occupy. The options page is the extension&#39;s only editing surface, so its
 entry should carry the most visual weight.
 
 Co-Authored-By: Claude Opus 4.8 &lt;noreply@anthropic.com&gt;
-Claude-Session: https://claude.ai/code/session_016KfbANbjoA9K3w8AChXyJm
+Claude-Session: https://claude.ai/code/session_016KfbANbjoA9K3w8AChXyJm</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -4561,7 +5552,12 @@ Claude-Session: https://claude.ai/code/session_016KfbANbjoA9K3w8AChXyJm
   </td>
 
   <td class="msg">
-      Add profile-count badge, project docs, and bump to 1.0.0
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">Add profile-count badge, project docs, and bump to 1.0.0</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -4575,7 +5571,12 @@ Claude-Session: https://claude.ai/code/session_016KfbANbjoA9K3w8AChXyJm
   </td>
 
   <td class="msg">
-      Bump version to 0.1.4
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">Bump version to 0.1.4</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -4589,7 +5590,12 @@ Claude-Session: https://claude.ai/code/session_016KfbANbjoA9K3w8AChXyJm
   </td>
 
   <td class="msg">
-      Add profile delete control (issue #3)
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">Add profile delete control (issue #3)</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -4603,7 +5609,12 @@ Claude-Session: https://claude.ai/code/session_016KfbANbjoA9K3w8AChXyJm
   </td>
 
   <td class="msg">
-      Bump version to 0.1.3
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">Bump version to 0.1.3</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -4617,7 +5628,12 @@ Claude-Session: https://claude.ai/code/session_016KfbANbjoA9K3w8AChXyJm
   </td>
 
   <td class="msg">
-      Broaden empty-override cleanup to any mode, not just contains
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">Broaden empty-override cleanup to any mode, not just contains</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -4631,7 +5647,12 @@ Claude-Session: https://claude.ai/code/session_016KfbANbjoA9K3w8AChXyJm
   </td>
 
   <td class="msg">
-      Fix: closing override panel without a value leaves an orphaned empty matcher
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">Fix: closing override panel without a value leaves an orphaned empty matcher</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -4645,25 +5666,16 @@ Claude-Session: https://claude.ai/code/session_016KfbANbjoA9K3w8AChXyJm
   </td>
 
   <td class="msg">
-      Skip rules with a blank header name (DNR rejects empty header field)
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">Skip rules with a blank header name (DNR rejects empty header field)</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
       <a class="sha-link" href="https://github.com/curtyo18/header-handler/commit/05f2a26d6793339cebbcb767838ba6da56bfffdd" target="_blank" rel="noopener noreferrer">05f2a26</a>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-07-11 23:13</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/header-handler" target="_blank" rel="noopener noreferrer">header-handler</a>
-  </td>
-
-  <td class="msg">
-      Bump version to 0.1.2
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/header-handler/commit/a6a41ee3a9a55badd500d464a35ecc4753aaf0f3" target="_blank" rel="noopener noreferrer">a6a41ee</a>
   </td>
 </tr>        </tbody>
       </table>
@@ -4689,11 +5701,12 @@ Claude-Session: https://claude.ai/code/session_016KfbANbjoA9K3w8AChXyJm
     <a href="https://github.com/curtyo18" target="_blank" rel="noopener noreferrer">github</a> · <a href="mailto:curtyo18@gmail.com">email</a>
   </div>
   <div class="stats" style="align-items:center">
-    <span><b>2,295</b> commits</span>
+    <span><b>2,296</b> commits</span>
     <span><b>79</b> repos</span>
     <span><b>17</b> years</span>
   </div>
 </footer>    </div>
   </div>
+  <script src="expand.js" defer></script>
 </body>
 </html>

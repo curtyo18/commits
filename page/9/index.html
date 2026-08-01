@@ -6,6 +6,9 @@
   <base href="../../" />
   <title>commits — curt</title>
   <link rel="stylesheet" href="styles.css" />
+  <!-- Set before first paint so the "show more" chips never flash on rows that
+       don't actually overflow. expand.js does the measuring. -->
+  <script>document.documentElement.className += " has-js";</script>
 </head>
 <body>
   <div class="page page-full">
@@ -16,13 +19,13 @@
     <small>curt — a public log of private and public work</small>
   </h1>
   <div class="meta">
-    <span><b>2,295</b> commits indexed</span>
+    <span><b>2,296</b> commits indexed</span>
     <span><b>79</b> repos · <b>17</b> years</span>
   </div>
 </div>
       <div class="gr-section-title" style="margin-top:36px">
         <span>All commits · newest first</span>
-        <span class="right">showing 1601–1800 of 2295</span>
+        <span class="right">showing 1601–1800 of 2296</span>
       </div>
 
       <table class="gr-table">
@@ -35,10 +38,29 @@
             <tr class="gr-month-row">
               <td colspan="4">
                 April 2026
-                <span>85 commits · 85 public</span>
+                <span>86 commits · 86 public</span>
               </td>
             </tr>
 <tr class="">
+    <td class="when">2026-04-07 21:38</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/ClipCutter" target="_blank" rel="noopener noreferrer">ClipCutter</a>
+  </td>
+
+  <td class="msg">
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">feat: show clip date and add delete button in Export tab</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/ClipCutter/commit/1d22ba83f60f7000c08b57d01b1239ab95e268fc" target="_blank" rel="noopener noreferrer">1d22ba8</a>
+  </td>
+</tr><tr class="">
     <td class="when">2026-04-07 21:33</td>
 
   <td class="repo">
@@ -46,7 +68,12 @@
   </td>
 
   <td class="msg">
-      feat: add DELETE /api/kept endpoint to remove kept clips
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">feat: add DELETE /api/kept endpoint to remove kept clips</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -60,7 +87,12 @@
   </td>
 
   <td class="msg">
-      feat: add clipped_at to kept clips API and sort by date descending
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">feat: add clipped_at to kept clips API and sort by date descending</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -74,7 +106,12 @@
   </td>
 
   <td class="msg">
-      fix: update metadata duration when clip is trimmed on keep
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">fix: update metadata duration when clip is trimmed on keep</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -88,7 +125,12 @@
   </td>
 
   <td class="msg">
-      feat: add update_clip_duration to metadata module
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">feat: add update_clip_duration to metadata module</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -102,7 +144,12 @@
   </td>
 
   <td class="msg">
-      feat: call ensure_end_clip in pipeline to always capture recording end
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">feat: call ensure_end_clip in pipeline to always capture recording end</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -116,7 +163,12 @@
   </td>
 
   <td class="msg">
-      feat: add ensure_end_clip to always capture last minute of recording
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">feat: add ensure_end_clip to always capture last minute of recording</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -130,7 +182,12 @@
   </td>
 
   <td class="msg">
-      docs: add implementation plan for todo2 features
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">docs: add implementation plan for todo2 features</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -144,7 +201,12 @@
   </td>
 
   <td class="msg">
-      docs: add design spec for todo2 features (end clip, duration fix, export UI)
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">docs: add design spec for todo2 features (end clip, duration fix, export UI)</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -158,7 +220,12 @@
   </td>
 
   <td class="msg">
-      feat: update KeepRequest to support multiple cut segments
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">feat: update KeepRequest to support multiple cut segments</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -172,7 +239,12 @@
   </td>
 
   <td class="msg">
-      feat: add endpoint to delete source clips after compilation
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">feat: add endpoint to delete source clips after compilation</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -186,7 +258,12 @@
   </td>
 
   <td class="msg">
-      feat: serve Vite dist/ build from FastAPI
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">feat: serve Vite dist/ build from FastAPI</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -200,7 +277,12 @@
   </td>
 
   <td class="msg">
-      feat: add main.ts entry point and rewrite index.html as Vite entry
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">feat: add main.ts entry point and rewrite index.html as Vite entry</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -214,7 +296,12 @@
   </td>
 
   <td class="msg">
-      feat: add tabs/compile.ts module
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">feat: add tabs/compile.ts module</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -228,7 +315,12 @@
   </td>
 
   <td class="msg">
-      feat: add tabs/encode.ts module
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">feat: add tabs/encode.ts module</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -242,7 +334,12 @@
   </td>
 
   <td class="msg">
-      feat: add tabs/review.ts module
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">feat: add tabs/review.ts module</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -256,7 +353,12 @@
   </td>
 
   <td class="msg">
-      feat: add tabs/process.ts module
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">feat: add tabs/process.ts module</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -270,7 +372,12 @@
   </td>
 
   <td class="msg">
-      feat: add waveform.ts module extracted from index.html
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">feat: add waveform.ts module extracted from index.html</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -284,7 +391,12 @@
   </td>
 
   <td class="msg">
-      feat: add typed api.ts with all fetch wrappers
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">feat: add typed api.ts with all fetch wrappers</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -298,7 +410,12 @@
   </td>
 
   <td class="msg">
-      feat: add frontend utils.ts module
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">feat: add frontend utils.ts module</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -312,7 +429,12 @@
   </td>
 
   <td class="msg">
-      build: add Vite + TypeScript setup for frontend
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">build: add Vite + TypeScript setup for frontend</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -326,7 +448,12 @@
   </td>
 
   <td class="msg">
-      refactor: web.py is now a thin factory mounting 5 APIRouters
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">refactor: web.py is now a thin factory mounting 5 APIRouters</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -340,7 +467,12 @@
   </td>
 
   <td class="msg">
-      refactor: extract all endpoints into 5 APIRouter modules
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">refactor: extract all endpoints into 5 APIRouter modules</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -354,7 +486,12 @@
   </td>
 
   <td class="msg">
-      refactor: add routes package and shared helpers
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">refactor: add routes package and shared helpers</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -368,7 +505,12 @@
   </td>
 
   <td class="msg">
-      refactor: extract state classes to state.py
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">refactor: extract state classes to state.py</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -382,7 +524,12 @@
   </td>
 
   <td class="msg">
-      fix: pause video and show custom name in encode section
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">fix: pause video and show custom name in encode section</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -396,7 +543,12 @@
   </td>
 
   <td class="msg">
-      test: add regression test for needs_trim=False not triggering re-encode
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">test: add regression test for needs_trim=False not triggering re-encode</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -410,7 +562,12 @@
   </td>
 
   <td class="msg">
-      fix: trim re-encoding only when trim points actually changed
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">fix: trim re-encoding only when trim points actually changed</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -424,7 +581,12 @@
   </td>
 
   <td class="msg">
-      chore: bump version to 1.2.0
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">chore: bump version to 1.2.0</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -438,7 +600,12 @@
   </td>
 
   <td class="msg">
-      test: verify configurable prompt feature works end-to-end
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">test: verify configurable prompt feature works end-to-end</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -452,7 +619,12 @@
   </td>
 
   <td class="msg">
-      feat: read custom prompt from storage in content script
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">feat: read custom prompt from storage in content script</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -466,7 +638,12 @@
   </td>
 
   <td class="msg">
-      fix: add error handling and type safety to popup
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">fix: add error handling and type safety to popup</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -480,7 +657,12 @@
   </td>
 
   <td class="msg">
-      feat: add prompt editor UI to popup
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">feat: add prompt editor UI to popup</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -494,7 +676,12 @@
   </td>
 
   <td class="msg">
-      fix: add storage permission and standardize error handling
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">fix: add storage permission and standardize error handling</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -508,7 +695,12 @@
   </td>
 
   <td class="msg">
-      feat: add storage utility for custom prompt
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">feat: add storage utility for custom prompt</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -522,7 +714,12 @@
   </td>
 
   <td class="msg">
-      chore: add .worktrees/ to gitignore
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">chore: add .worktrees/ to gitignore</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -536,7 +733,12 @@
   </td>
 
   <td class="msg">
-      docs: add implementation plan for ClipCutter todo items
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">docs: add implementation plan for ClipCutter todo items</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -550,7 +752,12 @@
   </td>
 
   <td class="msg">
-      docs: add design spec for todo.txt implementation plan
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">docs: add design spec for todo.txt implementation plan</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -564,7 +771,12 @@
   </td>
 
   <td class="msg">
-      fix: throw on unexpected timed action type in render loop
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">fix: throw on unexpected timed action type in render loop</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -578,7 +790,12 @@
   </td>
 
   <td class="msg">
-      feat: timed drawImage — fire-and-forget, non-interruptible
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">feat: timed drawImage — fire-and-forget, non-interruptible</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -592,7 +809,12 @@
   </td>
 
   <td class="msg">
-      feat: add DurationSeconds to DrawImageAction
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">feat: add DurationSeconds to DrawImageAction</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -606,7 +828,12 @@
   </td>
 
   <td class="msg">
-      docs: timed drawImage implementation plan
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">docs: timed drawImage implementation plan</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -620,7 +847,12 @@
   </td>
 
   <td class="msg">
-      docs: timed drawImage design spec
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">docs: timed drawImage design spec</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -634,7 +866,12 @@
   </td>
 
   <td class="msg">
-      plan: icon buttons
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">plan: icon buttons</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -648,7 +885,12 @@
   </td>
 
   <td class="msg">
-      fix: disable Test button in condition builder for composite condition types
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">fix: disable Test button in condition builder for composite condition types</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -662,7 +904,12 @@
   </td>
 
   <td class="msg">
-      feat: move Test button into condition builder panel
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">feat: move Test button into condition builder panel</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -676,7 +923,12 @@
   </td>
 
   <td class="msg">
-      fix: remove vacuous OnConditionSelectionChanged handler
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">fix: remove vacuous OnConditionSelectionChanged handler</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -690,7 +942,12 @@
   </td>
 
   <td class="msg">
-      fix: neutral color for edit/duplicate buttons, remove test from conditions toolbar
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">fix: neutral color for edit/duplicate buttons, remove test from conditions toolbar</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -704,7 +961,12 @@
   </td>
 
   <td class="msg">
-      fix: add VerticalAlignment Center to icon-only glyph TextBlocks
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">fix: add VerticalAlignment Center to icon-only glyph TextBlocks</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -718,7 +980,12 @@
   </td>
 
   <td class="msg">
-      feat: replace text button labels with Segoe icon glyphs
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">feat: replace text button labels with Segoe icon glyphs</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -732,7 +999,12 @@
   </td>
 
   <td class="msg">
-      feat: add IconButton and DangerIconButton styles to dark theme
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">feat: add IconButton and DangerIconButton styles to dark theme</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -746,7 +1018,12 @@
   </td>
 
   <td class="msg">
-      spec: icon buttons design
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">spec: icon buttons design</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -760,7 +1037,12 @@
   </td>
 
   <td class="msg">
-      fix: remove duplicate profile button from sidebar
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">fix: remove duplicate profile button from sidebar</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -774,7 +1056,12 @@
   </td>
 
   <td class="msg">
-      fix: assert overlay topmost immediately on profile activation
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">fix: assert overlay topmost immediately on profile activation</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -788,7 +1075,12 @@
   </td>
 
   <td class="msg">
-      fix: move DXGI capture init to background thread so crosshair renders immediately on profile switch
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">fix: move DXGI capture init to background thread so crosshair renders immediately on profile switch</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -802,7 +1094,12 @@
   </td>
 
   <td class="msg">
-      fix: force overlay topmost via SetWindowPos and correct DPI scaling in PositionOnMonitor
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">fix: force overlay topmost via SetWindowPos and correct DPI scaling in PositionOnMonitor</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -816,7 +1113,12 @@
   </td>
 
   <td class="msg">
-      fix: add ControlBackgroundBrush to theme and style TabControl/TabItem
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">fix: add ControlBackgroundBrush to theme and style TabControl/TabItem</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -830,7 +1132,12 @@
   </td>
 
   <td class="msg">
-      fix: apply theme background brushes to TabControl, builder panels, and Settings tab
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">fix: apply theme background brushes to TabControl, builder panels, and Settings tab</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -844,7 +1151,12 @@
   </td>
 
   <td class="msg">
-      fix: wire PreviewButton once in OnLoaded; reset _addingCondition on cancel
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">fix: wire PreviewButton once in OnLoaded; reset _addingCondition on cancel</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -858,7 +1170,12 @@
   </td>
 
   <td class="msg">
-      feat: remove DashboardWindow, EditorWindow, GlobalSettingsDialog
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">feat: remove DashboardWindow, EditorWindow, GlobalSettingsDialog</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -872,7 +1189,12 @@
   </td>
 
   <td class="msg">
-      feat: extract RuleBuilderControl and add Rules tab
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">feat: extract RuleBuilderControl and add Rules tab</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -886,7 +1208,12 @@
   </td>
 
   <td class="msg">
-      feat: extract ConditionBuilderControl and add Conditions tab
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">feat: extract ConditionBuilderControl and add Conditions tab</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -900,7 +1227,12 @@
   </td>
 
   <td class="msg">
-      feat: add MainWindow shell with status strip, profile sidebar, settings and wire up App.xaml.cs
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">feat: add MainWindow shell with status strip, profile sidebar, settings and wire up App.xaml.cs</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -914,7 +1246,12 @@
   </td>
 
   <td class="msg">
-      spec: single-window UI redesign
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">spec: single-window UI redesign</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -928,7 +1265,12 @@
   </td>
 
   <td class="msg">
-      feat: add drawTimer action UI to RuleBuilderDialog
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">feat: add drawTimer action UI to RuleBuilderDialog</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -942,7 +1284,12 @@
   </td>
 
   <td class="msg">
-      feat: add timer state and countdown synthesis to RuleEngine
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">feat: add timer state and countdown synthesis to RuleEngine</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -956,7 +1303,12 @@
   </td>
 
   <td class="msg">
-      feat: add DrawTimerAction model and serialization
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">feat: add DrawTimerAction model and serialization</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -970,7 +1322,12 @@
   </td>
 
   <td class="msg">
-      fix: GlobalSettingsDialog font size uses double.TryParse
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">fix: GlobalSettingsDialog font size uses double.TryParse</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -984,7 +1341,12 @@
   </td>
 
   <td class="msg">
-      fix: DrawTextAction.Size and GlobalSettings.DefaultFontSize changed to double
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">fix: DrawTextAction.Size and GlobalSettings.DefaultFontSize changed to double</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -998,7 +1360,12 @@
   </td>
 
   <td class="msg">
-      plan: timer action implementation plan
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">plan: timer action implementation plan</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -1012,7 +1379,12 @@
   </td>
 
   <td class="msg">
-      spec: timer display rounds up to integer seconds
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">spec: timer display rounds up to integer seconds</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -1026,7 +1398,12 @@
   </td>
 
   <td class="msg">
-      spec: timer action design
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">spec: timer action design</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -1040,7 +1417,12 @@
   </td>
 
   <td class="msg">
-      fix: crosshair size now accepts decimal values
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">fix: crosshair size now accepts decimal values</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -1054,7 +1436,12 @@
   </td>
 
   <td class="msg">
-      fix: replace monitor freetext with dropdown in global settings dialog
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">fix: replace monitor freetext with dropdown in global settings dialog</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -1068,7 +1455,12 @@
   </td>
 
   <td class="msg">
-      spec+plan: monitor dropdown and crosshair decimal size fixes
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">spec+plan: monitor dropdown and crosshair decimal size fixes</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -1082,7 +1474,12 @@
   </td>
 
   <td class="msg">
-      feat: add global settings dialog accessible from dashboard
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">feat: add global settings dialog accessible from dashboard</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -1096,7 +1493,12 @@
   </td>
 
   <td class="msg">
-      feat: add duplicate rule button to editor
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">feat: add duplicate rule button to editor</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -1110,7 +1512,12 @@
   </td>
 
   <td class="msg">
-      feat: add Play button for sound preview in rule builder
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">feat: add Play button for sound preview in rule builder</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -1124,7 +1531,12 @@
   </td>
 
   <td class="msg">
-      feat: collapse crosshair settings panel when disabled
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">feat: collapse crosshair settings panel when disabled</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -1138,7 +1550,12 @@
   </td>
 
   <td class="msg">
-      spec: ux improvements - crosshair collapse, sound preview, duplicate rule, global settings
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">spec: ux improvements - crosshair collapse, sound preview, duplicate rule, global settings</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -1152,7 +1569,12 @@
   </td>
 
   <td class="msg">
-      feat: add preview rule toggle button to rule builder
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">feat: add preview rule toggle button to rule builder</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -1166,7 +1588,12 @@
   </td>
 
   <td class="msg">
-      feat: expose overlay singleton on App, add IsPreviewActive flag to prevent scan loop overwrite
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">feat: expose overlay singleton on App, add IsPreviewActive flag to prevent scan loop overwrite</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -1180,7 +1607,12 @@
   </td>
 
   <td class="msg">
-      fix: enabled checkbox was in wrong grid row, overlapping condition dropdown
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">fix: enabled checkbox was in wrong grid row, overlapping condition dropdown</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -1194,7 +1626,12 @@
   </td>
 
   <td class="msg">
-      spec: rule builder enabled checkbox fix and preview rule feature
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">spec: rule builder enabled checkbox fix and preview rule feature</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -1208,7 +1645,12 @@
   </td>
 
   <td class="msg">
-      feat: apply accessible WCAG AA dark theme colors
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">feat: apply accessible WCAG AA dark theme colors</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -1222,7 +1664,12 @@
   </td>
 
   <td class="msg">
-      spec: accessible dark mode color palette
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">spec: accessible dark mode color palette</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -1231,7 +1678,7 @@
 </tr>            <tr class="gr-month-row">
               <td colspan="4">
                 March 2026
-                <span>115 commits · 115 public</span>
+                <span>114 commits · 114 public</span>
               </td>
             </tr>
 <tr class="">
@@ -1242,7 +1689,12 @@
   </td>
 
   <td class="msg">
-      fix: use dark text on green success buttons for readability
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">fix: use dark text on green success buttons for readability</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -1256,7 +1708,12 @@
   </td>
 
   <td class="msg">
-      fix: auto-recover from DXGI device loss and overlay disruption
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">fix: auto-recover from DXGI device loss and overlay disruption</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -1270,7 +1727,12 @@
   </td>
 
   <td class="msg">
-      spec: DXGI capture and overlay recovery
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">spec: DXGI capture and overlay recovery</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -1284,7 +1746,12 @@
   </td>
 
   <td class="msg">
-      plan: group condition implementation plan
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">plan: group condition implementation plan</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -1298,7 +1765,12 @@
   </td>
 
   <td class="msg">
-      feat: add group condition UI with sub-condition management
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">feat: add group condition UI with sub-condition management</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -1312,7 +1784,12 @@
   </td>
 
   <td class="msg">
-      feat: evaluate group conditions in scan engine
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">feat: evaluate group conditions in scan engine</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -1326,7 +1803,12 @@
   </td>
 
   <td class="msg">
-      feat: add GroupCondition record with JSON serialization
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">feat: add GroupCondition record with JSON serialization</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -1340,7 +1822,12 @@
   </td>
 
   <td class="msg">
-      spec: group condition for compound leaf checks
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">spec: group condition for compound leaf checks</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -1354,7 +1841,12 @@
   </td>
 
   <td class="msg">
-      feat: add Enabled flag to rules for disabling without deleting
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">feat: add Enabled flag to rules for disabling without deleting</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -1368,7 +1860,12 @@
   </td>
 
   <td class="msg">
-      fix: remove save profile notification popup
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">fix: remove save profile notification popup</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -1382,7 +1879,12 @@
   </td>
 
   <td class="msg">
-      fix: retry DXGI capture to avoid black screenshots in image capture
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">fix: retry DXGI capture to avoid black screenshots in image capture</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -1396,7 +1898,12 @@
   </td>
 
   <td class="msg">
-      spec: fix image capture black screenshots
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">spec: fix image capture black screenshots</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -1410,7 +1917,12 @@
   </td>
 
   <td class="msg">
-      feat: allow editing existing actions in rule builder dialog
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">feat: allow editing existing actions in rule builder dialog</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -1424,7 +1936,12 @@
   </td>
 
   <td class="msg">
-      plan: edit existing actions on rules
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">plan: edit existing actions on rules</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -1438,7 +1955,12 @@
   </td>
 
   <td class="msg">
-      spec: edit existing actions on rules
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">spec: edit existing actions on rules</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -1452,7 +1974,12 @@
   </td>
 
   <td class="msg">
-      feat: add scale field to drawImage in rule builder UI
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">feat: add scale field to drawImage in rule builder UI</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -1466,7 +1993,12 @@
   </td>
 
   <td class="msg">
-      feat: apply scale multiplier to drawImage rendering
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">feat: apply scale multiplier to drawImage rendering</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -1480,7 +2012,12 @@
   </td>
 
   <td class="msg">
-      feat: add Scale parameter to DrawImageAction with JSON serialization
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">feat: add Scale parameter to DrawImageAction with JSON serialization</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -1494,7 +2031,12 @@
   </td>
 
   <td class="msg">
-      plan: image scale for drawImage actions
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">plan: image scale for drawImage actions</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -1508,7 +2050,12 @@
   </td>
 
   <td class="msg">
-      spec: image scale for drawImage actions
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">spec: image scale for drawImage actions</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -1522,7 +2069,12 @@
   </td>
 
   <td class="msg">
-      feat: fix dark backgrounds and apply semantic button styles
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">feat: fix dark backgrounds and apply semantic button styles</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -1536,7 +2088,12 @@
   </td>
 
   <td class="msg">
-      feat: replace orange accent with semantic color scheme (blue/green/red/gray)
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">feat: replace orange accent with semantic color scheme (blue/green/red/gray)</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -1550,7 +2107,12 @@
   </td>
 
   <td class="msg">
-      plan: dark theme fix and accent color rebrand
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">plan: dark theme fix and accent color rebrand</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -1564,7 +2126,12 @@
   </td>
 
   <td class="msg">
-      spec: dark theme fix and accent color rebrand
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">spec: dark theme fix and accent color rebrand</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -1578,7 +2145,12 @@
   </td>
 
   <td class="msg">
-      docs: add remaining specs, plans, and notes
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">docs: add remaining specs, plans, and notes</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -1592,7 +2164,12 @@
   </td>
 
   <td class="msg">
-      feat: add negate checkbox to condition builder for leaf conditions
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">feat: add negate checkbox to condition builder for leaf conditions</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -1606,7 +2183,12 @@
   </td>
 
   <td class="msg">
-      feat: apply negation to leaf condition evaluation results
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">feat: apply negation to leaf condition evaluation results</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -1620,7 +2202,12 @@
   </td>
 
   <td class="msg">
-      feat: add Negate parameter to leaf conditions with JSON serialization
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">feat: add Negate parameter to leaf conditions with JSON serialization</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -1634,7 +2221,12 @@
   </td>
 
   <td class="msg">
-      docs: add inline negation implementation plan
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">docs: add inline negation implementation plan</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -1648,7 +2240,12 @@
   </td>
 
   <td class="msg">
-      docs: add inline negation spec for leaf conditions
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">docs: add inline negation spec for leaf conditions</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -1662,7 +2259,12 @@
   </td>
 
   <td class="msg">
-      fix: replace unsafe COM interop with CopyFromBuffer in OcrEvaluator
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">fix: replace unsafe COM interop with CopyFromBuffer in OcrEvaluator</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -1676,7 +2278,12 @@
   </td>
 
   <td class="msg">
-      docs: add OCR InvalidCastException fix spec
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">docs: add OCR InvalidCastException fix spec</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -1690,7 +2297,12 @@
   </td>
 
   <td class="msg">
-      fix: cascade condition delete to rules and composite conditions
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">fix: cascade condition delete to rules and composite conditions</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -1704,7 +2316,12 @@
   </td>
 
   <td class="msg">
-      fix: cascade condition rename to rules and composite conditions
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">fix: cascade condition rename to rules and composite conditions</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -1718,7 +2335,12 @@
   </td>
 
   <td class="msg">
-      docs: add condition rename/delete cascade plan
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">docs: add condition rename/delete cascade plan</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -1732,7 +2354,12 @@
   </td>
 
   <td class="msg">
-      docs: add condition rename/delete cascade spec
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">docs: add condition rename/delete cascade spec</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -1746,7 +2373,12 @@
   </td>
 
   <td class="msg">
-      fix: re-activate profile after save so edits take effect immediately
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">fix: re-activate profile after save so edits take effect immediately</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -1760,7 +2392,12 @@
   </td>
 
   <td class="msg">
-      docs: add stale profile fix implementation plan
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">docs: add stale profile fix implementation plan</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -1774,7 +2411,12 @@
   </td>
 
   <td class="msg">
-      docs: add stale profile fix spec
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">docs: add stale profile fix spec</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -1788,7 +2430,12 @@
   </td>
 
   <td class="msg">
-      feat: add crosshair settings UI to profile editor
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">feat: add crosshair settings UI to profile editor</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -1802,7 +2449,12 @@
   </td>
 
   <td class="msg">
-      feat: trigger crosshair update on active profile change
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">feat: trigger crosshair update on active profile change</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -1816,7 +2468,12 @@
   </td>
 
   <td class="msg">
-      feat: render crosshair on overlay with static lifecycle
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">feat: render crosshair on overlay with static lifecycle</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -1830,7 +2487,12 @@
   </td>
 
   <td class="msg">
-      feat: add CrosshairSettings model and Crosshair property to Profile
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">feat: add CrosshairSettings model and Crosshair property to Profile</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -1844,7 +2506,12 @@
   </td>
 
   <td class="msg">
-      docs: add crosshair dot overlay implementation plan
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">docs: add crosshair dot overlay implementation plan</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -1858,7 +2525,12 @@
   </td>
 
   <td class="msg">
-      docs: add crosshair dot overlay spec
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">docs: add crosshair dot overlay spec</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -1872,7 +2544,12 @@
   </td>
 
   <td class="msg">
-      feat: add z-index field to rule builder dialog
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">feat: add z-index field to rule builder dialog</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -1886,7 +2563,12 @@
   </td>
 
   <td class="msg">
-      feat: add z-index to rules for overlay element layering
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">feat: add z-index to rules for overlay element layering</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -1900,7 +2582,12 @@
   </td>
 
   <td class="msg">
-      feat: add glow settings UI to rule builder dialog
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">feat: add glow settings UI to rule builder dialog</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -1914,7 +2601,12 @@
   </td>
 
   <td class="msg">
-      feat: apply animated glow effect to overlay elements
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">feat: apply animated glow effect to overlay elements</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -1928,7 +2620,12 @@
   </td>
 
   <td class="msg">
-      feat: add GlowSettings model and glow serialization for draw actions
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">feat: add GlowSettings model and glow serialization for draw actions</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -1942,7 +2639,12 @@
   </td>
 
   <td class="msg">
-      docs: add design specs and implementation plans
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">docs: add design specs and implementation plans</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -1956,7 +2658,12 @@
   </td>
 
   <td class="msg">
-      fix: handle transient DXGI errors when creating screen capture
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">fix: handle transient DXGI errors when creating screen capture</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -1970,7 +2677,12 @@
   </td>
 
   <td class="msg">
-      feat: add screen capture for image match templates
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">feat: add screen capture for image match templates</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -1984,7 +2696,12 @@
   </td>
 
   <td class="msg">
-      feat: use theme brushes in ConditionTesterWindow
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">feat: use theme brushes in ConditionTesterWindow</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -1998,7 +2715,12 @@
   </td>
 
   <td class="msg">
-      feat: merge dark theme into App.xaml application resources
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">feat: merge dark theme into App.xaml application resources</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -2012,7 +2734,12 @@
   </td>
 
   <td class="msg">
-      feat: add dark theme resource dictionary with orange accents
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">feat: add dark theme resource dictionary with orange accents</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -2026,7 +2753,12 @@
   </td>
 
   <td class="msg">
-      feat: dynamic window sizing for ConditionTesterWindow
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">feat: dynamic window sizing for ConditionTesterWindow</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -2040,7 +2772,12 @@
   </td>
 
   <td class="msg">
-      feat: dynamic window sizing for DashboardWindow
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">feat: dynamic window sizing for DashboardWindow</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -2054,7 +2791,12 @@
   </td>
 
   <td class="msg">
-      feat: dynamic window sizing for EditorWindow
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">feat: dynamic window sizing for EditorWindow</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -2068,7 +2810,12 @@
   </td>
 
   <td class="msg">
-      feat: dynamic window sizing for RuleBuilderDialog
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">feat: dynamic window sizing for RuleBuilderDialog</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -2082,7 +2829,12 @@
   </td>
 
   <td class="msg">
-      feat: dynamic window sizing for ConditionBuilderDialog
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">feat: dynamic window sizing for ConditionBuilderDialog</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -2096,7 +2848,12 @@
   </td>
 
   <td class="msg">
-      feat: add poll rate field to condition builder dialog
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">feat: add poll rate field to condition builder dialog</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -2110,7 +2867,12 @@
   </td>
 
   <td class="msg">
-      test: add unit tests for per-condition polling skip logic
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">test: add unit tests for per-condition polling skip logic</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -2124,7 +2886,12 @@
   </td>
 
   <td class="msg">
-      feat: skip leaf condition evaluation when per-condition poll interval not elapsed
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">feat: skip leaf condition evaluation when per-condition poll interval not elapsed</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -2138,7 +2905,12 @@
   </td>
 
   <td class="msg">
-      feat: add optional PollRateMs to leaf condition models
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">feat: add optional PollRateMs to leaf condition models</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -2152,7 +2924,12 @@
   </td>
 
   <td class="msg">
-      fix: switch image matching from CCorrNormed to CCoeffNormed to reduce false positives
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">fix: switch image matching from CCorrNormed to CCoeffNormed to reduce false positives</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -2166,7 +2943,12 @@
   </td>
 
   <td class="msg">
-      feat: auto-start polling when condition tester window opens
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">feat: auto-start polling when condition tester window opens</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -2180,7 +2962,12 @@
   </td>
 
   <td class="msg">
-      feat: useability fixes
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">feat: useability fixes</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -2194,7 +2981,12 @@
   </td>
 
   <td class="msg">
-      fix: switch builder dialogs from ShowDialog to Show with Closed callback
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">fix: switch builder dialogs from ShowDialog to Show with Closed callback</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -2208,7 +3000,12 @@
   </td>
 
   <td class="msg">
-      fix: conditions not saving; profile filenames not matching name
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">fix: conditions not saving; profile filenames not matching name</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -2222,7 +3019,12 @@
   </td>
 
   <td class="msg">
-      fix: replace DialogResult with Confirmed property in builder dialogs
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">fix: replace DialogResult with Confirmed property in builder dialogs</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -2236,7 +3038,12 @@
   </td>
 
   <td class="msg">
-      fix: close tester window before setting DialogResult in builder
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">fix: close tester window before setting DialogResult in builder</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -2250,7 +3057,12 @@
   </td>
 
   <td class="msg">
-      feat: error logging and pixel match tolerance display
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">feat: error logging and pixel match tolerance display</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -2264,7 +3076,12 @@
   </td>
 
   <td class="msg">
-      feat: auto-launch dashboard on startup; fix duplicate profile bugs
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">feat: auto-launch dashboard on startup; fix duplicate profile bugs</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -2278,7 +3095,12 @@
   </td>
 
   <td class="msg">
-      feat: add custom tray icon for ScreenHUD
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">feat: add custom tray icon for ScreenHUD</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -2292,7 +3114,12 @@
   </td>
 
   <td class="msg">
-      fix: update profile list name on save in EditorWindow
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">fix: update profile list name on save in EditorWindow</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -2306,7 +3133,12 @@
   </td>
 
   <td class="msg">
-      feat: wire Test buttons into ConditionBuilderDialog and EditorWindow
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">feat: wire Test buttons into ConditionBuilderDialog and EditorWindow</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -2320,7 +3152,12 @@
   </td>
 
   <td class="msg">
-      refactor: remove unused field and empty stub from ConditionTesterWindow
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">refactor: remove unused field and empty stub from ConditionTesterWindow</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -2334,7 +3171,12 @@
   </td>
 
   <td class="msg">
-      feat: add ConditionTesterWindow with live capture and diagnostics
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">feat: add ConditionTesterWindow with live capture and diagnostics</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -2348,7 +3190,12 @@
   </td>
 
   <td class="msg">
-      feat: add diagnostic methods to ImageMatch and OCR evaluators
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">feat: add diagnostic methods to ImageMatch and OCR evaluators</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -2362,7 +3209,12 @@
   </td>
 
   <td class="msg">
-      docs: add live condition tester implementation plan
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">docs: add live condition tester implementation plan</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -2376,7 +3228,12 @@
   </td>
 
   <td class="msg">
-      docs: add live condition tester design spec
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">docs: add live condition tester design spec</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -2390,7 +3247,12 @@
   </td>
 
   <td class="msg">
-      feat: wire condition and rule builder dialogs into editor (Task 3)
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">feat: wire condition and rule builder dialogs into editor (Task 3)</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -2404,7 +3266,12 @@
   </td>
 
   <td class="msg">
-      feat: add rule builder dialog (Task 2)
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">feat: add rule builder dialog (Task 2)</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -2418,7 +3285,12 @@
   </td>
 
   <td class="msg">
-      feat: add condition builder dialog (Task 1)
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">feat: add condition builder dialog (Task 1)</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -2432,7 +3304,12 @@
   </td>
 
   <td class="msg">
-      docs: add builder forms implementation plan
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">docs: add builder forms implementation plan</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -2446,7 +3323,12 @@
   </td>
 
   <td class="msg">
-      docs: add condition builder and rule builder design spec
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">docs: add condition builder and rule builder design spec</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -2460,7 +3342,12 @@
   </td>
 
   <td class="msg">
-      feat: add region and pixel picker overlay for config editor (Task 21)
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">feat: add region and pixel picker overlay for config editor (Task 21)</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -2474,7 +3361,12 @@
   </td>
 
   <td class="msg">
-      feat: add config editor with profile list management (Task 20)
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">feat: add config editor with profile list management (Task 20)</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -2488,7 +3380,12 @@
   </td>
 
   <td class="msg">
-      feat: wire up app startup with tray, overlay, and scan loop (Task 18)
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">feat: wire up app startup with tray, overlay, and scan loop (Task 18)</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -2502,7 +3399,12 @@
   </td>
 
   <td class="msg">
-      feat: add system tray icon with context menu (Task 17)
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">feat: add system tray icon with context menu (Task 17)</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -2516,7 +3418,12 @@
   </td>
 
   <td class="msg">
-      feat: add profile manager and scan loop service (Task 16)
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">feat: add profile manager and scan loop service (Task 16)</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -2530,7 +3437,12 @@
   </td>
 
   <td class="msg">
-      feat: add transparent click-through overlay window (Task 15)
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">feat: add transparent click-through overlay window (Task 15)</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -2544,7 +3456,12 @@
   </td>
 
   <td class="msg">
-      feat: add Win32 interop for click-through and foreground detection (Task 14)
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">feat: add Win32 interop for click-through and foreground detection (Task 14)</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -2558,7 +3475,12 @@
   </td>
 
   <td class="msg">
-      feat: add DXGI screen capture and leaf evaluator provider (Task 13)
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">feat: add DXGI screen capture and leaf evaluator provider (Task 13)</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -2572,7 +3494,12 @@
   </td>
 
   <td class="msg">
-      feat: add OCR evaluator using Windows.Media.Ocr (Task 12)
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">feat: add OCR evaluator using Windows.Media.Ocr (Task 12)</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -2586,7 +3513,12 @@
   </td>
 
   <td class="msg">
-      feat: add image match evaluator using OpenCvSharp template matching (Task 11)
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">feat: add image match evaluator using OpenCvSharp template matching (Task 11)</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -2600,7 +3532,12 @@
   </td>
 
   <td class="msg">
-      feat: add pixel match evaluator with color tolerance (Task 10)
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">feat: add pixel match evaluator with color tolerance (Task 10)</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -2614,7 +3551,12 @@
   </td>
 
   <td class="msg">
-      Add ScanEngine with tests (Task 9)
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">Add ScanEngine with tests (Task 9)</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -2628,7 +3570,12 @@
   </td>
 
   <td class="msg">
-      Add screen capture interfaces and frame types (Task 8)
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">Add screen capture interfaces and frame types (Task 8)</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -2642,7 +3589,12 @@
   </td>
 
   <td class="msg">
-      feat: add rule engine with edge-triggered sound support
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">feat: add rule engine with edge-triggered sound support</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -2656,7 +3608,12 @@
   </td>
 
   <td class="msg">
-      feat: add region batcher for merging overlapping capture regions
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">feat: add region batcher for merging overlapping capture regions</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -2670,7 +3627,12 @@
   </td>
 
   <td class="msg">
-      feat: add condition dependency graph with topological sort
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">feat: add condition dependency graph with topological sort</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -2684,7 +3646,12 @@
   </td>
 
   <td class="msg">
-      feat: add config validation with cycle detection
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">feat: add config validation with cycle detection</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -2698,7 +3665,12 @@
   </td>
 
   <td class="msg">
-      feat: add ConfigLoader for reading/writing settings and profiles
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">feat: add ConfigLoader for reading/writing settings and profiles</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -2712,7 +3684,12 @@
   </td>
 
   <td class="msg">
-      feat: add config models with JSON serialization
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">feat: add config models with JSON serialization</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -2726,7 +3703,12 @@
   </td>
 
   <td class="msg">
-      chore: add .gitignore and remove tracked build artifacts
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">chore: add .gitignore and remove tracked build artifacts</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -2740,7 +3722,12 @@
   </td>
 
   <td class="msg">
-      feat: scaffold solution with Core, Capture, App, and test projects
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">feat: scaffold solution with Core, Capture, App, and test projects</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -2754,7 +3741,12 @@
   </td>
 
   <td class="msg">
-      Add ScreenHUD implementation plan
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">Add ScreenHUD implementation plan</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -2768,7 +3760,12 @@
   </td>
 
   <td class="msg">
-      Add ScreenHUD design specification
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">Add ScreenHUD design specification</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -2782,7 +3779,12 @@
   </td>
 
   <td class="msg">
-      fix: laughter detection improvements
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">fix: laughter detection improvements</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -2796,7 +3798,12 @@
   </td>
 
   <td class="msg">
-      fix: rename not showing spinner
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">fix: rename not showing spinner</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -2810,7 +3817,12 @@
   </td>
 
   <td class="msg">
-      feat: waveform visualizer and compilation maker
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">feat: waveform visualizer and compilation maker</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -2824,25 +3836,16 @@
   </td>
 
   <td class="msg">
-      chore: leaning up the CLAUDE.md
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">chore: leaning up the CLAUDE.md</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
       <a class="sha-link" href="https://github.com/curtyo18/ClipCutter/commit/fe1afe76377a592b08a26dbe035eaad8a37332b3" target="_blank" rel="noopener noreferrer">fe1afe7</a>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-03-24 20:20</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/ClipCutter" target="_blank" rel="noopener noreferrer">ClipCutter</a>
-  </td>
-
-  <td class="msg">
-      feat: adding unit and playwright tests
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/ClipCutter/commit/3c68510b002f7dc65707a97afe9ae7408bf9a207" target="_blank" rel="noopener noreferrer">3c68510</a>
   </td>
 </tr>        </tbody>
       </table>
@@ -2871,11 +3874,12 @@
     <a href="https://github.com/curtyo18" target="_blank" rel="noopener noreferrer">github</a> · <a href="mailto:curtyo18@gmail.com">email</a>
   </div>
   <div class="stats" style="align-items:center">
-    <span><b>2,295</b> commits</span>
+    <span><b>2,296</b> commits</span>
     <span><b>79</b> repos</span>
     <span><b>17</b> years</span>
   </div>
 </footer>    </div>
   </div>
+  <script src="expand.js" defer></script>
 </body>
 </html>

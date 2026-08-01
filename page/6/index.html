@@ -6,6 +6,9 @@
   <base href="../../" />
   <title>commits — curt</title>
   <link rel="stylesheet" href="styles.css" />
+  <!-- Set before first paint so the "show more" chips never flash on rows that
+       don't actually overflow. expand.js does the measuring. -->
+  <script>document.documentElement.className += " has-js";</script>
 </head>
 <body>
   <div class="page page-full">
@@ -16,13 +19,13 @@
     <small>curt — a public log of private and public work</small>
   </h1>
   <div class="meta">
-    <span><b>2,295</b> commits indexed</span>
+    <span><b>2,296</b> commits indexed</span>
     <span><b>79</b> repos · <b>17</b> years</span>
   </div>
 </div>
       <div class="gr-section-title" style="margin-top:36px">
         <span>All commits · newest first</span>
-        <span class="right">showing 1001–1200 of 2295</span>
+        <span class="right">showing 1001–1200 of 2296</span>
       </div>
 
       <table class="gr-table">
@@ -39,6 +42,33 @@
               </td>
             </tr>
 <tr class="">
+    <td class="when">2026-05-17 12:59</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/ClipCutter" target="_blank" rel="noopener noreferrer">ClipCutter</a>
+  </td>
+
+  <td class="msg">
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">test(detector): fix extract_audio arg in smoke tests (dir not file)
+
+extract_audio takes (video_path, output_dir) — it mkdir&#39;s the second arg
+and returns the actual wav path inside it. The two smoke tests added in
+238933f passed a file path, which made the function mkdir &#39;audio.wav&#39; as
+a directory. Because the tests were @requires_ffmpeg-skipped in the
+no-ffmpeg sandbox where they were authored, the misuse was never caught.
+
+Fixed by passing Path(tmp) and capturing the returned wav path.</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/ClipCutter/commit/e946bbf4e3f340f5414db67a38d80ad3b2174d1f" target="_blank" rel="noopener noreferrer">e946bbf</a>
+  </td>
+</tr><tr class="">
     <td class="when">2026-05-17 12:36</td>
 
   <td class="repo">
@@ -46,12 +76,17 @@
   </td>
 
   <td class="msg">
-      docs(plan): record the review-fixes plan that drove this branch
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">docs(plan): record the review-fixes plan that drove this branch
 
 Plan file used by superpowers:subagent-driven-development to execute
 21 tasks from the 2026-05-17 code/test review. Includes the upfront
 HITL decisions (merge re-process state; remove compile cancel;
-canonical /video/{kind}/{stem}/{file}).
+canonical /video/{kind}/{stem}/{file}).</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -65,7 +100,9 @@ canonical /video/{kind}/{stem}/{file}).
   </td>
 
   <td class="msg">
-      test: cover cancel routes, 409 already-running, keep validation, waveform errors
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">test: cover cancel routes, 409 already-running, keep validation, waveform errors
 
 Adds coverage for the gaps identified in the 2026-05-17 review:
 - POST /api/encode/cancel and /api/youtube/upload/cancel end-to-end.
@@ -74,7 +111,10 @@ Adds coverage for the gaps identified in the 2026-05-17 review:
 - Keep with segment shorter than CLIP_MIN_LENGTH_SECONDS returns 400.
 - GET /api/waveform error paths (ffmpeg failure, no audio).
 - /api/sources LIST + DELETE happy paths + 404.
-- GET /api/youtube/status with no creds file returns authenticated=false.
+- GET /api/youtube/status with no creds file returns authenticated=false.</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -88,7 +128,9 @@ Adds coverage for the gaps identified in the 2026-05-17 review:
   </td>
 
   <td class="msg">
-      test(ui): browser tests use live server HTTP, not a second AppState
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">test(ui): browser tests use live server HTTP, not a second AppState
 
 test_export_shows_kept_clips and test_preview_modal_uses_saved_volume
 were constructing TestClient(create_app(output_dir)) inside the test
@@ -98,7 +140,10 @@ live_app) has its own AppState — tasks landed in the test app&#39;s
 state.keep aren&#39;t visible to the live server.
 
 Switched to requests.post / requests.get against `${live_app}/...`
-so the tests actually exercise the same backend the browser hits.
+so the tests actually exercise the same backend the browser hits.</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -112,7 +157,9 @@ so the tests actually exercise the same backend the browser hits.
   </td>
 
   <td class="msg">
-      fix(ui): inflight-token + modal teardown + YT auth listener cleanup
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">fix(ui): inflight-token + modal teardown + YT auth listener cleanup
 
 - loadExportTab now captures an inflightLoadToken at start and
   bails before assigning keptClips/storageSummary if a newer call
@@ -125,7 +172,10 @@ so the tests actually exercise the same backend the browser hits.
 - YouTube auth message listener now has popup.closed polling and
   a 5-minute fallback timeout. All three exit paths
   (success / popup-closed / timeout) detach the listener and
-  clear the timers.
+  clear the timers.</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -139,7 +189,9 @@ so the tests actually exercise the same backend the browser hits.
   </td>
 
   <td class="msg">
-      fix(metadata): re-process preserves review/encode/upload state via merge
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">fix(metadata): re-process preserves review/encode/upload state via merge
 
 save_metadata now merges with any existing metadata file instead of
 unconditional overwrite. For matching filenames, preserves status,
@@ -150,7 +202,10 @@ fields (confidence, detection_reasons, start_time, end_time) come
 from the new run. Orphan-kept clips (in old, not in new) survive.
 
 Routed through mutate_metadata so the per-path lock from Task 5
-prevents concurrent corruption.
+prevents concurrent corruption.</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -164,7 +219,9 @@ prevents concurrent corruption.
   </td>
 
   <td class="msg">
-      test(ui): replace wait_for_timeout sleeps with explicit expect() waits
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">test(ui): replace wait_for_timeout sleeps with explicit expect() waits
 
 ~13 sites in test_ui_browser.py used arbitrary millisecond sleeps
 to wait for state changes. Replaced each with the explicit
@@ -178,7 +235,10 @@ actually succeeded; _wait_for_path remains the load-bearing check.
 
 And rewrites test_chip_pct_moves_during_run to assert progress
 actually moved past 0 and crossed 50%, rather than counting
-&gt;=3 distinct values within a 6s window (which flaked on fast hosts).
+&gt;=3 distinct values within a 6s window (which flaked on fast hosts).</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -192,7 +252,9 @@ actually moved past 0 and crossed 50%, rather than counting
   </td>
 
   <td class="msg">
-      perf(detection): vectorize compute_rolling_zscore + median_filter
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">perf(detection): vectorize compute_rolling_zscore + median_filter
 
 compute_rolling_zscore used a Python frame loop calling shifted-
 cumsum math for ~25k iterations per call. Replaced with fully
@@ -202,7 +264,10 @@ fixtures.
 sudden-noise&#39;s local-median was [np.median(...) for i in range],
 ~25k np.median calls per video. Replaced with
 scipy.ndimage.median_filter(..., mode=&#39;reflect&#39;) — single C call
-with matching reflect-mode semantics.
+with matching reflect-mode semantics.</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -216,7 +281,9 @@ with matching reflect-mode semantics.
   </td>
 
   <td class="msg">
-      fix(misc): GIF -an, ffmpeg error surfacing, glob tightening, leftover reporting
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">fix(misc): GIF -an, ffmpeg error surfacing, glob tightening, leftover reporting
 
 Bundle of surgical MEDIUM fixes:
 - encoder.py GIF slowdown branch now includes -an (parity with non-slowdown).
@@ -229,7 +296,10 @@ Bundle of surgical MEDIUM fixes:
 - routes/compile.py:list_compilations glob tightened to the
   comp_YYYYMMDD_HHMMSS pattern.
 - routes/encode.py:delete_kept_clip and routes/compile.py:delete_compilation
-  surface leftover_files when the cleanup is partial.
+  surface leftover_files when the cleanup is partial.</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -243,7 +313,9 @@ Bundle of surgical MEDIUM fixes:
   </td>
 
   <td class="msg">
-      refactor(routes): canonical /video/{kind}/{stem}/{file} URL shape
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">refactor(routes): canonical /video/{kind}/{stem}/{file} URL shape
 
 Replaces the silent pending-&gt;kept-&gt;encoded fallback in serve_video
 with an explicit kind path component. Drops the redundant
@@ -253,7 +325,10 @@ with an explicit kind path component. Drops the redundant
 Frontend callers updated to pass the kind they actually want;
 backend URL builders in list_kept and friends emit the new shape.
 
-Breaking: any hand-built /video/{stem}/{file} URLs now 404.
+Breaking: any hand-built /video/{stem}/{file} URLs now 404.</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -267,7 +342,9 @@ Breaking: any hand-built /video/{stem}/{file} URLs now 404.
   </td>
 
   <td class="msg">
-      fix(lifecycle): async startup cleanup, sweep waveform sidecars, cap log_lines
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">fix(lifecycle): async startup cleanup, sweep waveform sidecars, cap log_lines
 
 - _cleanup_stale_pending now runs in a startup-hook background
   thread so the server can accept requests immediately even on
@@ -276,7 +353,10 @@ Breaking: any hand-built /video/{stem}/{file} URLs now 404.
   to each pending clip, so video_dir.rmdir() actually succeeds.
 - ProcessState.log_lines is now a deque(maxlen=500), so a long
   processing run doesn&#39;t ship a growing-without-bound payload
-  on every /api/process/status poll.
+  on every /api/process/status poll.</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -290,7 +370,9 @@ Breaking: any hand-built /video/{stem}/{file} URLs now 404.
   </td>
 
   <td class="msg">
-      fix(clipper): clamp split point + bound recursion + isolate merged highlights
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">fix(clipper): clamp split point + bound recursion + isolate merged highlights
 
 compute_clip_boundaries was sharing highlight lists across merges,
 so a merged boundary could carry highlights from outside its time
@@ -301,7 +383,10 @@ runaway recursion.
 
 - Merge uses list(...) copy + filters highlights by merged range.
 - _split_long_clip clamps split_point into [start+MIN, end-MIN].
-- Depth-bounded recursion (max 6) falls back to even halving.
+- Depth-bounded recursion (max 6) falls back to even halving.</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -315,7 +400,9 @@ runaway recursion.
   </td>
 
   <td class="msg">
-      security(oauth): state param, partial-creds rejection, token persistence
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">security(oauth): state param, partial-creds rejection, token persistence
 
 - get_auth_url generates a single-use random state; oauth_callback
   verifies it (400 on mismatch/missing) before exchanging code.
@@ -326,7 +413,10 @@ runaway recursion.
 - youtube_status maps RefreshError to &#34;expired&#34; but surfaces other
   errors with their class + message instead of always saying expired.
 - UploadResult gains permanent: bool; upload_video classifies
-  HttpError 4xx as permanent, 5xx as transient.
+  HttpError 4xx as permanent, 5xx as transient.</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -340,14 +430,19 @@ runaway recursion.
   </td>
 
   <td class="msg">
-      fix(subprocess): close remaining ffmpeg-hang vectors in keep routes
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">fix(subprocess): close remaining ffmpeg-hang vectors in keep routes
 
 Follow-up to 263300e. Tasks: replace the 3600s sentinel in
 review.py:_run_ffmpeg with KEEP_FFMPEG_TIMEOUT=600 + FFmpegTimeoutError;
 add timeout=30 to _probe_duration; strengthen
 test_worker_timeout_recorded_as_per_clip_error to a two-clip batch so
 it actually proves the batch advances after a timeout; remove the
-unused FFMPEG_CHECK_TIMEOUT constant in audio.py.
+unused FFMPEG_CHECK_TIMEOUT constant in audio.py.</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -361,7 +456,9 @@ unused FFMPEG_CHECK_TIMEOUT constant in audio.py.
   </td>
 
   <td class="msg">
-      fix(subprocess): add timeouts to ffmpeg/ffprobe + OAuth HTTP
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">fix(subprocess): add timeouts to ffmpeg/ffprobe + OAuth HTTP
 
 Every subprocess.run / Popen.communicate in audio.py, encoder.py,
 compiler.py and the encode-worker Popen now passes timeout= with
@@ -371,7 +468,10 @@ FFmpegTimeoutError so callers can map it cleanly.
 
 requests.post in clipcutter/youtube.py (exchange_code,
 refresh_access_token) gets a 30s timeout to keep the OAuth
-callback from wedging a request thread.
+callback from wedging a request thread.</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -385,12 +485,17 @@ callback from wedging a request thread.
   </td>
 
   <td class="msg">
-      refactor(compile): remove dead cancel endpoint and field
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">refactor(compile): remove dead cancel endpoint and field
 
 POST /api/compilation/cancel set state.comp.cancelled but no worker
 ever read it. Compilations are short enough that half-built file +
 restart is fine; the cancel button was UX theatre. Drops the backend
-route, the state field, and the frontend button + handler + API call.
+route, the state field, and the frontend button + handler + API call.</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -404,7 +509,9 @@ route, the state field, and the frontend button + handler + API call.
   </td>
 
   <td class="msg">
-      fix(youtube): per-chunk cancel + timeout on upload loop
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">fix(youtube): per-chunk cancel + timeout on upload loop
 
 upload_video now checks cancel_event between chunks and passes
 num_retries=3 to next_chunk(). HTTP client gets a 120s timeout
@@ -412,7 +519,10 @@ so a stalled socket can&#39;t wedge the worker. UploadResult gains
 cancelled: bool so the UI can distinguish user cancel from error.
 
 state.upl.cancelled converted to threading.Event for memory-barrier
-semantics, same pattern as Task 8.
+semantics, same pattern as Task 8.</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -426,14 +536,19 @@ semantics, same pattern as Task 8.
   </td>
 
   <td class="msg">
-      fix(cancel): Popen-based cancel + threading.Event for encode/keep
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">fix(cancel): Popen-based cancel + threading.Event for encode/keep
 
 Cancel routes now hold a reference to the active subprocess.Popen
 and call .terminate() (+ .kill() after 5s) instead of just toggling
 a between-iteration flag. cancelled bools converted to threading.Event
 so reset() and cancel writes have proper memory-barrier semantics.
 
-Compile and YouTube cancellation handled in Tasks 10 + 9 respectively.
+Compile and YouTube cancellation handled in Tasks 10 + 9 respectively.</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -447,12 +562,17 @@ Compile and YouTube cancellation handled in Tasks 10 + 9 respectively.
   </td>
 
   <td class="msg">
-      fix(routes): cross-platform open_folder (xdg-open / open / startfile)
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">fix(routes): cross-platform open_folder (xdg-open / open / startfile)
 
 The route now branches on sys.platform: Windows uses os.startfile,
 macOS uses `open`, Linux uses `xdg-open`. Subprocess.Popen is
 fire-and-forget; FileNotFoundError returns 501. Old test marked
-Windows-only; added Linux and macOS variants.
+Windows-only; added Linux and macOS variants.</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -466,7 +586,9 @@ Windows-only; added Linux and macOS variants.
   </td>
 
   <td class="msg">
-      fix(metadata): per-path lock on update_clip_* to prevent lost writes
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">fix(metadata): per-path lock on update_clip_* to prevent lost writes
 
 Each update_clip_* used to do an unlocked read-mutate-write. Two
 threads (encode worker + keep request, etc.) could interleave and
@@ -476,7 +598,10 @@ threading.Lock and atomically reads, mutates, and rewrites.
 Each updater now returns bool indicating whether the filename matched.
 Routes 404 on miss (delete_kept_clip, discard_clip), log-warn for
 background workers (encode, youtube, compile sources delete), or
-500 for post-validation invariants (keep_clip).
+500 for post-validation invariants (keep_clip).</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -490,7 +615,9 @@ background workers (encode, youtube, compile sources delete), or
   </td>
 
   <td class="msg">
-      security(ui): properly escape quotes + migrate inline onclick to data-* handlers
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">security(ui): properly escape quotes + migrate inline onclick to data-* handlers
 
 escapeHtml previously only escaped &amp; &lt; &gt; via textContent/innerHTML
 round-trip, leaving &#34; and &#39; unescaped. Any user-controlled value
@@ -499,7 +626,10 @@ or inline-JS context could break out.
 
 Now escapes the standard 5 chars (&amp; &lt; &gt; &#34; &#39;). Inline onclick handlers
 that previously interpolated string args now read from data-* attrs
-via this.dataset, eliminating the JS-string-context layer entirely.
+via this.dataset, eliminating the JS-string-context layer entirely.</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -513,7 +643,9 @@ via this.dataset, eliminating the JS-string-context layer entirely.
   </td>
 
   <td class="msg">
-      security(routes): add _safe_join to validate path params
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">security(routes): add _safe_join to validate path params
 
 Routes that join untrusted video_stem / filename / compilation_id
 into the filesystem (serve_video, get_waveform, delete_kept_clip,
@@ -522,7 +654,10 @@ delete_compilation_sources, serve_compilation_video) now route through
 _safe_join, which resolves and verifies relative_to(base). Escapes
 raise 400 instead of touching the filesystem.
 
-Tests cover traversal rejection on one read and one delete endpoint.
+Tests cover traversal rejection on one read and one delete endpoint.</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -536,7 +671,12 @@ Tests cover traversal rejection on one read and one delete endpoint.
   </td>
 
   <td class="msg">
-      chore: declare youtube and dev optional-dependency groups
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">chore: declare youtube and dev optional-dependency groups</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -550,10 +690,15 @@ Tests cover traversal rejection on one read and one delete endpoint.
   </td>
 
   <td class="msg">
-      chore: add .gitattributes and renormalize line endings to LF
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">chore: add .gitattributes and renormalize line endings to LF
 
 Working tree had CRLF endings from a Windows mount, while HEAD was LF.
-Every checkout produced noisy modified files. Lock to LF except .bat.
+Every checkout produced noisy modified files. Lock to LF except .bat.</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -567,7 +712,12 @@ Every checkout produced noisy modified files. Lock to LF except .bat.
   </td>
 
   <td class="msg">
-      fix: clip-watcher polls instead of inotify (9p mount doesnt fire inotify events)
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">fix: clip-watcher polls instead of inotify (9p mount doesnt fire inotify events)</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -581,7 +731,12 @@ Every checkout produced noisy modified files. Lock to LF except .bat.
   </td>
 
   <td class="msg">
-      <span class="redact" aria-label="redacted message" role="img">migrate util so facade can merge scheduler</span>
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text redact" aria-label="redacted message" role="img">migrate util so facade can merge scheduler</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -595,7 +750,12 @@ Every checkout produced noisy modified files. Lock to LF except .bat.
   </td>
 
   <td class="msg">
-      feat: clipboard watcher as systemd service (persistent across WSL sessions)
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">feat: clipboard watcher as systemd service (persistent across WSL sessions)</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -609,7 +769,12 @@ Every checkout produced noisy modified files. Lock to LF except .bat.
   </td>
 
   <td class="msg">
-      feat: clipboard bridge — add paste command (host clipboard → container) + dispatch in watcher
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">feat: clipboard bridge — add paste command (host clipboard → container) + dispatch in watcher</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -623,7 +788,12 @@ Every checkout produced noisy modified files. Lock to LF except .bat.
   </td>
 
   <td class="msg">
-      feat: clipboard bridge — container clip script + WSL watcher pipes to clip.exe
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">feat: clipboard bridge — container clip script + WSL watcher pipes to clip.exe</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -637,7 +807,12 @@ Every checkout produced noisy modified files. Lock to LF except .bat.
   </td>
 
   <td class="msg">
-      docs: cover gh auth, volume ownership, wizard, permission settings drift, bypass design
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">docs: cover gh auth, volume ownership, wizard, permission settings drift, bypass design</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -651,7 +826,12 @@ Every checkout produced noisy modified files. Lock to LF except .bat.
   </td>
 
   <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">fix: restructure scheduler in guard</span>
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text redact-strong" aria-label="redacted message" role="img">fix: restructure scheduler in guard</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -665,7 +845,12 @@ Every checkout produced noisy modified files. Lock to LF except .bat.
   </td>
 
   <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">bump client, loosen worker</span>
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text redact-strong" aria-label="redacted message" role="img">bump client, loosen worker</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -679,7 +864,12 @@ Every checkout produced noisy modified files. Lock to LF except .bat.
   </td>
 
   <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">chore: split the incorrect shim</span>
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text redact-strong" aria-label="redacted message" role="img">chore: split the incorrect shim</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -693,7 +883,12 @@ Every checkout produced noisy modified files. Lock to LF except .bat.
   </td>
 
   <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">polish decoder, refactor supervisor</span>
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text redact-strong" aria-label="redacted message" role="img">polish decoder, refactor supervisor</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -707,7 +902,12 @@ Every checkout produced noisy modified files. Lock to LF except .bat.
   </td>
 
   <td class="msg">
-      fix: mkdir /home/claude/.config in Dockerfile so gh volume mounts as claude-owned
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">fix: mkdir /home/claude/.config in Dockerfile so gh volume mounts as claude-owned</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -721,7 +921,12 @@ Every checkout produced noisy modified files. Lock to LF except .bat.
   </td>
 
   <td class="msg">
-      feat: persist /home/claude/.config (gh auth) across container recreates
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">feat: persist /home/claude/.config (gh auth) across container recreates</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -735,7 +940,12 @@ Every checkout produced noisy modified files. Lock to LF except .bat.
   </td>
 
   <td class="msg">
-      <span class="redact" aria-label="redacted message" role="img">fix: optimize the tighter reader</span>
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text redact" aria-label="redacted message" role="img">fix: optimize the tighter reader</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -749,7 +959,12 @@ Every checkout produced noisy modified files. Lock to LF except .bat.
   </td>
 
   <td class="msg">
-      feat: entrypoint adds claude() shell function with --dangerously-skip-permissions
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">feat: entrypoint adds claude() shell function with --dangerously-skip-permissions</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -763,7 +978,12 @@ Every checkout produced noisy modified files. Lock to LF except .bat.
   </td>
 
   <td class="msg">
-      <span class="redact" aria-label="redacted message" role="img">rename</span>
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text redact" aria-label="redacted message" role="img">rename</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -777,7 +997,12 @@ Every checkout produced noisy modified files. Lock to LF except .bat.
   </td>
 
   <td class="msg">
-      feat: cbox -c launches claude with --dangerously-skip-permissions
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">feat: cbox -c launches claude with --dangerously-skip-permissions</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -791,7 +1016,12 @@ Every checkout produced noisy modified files. Lock to LF except .bat.
   </td>
 
   <td class="msg">
-      <span class="redact" aria-label="redacted message" role="img">test: vendor guard for schema</span>
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text redact" aria-label="redacted message" role="img">test: vendor guard for schema</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -805,7 +1035,12 @@ Every checkout produced noisy modified files. Lock to LF except .bat.
   </td>
 
   <td class="msg">
-      <span class="redact" aria-label="redacted message" role="img">feat: fix runner for fallback</span>
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text redact" aria-label="redacted message" role="img">feat: fix runner for fallback</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -819,7 +1054,12 @@ Every checkout produced noisy modified files. Lock to LF except .bat.
   </td>
 
   <td class="msg">
-      fix: set hasCompletedOnboarding=true in entrypoint to suppress wizard
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">fix: set hasCompletedOnboarding=true in entrypoint to suppress wizard</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -833,7 +1073,12 @@ Every checkout produced noisy modified files. Lock to LF except .bat.
   </td>
 
   <td class="msg">
-      <span class="redact" aria-label="redacted message" role="img">test: debounce buffer</span>
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text redact" aria-label="redacted message" role="img">test: debounce buffer</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -847,7 +1092,12 @@ Every checkout produced noisy modified files. Lock to LF except .bat.
   </td>
 
   <td class="msg">
-      <span class="redact" aria-label="redacted message" role="img">chore: split incorrect facade when facade changes</span>
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text redact" aria-label="redacted message" role="img">chore: split incorrect facade when facade changes</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -861,7 +1111,12 @@ Every checkout produced noisy modified files. Lock to LF except .bat.
   </td>
 
   <td class="msg">
-      feat: publish ports 8000-8099 for dev servers
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">feat: publish ports 8000-8099 for dev servers</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -875,7 +1130,12 @@ Every checkout produced noisy modified files. Lock to LF except .bat.
   </td>
 
   <td class="msg">
-      fix: entrypoint sets up gh auth + git credential helper from PAT
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">fix: entrypoint sets up gh auth + git credential helper from PAT</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -889,13 +1149,18 @@ Every checkout produced noisy modified files. Lock to LF except .bat.
   </td>
 
   <td class="msg">
-      feat: add serve.sh local-dev wrapper
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">feat: add serve.sh local-dev wrapper
 
 Thin wrapper around python3 -m http.server that always runs from the
 repo root and accepts an optional port arg. README updated so both
 &#39;What&#39;s here today&#39; and the calculator instructions point at it.
 
-Co-Authored-By: Claude Opus 4.7 &lt;noreply@anthropic.com&gt;
+Co-Authored-By: Claude Opus 4.7 &lt;noreply@anthropic.com&gt;</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -909,7 +1174,12 @@ Co-Authored-By: Claude Opus 4.7 &lt;noreply@anthropic.com&gt;
   </td>
 
   <td class="msg">
-      fix: entrypoint sets git user.email + user.name so commits work
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">fix: entrypoint sets git user.email + user.name so commits work</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -923,7 +1193,12 @@ Co-Authored-By: Claude Opus 4.7 &lt;noreply@anthropic.com&gt;
   </td>
 
   <td class="msg">
-      <span class="redact" aria-label="redacted message" role="img">minor cleanup</span>
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text redact" aria-label="redacted message" role="img">minor cleanup</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -937,7 +1212,12 @@ Co-Authored-By: Claude Opus 4.7 &lt;noreply@anthropic.com&gt;
   </td>
 
   <td class="msg">
-      feat: entrypoint installs plugins listed in settings enabledPlugins
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">feat: entrypoint installs plugins listed in settings enabledPlugins</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -951,7 +1231,12 @@ Co-Authored-By: Claude Opus 4.7 &lt;noreply@anthropic.com&gt;
   </td>
 
   <td class="msg">
-      <span class="redact" aria-label="redacted message" role="img">wip: cleanup stream and update facade</span>
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text redact" aria-label="redacted message" role="img">wip: cleanup stream and update facade</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -965,7 +1250,12 @@ Co-Authored-By: Claude Opus 4.7 &lt;noreply@anthropic.com&gt;
   </td>
 
   <td class="msg">
-      <span class="redact" aria-label="redacted message" role="img">chore: remove wrapper and expose shim</span>
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text redact" aria-label="redacted message" role="img">chore: remove wrapper and expose shim</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -979,7 +1269,12 @@ Co-Authored-By: Claude Opus 4.7 &lt;noreply@anthropic.com&gt;
   </td>
 
   <td class="msg">
-      feat: add cbox helper; bootstrap symlinks it to /usr/local/bin
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">feat: add cbox helper; bootstrap symlinks it to /usr/local/bin</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -993,7 +1288,12 @@ Co-Authored-By: Claude Opus 4.7 &lt;noreply@anthropic.com&gt;
   </td>
 
   <td class="msg">
-      docs: architecture, operations, verification, journal + README links
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">docs: architecture, operations, verification, journal + README links</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -1007,7 +1307,12 @@ Co-Authored-By: Claude Opus 4.7 &lt;noreply@anthropic.com&gt;
   </td>
 
   <td class="msg">
-      fix: entrypoint — set git core.hooksPath so pre-commit fires
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">fix: entrypoint — set git core.hooksPath so pre-commit fires</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -1021,7 +1326,12 @@ Co-Authored-By: Claude Opus 4.7 &lt;noreply@anthropic.com&gt;
   </td>
 
   <td class="msg">
-      <span class="redact" aria-label="redacted message" role="img">refactor: wire schema in service</span>
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text redact" aria-label="redacted message" role="img">refactor: wire schema in service</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -1035,7 +1345,12 @@ Co-Authored-By: Claude Opus 4.7 &lt;noreply@anthropic.com&gt;
   </td>
 
   <td class="msg">
-      fix: entrypoint — bypass proxy for bootstrap clone, fallback ACL when no allowlist
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">fix: entrypoint — bypass proxy for bootstrap clone, fallback ACL when no allowlist</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -1049,7 +1364,12 @@ Co-Authored-By: Claude Opus 4.7 &lt;noreply@anthropic.com&gt;
   </td>
 
   <td class="msg">
-      fix: delete node user before creating claude (UID 1000 conflict)
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">fix: delete node user before creating claude (UID 1000 conflict)</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -1063,7 +1383,12 @@ Co-Authored-By: Claude Opus 4.7 &lt;noreply@anthropic.com&gt;
   </td>
 
   <td class="msg">
-      fix: restore +x on bootstrap.sh after edit
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">fix: restore +x on bootstrap.sh after edit</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -1077,7 +1402,12 @@ Co-Authored-By: Claude Opus 4.7 &lt;noreply@anthropic.com&gt;
   </td>
 
   <td class="msg">
-      fix: bootstrap.sh — capital P in /mnt/e/Projects path
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">fix: bootstrap.sh — capital P in /mnt/e/Projects path</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -1091,7 +1421,12 @@ Co-Authored-By: Claude Opus 4.7 &lt;noreply@anthropic.com&gt;
   </td>
 
   <td class="msg">
-      docs: rewrite README
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">docs: rewrite README</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -1105,7 +1440,12 @@ Co-Authored-By: Claude Opus 4.7 &lt;noreply@anthropic.com&gt;
   </td>
 
   <td class="msg">
-      feat: add bootstrap.ps1 for Windows side
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">feat: add bootstrap.ps1 for Windows side</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -1119,7 +1459,12 @@ Co-Authored-By: Claude Opus 4.7 &lt;noreply@anthropic.com&gt;
   </td>
 
   <td class="msg">
-      feat: add bootstrap.sh for Ubuntu/WSL side
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">feat: add bootstrap.sh for Ubuntu/WSL side</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -1133,7 +1478,12 @@ Co-Authored-By: Claude Opus 4.7 &lt;noreply@anthropic.com&gt;
   </td>
 
   <td class="msg">
-      <span class="redact" aria-label="redacted message" role="img">fix: bump renderer for context</span>
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text redact" aria-label="redacted message" role="img">fix: bump renderer for context</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -1147,7 +1497,12 @@ Co-Authored-By: Claude Opus 4.7 &lt;noreply@anthropic.com&gt;
   </td>
 
   <td class="msg">
-      <span class="redact" aria-label="redacted message" role="img">test: tidy buffer so config can optimize validator</span>
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text redact" aria-label="redacted message" role="img">test: tidy buffer so config can optimize validator</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -1161,7 +1516,12 @@ Co-Authored-By: Claude Opus 4.7 &lt;noreply@anthropic.com&gt;
   </td>
 
   <td class="msg">
-      <span class="redact" aria-label="redacted message" role="img">feat: extract scheduler (leaky)</span>
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text redact" aria-label="redacted message" role="img">feat: extract scheduler (leaky)</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -1175,7 +1535,12 @@ Co-Authored-By: Claude Opus 4.7 &lt;noreply@anthropic.com&gt;
   </td>
 
   <td class="msg">
-      <span class="redact" aria-label="redacted message" role="img">bump verbose service</span>
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text redact" aria-label="redacted message" role="img">bump verbose service</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -1189,7 +1554,12 @@ Co-Authored-By: Claude Opus 4.7 &lt;noreply@anthropic.com&gt;
   </td>
 
   <td class="msg">
-      feat: add entrypoint with config-sync and squid startup
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">feat: add entrypoint with config-sync and squid startup</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -1203,7 +1573,12 @@ Co-Authored-By: Claude Opus 4.7 &lt;noreply@anthropic.com&gt;
   </td>
 
   <td class="msg">
-      feat: add audit-shell DEBUG-trap logger
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">feat: add audit-shell DEBUG-trap logger</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -1217,7 +1592,12 @@ Co-Authored-By: Claude Opus 4.7 &lt;noreply@anthropic.com&gt;
   </td>
 
   <td class="msg">
-      feat: add git audit wrapper for logged-only ops
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">feat: add git audit wrapper for logged-only ops</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -1231,7 +1611,12 @@ Co-Authored-By: Claude Opus 4.7 &lt;noreply@anthropic.com&gt;
   </td>
 
   <td class="msg">
-      feat: add gh wrapper with destructive-action guard
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">feat: add gh wrapper with destructive-action guard</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -1245,7 +1630,12 @@ Co-Authored-By: Claude Opus 4.7 &lt;noreply@anthropic.com&gt;
   </td>
 
   <td class="msg">
-      feat: add squid config template
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">feat: add squid config template</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -1259,7 +1649,12 @@ Co-Authored-By: Claude Opus 4.7 &lt;noreply@anthropic.com&gt;
   </td>
 
   <td class="msg">
-      feat: add Dockerfile for claude-box image
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">feat: add Dockerfile for claude-box image</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -1273,7 +1668,12 @@ Co-Authored-By: Claude Opus 4.7 &lt;noreply@anthropic.com&gt;
   </td>
 
   <td class="msg">
-      <span class="redact" aria-label="redacted message" role="img">test: improve fallback so facade can wire client</span>
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text redact" aria-label="redacted message" role="img">test: improve fallback so facade can wire client</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -1287,7 +1687,12 @@ Co-Authored-By: Claude Opus 4.7 &lt;noreply@anthropic.com&gt;
   </td>
 
   <td class="msg">
-      <span class="redact" aria-label="redacted message" role="img">improve mailer and guard supervisor</span>
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text redact" aria-label="redacted message" role="img">improve mailer and guard supervisor</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -1301,7 +1706,12 @@ Co-Authored-By: Claude Opus 4.7 &lt;noreply@anthropic.com&gt;
   </td>
 
   <td class="msg">
-      Initial commit
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">Initial commit</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -1315,7 +1725,12 @@ Co-Authored-By: Claude Opus 4.7 &lt;noreply@anthropic.com&gt;
   </td>
 
   <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">noop</span>
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text redact-strong" aria-label="redacted message" role="img">noop</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -1329,12 +1744,17 @@ Co-Authored-By: Claude Opus 4.7 &lt;noreply@anthropic.com&gt;
   </td>
 
   <td class="msg">
-      feat: add 2020 Mind donations entry
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">feat: add 2020 Mind donations entry
 
 A 2020 fundraiser for Mind, GBP 1,100 from donations only (no
 personal contribution, no employer matching, no Gift Aid). Likely
 COVID-era, hence the donations-only shape. Date set to placeholder
-2020-05-12 pending the actual collection date.
+2020-05-12 pending the actual collection date.</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -1348,12 +1768,17 @@ COVID-era, hence the donations-only shape. Date set to placeholder
   </td>
 
   <td class="msg">
-      feat: add 2019 Comic Relief donations entry
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">feat: add 2019 Comic Relief donations entry
 
 A 2019 Comic Relief fundraiser, GBP 800 from donations only (no
 personal contribution, no employer matching, no Gift Aid). Date set
 to 2019-03-15 (Red Nose Day 2019) as the most likely date for a
-Comic Relief fundraiser; charityUrl left null pending verification.
+Comic Relief fundraiser; charityUrl left null pending verification.</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -1367,11 +1792,16 @@ Comic Relief fundraiser; charityUrl left null pending verification.
   </td>
 
   <td class="msg">
-      fix: set 2021 firewalk date to 2021-11-30
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">fix: set 2021 firewalk date to 2021-11-30
 
 The placeholder YYYY-05-12 was almost certainly wrong; firewalks are
 typically autumn/winter charity events. Actual date confirmed as
-30 November 2021.
+30 November 2021.</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -1385,12 +1815,17 @@ typically autumn/winter charity events. Actual date confirmed as
   </td>
 
   <td class="msg">
-      fix: correct 2021 firewalk breakdown label
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">fix: correct 2021 firewalk breakdown label
 
 The 2021 firewalk&#39;s GBP 200 was from real donors, not a personal
 contribution. Relabel the breakdown line from &#34;Personal contribution&#34;
 to &#34;Donations from others&#34; to match the source. Total unchanged at
-GBP 400 (GBP 200 donors + GBP 200 employer match).
+GBP 400 (GBP 200 donors + GBP 200 employer match).</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -1404,7 +1839,9 @@ GBP 400 (GBP 200 donors + GBP 200 employer match).
   </td>
 
   <td class="msg">
-      feat: add 2021 Coram Beanstalk firewalk
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">feat: add 2021 Coram Beanstalk firewalk
 
 A charity firewalk in 2021 for Coram Beanstalk, raising GBP 400
 (GBP 200 personal contribution + GBP 200 employer match). Date is
@@ -1414,7 +1851,10 @@ need correction later.
 
 Charity URL left null pending verification; charity name kept
 unabbreviated (&#34;Coram Beanstalk&#34;) to match the merged charity&#39;s
-post-2020 branding.
+post-2020 branding.</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -1428,7 +1868,9 @@ post-2020 branding.
   </td>
 
   <td class="msg">
-      feat: replace fictional sample events with real bake-sale history
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">feat: replace fictional sample events with real bake-sale history
 
 Drop the three placeholder events from the design handoff
 (sponsored run 2025, quiz night 2025, half marathon 2024) and
@@ -1454,7 +1896,10 @@ events/2025-bakesale.
 
 All four real entries use Mind as the charity (consistent with
 the 2026 entry already on main). Dates are set to YYYY-05-12
-where the actual day-of-month wasn&#39;t recorded.
+where the actual day-of-month wasn&#39;t recorded.</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -1468,7 +1913,9 @@ where the actual day-of-month wasn&#39;t recorded.
   </td>
 
   <td class="msg">
-      feat: populate Bake Sale 2026 with real projection
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">feat: populate Bake Sale 2026 with real projection
 
 Replace fictional placeholder figures with the projection from the
 calculator: £982 donations from others, £618 personal match (Top-up
@@ -1479,7 +1926,10 @@ swaps the placeholder eventUrl for the actual JustGiving page.
 Per the README&#39;s public-readiness section, real aggregate totals are
 permitted on the records page; this is the first real entry. The
 other three events in events.json are still fictional placeholders
-and will be removed or replaced in subsequent commits.
+and will be removed or replaced in subsequent commits.</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -1493,7 +1943,9 @@ and will be removed or replaced in subsequent commits.
   </td>
 
   <td class="msg">
-      feat: add records UI with home and event pages
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">feat: add records UI with home and event pages
 
 Integrate the design handoff (under .claude/design_handoff_records_ui/,
 gitignored) into the repo root as live pages:
@@ -1512,7 +1964,10 @@ footer for chrome parity with the other two pages.
 
 Sample data ships with 4 fictional events so the live site renders
 something when GitHub Pages is enabled. Real records replace the
-sample by hand-editing data/events.json post-deploy.
+sample by hand-editing data/events.json post-deploy.</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -1526,7 +1981,12 @@ sample by hand-editing data/events.json post-deploy.
   </td>
 
   <td class="msg">
-      feat: simplify breakdown and drop employer Gift Aid toggle
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">feat: simplify breakdown and drop employer Gift Aid toggle</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -1540,7 +2000,12 @@ sample by hand-editing data/events.json post-deploy.
   </td>
 
   <td class="msg">
-      feat: add dark mode and applied indicator on top-up button
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">feat: add dark mode and applied indicator on top-up button</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -1554,7 +2019,12 @@ sample by hand-editing data/events.json post-deploy.
   </td>
 
   <td class="msg">
-      docs: expand README with usage and public-readiness rules
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">docs: expand README with usage and public-readiness rules</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -1568,7 +2038,12 @@ sample by hand-editing data/events.json post-deploy.
   </td>
 
   <td class="msg">
-      feat: add bake-sale tool UI
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">feat: add bake-sale tool UI</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -1582,7 +2057,12 @@ sample by hand-editing data/events.json post-deploy.
   </td>
 
   <td class="msg">
-      feat: add bake-sale match calculator math module
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">feat: add bake-sale match calculator math module</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -1596,7 +2076,9 @@ sample by hand-editing data/events.json post-deploy.
   </td>
 
   <td class="msg">
-      feat(decode): detect JS/TS-style object literals with unquoted keys
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">feat(decode): detect JS/TS-style object literals with unquoted keys
 
 Adds a detector that parses JavaScript-style object literals (unquoted
 keys, single quotes, trailing commas, comments) via `new Function`,
@@ -1605,7 +2087,10 @@ braces plus a trailing unclosed brace or two. Sits below strict JSON
 (0.8 vs 0.95) so real JSON still wins, and requires an unquoted-key
 pattern to fire so random text won&#39;t trip it.
 
-Co-Authored-By: Claude Opus 4.7 (1M context) &lt;noreply@anthropic.com&gt;
+Co-Authored-By: Claude Opus 4.7 (1M context) &lt;noreply@anthropic.com&gt;</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -1619,7 +2104,12 @@ Co-Authored-By: Claude Opus 4.7 (1M context) &lt;noreply@anthropic.com&gt;
   </td>
 
   <td class="msg">
-      chore: bootstrap charity repo
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">chore: bootstrap charity repo</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -1633,7 +2123,12 @@ Co-Authored-By: Claude Opus 4.7 (1M context) &lt;noreply@anthropic.com&gt;
   </td>
 
   <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">chore: guard broken service when adapter changes</span>
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text redact-strong" aria-label="redacted message" role="img">chore: guard broken service when adapter changes</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -1647,7 +2142,12 @@ Co-Authored-By: Claude Opus 4.7 (1M context) &lt;noreply@anthropic.com&gt;
   </td>
 
   <td class="msg">
-      ci: add lint/typecheck/test/build workflow
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">ci: add lint/typecheck/test/build workflow</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -1661,7 +2161,12 @@ Co-Authored-By: Claude Opus 4.7 (1M context) &lt;noreply@anthropic.com&gt;
   </td>
 
   <td class="msg">
-      docs: write README with usage and API reference
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">docs: write README with usage and API reference</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -1675,7 +2180,12 @@ Co-Authored-By: Claude Opus 4.7 (1M context) &lt;noreply@anthropic.com&gt;
   </td>
 
   <td class="msg">
-      feat: add public index re-exports
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">feat: add public index re-exports</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -1689,7 +2199,12 @@ Co-Authored-By: Claude Opus 4.7 (1M context) &lt;noreply@anthropic.com&gt;
   </td>
 
   <td class="msg">
-      feat: add default singleton with LOG_LEVEL env support
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">feat: add default singleton with LOG_LEVEL env support</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -1703,7 +2218,12 @@ Co-Authored-By: Claude Opus 4.7 (1M context) &lt;noreply@anthropic.com&gt;
   </td>
 
   <td class="msg">
-      feat: add Logger class with injectable sink
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">feat: add Logger class with injectable sink</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -1717,7 +2237,12 @@ Co-Authored-By: Claude Opus 4.7 (1M context) &lt;noreply@anthropic.com&gt;
   </td>
 
   <td class="msg">
-      chore: scaffold project (tsconfig, lint, prettier, vitest, license)
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">chore: scaffold project (tsconfig, lint, prettier, vitest, license)</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -1731,7 +2256,12 @@ Co-Authored-By: Claude Opus 4.7 (1M context) &lt;noreply@anthropic.com&gt;
   </td>
 
   <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">wip: rework reusable store in shim</span>
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text redact-strong" aria-label="redacted message" role="img">wip: rework reusable store in shim</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -1745,7 +2275,12 @@ Co-Authored-By: Claude Opus 4.7 (1M context) &lt;noreply@anthropic.com&gt;
   </td>
 
   <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">chore: wrap decoder</span>
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text redact-strong" aria-label="redacted message" role="img">chore: wrap decoder</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -1759,7 +2294,12 @@ Co-Authored-By: Claude Opus 4.7 (1M context) &lt;noreply@anthropic.com&gt;
   </td>
 
   <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">wip: refactor validator in service</span>
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text redact-strong" aria-label="redacted message" role="img">wip: refactor validator in service</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -1773,7 +2313,9 @@ Co-Authored-By: Claude Opus 4.7 (1M context) &lt;noreply@anthropic.com&gt;
   </td>
 
   <td class="msg">
-      feat(decode): detect inner bodies inside parsed JSON/XML/URL-encoded values
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">feat(decode): detect inner bodies inside parsed JSON/XML/URL-encoded values
 
 Adds an XML/SOAP detector (with lenient fallback for redacted content) and a
 one-level inner-body walker. After the outer format is parsed, string values
@@ -1782,7 +2324,10 @@ inputs are run through a curated detector set (JWT, JSON, XML, URI,
 URL-encoded, gzip) and rendered as nested sections. Also accepts CSV-style
 doubled-quote JSON (`{&#34;&#34;key&#34;&#34;:&#34;&#34;value&#34;&#34;}`) as a fallback parse.
 
-Co-Authored-By: Claude Opus 4.7 (1M context) &lt;noreply@anthropic.com&gt;
+Co-Authored-By: Claude Opus 4.7 (1M context) &lt;noreply@anthropic.com&gt;</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -1796,7 +2341,9 @@ Co-Authored-By: Claude Opus 4.7 (1M context) &lt;noreply@anthropic.com&gt;
   </td>
 
   <td class="msg">
-      fix: correct min-release-age key name and unit in .npmrc
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">fix: correct min-release-age key name and unit in .npmrc
 
 Previous commit used `minimum-release-age=4320` (silently ignored by npm
 as an unknown key). The actual key is `min-release-age` and the unit is
@@ -1804,7 +2351,10 @@ days, not minutes. Set to 3 to match the intended 72h quarantine. Also
 dropped the commented `*-exclude` line - that option doesn&#39;t exist in
 the npm CLI (it&#39;s a pnpm-only feature I mixed up).
 
-Co-Authored-By: Claude Opus 4.7 (1M context) &lt;noreply@anthropic.com&gt;
+Co-Authored-By: Claude Opus 4.7 (1M context) &lt;noreply@anthropic.com&gt;</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -1818,12 +2368,17 @@ Co-Authored-By: Claude Opus 4.7 (1M context) &lt;noreply@anthropic.com&gt;
   </td>
 
   <td class="msg">
-      chore: add hardened .npmrc with release-age quarantine
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">chore: add hardened .npmrc with release-age quarantine
 
 Pins exact versions, disables lifecycle scripts, and enforces a 72h
 minimum-release-age window to blunt fast-moving npm supply-chain worms.
 
-Co-Authored-By: Claude Opus 4.7 (1M context) &lt;noreply@anthropic.com&gt;
+Co-Authored-By: Claude Opus 4.7 (1M context) &lt;noreply@anthropic.com&gt;</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -1837,7 +2392,12 @@ Co-Authored-By: Claude Opus 4.7 (1M context) &lt;noreply@anthropic.com&gt;
   </td>
 
   <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">chore: fix redundant consumer in consumer</span>
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text redact-strong" aria-label="redacted message" role="img">chore: fix redundant consumer in consumer</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -1851,7 +2411,12 @@ Co-Authored-By: Claude Opus 4.7 (1M context) &lt;noreply@anthropic.com&gt;
   </td>
 
   <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">rename lenient ledger when wrapper changes</span>
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text redact-strong" aria-label="redacted message" role="img">rename lenient ledger when wrapper changes</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -1865,7 +2430,12 @@ Co-Authored-By: Claude Opus 4.7 (1M context) &lt;noreply@anthropic.com&gt;
   </td>
 
   <td class="msg">
-      feat(bookmarklet): add bookmarklet maker tool
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">feat(bookmarklet): add bookmarklet maker tool</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -1879,7 +2449,12 @@ Co-Authored-By: Claude Opus 4.7 (1M context) &lt;noreply@anthropic.com&gt;
   </td>
 
   <td class="msg">
-      docs: add decode tool screenshot to README
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">docs: add decode tool screenshot to README</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -1893,7 +2468,12 @@ Co-Authored-By: Claude Opus 4.7 (1M context) &lt;noreply@anthropic.com&gt;
   </td>
 
   <td class="msg">
-      fix(decode): apply layout flip + formats breadcrumb missed in prior commit
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">fix(decode): apply layout flip + formats breadcrumb missed in prior commit</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -1907,7 +2487,12 @@ Co-Authored-By: Claude Opus 4.7 (1M context) &lt;noreply@anthropic.com&gt;
   </td>
 
   <td class="msg">
-      feat(decode): vertical pane layout; rename group encoding→formats
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">feat(decode): vertical pane layout; rename group encoding→formats</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -1921,7 +2506,12 @@ Co-Authored-By: Claude Opus 4.7 (1M context) &lt;noreply@anthropic.com&gt;
   </td>
 
   <td class="msg">
-      feat(decode): add timestamp, hex, base64, base32, gzip detectors
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">feat(decode): add timestamp, hex, base64, base32, gzip detectors</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -1935,7 +2525,12 @@ Co-Authored-By: Claude Opus 4.7 (1M context) &lt;noreply@anthropic.com&gt;
   </td>
 
   <td class="msg">
-      feat(decode): add URL-encoded, HTML entities, query string detectors
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">feat(decode): add URL-encoded, HTML entities, query string detectors</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -1949,7 +2544,12 @@ Co-Authored-By: Claude Opus 4.7 (1M context) &lt;noreply@anthropic.com&gt;
   </td>
 
   <td class="msg">
-      feat(decode): add JSON, JWT, URI detectors
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">feat(decode): add JSON, JWT, URI detectors</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -1963,7 +2563,12 @@ Co-Authored-By: Claude Opus 4.7 (1M context) &lt;noreply@anthropic.com&gt;
   </td>
 
   <td class="msg">
-      feat(decode): scaffold tool with ROT13 detector and async render engine
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">feat(decode): scaffold tool with ROT13 detector and async render engine</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -1977,7 +2582,12 @@ Co-Authored-By: Claude Opus 4.7 (1M context) &lt;noreply@anthropic.com&gt;
   </td>
 
   <td class="msg">
-      fix(index): blurb says &#39;tracks nothing&#39;; drop dev-facing footer note
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">fix(index): blurb says &#39;tracks nothing&#39;; drop dev-facing footer note</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -1991,7 +2601,12 @@ Co-Authored-By: Claude Opus 4.7 (1M context) &lt;noreply@anthropic.com&gt;
   </td>
 
   <td class="msg">
-      feat(diff): intra-line highlighting, custom names, fix pure-side wash
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">feat(diff): intra-line highlighting, custom names, fix pure-side wash</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -2005,7 +2620,12 @@ Co-Authored-By: Claude Opus 4.7 (1M context) &lt;noreply@anthropic.com&gt;
   </td>
 
   <td class="msg">
-      feat: add manifest scanner, landing page, and Pages deploy workflow
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">feat: add manifest scanner, landing page, and Pages deploy workflow</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -2019,7 +2639,12 @@ Co-Authored-By: Claude Opus 4.7 (1M context) &lt;noreply@anthropic.com&gt;
   </td>
 
   <td class="msg">
-      feat: migrate one-line and text-diff tools from design handoff
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">feat: migrate one-line and text-diff tools from design handoff</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -2033,7 +2658,12 @@ Co-Authored-By: Claude Opus 4.7 (1M context) &lt;noreply@anthropic.com&gt;
   </td>
 
   <td class="msg">
-      chore: scaffold repo with gitignore and README
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">chore: scaffold repo with gitignore and README</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -2047,7 +2677,12 @@ Co-Authored-By: Claude Opus 4.7 (1M context) &lt;noreply@anthropic.com&gt;
   </td>
 
   <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">feat: guard broken registry when config changes</span>
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text redact-strong" aria-label="redacted message" role="img">feat: guard broken registry when config changes</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -2061,7 +2696,12 @@ Co-Authored-By: Claude Opus 4.7 (1M context) &lt;noreply@anthropic.com&gt;
   </td>
 
   <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">refactor: bump channel so schema can expose util</span>
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text redact-strong" aria-label="redacted message" role="img">refactor: bump channel so schema can expose util</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -2075,11 +2715,16 @@ Co-Authored-By: Claude Opus 4.7 (1M context) &lt;noreply@anthropic.com&gt;
   </td>
 
   <td class="msg">
-      docs: simplify CLAUDE.md to reduce drift
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">docs: simplify CLAUDE.md to reduce drift
 
 Drop counts and timings that drift over time (test count, suite runtime,
 endpoint count). Refresh the architecture diagram to reflect the routes/
-split and the Vite + TypeScript SPA layout under static/.
+split and the Vite + TypeScript SPA layout under static/.</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -2093,14 +2738,19 @@ split and the Vite + TypeScript SPA layout under static/.
   </td>
 
   <td class="msg">
-      feat(ui): real process progress + asymptotic fallback for unknown pct. Closes #7
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">feat(ui): real process progress + asymptotic fallback for unknown pct. Closes #7
 
 The process runner now turns videos_done / videos_total into a real pct and
 surfaces current_video as the chip subtitle. To smooth the bar between
 coarse data points (process: between videos, encode: within a clip, keep:
 no real pct at all), TaskController extrapolates asymptotically toward 95%
 when no fresh pct lands, snapping forward when one does. Encode/upload/
-compile keep their existing real pct unchanged.
+compile keep their existing real pct unchanged.</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -2114,13 +2764,18 @@ compile keep their existing real pct unchanged.
   </td>
 
   <td class="msg">
-      feat(state): expose per-video progress on /api/process/status
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">feat(state): expose per-video progress on /api/process/status
 
 ProcessingState now tracks videos_total / videos_done / current_video,
 updated by process_directory() around each video iteration and exposed
 via snapshot(). The plumbing uses an optional progress= parameter on
 process_directory rather than a callback — fewer moving parts and the
-only caller that wants progress is the web route.
+only caller that wants progress is the web route.</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -2134,7 +2789,12 @@ only caller that wants progress is the web route.
   </td>
 
   <td class="msg">
-      fix(ui): persist player volume across sessions and modals. Closes #8
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">fix(ui): persist player volume across sessions and modals. Closes #8</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -2148,7 +2808,12 @@ only caller that wants progress is the web route.
   </td>
 
   <td class="msg">
-      fix(ui): re-scan Process tab on activation. Closes #9
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">fix(ui): re-scan Process tab on activation. Closes #9</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -2162,7 +2827,12 @@ only caller that wants progress is the web route.
   </td>
 
   <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">minor cleanup</span>
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text redact-strong" aria-label="redacted message" role="img">minor cleanup</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -2176,7 +2846,12 @@ only caller that wants progress is the web route.
   </td>
 
   <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">cleanup silent task in stream</span>
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text redact-strong" aria-label="redacted message" role="img">cleanup silent task in stream</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -2190,7 +2865,12 @@ only caller that wants progress is the web route.
   </td>
 
   <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">improve missing runner</span>
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text redact-strong" aria-label="redacted message" role="img">improve missing runner</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -2204,7 +2884,12 @@ only caller that wants progress is the web route.
   </td>
 
   <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">refactor: deprecate shim in fallback</span>
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text redact-strong" aria-label="redacted message" role="img">refactor: deprecate shim in fallback</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -2218,7 +2903,12 @@ only caller that wants progress is the web route.
   </td>
 
   <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">expose silent controller in config</span>
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text redact-strong" aria-label="redacted message" role="img">expose silent controller in config</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -2232,7 +2922,12 @@ only caller that wants progress is the web route.
   </td>
 
   <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">move supervisor, move writer</span>
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text redact-strong" aria-label="redacted message" role="img">move supervisor, move writer</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -2246,7 +2941,12 @@ only caller that wants progress is the web route.
   </td>
 
   <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">restructure faster task</span>
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text redact-strong" aria-label="redacted message" role="img">restructure faster task</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -2260,7 +2960,12 @@ only caller that wants progress is the web route.
   </td>
 
   <td class="msg">
-      docs: download walkthrough gif locally rather than linking gyazo
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">docs: download walkthrough gif locally rather than linking gyazo</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -2274,7 +2979,12 @@ only caller that wants progress is the web route.
   </td>
 
   <td class="msg">
-      docs: add demo panel screenshot and walkthrough link to README
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">docs: add demo panel screenshot and walkthrough link to README</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -2288,7 +2998,12 @@ only caller that wants progress is the web route.
   </td>
 
   <td class="msg">
-      fix(core): enforce activeSeconds via embedded exitAt; tighten VerifyReason; fix Akamai wire signing parity
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">fix(core): enforce activeSeconds via embedded exitAt; tighten VerifyReason; fix Akamai wire signing parity</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -2302,7 +3017,12 @@ only caller that wants progress is the web route.
   </td>
 
   <td class="msg">
-      feat(examples): drop cap from cloudflare demo, keep DO files as reference
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">feat(examples): drop cap from cloudflare demo, keep DO files as reference</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -2316,7 +3036,12 @@ only caller that wants progress is the web route.
   </td>
 
   <td class="msg">
-      feat(examples): demo uses bimodal lottery, panel shows bucket assignment
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">feat(examples): demo uses bimodal lottery, panel shows bucket assignment</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -2330,7 +3055,12 @@ only caller that wants progress is the web route.
   </td>
 
   <td class="msg">
-      feat(core): one-shot bimodal lottery + scenario-based README
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">feat(core): one-shot bimodal lottery + scenario-based README</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -2344,7 +3074,12 @@ only caller that wants progress is the web route.
   </td>
 
   <td class="msg">
-      feat(examples): cloudflare demo - mock origin, demo panel, live state
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">feat(examples): cloudflare demo - mock origin, demo panel, live state</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -2358,7 +3093,12 @@ only caller that wants progress is the web route.
   </td>
 
   <td class="msg">
-      chore: build via prepare script for git-URL installs and example workspaces
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">chore: build via prepare script for git-URL installs and example workspaces</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -2372,7 +3112,12 @@ only caller that wants progress is the web route.
   </td>
 
   <td class="msg">
-      chore: integrate cloud-agent output - bump waypass pin, async verify, lint config
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">chore: integrate cloud-agent output - bump waypass pin, async verify, lint config</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -2386,7 +3131,12 @@ only caller that wants progress is the web route.
   </td>
 
   <td class="msg">
-      chore: build via prepare script for git-URL installs
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">chore: build via prepare script for git-URL installs</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -2400,7 +3150,12 @@ only caller that wants progress is the web route.
   </td>
 
   <td class="msg">
-      docs: README — overview, quick start, API table, admission cap, security notes
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">docs: README — overview, quick start, API table, admission cap, security notes</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -2414,7 +3169,12 @@ only caller that wants progress is the web route.
   </td>
 
   <td class="msg">
-      feat(examples): Akamai EdgeWorker + sharded EdgeKV admission store
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">feat(examples): Akamai EdgeWorker + sharded EdgeKV admission store</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -2428,7 +3188,12 @@ only caller that wants progress is the web route.
   </td>
 
   <td class="msg">
-      feat(examples): Cloudflare Workers + Durable Object admission store
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">feat(examples): Cloudflare Workers + Durable Object admission store</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -2442,7 +3207,12 @@ only caller that wants progress is the web route.
   </td>
 
   <td class="msg">
-      feat(core): optional admission cap with AdmissionStore interface
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">feat(core): optional admission cap with AdmissionStore interface</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -2456,7 +3226,12 @@ only caller that wants progress is the web route.
   </td>
 
   <td class="msg">
-      feat(static-page): self-contained waiting page with countdown and ALLOWED_HOSTS allowlist
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">feat(static-page): self-contained waiting page with countdown and ALLOWED_HOSTS allowlist</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -2470,7 +3245,12 @@ only caller that wants progress is the web route.
   </td>
 
   <td class="msg">
-      feat(core): Waypoint class with primitives, deterministic jitter, evaluate verdict
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">feat(core): Waypoint class with primitives, deterministic jitter, evaluate verdict</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -2484,7 +3264,12 @@ only caller that wants progress is the web route.
   </td>
 
   <td class="msg">
-      scaffold: initial waypoint repo
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">scaffold: initial waypoint repo</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -2498,7 +3283,12 @@ only caller that wants progress is the web route.
   </td>
 
   <td class="msg">
-      feat: add optional data field on tokens, return verified payload from verify()
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">feat: add optional data field on tokens, return verified payload from verify()</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -2512,7 +3302,12 @@ only caller that wants progress is the web route.
   </td>
 
   <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">rebuild context, loosen loader</span>
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text redact-strong" aria-label="redacted message" role="img">rebuild context, loosen loader</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -2526,7 +3321,12 @@ only caller that wants progress is the web route.
   </td>
 
   <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">tweak buffer so consumer can cleanup decoder</span>
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text redact-strong" aria-label="redacted message" role="img">tweak buffer so consumer can cleanup decoder</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -2540,7 +3340,12 @@ only caller that wants progress is the web route.
   </td>
 
   <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">minor cleanup</span>
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text redact-strong" aria-label="redacted message" role="img">minor cleanup</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -2554,7 +3359,12 @@ only caller that wants progress is the web route.
   </td>
 
   <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">harden the early context</span>
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text redact-strong" aria-label="redacted message" role="img">harden the early context</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -2568,7 +3378,12 @@ only caller that wants progress is the web route.
   </td>
 
   <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">guard adapter, rework service</span>
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text redact-strong" aria-label="redacted message" role="img">guard adapter, rework service</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -2582,7 +3397,12 @@ only caller that wants progress is the web route.
   </td>
 
   <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">test: split util, fix router</span>
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text redact-strong" aria-label="redacted message" role="img">test: split util, fix router</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -2596,7 +3416,9 @@ only caller that wants progress is the web route.
   </td>
 
   <td class="msg">
-      docs: refresh README with single hero screenshot
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">docs: refresh README with single hero screenshot
 
 - Replace the three pre-rework per-tab screenshots with one hero shot
   of the redesigned Review tab placed under the opening blurb (drops
@@ -2605,7 +3427,10 @@ only caller that wants progress is the web route.
   before how to install or run it. Order is now: blurb -&gt; hero -&gt;
   How it works -&gt; Features -&gt; Requirements -&gt; Install -&gt; Usage -&gt; ...
 - Delete docs/img/process.png and docs/img/export.png; the surviving
-  review.png covers the visual treatment for all three tabs.
+  review.png covers the visual treatment for all three tabs.</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -2619,7 +3444,12 @@ only caller that wants progress is the web route.
   </td>
 
   <td class="msg">
-      fix(ui): play past compilations inline. Closes #4
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">fix(ui): play past compilations inline. Closes #4</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -2633,7 +3463,12 @@ only caller that wants progress is the web route.
   </td>
 
   <td class="msg">
-      fix(ui): make clip filenames clickable on Export Clips. Closes #5
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">fix(ui): make clip filenames clickable on Export Clips. Closes #5</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -2647,7 +3482,12 @@ only caller that wants progress is the web route.
   </td>
 
   <td class="msg">
-      refactor(ui): extract openPreviewModal helper
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">refactor(ui): extract openPreviewModal helper</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -2661,7 +3501,12 @@ only caller that wants progress is the web route.
   </td>
 
   <td class="msg">
-      fix(models): serialize clip_count on CompilationMetadata. Closes #6
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">fix(models): serialize clip_count on CompilationMetadata. Closes #6</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -2675,7 +3520,12 @@ only caller that wants progress is the web route.
   </td>
 
   <td class="msg">
-      fix(routes): register compile router before review so /video/compilation works
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">fix(routes): register compile router before review so /video/compilation works</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -2689,12 +3539,17 @@ only caller that wants progress is the web route.
   </td>
 
   <td class="msg">
-      fix(ui): pause playing videos on tab switch
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">fix(ui): pause playing videos on tab switch
 
 Switching from Review (or from a preview modal opened on Export)
 left the underlying &lt;video&gt; playing in the background. switchTab
 now pauses every &lt;video&gt; in the document at the start of the
-handler, so audio stops as soon as the user navigates away.
+handler, so audio stops as soon as the user navigates away.</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -2708,7 +3563,9 @@ handler, so audio stops as soon as the user navigates away.
   </td>
 
   <td class="msg">
-      feat: Phase 5 - polish, legacy cleanup, browser-test repair
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">feat: Phase 5 - polish, legacy cleanup, browser-test repair
 
 Cleanup
 - Drop unused window._cc handlers (thresholdChangedHandler,
@@ -2747,7 +3604,10 @@ Browser test repair (5 failing -&gt; 99/99 passing)
 - New _wait_for_path / _wait_for_keep_with_custom_name helpers
   poll for filesystem and metadata side-effects after async keeps.
 
-Co-Authored-By: Claude Opus 4.7 (1M context) &lt;noreply@anthropic.com&gt;
+Co-Authored-By: Claude Opus 4.7 (1M context) &lt;noreply@anthropic.com&gt;</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -2761,7 +3621,12 @@ Co-Authored-By: Claude Opus 4.7 (1M context) &lt;noreply@anthropic.com&gt;
   </td>
 
   <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">wire manager for decoder</span>
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text redact-strong" aria-label="redacted message" role="img">wire manager for decoder</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -2775,7 +3640,12 @@ Co-Authored-By: Claude Opus 4.7 (1M context) &lt;noreply@anthropic.com&gt;
   </td>
 
   <td class="msg">
-      chore: initialize repo with canonical eslint config
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">chore: initialize repo with canonical eslint config</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -2789,7 +3659,9 @@ Co-Authored-By: Claude Opus 4.7 (1M context) &lt;noreply@anthropic.com&gt;
   </td>
 
   <td class="msg">
-      feat: Phase 4 - async keep endpoint + TaskController wiring
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">feat: Phase 4 - async keep endpoint + TaskController wiring
 
 POST /api/clips/{stem}/{filename}/keep used to block while ffmpeg
 ran (multi-second for precise/ultra trim modes), so the design
@@ -2831,7 +3703,10 @@ Tests
   the test cares about it.
 - 88/88 backend tests still green.
 
-Co-Authored-By: Claude Opus 4.7 (1M context) &lt;noreply@anthropic.com&gt;
+Co-Authored-By: Claude Opus 4.7 (1M context) &lt;noreply@anthropic.com&gt;</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -2845,7 +3720,9 @@ Co-Authored-By: Claude Opus 4.7 (1M context) &lt;noreply@anthropic.com&gt;
   </td>
 
   <td class="msg">
-      feat(ui): Phase 3c - Export tab redesign
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">feat(ui): Phase 3c - Export tab redesign
 
 Replaces the single-pane Export view with the cc-export shell:
 storage summary bar at the top, sub-tab nav for Clips /
@@ -2885,7 +3762,10 @@ main.ts and a void-cast in compile.ts. Both unchanged by this
 phase. Phase 3b&#39;s rewrite of review.ts cleaned up two prior
 warnings, so the count is now 2 down from 4.
 
-Co-Authored-By: Claude Opus 4.7 (1M context) &lt;noreply@anthropic.com&gt;
+Co-Authored-By: Claude Opus 4.7 (1M context) &lt;noreply@anthropic.com&gt;</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -2899,7 +3779,9 @@ Co-Authored-By: Claude Opus 4.7 (1M context) &lt;noreply@anthropic.com&gt;
   </td>
 
   <td class="msg">
-      feat(ui): Phase 3b - Review tab redesign
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">feat(ui): Phase 3b - Review tab redesign
 
 Replaces the player-section / progress-dots / clip-info / actions
 markup with the cc-review grid: clip header + position + queue
@@ -2928,7 +3810,10 @@ Keyboard shortcuts (K, D, S, I, O, N, Space) preserved unchanged;
 active-segment lookup moved from a DOM scrape in main.ts to
 getActiveSegmentIndex() exported from review.ts.
 
-Co-Authored-By: Claude Opus 4.7 (1M context) &lt;noreply@anthropic.com&gt;
+Co-Authored-By: Claude Opus 4.7 (1M context) &lt;noreply@anthropic.com&gt;</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -2942,7 +3827,9 @@ Co-Authored-By: Claude Opus 4.7 (1M context) &lt;noreply@anthropic.com&gt;
   </td>
 
   <td class="msg">
-      feat(ui): Phase 3a - Process tab redesign
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">feat(ui): Phase 3a - Process tab redesign
 
 Replaces the legacy form-section / scan-panel / log-box markup
 with the Direction B grid layout: folder bar + 3 stat tiles in
@@ -2966,7 +3853,10 @@ The legacy CSS classes used only by the old Process tab
 markup but kept in legacy.css for now. Cleanup pass after all
 three tabs land.
 
-Co-Authored-By: Claude Opus 4.7 (1M context) &lt;noreply@anthropic.com&gt;
+Co-Authored-By: Claude Opus 4.7 (1M context) &lt;noreply@anthropic.com&gt;</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -2980,7 +3870,9 @@ Co-Authored-By: Claude Opus 4.7 (1M context) &lt;noreply@anthropic.com&gt;
   </td>
 
   <td class="msg">
-      feat(ui): Phase 2 - TaskController + chip / toast / modal
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">feat(ui): Phase 2 - TaskController + chip / toast / modal
 
 Adds a unified background-task layer for the four long-running
 operations (process / encode / compile / upload) plus a placeholder
@@ -3014,7 +3906,10 @@ Pre-existing tsc --noEmit warnings (unused imports, a stale `as`
 cast in compile.ts) are unchanged. Build (vite) and backend
 tests (88/88) green.
 
-Co-Authored-By: Claude Opus 4.7 (1M context) &lt;noreply@anthropic.com&gt;
+Co-Authored-By: Claude Opus 4.7 (1M context) &lt;noreply@anthropic.com&gt;</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -3028,7 +3923,9 @@ Co-Authored-By: Claude Opus 4.7 (1M context) &lt;noreply@anthropic.com&gt;
   </td>
 
   <td class="msg">
-      feat(ui): Phase 1 - Direction B shell
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">feat(ui): Phase 1 - Direction B shell
 
 Vendors the design-handover tokens (cc.css) and rewrites the app
 chrome - titlebar + numbered tabs + cc-body + toast/modal slots -
@@ -3043,7 +3940,10 @@ html-proxy quirk on Windows.
 Browser tests (test_ui_browser.py) target old .tab selectors and
 will be repaired alongside the per-tab refactors.
 
-Co-Authored-By: Claude Opus 4.7 (1M context) &lt;noreply@anthropic.com&gt;
+Co-Authored-By: Claude Opus 4.7 (1M context) &lt;noreply@anthropic.com&gt;</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -3057,9 +3957,14 @@ Co-Authored-By: Claude Opus 4.7 (1M context) &lt;noreply@anthropic.com&gt;
   </td>
 
   <td class="msg">
-      chore: gitignore local-only ignored/ working area
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">chore: gitignore local-only ignored/ working area
 
-Co-Authored-By: Claude Opus 4.7 (1M context) &lt;noreply@anthropic.com&gt;
+Co-Authored-By: Claude Opus 4.7 (1M context) &lt;noreply@anthropic.com&gt;</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -3073,7 +3978,12 @@ Co-Authored-By: Claude Opus 4.7 (1M context) &lt;noreply@anthropic.com&gt;
   </td>
 
   <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">fix: split config in registry</span>
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text redact-strong" aria-label="redacted message" role="img">fix: split config in registry</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -3087,7 +3997,12 @@ Co-Authored-By: Claude Opus 4.7 (1M context) &lt;noreply@anthropic.com&gt;
   </td>
 
   <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">docs: update producer in view</span>
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text redact-strong" aria-label="redacted message" role="img">docs: update producer in view</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -3101,7 +4016,12 @@ Co-Authored-By: Claude Opus 4.7 (1M context) &lt;noreply@anthropic.com&gt;
   </td>
 
   <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">refactor: vendor consumer so session can tidy watcher</span>
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text redact-strong" aria-label="redacted message" role="img">refactor: vendor consumer so session can tidy watcher</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -3115,7 +4035,12 @@ Co-Authored-By: Claude Opus 4.7 (1M context) &lt;noreply@anthropic.com&gt;
   </td>
 
   <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">tmp</span>
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text redact-strong" aria-label="redacted message" role="img">tmp</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -3129,7 +4054,12 @@ Co-Authored-By: Claude Opus 4.7 (1M context) &lt;noreply@anthropic.com&gt;
   </td>
 
   <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">wrap bootstrapper, trim model</span>
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text redact-strong" aria-label="redacted message" role="img">wrap bootstrapper, trim model</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -3143,7 +4073,12 @@ Co-Authored-By: Claude Opus 4.7 (1M context) &lt;noreply@anthropic.com&gt;
   </td>
 
   <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">wip: rework the lenient stream</span>
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text redact-strong" aria-label="redacted message" role="img">wip: rework the lenient stream</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -3157,7 +4092,12 @@ Co-Authored-By: Claude Opus 4.7 (1M context) &lt;noreply@anthropic.com&gt;
   </td>
 
   <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">chore: harden writer and split mailer</span>
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text redact-strong" aria-label="redacted message" role="img">chore: harden writer and split mailer</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -3171,7 +4111,12 @@ Co-Authored-By: Claude Opus 4.7 (1M context) &lt;noreply@anthropic.com&gt;
   </td>
 
   <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">merge adapter so shim can throttle shim</span>
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text redact-strong" aria-label="redacted message" role="img">merge adapter so shim can throttle shim</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -3185,7 +4130,12 @@ Co-Authored-By: Claude Opus 4.7 (1M context) &lt;noreply@anthropic.com&gt;
   </td>
 
   <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">move renderer</span>
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text redact-strong" aria-label="redacted message" role="img">move renderer</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -3199,7 +4149,12 @@ Co-Authored-By: Claude Opus 4.7 (1M context) &lt;noreply@anthropic.com&gt;
   </td>
 
   <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">feat: loosen stream so loader can drop config</span>
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text redact-strong" aria-label="redacted message" role="img">feat: loosen stream so loader can drop config</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -3213,7 +4168,12 @@ Co-Authored-By: Claude Opus 4.7 (1M context) &lt;noreply@anthropic.com&gt;
   </td>
 
   <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">wire adapter in consumer</span>
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text redact-strong" aria-label="redacted message" role="img">wire adapter in consumer</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -3227,7 +4187,12 @@ Co-Authored-By: Claude Opus 4.7 (1M context) &lt;noreply@anthropic.com&gt;
   </td>
 
   <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">chore: loosen tighter watcher for the dead adapter</span>
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text redact-strong" aria-label="redacted message" role="img">chore: loosen tighter watcher for the dead adapter</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -3241,7 +4206,12 @@ Co-Authored-By: Claude Opus 4.7 (1M context) &lt;noreply@anthropic.com&gt;
   </td>
 
   <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">throttle client and optimize fallback</span>
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text redact-strong" aria-label="redacted message" role="img">throttle client and optimize fallback</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -3255,7 +4225,12 @@ Co-Authored-By: Claude Opus 4.7 (1M context) &lt;noreply@anthropic.com&gt;
   </td>
 
   <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">test: optimize indexer and wire context</span>
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text redact-strong" aria-label="redacted message" role="img">test: optimize indexer and wire context</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -3269,7 +4244,12 @@ Co-Authored-By: Claude Opus 4.7 (1M context) &lt;noreply@anthropic.com&gt;
   </td>
 
   <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">wip: tweak early stream in worker</span>
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text redact-strong" aria-label="redacted message" role="img">wip: tweak early stream in worker</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -3283,7 +4263,12 @@ Co-Authored-By: Claude Opus 4.7 (1M context) &lt;noreply@anthropic.com&gt;
   </td>
 
   <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">feat: inline flaky parser for the stale filter</span>
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text redact-strong" aria-label="redacted message" role="img">feat: inline flaky parser for the stale filter</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -3297,7 +4282,12 @@ Co-Authored-By: Claude Opus 4.7 (1M context) &lt;noreply@anthropic.com&gt;
   </td>
 
   <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">refactor: update stricter channel</span>
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text redact-strong" aria-label="redacted message" role="img">refactor: update stricter channel</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -3311,7 +4301,12 @@ Co-Authored-By: Claude Opus 4.7 (1M context) &lt;noreply@anthropic.com&gt;
   </td>
 
   <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">tighten stale channel for the noisy wrapper</span>
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text redact-strong" aria-label="redacted message" role="img">tighten stale channel for the noisy wrapper</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -3325,7 +4320,12 @@ Co-Authored-By: Claude Opus 4.7 (1M context) &lt;noreply@anthropic.com&gt;
   </td>
 
   <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">fix: rename producer, wire dispatcher</span>
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text redact-strong" aria-label="redacted message" role="img">fix: rename producer, wire dispatcher</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -3339,7 +4339,12 @@ Co-Authored-By: Claude Opus 4.7 (1M context) &lt;noreply@anthropic.com&gt;
   </td>
 
   <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">wip: drop handler (silent)</span>
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text redact-strong" aria-label="redacted message" role="img">wip: drop handler (silent)</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -3353,7 +4358,12 @@ Co-Authored-By: Claude Opus 4.7 (1M context) &lt;noreply@anthropic.com&gt;
   </td>
 
   <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">todo</span>
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text redact-strong" aria-label="redacted message" role="img">todo</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -3367,7 +4377,12 @@ Co-Authored-By: Claude Opus 4.7 (1M context) &lt;noreply@anthropic.com&gt;
   </td>
 
   <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">improve service</span>
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text redact-strong" aria-label="redacted message" role="img">improve service</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -3381,7 +4396,12 @@ Co-Authored-By: Claude Opus 4.7 (1M context) &lt;noreply@anthropic.com&gt;
   </td>
 
   <td class="msg">
-      <span class="redact-strong" aria-label="redacted message" role="img">feat: loosen lenient buffer when renderer changes</span>
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text redact-strong" aria-label="redacted message" role="img">feat: loosen lenient buffer when renderer changes</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
@@ -3395,32 +4415,16 @@ Co-Authored-By: Claude Opus 4.7 (1M context) &lt;noreply@anthropic.com&gt;
   </td>
 
   <td class="msg">
-      feat: initial implementation
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">feat: initial implementation</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
   </td>
 
   <td class="sha">
       <a class="sha-link" href="https://github.com/curtyo18/waypass/commit/5fae03a6114daa5a46196e78d65bb8fbb9210d6a" target="_blank" rel="noopener noreferrer">5fae03a</a>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-05-03 20:31</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/FileOrganizer" target="_blank" rel="noopener noreferrer">FileOrganizer</a>
-  </td>
-
-  <td class="msg">
-      chore: remove unused deps (uuid, zod, @testing-library/jest-dom)
-
-uuid and zod were never imported in the engine — UUIDs come from
-crypto.randomUUID(), and no validation code uses zod. jest-dom was
-listed in the UI but no test imports it; only @testing-library/preact
-is in use. 12 transitive packages dropped.
-
-Co-Authored-By: Claude Opus 4.7 (1M context) &lt;noreply@anthropic.com&gt;
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/FileOrganizer/commit/c8315eaf2101ab0a5d008f3398ac8ba4943a9d23" target="_blank" rel="noopener noreferrer">c8315ea</a>
   </td>
 </tr>        </tbody>
       </table>
@@ -3450,11 +4454,12 @@ Co-Authored-By: Claude Opus 4.7 (1M context) &lt;noreply@anthropic.com&gt;
     <a href="https://github.com/curtyo18" target="_blank" rel="noopener noreferrer">github</a> · <a href="mailto:curtyo18@gmail.com">email</a>
   </div>
   <div class="stats" style="align-items:center">
-    <span><b>2,295</b> commits</span>
+    <span><b>2,296</b> commits</span>
     <span><b>79</b> repos</span>
     <span><b>17</b> years</span>
   </div>
 </footer>    </div>
   </div>
+  <script src="expand.js" defer></script>
 </body>
 </html>
