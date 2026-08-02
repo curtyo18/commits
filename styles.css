@@ -22,6 +22,9 @@
   --rail-public: var(--accent);
   --rail-named:  var(--dim);
   --rail-anon:   var(--faint);
+
+  --accent-line: oklch(0.78 0.13 145 / 0.4);
+  --scrim:       oklch(0 0 0 / 0.55);
 }
 
 [data-theme="light"] {
@@ -38,6 +41,9 @@
   --accent:    oklch(0.52 0.14 145);
   --accent-soft: oklch(0.52 0.14 145 / 0.14);
   --warn:      oklch(0.55 0.14 60);
+
+  --accent-line: oklch(0.52 0.14 145 / 0.45);
+  --scrim:       oklch(0 0 0 / 0.4);
 }
 
 * { box-sizing: border-box; }
@@ -53,6 +59,11 @@ html, body {
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
 }
+
+/* Year-navigator jumps are the only in-page fragments the site emits, and they
+   should read as movement through the list rather than a cut. Neutralised by
+   the reduced-motion block below. */
+html { scroll-behavior: smooth; }
 
 a { color: var(--fg); text-decoration: none; }
 a:hover { color: var(--accent); }
@@ -83,8 +94,15 @@ a:hover { color: var(--accent); }
   height: 100%;
   background: var(--bg);
   color: var(--fg);
-  overflow-y: auto;
-  overflow-x: hidden;
+  /* `clip` (not `hidden`) so this stays a horizontal guard without becoming a
+     scroll container — the document does the scrolling, and an intervening
+     scroll container would strand every position:sticky descendant, the year
+     rail and the mobile year bar included. No `overflow-x: hidden` fallback
+     underneath: on the browsers that would use it (Safari < 16) it re-creates
+     the scroll container and breaks sticky, so the trade is deliberate —
+     those browsers lose the horizontal guard, not the navigator. */
+  overflow-x: clip;
+  overflow-y: visible;
   padding: 0;
 }
 
@@ -821,6 +839,174 @@ a:hover { color: var(--accent); }
 .has-js .msg-x:not(.is-clamped):not([open]) > summary { cursor: default; }
 
 /* ============================================================
+   Year navigation
+   ------------------------------------------------------------
+   17 years of history used to be a number in the header and nothing else. The
+   commit list now carries a persistent year navigator: a sticky rail beside it
+   on desktop, a sticky pill + bottom sheet on mobile.
+
+   The list is paginated server-side, so every year entry is a real link built
+   at emit time — it points at the page that year starts on, plus the #y-<year>
+   anchor on that page's first month group. Jumping to 2009 from page 1 is a
+   page load, jumping within the current page is a scroll; both are the same
+   markup and both work with JS off.
+   ============================================================ */
+
+.sr-only {
+  position: absolute;
+  width: 1px; height: 1px;
+  padding: 0; margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+.year-layout { margin-top: 36px; }
+.year-layout .gr-section-title { margin-top: 0; }
+.year-main { min-width: 0; }
+
+.year-layout.has-year-nav {
+  display: flex;
+  align-items: flex-start;
+  gap: 28px;
+}
+.year-layout.has-year-nav .year-main { flex: 1; }
+
+/* Anchored month groups stop clear of the viewport edge (and of the mobile
+   sticky bar, which would otherwise sit on top of the heading jumped to). */
+.gr-month-row { scroll-margin-top: 16px; }
+
+/* --- Desktop: sticky rail --- */
+
+.year-rail {
+  position: sticky;
+  top: 16px;
+  width: 70px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  /* The rail is taller than some viewports at 18 years; let it scroll itself
+     rather than clip the oldest years away. */
+  max-height: calc(100vh - 32px);
+  overflow-y: auto;
+  /* Line the first year up with the list heading beside it. */
+  margin-top: 26px;
+}
+
+.year-rail-item {
+  font-size: 12px;
+  color: var(--faint);
+  font-variant-numeric: tabular-nums;
+  border-left: 2px solid var(--line-soft);
+  padding: 8px 0 8px 14px;
+  transition: color 0.12s, border-color 0.12s;
+}
+.year-rail-item:hover {
+  color: var(--fg-2);
+  border-left-color: var(--line);
+}
+.year-rail-item.is-active {
+  color: var(--accent);
+  font-weight: 700;
+  border-left-color: var(--accent);
+}
+
+/* --- Mobile: sticky pill + jump sheet --- */
+
+.year-bar { display: none; }
+
+/* The <details> is the flex item in .year-bar — the hint beside it yields
+   first, since the pill is the actual control. */
+.year-sheet { flex-shrink: 0; }
+
+.year-pill {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 4px;
+  list-style: none;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  color: var(--accent);
+  border: 1px solid var(--accent-line);
+  border-radius: 999px;
+  padding: 4px 10px;
+}
+.year-pill::-webkit-details-marker { display: none; }
+.year-pill-caret { font-size: 10px; font-weight: 400; }
+
+.year-bar-hint {
+  font-size: 11px;
+  color: var(--faint);
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Tap-outside-to-dismiss with no JS: the scrim belongs to the summary, so a tap
+   on it is a tap on the toggle. */
+.year-sheet[open] > .year-pill::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: var(--scrim);
+}
+
+.year-sheet:not([open]) .year-sheet-panel { display: none; }
+
+.year-sheet-panel {
+  position: fixed;
+  left: 0; right: 0; bottom: 0;
+  background: var(--surface);
+  border-top: 1px solid var(--line);
+  border-radius: 16px 16px 0 0;
+  padding: 10px 16px 18px;
+  padding-bottom: calc(18px + env(safe-area-inset-bottom, 0px));
+  box-shadow: 0 -8px 24px oklch(0 0 0 / 0.4);
+  max-height: 70vh;
+  overflow-y: auto;
+}
+
+.year-sheet-handle {
+  width: 36px;
+  height: 4px;
+  border-radius: 2px;
+  background: var(--faint);
+  margin: 0 auto 12px;
+}
+
+.year-sheet-title {
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--dim);
+  margin-bottom: 12px;
+}
+
+.year-sheet-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+}
+.year-sheet-cell {
+  font-size: 12px;
+  font-variant-numeric: tabular-nums;
+  text-align: center;
+  padding: 8px 0;
+  border-radius: 6px;
+  border: 1px solid var(--line);
+  color: var(--fg-2);
+}
+.year-sheet-cell.is-active {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--bg);
+  font-weight: 700;
+}
+
+/* ============================================================
    Mobile — narrower viewports
    ============================================================ */
 @media (max-width: 720px) {
@@ -925,4 +1111,27 @@ a:hover { color: var(--accent); }
     align-items: flex-start;
     gap: 4px;
   }
+
+  /* Year nav: no room for a side rail — the pill + sheet take over. */
+  .year-layout,
+  .year-layout.has-year-nav {
+    display: block;
+  }
+  .year-rail { display: none; }
+
+  .year-bar {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    position: sticky;
+    top: 0;
+    z-index: 40;
+    /* Bleed past .page-inner's 12px gutter so the bar spans the viewport. */
+    margin: 0 -12px 8px;
+    padding: 10px 14px;
+    background: var(--bg-2);
+    border-bottom: 1px solid var(--line);
+  }
+
+  .gr-month-row { scroll-margin-top: 56px; }
 }
