@@ -19,7 +19,7 @@
     <small>curt — a public log of private and public work</small>
   </h1>
   <div class="meta">
-    <span><b>2,593</b> commits indexed</span>
+    <span><b>2,595</b> commits indexed</span>
     <span><b>79</b> repos · <b>17</b> years</span>
   </div>
 </div><div class="gr-section-title">
@@ -27,6 +27,17 @@
 </div>
 
 <div class="gr-featured">
+    <a class="card card-link" href="https://github.com/curtyo18/agent-sandbox" target="_blank" rel="noopener noreferrer">
+      <div class="top">
+        <div class="name">agent-sandbox</div>
+        <div class="lang"></div>
+      </div>
+      <div class="blurb"></div>
+      <div class="foot">
+        <span>102 commits</span>
+        <span>last touched 2026-09-14</span>
+      </div>
+    </a>
     <a class="card card-link" href="https://github.com/curtyo18/header-handler" target="_blank" rel="noopener noreferrer">
       <div class="top">
         <div class="name">header-handler</div>
@@ -58,17 +69,6 @@
       <div class="foot">
         <span>43 commits</span>
         <span>last touched 2026-07-28</span>
-      </div>
-    </a>
-    <a class="card card-link" href="https://github.com/curtyo18/tampermonkey-scripts" target="_blank" rel="noopener noreferrer">
-      <div class="top">
-        <div class="name">tampermonkey-scripts</div>
-        <div class="lang"></div>
-      </div>
-      <div class="blurb"></div>
-      <div class="foot">
-        <span>66 commits</span>
-        <span>last touched 2026-07-20</span>
       </div>
     </a>
 </div>
@@ -124,7 +124,7 @@
 </div>
           <div class="gr-section-title">
             <span>All commits · newest first</span>
-            <span class="right">showing 1–200 of 2593</span>
+            <span class="right">showing 1–200 of 2595</span>
           </div>
 
           <table class="gr-table">
@@ -137,10 +137,60 @@
                 <tr class="gr-month-row" data-year="2026" id="y-2026">
                   <td colspan="4">
                     September 2026
-                    <span>132 commits · 0 public</span>
+                    <span>134 commits · 1 public</span>
                   </td>
                 </tr>
-<tr class="anon">
+<tr class="">
+    <td class="when">2026-09-14 11:29</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/agent-sandbox" target="_blank" rel="noopener noreferrer">agent-sandbox</a>
+  </td>
+
+  <td class="msg">
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">fix(bootstrap): disable container IPv6 so squid stops dialing unreachable AAAA
+
+Anthropic&#39;s endpoints publish AAAA records, and squid resolves DNS itself
+instead of going through glibc, so it never sees AI_ADDRCONFIG filtering and
+happily dials those IPv6 addresses. The container has no IPv6 egress, so every
+such connect fails with ENETUNREACH; squid answers ERR_CONNECT_FAIL 101 /
+HTTP 503 and `claude` login dies at the platform.claude.com token exchange.
+
+Turn IPv6 off at the kernel on docker run. Squid then detects the non-functional
+stack at startup (BCP 177 warning), binds 0.0.0.0:3128 rather than [::]:3128,
+and stays on IPv4 for the life of the container.
+
+Containers created before this change must be recreated to pick up the flags.</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/agent-sandbox/commit/e2dabc0c7233819accd23f286bb5658daa60d7e1" target="_blank" rel="noopener noreferrer">e2dabc0</a>
+  </td>
+</tr><tr class="anon">
+    <td class="when">2026-09-14</td>
+
+  <td class="repo">
+      <span class="redact-strong" aria-label="redacted repo" role="img">buffer-toolkit</span>
+  </td>
+
+  <td class="msg">
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text redact-strong" aria-label="redacted message" role="img">remove adapter, remove queue</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
+  </td>
+
+  <td class="sha">
+      <span class="redact-strong" aria-label="redacted sha" role="img">7c51a61</span>
+  </td>
+</tr><tr class="anon">
     <td class="when">2026-09-13</td>
 
   <td class="repo">
@@ -2651,7 +2701,7 @@
 </tr>                <tr class="gr-month-row" data-year="2026">
                   <td colspan="4">
                     August 2026
-                    <span>68 commits · 15 public</span>
+                    <span>66 commits · 15 public</span>
                   </td>
                 </tr>
 <tr class="">
@@ -4088,44 +4138,6 @@ state, on the wire and in storage. ADR-0008 records the shape change.</span>
   <td class="sha">
       <span class="redact-strong" aria-label="redacted sha" role="img">b733a6c</span>
   </td>
-</tr><tr class="anon">
-    <td class="when">2026-08-11</td>
-
-  <td class="repo">
-      <span class="redact-strong" aria-label="redacted repo" role="img">noisy-stream-supervisor</span>
-  </td>
-
-  <td class="msg">
-    <details class="msg-x">
-      <summary>
-          <span class="msg-text redact-strong" aria-label="redacted message" role="img">polish</span>
-        <span class="msg-toggle" aria-hidden="true"></span>
-      </summary>
-    </details>
-  </td>
-
-  <td class="sha">
-      <span class="redact-strong" aria-label="redacted sha" role="img">1f77e43</span>
-  </td>
-</tr><tr class="anon">
-    <td class="when">2026-08-11</td>
-
-  <td class="repo">
-      <span class="redact-strong" aria-label="redacted repo" role="img">lingering-handler-store</span>
-  </td>
-
-  <td class="msg">
-    <details class="msg-x">
-      <summary>
-          <span class="msg-text redact-strong" aria-label="redacted message" role="img">rename faster mailer when mailer changes</span>
-        <span class="msg-toggle" aria-hidden="true"></span>
-      </summary>
-    </details>
-  </td>
-
-  <td class="sha">
-      <span class="redact-strong" aria-label="redacted sha" role="img">44e7fb0</span>
-  </td>
 </tr>            </tbody>
           </table>
         </div>
@@ -4152,7 +4164,7 @@ state, on the wire and in storage. ADR-0008 records the shape change.</span>
     <a href="https://github.com/curtyo18" target="_blank" rel="noopener noreferrer">github</a> · <a href="mailto:curtyo18@gmail.com">email</a>
   </div>
   <div class="stats" style="align-items:center">
-    <span><b>2,593</b> commits</span>
+    <span><b>2,595</b> commits</span>
     <span><b>79</b> repos</span>
     <span><b>17</b> years</span>
   </div>
