@@ -19,7 +19,7 @@
     <small>curt — a public log of private and public work</small>
   </h1>
   <div class="meta">
-    <span><b>2,826</b> commits indexed</span>
+    <span><b>2,829</b> commits indexed</span>
     <span><b>80</b> repos · <b>17</b> years</span>
   </div>
 </div>
@@ -75,7 +75,7 @@
 </div>
           <div class="gr-section-title">
             <span>All commits · newest first</span>
-            <span class="right">showing 1801–2000 of 2826</span>
+            <span class="right">showing 1801–2000 of 2829</span>
           </div>
 
           <table class="gr-table">
@@ -88,10 +88,99 @@
                 <tr class="gr-month-row" data-year="2026" id="y-2026">
                   <td colspan="4">
                     April 2026
-                    <span>200 commits · 110 public</span>
+                    <span>200 commits · 113 public</span>
                   </td>
                 </tr>
 <tr class="">
+    <td class="when">2026-04-27 20:54</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/FileOrganizer" target="_blank" rel="noopener noreferrer">FileOrganizer</a>
+  </td>
+
+  <td class="msg">
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">fix(engine/organize): record actual finalDestPath on suffix rename
+
+When a collision forces the mover to rename the source to a suffixed
+filename (a.jpg → a_1.jpg), the operation row now reflects the file&#39;s
+real on-disk location instead of the planner&#39;s intended destPath.
+Without this, undo would look at the wrong file when re-verifying or
+reversing the move.
+
+BatchesRepo.updateOperationStatus accepts an optional destPath; the
+applier passes outcome.finalDestPath whenever it differs from the
+planner&#39;s destPath.</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/FileOrganizer/commit/3c9f5cec31e67526dbf9a347b8086576bd84f665" target="_blank" rel="noopener noreferrer">3c9f5ce</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-04-27 20:50</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/FileOrganizer" target="_blank" rel="noopener noreferrer">FileOrganizer</a>
+  </td>
+
+  <td class="msg">
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">feat(engine/organize): dry-run mode for applyApprovedBatch
+
+dryRun=true creates the batch and records every op with status
+&#39;dry-run&#39;, without touching the filesystem. Source hash is still
+re-verified against the catalog so dry-run surfaces hash drift before
+the user commits to a real run; on drift, the op is recorded as
+failed with the hash-mismatch reason.
+
+Task: M5-T07b</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/FileOrganizer/commit/2fd37d2ef069b0fc403f34b028a44f84fd32b283" target="_blank" rel="noopener noreferrer">2fd37d2</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-04-27 20:45</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/FileOrganizer" target="_blank" rel="noopener noreferrer">FileOrganizer</a>
+  </td>
+
+  <td class="msg">
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">feat(engine/organize): add auto-apply + approved-batch orchestrators
+
+autoApply walks a planner&#39;s PlannedOperation list, drops noops,
+auto-runs same-drive moves whose rule is `same-drive-auto` (under one
+auto-batch with kind=move), and returns the remaining ops as a
+reviewQueue for explicit user approval.
+
+applyApprovedBatch executes a user-approved op list under a single
+batch, recording each op (move or copy) and continuing past failures
+so partial progress is preserved. Same-content collisions are recorded
+as completed-via-existing; any thrown error becomes a failed op with
+errorMessage. The batch finishes as &#39;completed&#39; iff every op
+completed.
+
+Task: M5-T07</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/FileOrganizer/commit/28e4d47ed50d710e643cd9ea86239f2bb42c7246" target="_blank" rel="noopener noreferrer">28e4d47</a>
+  </td>
+</tr><tr class="">
     <td class="when">2026-04-27 20:42</td>
 
   <td class="repo">
@@ -3916,63 +4005,6 @@ both typecheck and test run green.</span>
   <td class="sha">
       <span class="redact-strong" aria-label="redacted sha" role="img">0f50ffe</span>
   </td>
-</tr><tr class="anon">
-    <td class="when">2026-04-16</td>
-
-  <td class="repo">
-      <span class="redact-strong" aria-label="redacted repo" role="img">tighter-adapter-pipeline</span>
-  </td>
-
-  <td class="msg">
-    <details class="msg-x">
-      <summary>
-          <span class="msg-text redact-strong" aria-label="redacted message" role="img">merge missing fallback for the silent supervisor</span>
-        <span class="msg-toggle" aria-hidden="true"></span>
-      </summary>
-    </details>
-  </td>
-
-  <td class="sha">
-      <span class="redact-strong" aria-label="redacted sha" role="img">70972fe</span>
-  </td>
-</tr><tr class="anon">
-    <td class="when">2026-04-16</td>
-
-  <td class="repo">
-      <span class="redact-strong" aria-label="redacted repo" role="img">helper</span>
-  </td>
-
-  <td class="msg">
-    <details class="msg-x">
-      <summary>
-          <span class="msg-text redact-strong" aria-label="redacted message" role="img">fix: extract the tighter filter</span>
-        <span class="msg-toggle" aria-hidden="true"></span>
-      </summary>
-    </details>
-  </td>
-
-  <td class="sha">
-      <span class="redact-strong" aria-label="redacted sha" role="img">31ac3e4</span>
-  </td>
-</tr><tr class="anon">
-    <td class="when">2026-04-16</td>
-
-  <td class="repo">
-      <span class="redact-strong" aria-label="redacted repo" role="img">loader</span>
-  </td>
-
-  <td class="msg">
-    <details class="msg-x">
-      <summary>
-          <span class="msg-text redact-strong" aria-label="redacted message" role="img">docs: bump lingering context when validator changes</span>
-        <span class="msg-toggle" aria-hidden="true"></span>
-      </summary>
-    </details>
-  </td>
-
-  <td class="sha">
-      <span class="redact-strong" aria-label="redacted sha" role="img">59e696d</span>
-  </td>
 </tr>            </tbody>
           </table>
         </div>
@@ -4003,7 +4035,7 @@ both typecheck and test run green.</span>
     <a href="https://github.com/curtyo18" target="_blank" rel="noopener noreferrer">github</a> · <a href="mailto:curtyo18@gmail.com">email</a>
   </div>
   <div class="stats" style="align-items:center">
-    <span><b>2,826</b> commits</span>
+    <span><b>2,829</b> commits</span>
     <span><b>80</b> repos</span>
     <span><b>17</b> years</span>
   </div>

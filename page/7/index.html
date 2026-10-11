@@ -19,7 +19,7 @@
     <small>curt — a public log of private and public work</small>
   </h1>
   <div class="meta">
-    <span><b>2,826</b> commits indexed</span>
+    <span><b>2,829</b> commits indexed</span>
     <span><b>80</b> repos · <b>17</b> years</span>
   </div>
 </div>
@@ -75,7 +75,7 @@
 </div>
           <div class="gr-section-title">
             <span>All commits · newest first</span>
-            <span class="right">showing 1201–1400 of 2826</span>
+            <span class="right">showing 1201–1400 of 2829</span>
           </div>
 
           <table class="gr-table">
@@ -88,10 +88,67 @@
                 <tr class="gr-month-row" data-year="2026" id="y-2026">
                   <td colspan="4">
                     May 2026
-                    <span>200 commits · 100 public</span>
+                    <span>200 commits · 98 public</span>
                   </td>
                 </tr>
-<tr class="">
+<tr class="named">
+    <td class="when">2026-05-26 15:40</td>
+
+  <td class="repo">
+      network-data-viewer-archive
+  </td>
+
+  <td class="msg">
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text redact" aria-label="redacted message" role="img">remove flaky pipeline</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
+  </td>
+
+  <td class="sha">
+      <span class="redact" aria-label="redacted sha" role="img">503ae2f</span>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-05-26 16:40</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/network-data-viewer" target="_blank" rel="noopener noreferrer">network-data-viewer</a>
+  </td>
+
+  <td class="msg">
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">chore(release): bump to v0.2.0</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/network-data-viewer/commit/cb44b0ba4fbee221214ffbe794f52109b6e7333e" target="_blank" rel="noopener noreferrer">cb44b0b</a>
+  </td>
+</tr><tr class="named">
+    <td class="when">2026-05-26 15:08</td>
+
+  <td class="repo">
+      network-data-viewer-archive
+  </td>
+
+  <td class="msg">
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text redact" aria-label="redacted message" role="img">refactor: harden stricter pipeline</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
+  </td>
+
+  <td class="sha">
+      <span class="redact" aria-label="redacted sha" role="img">4da47a3</span>
+  </td>
+</tr><tr class="">
     <td class="when">2026-05-26 16:08</td>
 
   <td class="repo">
@@ -3905,99 +3962,6 @@ Co-Authored-By: Claude Sonnet 4.6 &lt;noreply@anthropic.com&gt;</span>
   <td class="sha">
       <a class="sha-link" href="https://github.com/curtyo18/tampermonkey-scripts/commit/7ad145b8d2885ccfc704867bcb61324a80c79892" target="_blank" rel="noopener noreferrer">7ad145b</a>
   </td>
-</tr><tr class="">
-    <td class="when">2026-05-21 17:18</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/tampermonkey-scripts" target="_blank" rel="noopener noreferrer">tampermonkey-scripts</a>
-  </td>
-
-  <td class="msg">
-    <details class="msg-x">
-      <summary>
-          <span class="msg-text">feat(gitlab-code-search): v1.1.0 — fix match patterns, collapsible results, auto-version
-
-- @include regex /\/search\?/ catches global GitLab search (/search?scope=blobs)
-  which @match cannot handle (it cannot inspect query strings); previous patterns
-  only matched /-/search paths used by project/group search
-- SPA nav guard updated to also recognise /search paths without /-/
-- Result cards now collapsed by default (snippet hidden); click header to expand,
-  chevron rotates to indicate state; Expand all / Collapse all in toolbar
-- build.mjs reads version from package.json so there&#39;s one source of truth
-
-Co-Authored-By: Claude Sonnet 4.6 &lt;noreply@anthropic.com&gt;</span>
-        <span class="msg-toggle" aria-hidden="true"></span>
-      </summary>
-    </details>
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/tampermonkey-scripts/commit/3c492312b7015f507fd73678639ce53395b04a80" target="_blank" rel="noopener noreferrer">3c49231</a>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-05-21 16:07</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/tampermonkey-scripts" target="_blank" rel="noopener noreferrer">tampermonkey-scripts</a>
-  </td>
-
-  <td class="msg">
-    <details class="msg-x">
-      <summary>
-          <span class="msg-text">fix(gitlab-code-search): send single extension server-side to avoid wasting result cap
-
-GitLab applies AND between multiple extension: filters (returning zero results),
-so multiple extensions must be filtered client-side. But for a single extension
-the API filter is strictly better — it uses the server&#39;s result budget only on
-matching file types instead of filtering down from a cap of unrelated results.
-
-Co-Authored-By: Claude Sonnet 4.6 &lt;noreply@anthropic.com&gt;</span>
-        <span class="msg-toggle" aria-hidden="true"></span>
-      </summary>
-    </details>
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/tampermonkey-scripts/commit/1673323e9f7431d92d9698d0adf89881d7e3608c" target="_blank" rel="noopener noreferrer">1673323</a>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-05-21 11:03</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/tampermonkey-scripts" target="_blank" rel="noopener noreferrer">tampermonkey-scripts</a>
-  </td>
-
-  <td class="msg">
-    <details class="msg-x">
-      <summary>
-          <span class="msg-text">fix(gitlab-code-search): resolve repo paths in results and fix extension filter
-
-GitLab&#39;s blob search API returns only a numeric project_id; the path field is
-the file path within the repo, not a full URL path. This caused every result
-link to point to the wrong place and &#34;Copy repos&#34; to return file-path segments
-instead of namespace/repo pairs.
-
-- Fetch /api/v4/projects/{id} for each unique project_id after search and
-  enrich results with project_path (namespace/repo), cached per session
-- Build correct file URLs: {origin}/{project_path}/-/blob/{ref}/{path}
-- Show project_path as a dim label above each result card
-- Fix extractRepoPaths to use project_path directly
-
-Extension filter was sent as extension:X in the server query, which uses AND
-logic server-side (impossible to match two extensions simultaneously) and only
-works on instances with Elasticsearch Advanced Search enabled. Moved to
-client-side OR filtering applied after fetch, so it works reliably everywhere
-and multiple extensions are OR&#39;d correctly.
-
-Co-Authored-By: Claude Sonnet 4.6 &lt;noreply@anthropic.com&gt;</span>
-        <span class="msg-toggle" aria-hidden="true"></span>
-      </summary>
-    </details>
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/tampermonkey-scripts/commit/e96cc903d0fdadd4f2f4a125c26ae35462638d35" target="_blank" rel="noopener noreferrer">e96cc90</a>
-  </td>
 </tr>            </tbody>
           </table>
         </div>
@@ -4028,7 +3992,7 @@ Co-Authored-By: Claude Sonnet 4.6 &lt;noreply@anthropic.com&gt;</span>
     <a href="https://github.com/curtyo18" target="_blank" rel="noopener noreferrer">github</a> · <a href="mailto:curtyo18@gmail.com">email</a>
   </div>
   <div class="stats" style="align-items:center">
-    <span><b>2,826</b> commits</span>
+    <span><b>2,829</b> commits</span>
     <span><b>80</b> repos</span>
     <span><b>17</b> years</span>
   </div>

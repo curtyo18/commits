@@ -19,7 +19,7 @@
     <small>curt — a public log of private and public work</small>
   </h1>
   <div class="meta">
-    <span><b>2,826</b> commits indexed</span>
+    <span><b>2,829</b> commits indexed</span>
     <span><b>80</b> repos · <b>17</b> years</span>
   </div>
 </div>
@@ -75,7 +75,7 @@
 </div>
           <div class="gr-section-title">
             <span>All commits · newest first</span>
-            <span class="right">showing 601–800 of 2826</span>
+            <span class="right">showing 601–800 of 2829</span>
           </div>
 
           <table class="gr-table">
@@ -88,10 +88,89 @@
                 <tr class="gr-month-row" data-year="2026" id="y-2026">
                   <td colspan="4">
                     July 2026
-                    <span>169 commits · 164 public</span>
+                    <span>172 commits · 167 public</span>
                   </td>
                 </tr>
 <tr class="">
+    <td class="when">2026-07-25 16:41</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/header-handler" target="_blank" rel="noopener noreferrer">header-handler</a>
+  </td>
+
+  <td class="msg">
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">Add append to HeaderOp</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/header-handler/commit/ee3034161d8d43fe2e6b2aebb4b3424cd7379299" target="_blank" rel="noopener noreferrer">ee30341</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-07-25 16:40</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/header-handler" target="_blank" rel="noopener noreferrer">header-handler</a>
+  </td>
+
+  <td class="msg">
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">Add spec, ADR, and plan for append header operation
+
+Design doc, ADR-0007 (append as a third HeaderOp value rather than a
+checkbox modifier), implementation plan, and a CONTEXT.md glossary entry
+for the new Append operation.
+
+Co-Authored-By: Claude Sonnet 5 &lt;noreply@anthropic.com&gt;</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/header-handler/commit/cb01fb0595162ae5e4bab96db9bd4df1ad633a6e" target="_blank" rel="noopener noreferrer">cb01fb0</a>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-07-25 14:16</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/peer-poker" target="_blank" rel="noopener noreferrer">peer-poker</a>
+  </td>
+
+  <td class="msg">
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">fix: dial the host only once the joining peer is open
+
+Joining never worked: the guest&#39;s offer was created the moment the peer
+was constructed, and PeerJS drops signalling sent in the window between
+the socket being handed its id and its websocket finishing connecting.
+Socket.send queues only while the id is still unknown, then bails on
+`if (!this._wsOpen()) return` — so the offer was neither queued, sent,
+nor reported. The host never learned a guest existed, and the join died
+of the timeout with no error on either side.
+
+Connecting after &#39;open&#39; fixes it, confirmed end to end against the real
+broker: a guest joins, plays a card, and the host reveals the round.
+
+Verified with a controlled experiment before changing anything —
+dialling before &#39;open&#39; failed 2/2, after &#39;open&#39; succeeded 2/2 — because
+reading the queueing code alone suggested, wrongly, that early dialling
+was safe.</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/peer-poker/commit/08fb895a4229bfeb9cde0fe89596a1da448c4ea2" target="_blank" rel="noopener noreferrer">08fb895</a>
+  </td>
+</tr><tr class="">
     <td class="when">2026-07-25 13:37</td>
 
   <td class="repo">
@@ -4407,7 +4486,7 @@ Co-Authored-By: Claude Opus 4.8 &lt;noreply@anthropic.com&gt;</span>
 </tr>                <tr class="gr-month-row" data-year="2026">
                   <td colspan="4">
                     June 2026
-                    <span>31 commits · 21 public</span>
+                    <span>28 commits · 18 public</span>
                   </td>
                 </tr>
 <tr class="">
@@ -5030,65 +5109,6 @@ Co-Authored-By: Claude Opus 4.8 &lt;noreply@anthropic.com&gt;</span>
   <td class="sha">
       <a class="sha-link" href="https://github.com/curtyo18/waypoint/commit/571b9f19220c17e8285d1c5a8126a6a6637af8aa" target="_blank" rel="noopener noreferrer">571b9f1</a>
   </td>
-</tr><tr class="">
-    <td class="when">2026-06-11 19:52</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/waypoint" target="_blank" rel="noopener noreferrer">waypoint</a>
-  </td>
-
-  <td class="msg">
-    <details class="msg-x">
-      <summary>
-          <span class="msg-text">feat: add in-browser waiting-room playground + Pages deploy</span>
-        <span class="msg-toggle" aria-hidden="true"></span>
-      </summary>
-    </details>
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/waypoint/commit/805274497251e74e260c0377404a4500cf60c914" target="_blank" rel="noopener noreferrer">8052744</a>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-06-11 19:47</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/waypass" target="_blank" rel="noopener noreferrer">waypass</a>
-  </td>
-
-  <td class="msg">
-    <details class="msg-x">
-      <summary>
-          <span class="msg-text">feat: add in-browser proof-of-passage playground + Pages deploy</span>
-        <span class="msg-toggle" aria-hidden="true"></span>
-      </summary>
-    </details>
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/waypass/commit/99fb382b090e48f550d202e86b7595514d35fdea" target="_blank" rel="noopener noreferrer">99fb382</a>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-06-11 19:37</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/agent-config" target="_blank" rel="noopener noreferrer">agent-config</a>
-  </td>
-
-  <td class="msg">
-    <details class="msg-x">
-      <summary>
-          <span class="msg-text">feat(statusline): move ctx bold-red threshold from 100k to 120k
-
-Co-Authored-By: Claude Fable 5 &lt;noreply@anthropic.com&gt;</span>
-        <span class="msg-toggle" aria-hidden="true"></span>
-      </summary>
-    </details>
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/agent-config/commit/9ffcdaa74f80f8408db03ce070e2e508b5b0cf54" target="_blank" rel="noopener noreferrer">9ffcdaa</a>
-  </td>
 </tr>            </tbody>
           </table>
         </div>
@@ -5118,7 +5138,7 @@ Co-Authored-By: Claude Fable 5 &lt;noreply@anthropic.com&gt;</span>
     <a href="https://github.com/curtyo18" target="_blank" rel="noopener noreferrer">github</a> · <a href="mailto:curtyo18@gmail.com">email</a>
   </div>
   <div class="stats" style="align-items:center">
-    <span><b>2,826</b> commits</span>
+    <span><b>2,829</b> commits</span>
     <span><b>80</b> repos</span>
     <span><b>17</b> years</span>
   </div>
