@@ -19,7 +19,7 @@
     <small>curt — a public log of private and public work</small>
   </h1>
   <div class="meta">
-    <span><b>2,829</b> commits indexed</span>
+    <span><b>2,831</b> commits indexed</span>
     <span><b>80</b> repos · <b>17</b> years</span>
   </div>
 </div>
@@ -75,7 +75,7 @@
 </div>
           <div class="gr-section-title">
             <span>All commits · newest first</span>
-            <span class="right">showing 1201–1400 of 2829</span>
+            <span class="right">showing 1201–1400 of 2831</span>
           </div>
 
           <table class="gr-table">
@@ -88,10 +88,48 @@
                 <tr class="gr-month-row" data-year="2026" id="y-2026">
                   <td colspan="4">
                     May 2026
-                    <span>200 commits · 98 public</span>
+                    <span>200 commits · 97 public</span>
                   </td>
                 </tr>
 <tr class="named">
+    <td class="when">2026-05-26 15:51</td>
+
+  <td class="repo">
+      network-data-viewer-archive
+  </td>
+
+  <td class="msg">
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text redact" aria-label="redacted message" role="img">vendor the noisy encoder</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
+  </td>
+
+  <td class="sha">
+      <span class="redact" aria-label="redacted sha" role="img">17983d6</span>
+  </td>
+</tr><tr class="">
+    <td class="when">2026-05-26 16:51</td>
+
+  <td class="repo">
+      <a class="repo-link" href="https://github.com/curtyo18/network-data-viewer" target="_blank" rel="noopener noreferrer">network-data-viewer</a>
+  </td>
+
+  <td class="msg">
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text">fix(celebrus): match versioned subdomains and stop json-parsing the body</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
+  </td>
+
+  <td class="sha">
+      <a class="sha-link" href="https://github.com/curtyo18/network-data-viewer/commit/265a4cbf8291158594d0edab0b3ea6538011b0f5" target="_blank" rel="noopener noreferrer">265a4cb</a>
+  </td>
+</tr><tr class="named">
     <td class="when">2026-05-26 15:40</td>
 
   <td class="repo">
@@ -3873,95 +3911,6 @@ Co-Authored-By: Claude Sonnet 4.6 &lt;noreply@anthropic.com&gt;</span>
   <td class="sha">
       <a class="sha-link" href="https://github.com/curtyo18/tampermonkey-scripts/commit/674b5911b33533191378ecd1b38c51b944a76afd" target="_blank" rel="noopener noreferrer">674b591</a>
   </td>
-</tr><tr class="">
-    <td class="when">2026-05-21 20:06</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/tampermonkey-scripts" target="_blank" rel="noopener noreferrer">tampermonkey-scripts</a>
-  </td>
-
-  <td class="msg">
-    <details class="msg-x">
-      <summary>
-          <span class="msg-text">feat(gitlab-code-search): v1.3.0 — deep content search with 500+ file warning
-
-Deep search:
-- After Fetch All, a &#34;Deep content search&#34; section appears. Enter a literal
-  string (e.g. &#34;tanstack-hello&#34;: &#34;^1.0.0&#34;) and click Search.
-- Fetches full raw file content for each unique file in the API results via
-  /api/v4/projects/:id/repository/files/:path/raw — finds exact matches that
-  GitLab&#39;s tokenised Elasticsearch index would miss (hyphens, quotes, etc.).
-- Concurrency capped at 3 to avoid hammering the instance.
-- If the result set contains more than 500 unique files, an inline warning
-  shows the file count and asks the user to confirm before proceeding.
-- Results show one card per matched file with all matching lines (line number
-  + text); Expand/Collapse all works across both API and deep cards.
-- Export JSON/CSV adapts to deep mode: CSV is one row per matching line
-  with columns project_id, project_path, path, filename, ref, lineNum, text.
-- &#34;Clear — back to API results&#34; restores the original API result view.
-
-Filename + Extension quick-add fields:
-- Brought back as dedicated inputs next to the query box.
-- Filename always goes to the API query as filename:X (server-side).
-- Single extension goes server-side as extension:X; multiple extensions
-  fall back to client-side filtering (GitLab ANDs them → zero results).
-- Extension field also re-filters the displayed API results on change.
-
-Tests: 46 passing.
-
-Co-Authored-By: Claude Sonnet 4.6 &lt;noreply@anthropic.com&gt;</span>
-        <span class="msg-toggle" aria-hidden="true"></span>
-      </summary>
-    </details>
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/tampermonkey-scripts/commit/40f7e6f5aa668dfef12f92fd0d4af8b10b2ed361" target="_blank" rel="noopener noreferrer">40f7e6f</a>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-05-21 19:22</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/tampermonkey-scripts" target="_blank" rel="noopener noreferrer">tampermonkey-scripts</a>
-  </td>
-
-  <td class="msg">
-    <details class="msg-x">
-      <summary>
-          <span class="msg-text">feat(gitlab-code-search): v1.2.0 — explicit activation, literal filter, fix extension input
-
-Complete UX redesign:
-
-- Script no longer auto-runs. Injects a small &#34;⚡ Enhanced Search&#34; button at
-  the top of the results pane; native GitLab results stay visible until the
-  user clicks it.
-- On activation the panel replaces the native results pane. A &#34;✕ Close&#34; button
-  restores native results and reinstates the trigger button.
-- &#34;Fetch All&#34; button triggers the API fetch explicitly. Panel opens pre-filled
-  with the current GitLab query but does not auto-fetch.
-- Extension input replaced with a plain comma-separated text field. The
-  previous multi-tag widget appeared as a black/non-functional box because
-  (a) GitLab CSS custom properties don&#39;t exist on all self-hosted versions,
-  leaving background:transparent over a dark page, and (b) Enter key events
-  could be captured by an ancestor form. Both failure modes are eliminated.
-- Added client-side literal filter (post-fetch): searches paths and code
-  snippets with case-insensitive substring matching. Finds &#34;hello-world&#34; even
-  when GitLab&#39;s Elasticsearch tokenised it at the hyphen. A hint explains this.
-- Fuzzy/Exact mode toggle removed — too confusing, server-admin concern.
-- CSS now uses system colour keywords (Canvas/CanvasText/ButtonBorder) as
-  reliable fallbacks so the UI works on every GitLab version and theme.
-- buildQuery removed from utils; filterResults + parseExtensions added and
-  tested. Test count: 34.
-
-Co-Authored-By: Claude Sonnet 4.6 &lt;noreply@anthropic.com&gt;</span>
-        <span class="msg-toggle" aria-hidden="true"></span>
-      </summary>
-    </details>
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/tampermonkey-scripts/commit/7ad145b8d2885ccfc704867bcb61324a80c79892" target="_blank" rel="noopener noreferrer">7ad145b</a>
-  </td>
 </tr>            </tbody>
           </table>
         </div>
@@ -3992,7 +3941,7 @@ Co-Authored-By: Claude Sonnet 4.6 &lt;noreply@anthropic.com&gt;</span>
     <a href="https://github.com/curtyo18" target="_blank" rel="noopener noreferrer">github</a> · <a href="mailto:curtyo18@gmail.com">email</a>
   </div>
   <div class="stats" style="align-items:center">
-    <span><b>2,829</b> commits</span>
+    <span><b>2,831</b> commits</span>
     <span><b>80</b> repos</span>
     <span><b>17</b> years</span>
   </div>

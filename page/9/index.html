@@ -19,7 +19,7 @@
     <small>curt — a public log of private and public work</small>
   </h1>
   <div class="meta">
-    <span><b>2,829</b> commits indexed</span>
+    <span><b>2,831</b> commits indexed</span>
     <span><b>80</b> repos · <b>17</b> years</span>
   </div>
 </div>
@@ -75,7 +75,7 @@
 </div>
           <div class="gr-section-title">
             <span>All commits · newest first</span>
-            <span class="right">showing 1601–1800 of 2829</span>
+            <span class="right">showing 1601–1800 of 2831</span>
           </div>
 
           <table class="gr-table">
@@ -88,10 +88,48 @@
                 <tr class="gr-month-row" data-year="2026" id="y-2026">
                   <td colspan="4">
                     May 2026
-                    <span>143 commits · 93 public</span>
+                    <span>145 commits · 93 public</span>
                   </td>
                 </tr>
 <tr class="named">
+    <td class="when">2026-05-16 19:56</td>
+
+  <td class="repo">
+      agent-config-private
+  </td>
+
+  <td class="msg">
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text redact" aria-label="redacted message" role="img">test: tidy buffer so config can optimize validator</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
+  </td>
+
+  <td class="sha">
+      <span class="redact" aria-label="redacted sha" role="img">e763d36</span>
+  </td>
+</tr><tr class="named">
+    <td class="when">2026-05-16 19:56</td>
+
+  <td class="repo">
+      agent-config-private
+  </td>
+
+  <td class="msg">
+    <details class="msg-x">
+      <summary>
+          <span class="msg-text redact" aria-label="redacted message" role="img">feat: extract scheduler (leaky)</span>
+        <span class="msg-toggle" aria-hidden="true"></span>
+      </summary>
+    </details>
+  </td>
+
+  <td class="sha">
+      <span class="redact" aria-label="redacted sha" role="img">131dfe8</span>
+  </td>
+</tr><tr class="named">
     <td class="when">2026-05-16 19:56</td>
 
   <td class="repo">
@@ -3220,7 +3258,7 @@ findEmptyDirs gains an `unbounded` option that maps to cap=null.</span>
 </tr>                <tr class="gr-month-row" data-year="2026">
                   <td colspan="4">
                     April 2026
-                    <span>57 commits · 54 public</span>
+                    <span>55 commits · 52 public</span>
                   </td>
                 </tr>
 <tr class="">
@@ -4926,80 +4964,6 @@ Task: M5-T01b</span>
   <td class="sha">
       <a class="sha-link" href="https://github.com/curtyo18/FileOrganizer/commit/bff2aef506a096f0e0d57862b41be09710526d45" target="_blank" rel="noopener noreferrer">bff2aef</a>
   </td>
-</tr><tr class="">
-    <td class="when">2026-04-27 21:09</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/FileOrganizer" target="_blank" rel="noopener noreferrer">FileOrganizer</a>
-  </td>
-
-  <td class="msg">
-    <details class="msg-x">
-      <summary>
-          <span class="msg-text">feat(engine/api): add rules CRUD, plan, apply, undo, batches endpoints
-
-GET    /api/rules               → list rules (priority asc)
-POST   /api/rules                → create
-PUT    /api/rules/:id            → update (404 if unknown)
-DELETE /api/rules/:id            → delete (204)
-POST   /api/plan/organize        → run planOrganize, return plan
-POST   /api/organize/auto-apply  → autoApply (executes same-drive autos)
-POST   /api/organize/apply       → applyApprovedBatch (supports dryRun)
-POST   /api/organize/undo/:id    → undoBatch
-GET    /api/batches              → recent batches
-GET    /api/batches/:id          → batch + operations
-
-driveRoots are merged with each drive&#39;s stored mount_path the same
-way the dedup endpoints do, so callers only need to override drives
-without a stored mount.
-
-Task: M5-T09</span>
-        <span class="msg-toggle" aria-hidden="true"></span>
-      </summary>
-    </details>
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/FileOrganizer/commit/cb234baf5a904e02d1eaefa0ecd76b388a1f2f45" target="_blank" rel="noopener noreferrer">cb234ba</a>
-  </td>
-</tr><tr class="">
-    <td class="when">2026-04-27 21:02</td>
-
-  <td class="repo">
-      <a class="repo-link" href="https://github.com/curtyo18/FileOrganizer" target="_blank" rel="noopener noreferrer">FileOrganizer</a>
-  </td>
-
-  <td class="msg">
-    <details class="msg-x">
-      <summary>
-          <span class="msg-text">feat(engine/organize): add undo with hash re-verification
-
-undoBatch reverses every completed op in a batch in reverse order,
-under a new batch with kind=&#39;undo&#39;. Each reversal re-hashes the
-destination and bails out if it no longer matches the catalog&#39;s
-sha256 (so tampering or drift since the original move is detected
-before the undo touches anything).
-
-- Same-drive moves rename back to source.
-- Cross-drive moves restore the source from the original batch&#39;s
-  quarantine and unlink the destination.
-- completed-via-existing collisions restore the source from quarantine
-  without touching the unrelated existing file at the destination.
-- Anything not &#39;completed&#39; or &#39;completed-via-existing&#39; is recorded as
-  skipped.
-
-The undo batch finishes &#39;completed&#39; iff every reversal succeeded;
-otherwise it&#39;s &#39;failed&#39; and per-op errors are returned to the caller.
-
-Task: M5-T08</span>
-        <span class="msg-toggle" aria-hidden="true"></span>
-      </summary>
-    </details>
-  </td>
-
-  <td class="sha">
-      <a class="sha-link" href="https://github.com/curtyo18/FileOrganizer/commit/4b34f9ac4d48f1afcc9ec1e87adb1f8a2f3ff7cd" target="_blank" rel="noopener noreferrer">4b34f9a</a>
-  </td>
 </tr>            </tbody>
           </table>
         </div>
@@ -5030,7 +4994,7 @@ Task: M5-T08</span>
     <a href="https://github.com/curtyo18" target="_blank" rel="noopener noreferrer">github</a> · <a href="mailto:curtyo18@gmail.com">email</a>
   </div>
   <div class="stats" style="align-items:center">
-    <span><b>2,829</b> commits</span>
+    <span><b>2,831</b> commits</span>
     <span><b>80</b> repos</span>
     <span><b>17</b> years</span>
   </div>
